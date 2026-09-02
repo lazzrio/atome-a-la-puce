@@ -47,16 +47,22 @@ Sur [github.com/new](https://github.com/new), créez un dépôt **public**
 
 ### 2. Pousser le code
 
-Depuis ce dossier :
+> ⚠️ **N'utilisez pas le bouton « Upload files » du site GitHub** : il est limité à
+> **100 fichiers par envoi**, or ce projet en contient 128. Git en ligne de commande
+> n'a pas cette limite.
+
+Le dépôt local est **déjà initialisé et commité** (branche `main`).
+Il ne reste qu'à le relier à GitHub et à l'envoyer, depuis ce dossier :
 
 ```bash
-git init
-git add .
-git commit -m "Site de révision électronique ING2 S1"
-git branch -M main
 git remote add origin https://github.com/VOTRE-PSEUDO/atome-a-la-puce.git
 git push -u origin main
 ```
+
+Git demandera votre identifiant GitHub et un **jeton d'accès personnel**
+(pas votre mot de passe) : créez-le sur
+<https://github.com/settings/tokens> → *Generate new token (classic)* →
+cochez la portée **repo**.
 
 ### 3. Activer Pages
 
