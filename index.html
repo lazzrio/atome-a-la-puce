@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atome à la Puce</title>
+<meta name="description" content="Site de révision d'électronique ING2 semestre 1 : cours illustré, notions clés, fiches de formules, exos types, quiz et planning.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0d8073" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1113" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Atome à la Puce">
+<meta property="og:description" content="Site de révision d'électronique ING2 semestre 1 : cours illustré, notions clés, fiches de formules, exos types, quiz et planning.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-in">
+    <button class="brand" data-go="home" aria-label="Accueil">
+      <span class="chip-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"/></svg></span>
+      De l'Atome à la Puce
+    </button>
+    <nav class="nav" id="nav">
+      <button data-go="home" class="active">Accueil</button>
+      <button data-go="cours">📚 Cours complet</button>
+      <button data-go="notions">💡 Notions clés</button>
+      <button data-go="formules">📘 Formules détaillées</button>
+      <button data-go="express">⚡ Formules express</button>
+      <button data-go="exos">🎯 Exos types</button>
+      <button data-go="quiz">🧠 Quiz</button>
+      <button data-go="planning">📅 Planning</button>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="view active" id="view-home">
+  <div class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-in">
+      <div>
+        <span class="eyebrow">ING2 · Électronique · Semestre 1</span>
+        <h1>De l'atome<br>à la <em>puce</em>.</h1>
+        <p class="lead">Tout le cours d'électronique S1 — des porteurs de charge dans le silicium jusqu'à la logique CMOS — réexpliqué, synthétisé et dédoublonné. Avec fiches de formules et planning de révision anti-surmenage.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" data-go="cours">Commencer le cours →</button>
+          <button class="btn btn-ghost" data-go="express">⚡ Formules express</button>
+        </div>
+        <div class="hero-meta">
+          <div><div class="n">8</div><div class="l">Chapitres</div></div>
+          <div><div class="n">70+</div><div class="l">Formules</div></div>
+          <div><div class="n">14 déc</div><div class="l">Partiel · 1h30</div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <span class="eyebrow">Compte à rebours Partiel</span>
+        <div class="count-big" id="countdown">—</div>
+        <div style="font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:4px">jours restants avant le 14 décembre</div>
+        <div class="ring-wrap">
+          <div class="ring" id="progRing"><b id="progPct">0%</b></div>
+          <div class="rt">Progression du cours<br><b id="progTxt">0 / 8 chapitres validés</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Navigation</span>
+      <h2>Quatre espaces pour réviser</h2>
+      <p>Le cours complet pour comprendre, les notions clés pour l'essentiel, deux fiches de formules pour réviser vite, et un planning sur-mesure.</p>
+    </div>
+    <div class="card-grid">
+      <button class="card" data-go="cours"><div class="ic">📚</div><h3>Le Cours Complet</h3><p>L'intégralité du programme, expliqué pas à pas, chapitre par chapitre, sans doublons.</p><span class="tag">8 chapitres →</span></button>
+      <button class="card" data-go="notions"><div class="ic">💡</div><h3>Notions Clés</h3><p>Fiches de synthèse : uniquement les concepts indispensables pour l'examen.</p><span class="tag">Essentiel →</span></button>
+      <button class="card" data-go="formules"><div class="ic">📘</div><h3>Formules Détaillées</h3><p>Toutes les formules avec variables, unités et conditions d'application.</p><span class="tag">Référence →</span></button>
+      <button class="card" data-go="express"><div class="ic">⚡</div><h3>Formules Express</h3><p>Aide-mémoire ultra-synthétique : les formules brutes pour vérifier vite.</p><span class="tag">Anti-sèche →</span></button>
+      <button class="card" data-go="exos"><div class="ic">🎯</div><h3>Exos Types</h3><p>Ce que l'examen demande vraiment : les exercices types et leur méthode, chapitre par chapitre.</p><span class="tag">Savoir-faire →</span></button>
+      <button class="card" data-go="quiz"><div class="ic">🧠</div><h3>Quiz & Flashcards</h3><p>Testez-vous : QCM et flashcards, chapitres au choix, dans l'ordre ou en aléatoire.</p><span class="tag">S'entraîner →</span></button>
+    </div>
+
+    <div class="section-head">
+      <span class="eyebrow">Programme</span>
+      <h2>Les 8 chapitres</h2>
+    </div>
+    <div id="homeChapters"></div>
+  </div>
+</section>
+<!-- ============ COURS ============ -->
+<section class="view" id="view-cours">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">📚 Le Cours Complet</span>
+      <h2>Électronique S1, de A à Z</h2>
+      <p>Huit chapitres du même fil conducteur : comment, en partant de l'atome de silicium, on construit les diodes, transistors et portes logiques qui composent une puce. Cochez chaque chapitre validé pour suivre votre progression.</p>
+    </div>
+    <div class="course-layout">
+      <aside class="toc" id="toc">
+        <div class="toc-title">Chapitres</div>
+        <a href="#ch0" data-ch>0 · Révisions ING1</a>
+        <a href="#ch1" data-ch>1 · Conducteurs & composants</a>
+        <a href="#ch2" data-ch>2 · Semi-conducteurs & jonction PN</a>
+        <a href="#ch3" data-ch>3 · La diode</a>
+        <a href="#ch4" data-ch>4 · BJT en statique</a>
+        <a href="#ch5" data-ch>5 · BJT en dynamique</a>
+        <a href="#ch6" data-ch>6 · Le FET (JFET & MOSFET)</a>
+        <a href="#ch7" data-ch>7 · Logique CMOS & CI</a>
+      </aside>
+      <div class="course-content">
+
+<!-- ---------- CHAPITRE 0 ---------- -->
+<article class="chapter" id="ch0">
+  <div class="chapter-hd">
+    <span class="cn">CHAP. 0</span>
+    <h2>Révisions ING1 : lois, méthodes & AOP</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="0"> validé</label>
+  </div>
+  <div class="prose">
+    <p>Ce chapitre remet en place la boîte à outils de l'analyse de circuits linéaires, indispensable pour tout le reste du cours.</p>
+
+    <h3>Sources et lois fondamentales</h3>
+    <p>Un circuit se résout à partir de deux lois de Kirchhoff. La <span class="term">loi des nœuds</span> : la somme des courants entrants dans un nœud égale la somme des courants sortants. La <span class="term">loi des mailles</span> : la somme algébrique des tensions le long d'une maille est nulle.</p>
+    <div class="eq">u<sub>R</sub> = R·i&nbsp;&nbsp;·&nbsp;&nbsp;i = <span class="frac"><span class="num">V<sub>A</sub> − V<sub>B</sub></span><span class="den">R</span></span><span class="lbl">loi d'Ohm (2 écritures)</span></div>
+    <p>La seconde écriture de la loi d'Ohm, en potentiels, est précieuse : elle ne dépend pas du sens choisi pour le courant.</p>
+
+    <h3>Diviseurs de tension et de courant</h3>
+    <div class="eq">V<sub>2</sub> = <span class="frac"><span class="num">R<sub>2</sub></span><span class="den">R<sub>1</sub> + R<sub>2</sub></span></span> V<sub>s</sub><span class="lbl">diviseur de tension — R en série</span></div>
+    <div class="eq">i<sub>2</sub> = <span class="frac"><span class="num">R<sub>1</sub></span><span class="den">R<sub>1</sub> + R<sub>2</sub></span></span> i<sub>0</sub><span class="lbl">diviseur de courant — R en parallèle</span></div>
+    <div class="box warn"><div class="bt">⚠ Condition</div><p>Le diviseur de <b>tension</b> n'est valable que si les résistances sont réellement <b>en série</b> (courant nul dans la branche voisine). Le diviseur de <b>courant</b> exige des résistances <b>en parallèle</b>.</p></div>
+
+    <h3>Méthodes d'analyse</h3>
+    <p><strong>Méthode des nœuds</strong> — adaptée quand on cherche des <em>potentiels</em>. On écrit la loi des nœuds à chaque nœud, on remplace les intensités par les potentiels (loi d'Ohm), puis on résout le système.</p>
+    <p><strong>Méthode des mailles</strong> — adaptée quand on cherche des <em>intensités</em>. On écrit la loi des mailles à chaque maille indépendante, on complète avec la loi des nœuds, puis on résout.</p>
+    <div class="box ex"><div class="bt">▹ Cas particuliers</div><p>Si une <b>source de tension</b> est coincée entre deux nœuds, on utilise un <span class="term">macro-nœud</span> (on englobe les deux nœuds). Si une <b>source de courant</b> appartient à deux mailles adjacentes, on utilise une <span class="term">super-maille</span>.</p></div>
+
+    <h3>Les grands théorèmes</h3>
+    <p><strong>Superposition</strong> : dans un circuit à plusieurs sources, la tension (ou le courant) sur un élément est la somme des contributions de chaque source agissant seule. On neutralise les autres : une source de tension → un fil (court-circuit), une source de courant → un trou (circuit ouvert).</p>
+    <div class="eq">V<sub>A</sub> = <span class="frac"><span class="num">Σ V<sub>k</sub>/R<sub>k</sub> + Σ i<sub>k</sub></span><span class="den">Σ 1/R<sub>k</sub></span></span><span class="lbl">théorème de Millman</span></div>
+    <p><strong>Thévenin</strong> : tout circuit linéaire (hors charge) se remplace par une source de tension V<sub>Th</sub> (tension à vide) en série avec R<sub>Th</sub> (résistance vue, sources neutralisées). <strong>Norton</strong> : la même chose en source de courant i<sub>N</sub> (courant de court-circuit) en parallèle avec R<sub>N</sub>.</p>
+    <div class="eq">R<sub>N</sub> = R<sub>Th</sub>&nbsp;&nbsp;·&nbsp;&nbsp;V<sub>Th</sub> = R<sub>N</sub>·i<sub>N</sub><span class="lbl">équivalence Thévenin ↔ Norton</span></div>
+    <div class="dgm">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Comparaison des générateurs équivalents de Thévenin et de Norton">
+        <!-- THEVENIN -->
+        <text x="60" y="34" class="lbl-t">THÉVENIN</text>
+        <text x="60" y="52" class="lbl">source de tension + R en série</text>
+        <!-- rails -->
+        <path class="wire" d="M80 90 L80 132"/>
+        <circle cx="80" cy="156" r="24" class="fillbg wire"/>
+        <text x="80" y="150" class="lbl" text-anchor="middle">+</text>
+        <text x="80" y="172" class="lbl" text-anchor="middle">–</text>
+        <text x="38" y="160" class="lbl-ac" text-anchor="middle">V_Th</text>
+        <path class="wire" d="M80 180 L80 250 L300 250"/>
+        <path class="wire" d="M80 90 L150 90"/>
+        <rect x="150" y="78" width="72" height="24" rx="3" class="fillbg wire"/>
+        <text x="186" y="70" class="lbl-ac" text-anchor="middle">R_Th</text>
+        <path class="wire" d="M222 90 L300 90"/>
+        <circle cx="300" cy="90" r="4.5" class="node"/>
+        <circle cx="300" cy="250" r="4.5" class="node"/>
+        <text x="312" y="94" class="lbl">A</text>
+        <text x="312" y="255" class="lbl">B</text>
+        <!-- middle equivalence -->
+        <text x="360" y="170" class="lbl-t" text-anchor="middle" font-size="26">⟺</text>
+        <!-- NORTON -->
+        <text x="430" y="34" class="lbl-t">NORTON</text>
+        <text x="430" y="52" class="lbl">source de courant + R en parallèle</text>
+        <path class="wire" d="M450 90 L450 132"/>
+        <circle cx="450" cy="156" r="24" class="fillbg wire"/>
+        <path class="ac" d="M450 172 L450 140"/>
+        <path class="ac" d="M444 148 L450 138 L456 148"/>
+        <text x="408" y="160" class="lbl-ac" text-anchor="middle">I_N</text>
+        <path class="wire" d="M450 180 L450 250"/>
+        <path class="wire" d="M450 90 L560 90"/>
+        <path class="wire" d="M450 250 L680 250"/>
+        <!-- parallel resistor branch -->
+        <path class="wire" d="M560 90 L560 122"/>
+        <rect x="548" y="122" width="24" height="72" rx="3" class="fillbg wire"/>
+        <text x="590" y="162" class="lbl-ac">R_N</text>
+        <path class="wire" d="M560 194 L560 250"/>
+        <path class="wire" d="M560 90 L680 90"/>
+        <circle cx="680" cy="90" r="4.5" class="node"/>
+        <circle cx="680" cy="250" r="4.5" class="node"/>
+        <text x="656" y="82" class="lbl">A</text>
+        <text x="656" y="270" class="lbl">B</text>
+      </svg>
+      <div class="cap">Même dipôle vu de A-B : une source de <b>tension</b> V<sub>Th</sub> <b>en série</b> avec R<sub>Th</sub>, ou une source de <b>courant</b> I<sub>N</sub> <b>en parallèle</b> avec R<sub>N</sub>. On passe de l'un à l'autre avec R<sub>N</sub> = R<sub>Th</sub> et V<sub>Th</sub> = R<sub>N</sub>·I<sub>N</sub>.</div>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Thévenin</th><th>Norton</th></tr>
+      <tr><td>Générateur</td><td>tension V<sub>Th</sub></td><td>courant I<sub>N</sub></td></tr>
+      <tr><td>Résistance</td><td class="mono">R<sub>Th</sub> en série</td><td class="mono">R<sub>N</sub> en parallèle</td></tr>
+      <tr><td>Se mesure</td><td>tension <b>à vide</b> (bornes ouvertes)</td><td>courant de <b>court-circuit</b></td></tr>
+      <tr><td>R (sources neutralisées)</td><td class="mono">R<sub>Th</sub></td><td class="mono">R<sub>N</sub> = R<sub>Th</sub></td></tr>
+    </table></div>
+
+    <h3>L'amplificateur opérationnel idéal</h3>
+    <p>L'AOP idéal : gain en boucle ouverte infini, impédance d'entrée infinie (i<sub>+</sub> = i<sub>−</sub> = 0), impédance de sortie nulle. Deux régimes :</p>
+    <ul>
+      <li><strong>Régime linéaire</strong> (présence d'une contre-réaction sur l'entrée −) ⟹ V<sub>d</sub> = 0 (les deux entrées sont au même potentiel).</li>
+      <li><strong>Régime saturé</strong> (sinon) ⟹ V<sub>out</sub> = +V<sub>sat</sub> si V<sub>d</sub> &gt; 0, −V<sub>sat</sub> sinon.</li>
+    </ul>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch0-aop-carac" width="860" height="692" src="assets/img/fig-ch0-aop-carac.jpg"><figcaption><b>Caractéristique de l'AOP.</b> Idéal (ε<sub>M</sub>=0, i=0) vs réel : régime linéaire et régime saturé ±V<sub>sat</sub>.</figcaption></figure>
+    <p>La contre-réaction (feedback sur l'entrée inverseuse −) impose le régime linéaire. Les montages fondamentaux exploitent la « masse virtuelle » (V<sub>+</sub> = V<sub>−</sub>) et le courant d'entrée nul.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch0-aop-inverseur" width="860" height="692" src="assets/img/fig-ch0-aop-inverseur.jpg"><figcaption><b>Montage inverseur.</b> V<sub>out</sub> = −(R<sub>f</sub>/R<sub>1</sub>)·V<sub>in</sub> : la sortie est inversée, gain réglable par le rapport des résistances.</figcaption></figure>
+    <div class="tbl-wrap"><table>
+      <tr><th>Montage</th><th>Relation</th><th>Rôle</th></tr>
+      <tr><td>Suiveur</td><td class="mono">V<sub>out</sub> = V<sub>in</sub></td><td>Adaptation d'impédance (Z<sub>in</sub>=∞)</td></tr>
+      <tr><td>Inverseur</td><td class="mono">V<sub>out</sub> = −(R<sub>f</sub>/R<sub>1</sub>)·V<sub>in</sub></td><td>Amplification + inversion</td></tr>
+      <tr><td>Non-inverseur</td><td class="mono">V<sub>out</sub> = (1 + R<sub>f</sub>/R<sub>1</sub>)·V<sub>in</sub></td><td>Amplification sans inversion</td></tr>
+      <tr><td>Additionneur</td><td class="mono">V<sub>out</sub> = −R<sub>f</sub>(V<sub>1</sub>/R<sub>1</sub> + V<sub>2</sub>/R<sub>2</sub>)</td><td>Somme pondérée</td></tr>
+      <tr><td>Soustracteur</td><td class="mono">V<sub>out</sub> = (R<sub>2</sub>/R<sub>1</sub>)(V<sub>2</sub> − V<sub>1</sub>)</td><td>Différence</td></tr>
+    </table></div>
+    <div class="box key"><div class="bt">◆ À retenir</div><p>Le <b>suiveur</b> ne change pas la tension mais isole les étages : il prélève une tension sans la perturber (courant d'entrée nul). C'est l'outil d'<b>adaptation d'impédance</b> par excellence — on le retrouvera derrière un pont diviseur ou un capteur.</p></div>
+  </div>
+<details class="gallery" open><summary>🖼️ Galerie de schémas du chapitre 0 <span>(6 diapos du cours)</span></summary><div class="ggrid"><figure class="gfig"><img loading="lazy" alt="Diapo du cours : 1ère formulation" width="760" height="428" src="assets/img/slide-1ere-formulation.jpg"><figcaption>1ère formulation</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Diviseur de tension" width="760" height="428" src="assets/img/slide-diviseur-de-tension.jpg"><figcaption>Diviseur de tension</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : 2 inconnues" width="760" height="428" src="assets/img/slide-2-inconnues.jpg"><figcaption>2 inconnues</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Déterminer la tension" width="760" height="428" src="assets/img/slide-determiner-la-tension.jpg"><figcaption>Déterminer la tension</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Expression de iN" width="760" height="428" src="assets/img/slide-expression-de-in.jpg"><figcaption>Expression de iN</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Montage additionneur" width="760" height="428" src="assets/img/slide-montage-additionneur.jpg"><figcaption>Montage additionneur</figcaption></figure></div></details></article>
+
+<!-- ---------- CHAPITRE 1 ---------- -->
+<article class="chapter" id="ch1">
+  <div class="chapter-hd">
+    <span class="cn">CHAP. 1</span>
+    <h2>Conducteurs & composants passifs</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="1"> validé</label>
+  </div>
+  <div class="prose">
+    <p>On descend au niveau microscopique pour comprendre d'où vient la loi d'Ohm, puis on passe en revue les trois composants passifs et leurs boîtiers.</p>
+    <div class="box ex"><div class="bt">▹ Classer les composants</div><p>Un composant est <b>passif</b> s'il n'augmente pas la puissance d'un signal (souvent il la réduit par effet Joule : résistance, bobine, condensateur) ; <b>actif</b> s'il l'augmente grâce à une alimentation externe (AOP, transistor). On les range aussi par <b>domaine d'application</b> : électrotechnique/puissance, capteurs, électronique analogique, électronique numérique, interface humaine.</p></div>
+
+    <h3>Conduction : le modèle de Drude</h3>
+    <p>Sans champ électrique, les électrons libres d'un métal s'agitent thermiquement (mouvement brownien) sans courant net : <span class="k">v = 0</span> en moyenne. Sous une différence de potentiel, un champ <span class="k">E</span> apparaît et les électrons acquièrent une <span class="term">vitesse de dérive</span>. Drude les modélise comme des particules soumises à la force électrostatique <span class="k">qE</span> et à un frottement fluide <span class="k">−h·v</span>.</p>
+    <div class="eq">v = <span class="frac"><span class="num">qτ</span><span class="den">m</span></span> E&nbsp;&nbsp;⟹&nbsp;&nbsp;v = −μE<span class="lbl">régime permanent (électron : q = −e)</span></div>
+    <p>La <span class="term">mobilité</span> μ = eτ/m traduit l'aptitude des porteurs à se déplacer. Ordre de grandeur : dans un fil de cuivre de 10 m sous 10 V, la vitesse de dérive vaut ≈ 5 mm/s — étonnamment lente (≈ 33 min pour parcourir 1 m !).</p>
+
+    <h3>Densité de courant et loi d'Ohm locale</h3>
+    <div class="eq">j = ρ<sub>m</sub>·v = −ne·v&nbsp;&nbsp;·&nbsp;&nbsp;i = ∬ j·dS<span class="lbl">vecteur densité de courant</span></div>
+    <p>En combinant vitesse de dérive et densité de courant, on obtient la <span class="term">loi d'Ohm locale</span> :</p>
+    <div class="eq">j = γ·E&nbsp;&nbsp;avec&nbsp;&nbsp;γ = <span class="frac"><span class="num">ne²τ</span><span class="den">m</span></span><span class="lbl">γ = conductivité (S·m⁻¹)</span></div>
+    <p>En intégrant sur la section, on retrouve la loi d'Ohm macroscopique <span class="k">u = R·i</span> et l'expression géométrique de la résistance :</p>
+    <div class="eq">R = <span class="frac"><span class="num">ρ·ℓ</span><span class="den">S</span></span>&nbsp;&nbsp;avec&nbsp;&nbsp;ρ = 1/γ<span class="lbl">ρ = résistivité (Ω·m)</span></div>
+    <p>On distingue la <span class="term">conductivité</span> γ (aussi notée σ, en Ω⁻¹·m⁻¹) et la <span class="term">résistivité</span> ρ = 1/γ (en Ω·m). Trois lectures d'un même phénomène : macroscopique (u = Ri), symbolique (le symbole de la résistance), microscopique (j = γE). Conséquence : si u augmente, E augmente, donc j augmente ; si R augmente, γ diminue, donc j diminue.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch1-ohm-analogie" width="860" height="484" src="assets/img/fig-ch1-ohm-analogie.jpg"><figcaption><b>Loi d'Ohm : trois points de vue.</b> Analogie macroscopique ↔ vue symbolique ↔ vue microscopique (j = γE). Le champ E dans le conducteur augmente avec u<sub>AB</sub>.</figcaption></figure>
+    <div class="box ex"><div class="bt">▹ Application numérique</div><p>Fil de carbone de 10 cm, rayon r = 0,2 mm, sous 10 V, avec γ = 2,5·10⁴ Ω⁻¹·m⁻¹ : R = ρℓ/S ≈ 31,8 Ω, d'où i = u/R ≈ 0,31 A.</p></div>
+
+    <h3>La résistance</h3>
+    <p>La résistance dépend du <strong>matériau</strong> (ρ) et de la <strong>géométrie</strong> (ℓ/S). La résistivité croît avec la température (<span class="term">loi de Matthiessen</span>) : ρ<sub>T</sub> = ρ<sub>0</sub>(1 + α(T − T<sub>0</sub>)), α coefficient empirique, T<sub>0</sub> température de référence.</p>
+    <ul>
+      <li><strong>Conducteur chaud → R↗</strong> : il a déjà des électrons de conduction ; l'agitation thermique désorganise le réseau et gêne leur déplacement.</li>
+      <li><strong>Isolant chaud → R↘</strong> : à froid il n'a aucun électron libre ; l'agitation en arrache quelques-uns, augmentant le nombre de porteurs.</li>
+    </ul>
+    <p>Usages : <strong>abaisser/augmenter une tension</strong> (pont diviseur v<sub>out</sub>=R<sub>2</sub>/(R<sub>1</sub>+R<sub>2</sub>)·v<sub>in</sub>, ampli non inverseur v<sub>out</sub>=(1+R<sub>1</sub>/R<sub>2</sub>)·v<sub>in</sub>), <strong>limiter un courant</strong>, <strong>forcer un niveau logique</strong> avec les résistances de tirage <span class="term">pull-up</span> (entrée tirée au + au repos) / <span class="term">pull-down</span> (tirée à la masse).</p>
+    <p><strong>Technologies traversantes</strong> : carbone aggloméré (les plus anciennes, ±10-20 %), couche de carbone (film hélicoïdal, standard, ±1 à 10 %), bobinée (fortes puissances mais inductive → pas en HF), couches métalliques (film mince, très précises et stables, reconnaissables à leur couleur bleue). <strong>Variables</strong> : le rhéostat fait varier une résistance (R ∝ ℓ), le potentiomètre fait varier une tension (diviseur mécanique). Un AOP suiveur placé en aval d'un potentiomètre maintient la tension de sortie constante quelle que soit la charge.</p>
+    <p><strong>Résistances CMS</strong> (film mince, faibles puissances) : marquage à 3 caractères (2 chiffres + multiplicateur, ex. « 472 » = 4,7 kΩ, « R » pour la virgule si &lt; 10 Ω), 4 caractères (haute tolérance), ou code EIA-96.</p>
+    <div class="box ex"><div class="bt">▹ Modèle réel</div><p>Une résistance réelle porte des parasites : inductance série L<sub>s</sub> et capacité parallèle C<sub>p</sub> (effet aux très hautes fréquences), résistance de fuite R<sub>L</sub>. Aux basses fréquences Z<sub>R</sub> = R (idéal), mais en THF l'impédance chute (facteur ×100 000 possible) — risque de surintensité et de griller les composants.</p></div>
+
+    <h3>Le condensateur</h3>
+    <p>Deux armatures séparées par un diélectrique. Il stocke des charges restituables au circuit.</p>
+    <div class="eq">C = <span class="frac"><span class="num">ε·S</span><span class="den">d</span></span> = <span class="frac"><span class="num">q</span><span class="den">u</span></span>&nbsp;&nbsp;·&nbsp;&nbsp;i = C<span class="frac"><span class="num">du</span><span class="den">dt</span></span><span class="lbl">ε = ε₀·ε_r</span></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch1-condo" width="860" height="484" src="assets/img/fig-ch1-condo.jpg"><figcaption><b>Applications du condensateur.</b> Le découplage place un C entre l'alimentation et la masse pour évacuer le bruit vers la masse.</figcaption></figure>
+    <p>Applications :</p>
+    <ul>
+      <li><strong>Découplage</strong> — débruiter (supprimer les fréquences ≠ 0), fréquence de coupure f<sub>c</sub> = 1/(2πRC). Pour bien débruiter on combine un électrolytique (grand C, basses f) et un céramique (petit C, hautes f).</li>
+      <li><strong>Couplage / liaison</strong> — en série, bloque la composante continue (offset) et ne laisse passer que l'alternatif.</li>
+      <li><strong>Filtrage</strong> — ne laisser passer qu'une gamme de fréquences.</li>
+      <li><strong>Blocage / échantillonnage</strong> — sample-and-hold : maintient une tension le temps qu'un ADC convertisse (phases d'acquisition puis de mémorisation).</li>
+      <li><strong>Anti-rebond</strong> — lisse les impulsions parasites d'un bouton (charge lente via RC).</li>
+    </ul>
+    <p>Non polarisés (céramique, ≤ 1 µF, supportent de grandes tensions) vs polarisés (électrolytiques et tantale, ≥ 1 µF — <mark>attention au sens de branchement</mark> : surchauffe si inversé). Modèle réel : résistance de fuite R<sub>L</sub>, résistance série équivalente R<sub>ESR</sub> (indique le vieillissement), inductance série L<sub>ESL</sub>. Impédance idéale Z<sub>C</sub> = 1/(jCω) = 1/(2πfC).</p>
+
+    <h3>Boîtiers & circuits intégrés</h3>
+    <p>Deux familles :</p>
+    <ul>
+      <li><strong>Traversant (THD)</strong> — pattes insérées dans les trous du PCB. Connexions solides, adapté au prototypage sur breadboard et aux applications à chocs (militaire), mais encombrant et à souder à la main.</li>
+      <li><strong>Monté en surface (CMS / SMD)</strong> — posé sur la surface. Compact, sur les deux faces, meilleur face au bruit EM, assemblage automatisable, moins cher ; mais difficile à souder à la main.</li>
+    </ul>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch1-boitiers" width="860" height="484" src="assets/img/fig-ch1-boitiers.jpg"><figcaption><b>Traversant (THD) vs monté en surface (CMS/SMD).</b> Avantages et inconvénients comparés.</figcaption></figure>
+    <p>Les <span class="term">circuits intégrés</span> (CI) empilent des couches de semi-conducteur sur un <em>die</em> de silicium, encapsulé et relié aux pins par de fins fils d'or (wire bonding). Ils sont polarisés (chaque pin a un rôle) : la pin 1 est repérée par une encoche ou un point, la numérotation suit le sens antihoraire. Boîtiers : PDIP (traversant, pas 2,54 mm, breadboard), SOP/SSOP/TSOP, QFP (carré, pins sur 4 faces), BGA (matrice de billes, haute densité). Les supports (sockets DIP/ZIF) permettent de remplacer un CI sans dessouder.</p>
+  </div>
+<details class="gallery" open><summary>🖼️ Galerie de schémas du chapitre 1 <span>(14 diapos du cours)</span></summary><div class="ggrid"><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Convention récepteur" width="760" height="428" src="assets/img/slide-convention-recepteur.jpg"><figcaption>Convention récepteur</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : à Tant qu’une différence de potentiel est maintenue et que les électrons" width="760" height="428" src="assets/img/slide-a-tant-qu-une-difference-de-potentiel-es.jpg"><figcaption>à Tant qu’une différence de potentiel est maintenue et que les électrons</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : La vitesse de dérive" width="760" height="428" src="assets/img/slide-la-vitesse-de-derive.jpg"><figcaption>La vitesse de dérive</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Principe du modèle de Drude :" width="760" height="428" src="assets/img/slide-principe-du-modele-de-drude.jpg"><figcaption>Principe du modèle de Drude :</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Solution générale de l’équation avec second membre :" width="760" height="428" src="assets/img/slide-solution-generale-de-l-equation-avec-sec.jpg"><figcaption>Solution générale de l’équation avec second membre :</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Loi d’ohm locale" width="760" height="428" src="assets/img/slide-loi-d-ohm-locale.jpg"><figcaption>Loi d’ohm locale</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : 𝑅→𝑂" width="760" height="428" src="assets/img/slide.jpg"><figcaption>𝑅→𝑂</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Le potentiomètre" width="760" height="428" src="assets/img/slide-le-potentiometre.jpg"><figcaption>Le potentiomètre</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Les résistances de surface" width="760" height="428" src="assets/img/slide-les-resistances-de-surface.jpg"><figcaption>Les résistances de surface</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Découplage" width="760" height="428" src="assets/img/slide-decouplage.jpg"><figcaption>Découplage</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : TANTALE" width="760" height="428" src="assets/img/slide-tantale.jpg"><figcaption>TANTALE</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Condensateurs non polarisés" width="760" height="428" src="assets/img/slide-condensateurs-non-polarises.jpg"><figcaption>Condensateurs non polarisés</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Condensateurs de surface" width="760" height="428" src="assets/img/slide-condensateurs-de-surface.jpg"><figcaption>Condensateurs de surface</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Condensateurs électrolytiques de surface" width="760" height="428" src="assets/img/slide-condensateurs-electrolytiques-de-surface.jpg"><figcaption>Condensateurs électrolytiques de surface</figcaption></figure></div></details></article>
+
+<!-- ---------- CHAPITRE 2 ---------- -->
+<article class="chapter" id="ch2">
+  <div class="chapter-hd">
+    <span class="cn">CHAP. 2</span>
+    <h2>Semi-conducteurs & jonction PN</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="2"> validé</label>
+  </div>
+  <div class="prose">
+    <p>Le chapitre pivot : la physique du silicium qui rend possibles diodes et transistors.</p>
+
+    <h3>De l'atome aux bandes d'énergie</h3>
+    <p>Le <span class="term">modèle de Bohr</span> décrit l'atome comme un noyau entouré de couches K, L, M, N… contenant chacune au plus <span class="k">2n²</span> électrons (n = numéro de couche). Le silicium (Z = 14, structure K²L⁸M⁴) possède 4 électrons de valence (couche M) et forme des liaisons covalentes tétraédriques (règle de l'octet). L'énergie thermique agite ce réseau : théorème d'équipartition <span class="k">E_th = (3/2)k_B·T</span> (3 degrés de liberté de translation).</p>
+    <p>Au zéro absolu, la <span class="term">bande de valence</span> est pleine, la <span class="term">bande de conduction</span> vide, séparées par le <span class="term">gap</span> E<sub>g</sub>. Le niveau de Fermi est le plus haut niveau occupable à 0 K.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Matériau</th><th>Gap E_g</th><th>Niveau de Fermi</th><th>Effet de T↗</th></tr>
+      <tr><td>Conducteur</td><td>—</td><td>dans la bande de conduction</td><td class="mono">γ↘ (R↗)</td></tr>
+      <tr><td>Semi-conducteur</td><td>petit</td><td>milieu du gap</td><td class="mono">γ↗ (R↘)</td></tr>
+      <tr><td>Isolant</td><td>très grand</td><td>dans le gap</td><td>quasi nul</td></tr>
+    </table></div>
+    <div class="fig2">
+      <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch2-bandes" width="860" height="484" src="assets/img/fig-ch2-bandes.jpg"><figcaption><b>Bandes d'énergie à 0 K.</b> Bande de valence pleine, conduction vide, séparées par le gap E<sub>g</sub>. Niveau de Fermi.</figcaption></figure>
+      <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch2-isol-cond" width="860" height="484" src="assets/img/fig-ch2-isol-cond.jpg"><figcaption><b>Isolant vs conducteur.</b> Gap énorme (isolant) ou niveau de Fermi dans la bande de conduction (conducteur).</figcaption></figure>
+    </div>
+    <p>Quand T augmente, des électrons franchissent le gap et laissent des <span class="term">trous</span> (quasi-particules de charge +e) dans la bande de valence — on parle de <span class="term">recombinaison</span> quand un électron retombe dans un trou. Dans un SC, le nombre de porteurs augmente fortement avec T, ce qui l'emporte sur la baisse de mobilité : la conductivité <em>augmente</em> (à l'inverse d'un conducteur). Un SC <span class="term">intrinsèque</span> (pur) a son niveau de Fermi au milieu du gap et n = p ; un SC <span class="term">extrinsèque</span> (dopé) a beaucoup plus de porteurs d'un type.</p>
+
+    <h3>Dopage : type N et type P</h3>
+    <ul>
+      <li><strong>Dopage N</strong> — atomes donneurs du groupe V (phosphore, 5 e⁻ de valence). Le 5ᵉ électron passe facilement en conduction ⟹ excès d'<b>électrons</b> (majoritaires).</li>
+      <li><strong>Dopage P</strong> — atomes accepteurs du groupe III (bore, 3 e⁻). Il manque un électron ⟹ création d'un <b>trou</b> (majoritaire).</li>
+    </ul>
+    <div class="eq">n·p = n<sub>i</sub>²<span class="lbl">loi d'action de masse (équilibre thermo.)</span></div>
+    <p>Avec n<sub>i</sub> la concentration intrinsèque. Pour un dopage significatif : côté N, n ≈ N<sub>D</sub> et p = n<sub>i</sub>²/N<sub>D</sub> ; côté P, p ≈ N<sub>A</sub> et n = n<sub>i</sub>²/N<sub>A</sub>.</p>
+    <div class="eq">n<sub>i</sub> = A·T<sup>3/2</sup>·e<sup>−E_g / 2k_B·T</sup><span class="lbl">n_i croît avec T</span></div>
+
+    <h3>Transport : dérive & diffusion</h3>
+    <p>Deux moteurs (image de la goutte de colorant dans une rivière) : la <span class="term">dérive</span> (sous champ E) et la <span class="term">diffusion</span> (des zones concentrées vers les zones diluées).</p>
+    <div class="eq">j<sub>tot</sub> = (e·n·μ<sub>n</sub> + e·p·μ<sub>p</sub>)·E = γ<sub>sc</sub>·E<span class="lbl">courant de conduction (dérive)</span></div>
+    <div class="eq">j<sub>d</sub> = e·D<sub>n</sub>·grad(n) − e·D<sub>p</sub>·grad(p)<span class="lbl">courant de diffusion (loi de Fick)</span></div>
+    <div class="eq"><span class="frac"><span class="num">D</span><span class="den">μ</span></span> = <span class="frac"><span class="num">k_B·T</span><span class="den">q</span></span> ≈ 25 mV à 20 °C<span class="lbl">relation d'Einstein</span></div>
+
+    <h3>La jonction PN à l'équilibre</h3>
+    <p>Au contact d'une zone P et d'une zone N, les majoritaires diffusent et se recombinent. Restent les ions fixes : une <span class="term">zone de charge désertée (ZCD)</span> privée de porteurs mobiles, chargée − côté P et + côté N. Il s'y construit un champ E<sub>d</sub> et une <span class="term">barrière de potentiel</span> V<sub>0</sub> qui stoppe la diffusion.</p>
+    <div class="eq">V<sub>0</sub> = <span class="frac"><span class="num">k_B·T</span><span class="den">e</span></span> ln<span class="frac"><span class="num">N<sub>A</sub>·N<sub>D</sub></span><span class="den">n<sub>i</sub>²</span></span><span class="lbl">barrière de potentiel (≈ 0,76 V typique)</span></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch2-zcd" width="860" height="484" src="assets/img/fig-ch2-zcd.jpg"><figcaption><b>Zone de charge désertée (ZCD).</b> Diffusion des majoritaires ⟹ ions fixes découverts (− côté P, + côté N) ⟹ champ E<sub>d</sub> et barrière V<sub>0</sub> qui arrêtent la diffusion.</figcaption></figure>
+    <p>À V<sub>0</sub> fixé, plus le produit N<sub>A</sub>N<sub>D</sub> augmente, plus V<sub>0</sub> augmente ; plus T augmente, plus V<sub>0</sub> diminue (n<sub>i</sub> croît avec T). Le potentiel varie à travers la ZCD selon Maxwell-Gauss (∂E/∂x = ρ/ε) et Maxwell-Faraday (E<sub>d</sub> = −grad V).</p>
+
+    <h3>Polarisation de la jonction</h3>
+    <ul>
+      <li><strong>Directe</strong> (P au + ) : V<sub>p</sub> annule V<sub>0</sub>, la ZCD disparaît, la diffusion reprend ⟹ <span class="pill on">passante</span></li>
+      <li><strong>Inverse</strong> (P au − ) : V<sub>p</sub> s'ajoute à V<sub>0</sub>, la barrière grandit ⟹ <span class="pill off">bloquante</span>. Subsiste un faible courant inverse de saturation I<sub>S</sub> (dû aux minoritaires, double tous les 11 °C pour le Si). Au-delà de la tension de rupture V<sub>BR</sub> (mise en avalanche de la ZCD) : destruction.</li>
+    </ul>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch2-pol-directe" width="860" height="484" src="assets/img/fig-ch2-pol-directe.jpg"><figcaption><b>Polarisation directe.</b> La tension appliquée V<sub>p</sub> annule V<sub>0</sub> : la barrière disparaît, la diffusion des majoritaires reprend, le courant circule (jonction passante).</figcaption></figure>
+    <div class="eq">I<sub>D</sub> = I<sub>S</sub>(e<sup>e·U_D / η·k_B·T</sup> − 1)<span class="lbl">relation de Shockley — η entre 1 et 2</span></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch2-carac" width="860" height="484" src="assets/img/fig-ch2-carac.jpg"><figcaption><b>Caractéristique I<sub>D</sub> = f(U<sub>d</sub>).</b> En inverse, I<sub>D</sub> = −I<sub>S</sub> jusqu'à la tension de breakdown V<sub>BR</sub> (destruction).</figcaption></figure>
+    <div class="box key"><div class="bt">◆ À retenir</div><p>La jonction PN est le composant de base : elle ne laisse passer le courant que dans un sens. Toute la suite du cours (diode, BJT, FET) découle de cette barrière de potentiel V<sub>0</sub> et de sa manipulation par des tensions extérieures.</p></div>
+  </div>
+<details class="gallery" open><summary>🖼️ Galerie de schémas du chapitre 2 <span>(11 diapos du cours)</span></summary><div class="ggrid"><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Courant de conduction" width="760" height="428" src="assets/img/slide-courant-de-conduction.jpg"><figcaption>Courant de conduction</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Résumé du courant de conduction dans un semi-conducteur (SC):" width="760" height="428" src="assets/img/slide-resume-du-courant-de-conduction-dans-un-.jpg"><figcaption>Résumé du courant de conduction dans un semi-conducteur (SC):</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Le vecteur densité de courant est lié aux particules chargées. Il faut d" width="760" height="428" src="assets/img/slide-le-vecteur-densite-de-courant-est-lie-au.jpg"><figcaption>Le vecteur densité de courant est lié aux particules chargées. Il faut d</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Courant total" width="760" height="428" src="assets/img/slide-courant-total.jpg"><figcaption>Courant total</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Complément sur le dopage P et N" width="760" height="428" src="assets/img/slide-complement-sur-le-dopage-p-et-n.jpg"><figcaption>Complément sur le dopage P et N</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Jonction PN à l’équilibre" width="760" height="428" src="assets/img/slide-jonction-pn-a-l-equilibre.jpg"><figcaption>Jonction PN à l’équilibre</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : −" width="760" height="428" src="assets/img/slide-2.jpg"><figcaption>−</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : EXEMPLE : Jonction PN de Silicium à température" width="760" height="428" src="assets/img/slide-exemple-jonction-pn-de-silicium-a-temper.jpg"><figcaption>EXEMPLE : Jonction PN de Silicium à température</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Potentiel électrique" width="760" height="428" src="assets/img/slide-potentiel-electrique.jpg"><figcaption>Potentiel électrique</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Polarisation inverse" width="760" height="428" src="assets/img/slide-polarisation-inverse.jpg"><figcaption>Polarisation inverse</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Yoshida, PRL 2007" width="760" height="428" src="assets/img/slide-yoshida-prl-2007.jpg"><figcaption>Yoshida, PRL 2007</figcaption></figure></div></details></article>
+
+<!-- ---------- CHAPITRE 3 ---------- -->
+<article class="chapter" id="ch3">
+  <div class="chapter-hd">
+    <span class="cn">CHAP. 3</span>
+    <h2>La diode</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="3"> validé</label>
+  </div>
+  <div class="prose">
+    <p>La jonction PN encapsulée : un dipôle passif, polarisé, non-linéaire et non-symétrique qui ne conduit que de l'anode vers la cathode.</p>
+
+    <h3>Caractéristique et tension de seuil</h3>
+    <p>La courbe I<sub>D</sub> = f(V<sub>D</sub>) de Shockley présente trois zones : passante, bloquée, claquage. On définit la <span class="term">tension de seuil</span> V<sub>S</sub> à partir de laquelle le courant devient significatif.</p>
+    <div class="eq">V<sub>S</sub> = 0,7 V (silicium)&nbsp;&nbsp;·&nbsp;&nbsp;V<sub>S</sub> = 0,3 V (germanium)<span class="lbl">tensions de seuil</span></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch3-carac" width="860" height="673" src="assets/img/fig-ch3-carac.jpg"><figcaption><b>Caractéristique I<sub>D</sub> = f(V<sub>D</sub>) de Shockley.</b> Zone passante (V<sub>D</sub> &gt; 0), zone bloquée, zone de claquage (avalanche destructive en inverse).</figcaption></figure>
+
+    <h3>Les trois modèles simplifiés</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Modèle</th><th>Passante</th><th>Usage</th></tr>
+      <tr><td>Idéale</td><td class="mono">V<sub>D</sub> = 0</td><td>Comprendre vite un montage</td></tr>
+      <tr><td>Parfaite</td><td class="mono">V<sub>D</sub> = V<sub>S</sub></td><td>Le plus utilisé (prend V_S)</td></tr>
+      <tr><td>Réelle</td><td class="mono">V<sub>D</sub> = V<sub>S</sub> + r·I<sub>D</sub></td><td>Prend la pente 1/r</td></tr>
+    </table></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch3-modeles" width="860" height="673" src="assets/img/fig-ch3-modeles.jpg"><figcaption><b>Les trois modèles simplifiés</b> et leurs schémas équivalents (passante / bloquée) : idéale, parfaite (V<sub>S</sub>), réelle (V<sub>S</sub> + r·I<sub>D</sub>).</figcaption></figure>
+    <div class="box ex"><div class="bt">▹ Méthode — état d'une diode</div><p>Raisonnement par l'absurde : on suppose la diode <b>bloquée</b>, on calcule V<sub>D</sub>. Si V<sub>D</sub> &gt; V<sub>S</sub>, contradiction ⟹ la diode est en fait <b>passante</b> et V<sub>D</sub> = V<sub>S</sub>. Le <b>point de fonctionnement</b> (V<sub>D</sub>, I<sub>D</sub>) s'obtient graphiquement (intersection caractéristique / droite de charge) ou analytiquement par la loi des mailles.</p></div>
+
+    <h3>Datasheet (ex. 1N4148)</h3>
+    <p>Paramètres clés : I<sub>R</sub>/I<sub>S</sub> (courant inverse de saturation), V<sub>RRM</sub> (tension inverse de pointe répétitive max), V<sub>R</sub> (tension inverse nominale, tenable dans le temps), V<sub>BR</sub> (tension de claquage/destruction, ≥ V<sub>RRM</sub>).</p>
+
+    <h3>Applications en courant continu</h3>
+    <ul>
+      <li><strong>Diode de protection</strong> — bloque un branchement inversé (protège contre les courants inverses).</li>
+      <li><strong>Capteur de température</strong> — à courant constant, V<sub>D</sub> baisse d'≈ 2 mV/°C : on remonte à T par une mesure de V<sub>D</sub>.</li>
+    </ul>
+
+    <h3>Applications en courant alternatif</h3>
+    <ul>
+      <li><strong>Redressement simple alternance</strong> — V<sub>out</sub> = V<sub>in</sub> − V<sub>S</sub> sur l'alternance positive.</li>
+      <li><strong>Redressement double alternance</strong> — <span class="term">pont de Graëtz</span> (4 diodes) : les deux alternances sont redressées, sortie plus stable, mais chute de 2·V<sub>S</sub>.</li>
+      <li><strong>Écrêtage</strong> positif/négatif — supprime une partie de l'amplitude (R<sub>S</sub> ≪ R<sub>C</sub>).</li>
+      <li><strong>Diode de roue libre (flyback)</strong> — en inverse sur une charge inductive (moteur, relais) : assure la continuité du courant et évite la surtension u<sub>L</sub> = L·di/dt à l'ouverture.</li>
+      <li><strong>Détecteur d'enveloppe</strong> — redresseur + filtre RC pour démoduler l'AM.</li>
+      <li><strong>Relais électromécanique</strong> — un électroaimant (bobine) isole galvaniquement la commande de la puissance et ferme/ouvre un contact (la <b>diode de roue libre</b> lui est associée). Alternative opto-électronique : l'<span class="term">optocoupleur</span> (compact, rapide, faibles courants, évite les boucles de masse), là où le relais pilote de plus grandes tensions.</li>
+    </ul>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch3-graetz" width="860" height="673" src="assets/img/fig-ch3-graetz.jpg"><figcaption><b>Redressement double alternance — pont de Graëtz.</b> D<sub>1</sub>/D<sub>4</sub> conduisent sur l'alternance positive, D<sub>2</sub>/D<sub>3</sub> sur la négative : les deux alternances sont redressées.</figcaption></figure>
+    <div class="dgm">
+      <svg viewBox="0 0 720 245" role="img" aria-label="Formes d'onde : entrée sinusoïdale, redressement simple alternance, redressement double alternance">
+        <path class="wire" style="opacity:.35" d="M10 150 L210 150 M255 150 L455 150 M500 150 L700 150"/>
+        <path class="sig" d="M10.0 150.0 L13.1 138.3 L16.2 127.0 L19.4 116.7 L22.5 107.6 L25.6 100.1 L28.8 94.6 L31.9 91.2 L35.0 90.0 L38.1 91.2 L41.2 94.6 L44.4 100.1 L47.5 107.6 L50.6 116.7 L53.8 127.0 L56.9 138.3 L60.0 150.0 L63.1 161.7 L66.2 173.0 L69.4 183.3 L72.5 192.4 L75.6 199.9 L78.8 205.4 L81.9 208.8 L85.0 210.0 L88.1 208.8 L91.2 205.4 L94.4 199.9 L97.5 192.4 L100.6 183.3 L103.8 173.0 L106.9 161.7 L110.0 150.0 L113.1 138.3 L116.2 127.0 L119.4 116.7 L122.5 107.6 L125.6 100.1 L128.8 94.6 L131.9 91.2 L135.0 90.0 L138.1 91.2 L141.2 94.6 L144.4 100.1 L147.5 107.6 L150.6 116.7 L153.8 127.0 L156.9 138.3 L160.0 150.0 L163.1 161.7 L166.2 173.0 L169.4 183.3 L172.5 192.4 L175.6 199.9 L178.8 205.4 L181.9 208.8 L185.0 210.0 L188.1 208.8 L191.2 205.4 L194.4 199.9 L197.5 192.4 L200.6 183.3 L203.8 173.0 L206.9 161.7 L210.0 150.0"/>
+        <path class="sig" d="M255.0 150.0 L258.1 138.3 L261.2 127.0 L264.4 116.7 L267.5 107.6 L270.6 100.1 L273.8 94.6 L276.9 91.2 L280.0 90.0 L283.1 91.2 L286.2 94.6 L289.4 100.1 L292.5 107.6 L295.6 116.7 L298.8 127.0 L301.9 138.3 L305.0 150.0 L308.1 150.0 L311.2 150.0 L314.4 150.0 L317.5 150.0 L320.6 150.0 L323.8 150.0 L326.9 150.0 L330.0 150.0 L333.1 150.0 L336.2 150.0 L339.4 150.0 L342.5 150.0 L345.6 150.0 L348.8 150.0 L351.9 150.0 L355.0 150.0 L358.1 138.3 L361.2 127.0 L364.4 116.7 L367.5 107.6 L370.6 100.1 L373.8 94.6 L376.9 91.2 L380.0 90.0 L383.1 91.2 L386.2 94.6 L389.4 100.1 L392.5 107.6 L395.6 116.7 L398.8 127.0 L401.9 138.3 L405.0 150.0 L408.1 150.0 L411.2 150.0 L414.4 150.0 L417.5 150.0 L420.6 150.0 L423.8 150.0 L426.9 150.0 L430.0 150.0 L433.1 150.0 L436.2 150.0 L439.4 150.0 L442.5 150.0 L445.6 150.0 L448.8 150.0 L451.9 150.0 L455.0 150.0"/>
+        <path class="sig" d="M500.0 150.0 L503.1 138.3 L506.2 127.0 L509.4 116.7 L512.5 107.6 L515.6 100.1 L518.8 94.6 L521.9 91.2 L525.0 90.0 L528.1 91.2 L531.2 94.6 L534.4 100.1 L537.5 107.6 L540.6 116.7 L543.8 127.0 L546.9 138.3 L550.0 150.0 L553.1 138.3 L556.2 127.0 L559.4 116.7 L562.5 107.6 L565.6 100.1 L568.8 94.6 L571.9 91.2 L575.0 90.0 L578.1 91.2 L581.2 94.6 L584.4 100.1 L587.5 107.6 L590.6 116.7 L593.8 127.0 L596.9 138.3 L600.0 150.0 L603.1 138.3 L606.2 127.0 L609.4 116.7 L612.5 107.6 L615.6 100.1 L618.8 94.6 L621.9 91.2 L625.0 90.0 L628.1 91.2 L631.2 94.6 L634.4 100.1 L637.5 107.6 L640.6 116.7 L643.8 127.0 L646.9 138.3 L650.0 150.0 L653.1 138.3 L656.2 127.0 L659.4 116.7 L662.5 107.6 L665.6 100.1 L668.8 94.6 L671.9 91.2 L675.0 90.0 L678.1 91.2 L681.2 94.6 L684.4 100.1 L687.5 107.6 L690.6 116.7 L693.8 127.0 L696.9 138.3 L700.0 150.0"/>
+        <text x="110" y="235" class="lbl" text-anchor="middle">Entrée V_in (sinus)</text>
+        <text x="355" y="235" class="lbl" text-anchor="middle">Simple alternance</text>
+        <text x="600" y="235" class="lbl" text-anchor="middle">Double alternance (Graëtz)</text>
+      </svg>
+      <div class="cap">Le redressement simple ne garde qu'une alternance sur deux ; le pont de Graëtz retourne l'alternance négative → sortie deux fois plus « dense », plus facile à filtrer.</div>
+    </div>
+
+    <h3>Les autres diodes</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Diode</th><th>Domaine</th><th>Utilisation</th></tr>
+      <tr><td>Jonction PN</td><td>Continu / BF</td><td>Protection, redressage, écrêtage</td></tr>
+      <tr><td>Zener</td><td>Continu</td><td>Régulation de tension (V<sub>D</sub> = −V<sub>Z</sub>)</td></tr>
+      <tr><td>Schottky</td><td>HF</td><td>Commutation rapide, V<sub>S</sub> faible (0,15–0,45 V)</td></tr>
+      <tr><td>Varicap</td><td>HF</td><td>Capacité variable (récepteur radio)</td></tr>
+      <tr><td>LED</td><td>BF</td><td>Émission lumineuse (V<sub>S</sub> selon λ)</td></tr>
+    </table></div>
+
+    <h3>La diode Zener régulatrice</h3>
+    <p>Utilisée en inverse dans sa zone Zener : sa résistance r<sub>Z</sub> très faible rend la caractéristique quasi verticale, donc V<sub>Z</sub> ≈ constante malgré les variations de courant. On intercale toujours une résistance R en série. Trois problèmes types de dimensionnement : charge R<sub>L</sub> variable (trouver R<sub>L,min</sub>/R<sub>L,max</sub>), tension V<sub>i</sub> variable (trouver V<sub>i,min</sub>/V<sub>i,max</sub>), ou dimensionner R et V<sub>Z</sub>.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch3-zener" width="860" height="673" src="assets/img/fig-ch3-zener.jpg"><figcaption><b>Diode Zener.</b> Caractéristique I<sub>D</sub> = f(V<sub>D</sub>) et schémas équivalents : passante en direct (V<sub>S</sub>), passante en inverse dans la zone Zener (−V<sub>Z</sub>), bloquée entre les deux.</figcaption></figure>
+
+    <h3>Étude de cas : alimentation AC → DC</h3>
+    <p>Chaîne complète : <strong>transformateur</strong> (N<sub>1</sub>/N<sub>2</sub> = V<sub>in</sub>/V<sub>2</sub>, isolation galvanique) → <strong>redresseur double alternance</strong> (Graëtz) → <strong>filtre RC</strong> (charge rapide, décharge lente en τ = RC, d'où un gros condensateur électrolytique) → <strong>régulateur</strong> (Zener ou CI) pour une tension quasi-constante sur la charge.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch3-alim" width="860" height="673" src="assets/img/fig-ch3-alim.jpg"><figcaption><b>Convertisseur AC → DC.</b> Schéma-blocs : transformateur → redresseur double alternance → filtre → régulateur, avec l'allure du signal à chaque étage.</figcaption></figure>
+  </div>
+<details class="gallery" open><summary>🖼️ Galerie de schémas du chapitre 3 <span>(14 diapos du cours)</span></summary><div class="ggrid"><figure class="gfig"><img loading="lazy" alt="Diapo du cours : 1er cas : Diode passante" width="760" height="428" src="assets/img/slide-1er-cas-diode-passante.jpg"><figcaption>1er cas : Diode passante</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : EXERCICE 1 : modèle parfait" width="760" height="428" src="assets/img/slide-exercice-1-modele-parfait.jpg"><figcaption>EXERCICE 1 : modèle parfait</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Diode de protection" width="760" height="428" src="assets/img/slide-diode-de-protection.jpg"><figcaption>Diode de protection</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Capteur de température low cost" width="760" height="428" src="assets/img/slide-capteur-de-temperature-low-cost.jpg"><figcaption>Capteur de température low cost</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Diode de roue libre (Flyback diode)" width="760" height="428" src="assets/img/slide-diode-de-roue-libre-flyback-diode.jpg"><figcaption>Diode de roue libre (Flyback diode)</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Diode Zéner = régulateur de tension" width="760" height="428" src="assets/img/slide-diode-zener-regulateur-de-tension.jpg"><figcaption>Diode Zéner = régulateur de tension</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : On ne peut pas brancher directement une diode Zéner à la sortie d’un blo" width="760" height="428" src="assets/img/slide-on-ne-peut-pas-brancher-directement-une-.jpg"><figcaption>On ne peut pas brancher directement une diode Zéner à la sortie d’un blo</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Etude avec une charge variable" width="760" height="428" src="assets/img/slide-etude-avec-une-charge-variable.jpg"><figcaption>Etude avec une charge variable</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : 2/ Loi des nœuds :" width="760" height="428" src="assets/img/slide-2-loi-des-n-uds.jpg"><figcaption>2/ Loi des nœuds :</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : I. La diode à jonction PN" width="760" height="428" src="assets/img/slide-i-la-diode-a-jonction-pn.jpg"><figcaption>I. La diode à jonction PN</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : La LED" width="760" height="428" src="assets/img/slide-la-led.jpg"><figcaption>La LED</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Les principaux types de diode" width="760" height="428" src="assets/img/slide-les-principaux-types-de-diode.jpg"><figcaption>Les principaux types de diode</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Transformateur" width="760" height="428" src="assets/img/slide-transformateur.jpg"><figcaption>Transformateur</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Simulation spice" width="760" height="428" src="assets/img/slide-simulation-spice.jpg"><figcaption>Simulation spice</figcaption></figure></div></details></article>
+
+<!-- ---------- CHAPITRE 4 ---------- -->
+<article class="chapter" id="ch4">
+  <div class="chapter-hd">
+    <span class="cn">CHAP. 4</span>
+    <h2>Le transistor bipolaire (BJT) en statique</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="4"> validé</label>
+  </div>
+  <div class="prose">
+    <p>Deux jonctions PN tête-bêche, mais un comportement inattendu : avec une petite tension on commande un grand courant. C'est l'effet transistor.</p>
+
+    <h3>L'effet transistor (NPN)</h3>
+    <p>La jonction Base-Émetteur est polarisée en <strong>direct</strong> : les électrons diffusent de E vers B. La jonction Base-Collecteur est en <strong>inverse</strong>. On s'attendrait à ce qu'aucun courant ne passe... mais la base P est très fine et peu dopée : presque tous les électrons injectés la traversent et sont happés par le fort champ du collecteur (phénomène de dérive). Résultat : un faible V<sub>BE</sub> génère un fort I<sub>C</sub>.</p>
+    <div class="eq">i<sub>E</sub> = i<sub>B</sub> + i<sub>C</sub>&nbsp;&nbsp;·&nbsp;&nbsp;β = <span class="frac"><span class="num">I<sub>C</sub></span><span class="den">I<sub>B</sub></span></span> ≈ 100–200<span class="lbl">i_B ≪ i_C, i_E</span></div>
+    <div class="eq">α = <span class="frac"><span class="num">I<sub>C</sub></span><span class="den">I<sub>E</sub></span></span> ≈ 1&nbsp;·&nbsp;γ = β + 1 = <span class="frac"><span class="num">1</span><span class="den">1 − α</span></span><span class="lbl">gains en courant</span></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch4-effet" width="860" height="692" src="assets/img/fig-ch4-effet.jpg"><figcaption><b>L'effet transistor (NPN).</b> Base fine et peu dopée : presque tous les électrons injectés par l'émetteur traversent la base et sont collectés (i<sub>C</sub>/i<sub>B</sub> = β ≈ 100).</figcaption></figure>
+
+    <h3>Modes de fonctionnement (Si)</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Mode</th><th>Jonction BE</th><th>Jonction BC</th><th>Condition</th></tr>
+      <tr><td><span class="pill off">Bloqué</span></td><td>inverse</td><td>inverse</td><td class="mono">V<sub>BE</sub> &lt; 0,7 V</td></tr>
+      <tr><td><span class="pill mid">Actif (ampli)</span></td><td>directe</td><td>inverse</td><td class="mono">V<sub>BE</sub>=0,7 ; V<sub>CB</sub>&gt;0</td></tr>
+      <tr><td><span class="pill on">Saturé (ON)</span></td><td>directe</td><td>directe</td><td class="mono">V<sub>CE</sub> &lt; 0,2 V</td></tr>
+    </table></div>
+    <p>En mode actif : V<sub>BE</sub> = 0,7 V et V<sub>CE</sub> &gt; V<sub>BE</sub>. La saturation débute dès que V<sub>CB</sub> ≤ 0, soit V<sub>CE</sub> ≤ 0,7 V, et est maximale quand V<sub>CE</sub> ≈ 0. Pour polariser, il faut deux sources extérieures. Le NPN et le PNP sont les deux structures complémentaires.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch4-structures" width="860" height="484" src="assets/img/fig-ch4-structures.jpg"><figcaption><b>Structures NPN et PNP</b> et modes de polarisation des jonctions (directe/inverse) donnant blocage, amplification, saturation.</figcaption></figure>
+
+    <h3>Caractéristiques (ex. 2N3904)</h3>
+    <p>Le réseau I<sub>C</sub> = f(V<sub>CE</sub>) montre trois zones : saturation, fonctionnement linéaire, blocage (I<sub>B</sub> ≈ 0). Le gain β (= h<sub>FE</sub>) augmente avec T. La <span class="term">tension d'Early</span> V<sub>A</sub> traduit la légère pente en zone active (résistance de fuite collecteur-émetteur). Les datasheets sont données à T<sub>amb</sub> = 25 °C.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch4-carac" width="860" height="484" src="assets/img/fig-ch4-carac.jpg"><figcaption><b>Caractéristique de sortie I<sub>C</sub> = f(V<sub>CE</sub>)</b> du 2N3904 : zones de saturation, linéaire et de blocage, paramétrées par i<sub>B</sub>.</figcaption></figure>
+
+    <h3>Montage émetteur commun & droites</h3>
+    <p>C'est le montage de référence (amplification en courant). Deux mailles :</p>
+    <div class="eq">i<sub>B</sub> = <span class="frac"><span class="num">V<sub>BB</sub> − V<sub>BE</sub></span><span class="den">R<sub>B</sub></span></span><span class="lbl">droite d'attaque statique</span></div>
+    <div class="eq">V<sub>CE</sub> = V<sub>CC</sub> − R<sub>C</sub>·i<sub>C</sub>&nbsp;&nbsp;·&nbsp;&nbsp;i<sub>C,sat</sub> = V<sub>CC</sub>/R<sub>C</sub><span class="lbl">droite de charge statique</span></div>
+    <p>Le <span class="term">point de fonctionnement Q</span> est l'intersection de la droite de charge avec la caractéristique I<sub>C</sub> = f(V<sub>CE</sub>). Il visualise tous les états possibles, de bloqué à saturé.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch4-pointq" width="860" height="484" src="assets/img/fig-ch4-pointq.jpg"><figcaption><b>Droites d'attaque et de charge, point Q.</b> Le point de repos Q se déplace sur la droite de charge entre blocage (i<sub>C</sub>=0) et saturation (i<sub>C,sat</sub>).</figcaption></figure>
+    <div class="box ex"><div class="bt">▹ Piège saturation</div><p>Si le calcul donne i<sub>C</sub> = β·i<sub>B</sub> &gt; i<sub>C,sat</sub>, le transistor <b>sature</b> : on plafonne à i<sub>C</sub> = i<sub>C,sat</sub> et on lit V<sub>CE,sat</sub> sur la datasheet (≈ 95 mV pour 10 mA).</p></div>
+
+    <h3>Les trois polarisations</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Polarisation</th><th>Dépendance β</th><th>Stabilité Q</th><th>Usage</th></tr>
+      <tr><td>Par la base</td><td class="mono">β-dépendant</td><td>faible</td><td>Commutation / numérique</td></tr>
+      <tr><td>Par l'émetteur</td><td class="mono">β-indépendant</td><td>très stable</td><td>Amplification</td></tr>
+      <tr><td>Par pont diviseur (PDT)</td><td class="mono">β-indépendant</td><td>très stable</td><td>Amplification (V<sub>BB</sub> réglable)</td></tr>
+    </table></div>
+    <p>Pour qu'un pont R<sub>1</sub>/R<sub>2</sub> agisse comme une vraie source de tension : R<sub>1</sub>//R<sub>2</sub> &lt; 0,01·(β+1)·R<sub>E</sub>. On se ramène alors à une polarisation par l'émetteur (stable en température), avec l'avantage de régler V<sub>BB</sub> = V<sub>Th</sub> via R<sub>1</sub>, R<sub>2</sub>.</p>
+    <div class="eq">V<sub>Th</sub> = V<sub>CC</sub>·<span class="frac"><span class="num">R<sub>2</sub></span><span class="den">R<sub>1</sub>+R<sub>2</sub></span></span>&nbsp;·&nbsp;V<sub>E</sub>=V<sub>BB</sub>−V<sub>BE</sub>&nbsp;·&nbsp;i<sub>C</sub>≈i<sub>E</sub>=<span class="frac"><span class="num">V<sub>E</sub></span><span class="den">R<sub>E</sub></span></span><span class="lbl">polarisation par pont</span></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch4-pont" width="860" height="484" src="assets/img/fig-ch4-pont.jpg"><figcaption><b>Polarisation par pont diviseur (PDT).</b> Équivalent Thévenin (V<sub>Th</sub>, R<sub>Th</sub>) : se ramène à une polarisation par l'émetteur, β-indépendante et stable en température.</figcaption></figure>
+
+    <h3>Commutation & applications numériques</h3>
+    <p>En commutation, le BJT est un interrupteur commandé par la base : bloqué (OFF, base basse) ou saturé (ON, si β·i<sub>B</sub> &gt; i<sub>C,sat</sub>). Applications : porte NOT, AND, OR (technologie TTL, rapide mais gourmande), pilotage d'une charge de puissance depuis un microcontrôleur (ex. Arduino → 2N2222 pour 150 mA sous 12 V).</p>
+
+    <h3>Modèle d'Ebers-Moll (statique)</h3>
+    <p>Plus juste que « deux diodes » : la jonction BC est remplacée par une source de courant commandée.</p>
+    <div class="eq">V<sub>BE</sub> = 0,7 V&nbsp;&nbsp;·&nbsp;&nbsp;i<sub>C</sub> = β·i<sub>B</sub><span class="lbl">modèle d'Ebers-Moll</span></div>
+  </div>
+<details class="gallery" open><summary>🖼️ Galerie de schémas du chapitre 4 <span>(9 diapos du cours)</span></summary><div class="ggrid"><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Or ce n’est pas du tout ce que l’on observe!" width="760" height="428" src="assets/img/slide-or-ce-n-est-pas-du-tout-ce-que-l-on-obse.jpg"><figcaption>Or ce n’est pas du tout ce que l’on observe!</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Caractéristiques du transistor : ex 2N3904" width="760" height="428" src="assets/img/slide-caracteristiques-du-transistor-ex-2n3904.jpg"><figcaption>Caractéristiques du transistor : ex 2N3904</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : « Que signifie polariser un transistor? »" width="760" height="428" src="assets/img/slide-que-signifie-polariser-un-transistor.jpg"><figcaption>« Que signifie polariser un transistor? »</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Maille base : 𝑉𝐵𝐵−𝑅𝐵𝑖𝐵−𝑉𝐵𝐸= 0 ⟹" width="760" height="428" src="assets/img/slide-maille-base-0.jpg"><figcaption>Maille base : 𝑉𝐵𝐵−𝑅𝐵𝑖𝐵−𝑉𝐵𝐸= 0 ⟹</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : EXERCICE :" width="760" height="428" src="assets/img/slide-exercice.jpg"><figcaption>EXERCICE :</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Déterminer, à l’aide la datasheet du 2N3904, la valeur de 𝑉𝐵𝐸et du gain " width="760" height="428" src="assets/img/slide-determiner-a-l-aide-la-datasheet-du-2n39.jpg"><figcaption>Déterminer, à l’aide la datasheet du 2N3904, la valeur de 𝑉𝐵𝐸et du gain </figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Avant la tension d’alimentation 𝑉𝐵𝐵se trouvait sur la résistance de base" width="760" height="428" src="assets/img/slide-avant-la-tension-d-alimentation-se-trouv.jpg"><figcaption>Avant la tension d’alimentation 𝑉𝐵𝐵se trouvait sur la résistance de base</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : 𝑖𝑐" width="760" height="428" src="assets/img/slide-3.jpg"><figcaption>𝑖𝑐</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : IN" width="760" height="428" src="assets/img/slide-in.jpg"><figcaption>IN</figcaption></figure></div></details></article>
+
+<!-- ---------- CHAPITRE 5 ---------- -->
+<article class="chapter" id="ch5">
+  <div class="chapter-hd">
+    <span class="cn">CHAP. 5</span>
+    <h2>Le BJT en dynamique (amplification)</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="5"> validé</label>
+  </div>
+  <div class="prose">
+    <p>On superpose au point de repos Q un petit signal alternatif et on calcule comment il est amplifié.</p>
+
+    <h3>Du montage DC au montage AC</h3>
+    <p>Trois condensateurs transforment l'ampli polarisé (DC) en amplificateur AC sans déplacer Q :</p>
+    <ul>
+      <li><strong>C<sub>1</sub></strong> (liaison, entrée) — bloque la composante continue du signal d'entrée.</li>
+      <li><strong>C<sub>2</sub></strong> (liaison, sortie) — isole la charge R<sub>L</sub> du potentiel DC du collecteur.</li>
+      <li><strong>C<sub>3</sub></strong> (découplage, sur R<sub>E</sub>) — court-circuite R<sub>E</sub> en AC : c'est lui qui fait exploser le gain.</li>
+    </ul>
+    <p>Rappel : un condensateur est un interrupteur <em>ouvert</em> en DC, <em>fermé</em> en AC. Majuscules = grandeurs DC, minuscules = grandeurs AC.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch5-montageac" width="860" height="484" src="assets/img/fig-ch5-montageac.jpg"><figcaption><b>Amplificateur AC complet</b> polarisé par pont : C<sub>1</sub>/C<sub>2</sub> de liaison, C<sub>3</sub> de découplage sur R<sub>E</sub>. Le gain ne dépend que de l'ampli, pas de la charge.</figcaption></figure>
+
+    <h3>Résistance dynamique d'émetteur</h3>
+    <div class="eq">r<sub>E</sub> = <span class="frac"><span class="num">26 mV</span><span class="den">I<sub>E</sub></span></span><span class="lbl">I_E = courant DC (26 mV à 300 K)</span></div>
+
+    <h3>Modèle en π et schéma équivalent AC</h3>
+    <p>Méthode : court-circuiter les C de découplage (R<sub>E</sub> disparaît), remplacer les C de liaison par des fils, relier les sources DC à la masse (impédance interne nulle), remplacer le transistor par son modèle en π : une résistance (β+1)·r<sub>E</sub> entre B et E, et une source i<sub>C</sub> = β·i<sub>B</sub>. La résistance r<sub>O</sub> → ∞ est omise.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch5-modelepi" width="860" height="484" src="assets/img/fig-ch5-modelepi.jpg"><figcaption><b>Modèle en π du transistor</b> en régime dynamique : résistance (β+1)·r<sub>E</sub> à l'entrée, source de courant i<sub>C</sub> = β·i<sub>B</sub> à la sortie.</figcaption></figure>
+
+    <h3>Impédances et gains (émetteur commun)</h3>
+    <div class="eq">Z<sub>in</sub> = R<sub>1</sub> // R<sub>2</sub> // (β+1)·r<sub>E</sub><span class="lbl">impédance d'entrée</span></div>
+    <div class="eq">Z<sub>out</sub> = R<sub>C</sub><span class="lbl">impédance de sortie</span></div>
+    <div class="eq">A<sub>V</sub> = <span class="frac"><span class="num">v<sub>out</sub></span><span class="den">v<sub>in</sub></span></span> ≈ −<span class="frac"><span class="num">R<sub>C</sub></span><span class="den">r<sub>E</sub></span></span><span class="lbl">gain en tension (à vide) — déphasage π</span></div>
+    <div class="box key"><div class="bt">◆ Rôle de C₃</div><p>Sans découplage, A<sub>V</sub> ≈ R<sub>C</sub>/(R<sub>E</sub>+r<sub>E</sub>) ≈ 3,5 (≈ 11 dB). Avec C<sub>3</sub>, A<sub>V</sub> ≈ R<sub>C</sub>/r<sub>E</sub> ≈ 153 (≈ 44 dB) : le condensateur de découplage <b>augmente massivement le gain</b>.</p></div>
+    <p>Gain en courant A<sub>i</sub> = i<sub>C</sub>/i<sub>in</sub>, gain en puissance A<sub>P</sub> = A<sub>V</sub>·A<sub>i</sub>. En dB : X<sub>dB</sub> = 20·log(A<sub>V</sub> ou A<sub>i</sub>) et A<sub>P,dB</sub> = 10·log(A<sub>P</sub>). Comme A<sub>V</sub> dépend de r<sub>E</sub> (donc de T), la polarisation par pont (β-indépendante) rend le point Q robuste aux variations de température.</p>
+
+    <h3>Modèle général & mise en cascade</h3>
+    <p>Un ampli se résume à (Z<sub>in</sub>, Z<sub>out</sub>, A<sub>V</sub>). Avec une charge R<sub>L</sub>, la sortie effective se lit par un diviseur de tension : v<sub>out</sub> = A<sub>V</sub>·v<sub>in</sub>·R<sub>L</sub>/(Z<sub>out</sub>+R<sub>L</sub>). En cascade, le gain total est le produit des gains chargés ; l'<span class="term">adaptation d'impédance</span> (Z<sub>o,1</sub> = Z<sub>i,2</sub>) transfère le maximum de puissance.</p>
+    <p>Bande passante : limitée en BF par les condensateurs de couplage, en HF par les capacités internes (modèle de Giacoletto : g<sub>m</sub> = I<sub>C</sub>/V<sub>T</sub>, r<sub>π</sub> = β/g<sub>m</sub>).</p>
+
+    <h3>Classes d'amplification</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Classe</th><th>Angle θ</th><th>Rendement η</th><th>Caractéristique</th></tr>
+      <tr><td>A</td><td class="mono">360°</td><td>≤ 50 %</td><td>Distorsion min., chauffe, Q au milieu</td></tr>
+      <tr><td>B</td><td class="mono">180°</td><td>≤ 78,5 %</td><td>Push-pull, distorsion de croisement</td></tr>
+      <tr><td>AB</td><td class="mono">&gt; 180°</td><td>50–78,5 %</td><td>Compromis, push-pull à diodes</td></tr>
+      <tr><td>D</td><td class="mono">—</td><td>très élevé</td><td>PWM + filtre, chauffe très peu</td></tr>
+    </table></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch5-classes" width="860" height="484" src="assets/img/fig-ch5-classes.jpg"><figcaption><b>Classes d'amplification.</b> Angle de conduction θ du transistor sur un cycle : A (360°), AB (&gt;180°), B (180°), C (&lt;180°) — compromis rendement / linéarité.</figcaption></figure>
+
+    <h3>Montages remarquables</h3>
+    <ul>
+      <li><strong>Paire Darlington</strong> — β<sub>D</sub> ≈ β<sub>1</sub>·β<sub>2</sub> (gain en courant énorme, forte Z<sub>in</sub>).</li>
+      <li><strong>Pont en H</strong> — inverse la polarité aux bornes d'un moteur DC (sens de rotation).</li>
+      <li><strong>Générateur de courant à Zener</strong> — une diode Zener fixe le potentiel d'émetteur (V<sub>E</sub> = V<sub>Z</sub> − V<sub>BE</sub>), d'où un courant de charge constant i<sub>L</sub> ≈ (V<sub>Z</sub> − V<sub>S</sub>)/R<sub>E</sub>, indépendant de la charge.</li>
+      <li><strong>Miroir de courant</strong> — recopie le courant d'entrée (i<sub>out</sub> ≈ i<sub>in</sub>) via deux transistors identiques ; peu sensible à β, très utilisé en CI.</li>
+      <li><strong>Paire différentielle</strong> — sortie image de la différence des entrées : le cœur de l'AOP.</li>
+    </ul>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch5-miroir" width="860" height="484" src="assets/img/fig-ch5-miroir.jpg"><figcaption><b>Miroir de courant.</b> Deux transistors identiques (V<sub>BE1</sub>=V<sub>BE2</sub>) : le courant de sortie recopie le courant d'entrée (i<sub>out</sub> ≈ i<sub>in</sub>), quasi indépendamment de β et de la charge.</figcaption></figure>
+    <p>Un AOP se compose d'une paire différentielle (gain + Z<sub>in</sub> élevée), d'un étage émetteur commun (gain), et d'un push-pull de sortie (Z<sub>out</sub> ≈ 0). Réel : Z<sub>in</sub> ≈ 2 MΩ, Z<sub>out</sub> ≈ 50 Ω, A<sub>d</sub> ≈ 10⁵.</p>
+  </div>
+<details class="gallery" open><summary>🖼️ Galerie de schémas du chapitre 5 <span>(12 diapos du cours)</span></summary><div class="ggrid"><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Gain à vide (car pas de charge) en tension de l’ampli" width="760" height="428" src="assets/img/slide-gain-a-vide-car-pas-de-charge-en-tension.jpg"><figcaption>Gain à vide (car pas de charge) en tension de l’ampli</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Par définition, le gain en courant 𝐴𝑖est égal à :" width="760" height="428" src="assets/img/slide-par-definition-le-gain-en-courant-est-eg.jpg"><figcaption>Par définition, le gain en courant 𝐴𝑖est égal à :</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Amplificateurs en cascade" width="760" height="428" src="assets/img/slide-amplificateurs-en-cascade.jpg"><figcaption>Amplificateurs en cascade</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Amplificateurs en cascade et adaptation d’impédance" width="760" height="428" src="assets/img/slide-amplificateurs-en-cascade-et-adaptation-.jpg"><figcaption>Amplificateurs en cascade et adaptation d’impédance</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Complément : Bande passante d’un émetteur commun" width="760" height="428" src="assets/img/slide-complement-bande-passante-d-un-emetteur-.jpg"><figcaption>Complément : Bande passante d’un émetteur commun</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Les amplificateurs de classe B" width="760" height="428" src="assets/img/slide-les-amplificateurs-de-classe-b.jpg"><figcaption>Les amplificateurs de classe B</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Les amplificateurs de classe D" width="760" height="428" src="assets/img/slide-les-amplificateurs-de-classe-d.jpg"><figcaption>Les amplificateurs de classe D</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Le modulateur de largeur d’impulsions compare le signal d’entrée à un si" width="760" height="428" src="assets/img/slide-le-modulateur-de-largeur-d-impulsions-co.jpg"><figcaption>Le modulateur de largeur d’impulsions compare le signal d’entrée à un si</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Comparaison des rendements des ampli" width="760" height="428" src="assets/img/slide-comparaison-des-rendements-des-ampli.jpg"><figcaption>Comparaison des rendements des ampli</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Objectif : avoir un gain en courant 𝜷important." width="760" height="428" src="assets/img/slide-objectif-avoir-un-gain-en-courant-import.jpg"><figcaption>Objectif : avoir un gain en courant 𝜷important.</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Le pont en H" width="760" height="428" src="assets/img/slide-le-pont-en-h.jpg"><figcaption>Le pont en H</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Paire différen-" width="760" height="428" src="assets/img/slide-paire-differen.jpg"><figcaption>Paire différen-</figcaption></figure></div></details></article>
+
+<!-- ---------- CHAPITRE 6 ---------- -->
+<article class="chapter" id="ch6">
+  <div class="chapter-hd">
+    <span class="cn">CHAP. 6</span>
+    <h2>Le transistor à effet de champ (FET)</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="6"> validé</label>
+  </div>
+  <div class="prose">
+    <p>Un transistor commandé en <strong>tension</strong> (et non en courant comme le BJT), à un seul type de porteur (unipolaire). Deux familles : JFET et MOSFET.</p>
+
+    <h3>Le JFET : principe</h3>
+    <p>Un canal dopé N entre <span class="term">source</span> et <span class="term">drain</span>. Deux zones P reliées (la <span class="term">grille</span>), polarisées en inverse, créent des ZCD qui modulent la largeur du canal. On agit par <span class="k">V<sub>GS</sub> &lt; 0</span> :</p>
+    <ul>
+      <li>Champ faible → ZCD petites → canal ouvert (I ≠ 0) → passant.</li>
+      <li>Champ fort → ZCD se touchent → canal fermé (I = 0) → bloqué.</li>
+    </ul>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch6-effetchamp" width="860" height="484" src="assets/img/fig-ch6-effetchamp.jpg"><figcaption><b>Effet de champ (JFET canal N).</b> Les tensions V<sub>GS</sub>&lt;0 et V<sub>DD</sub>&gt;0 polarisent en inverse les jonctions grille-canal et modulent la largeur du canal.</figcaption></figure>
+    <p>La grille étant en inverse, <span class="k">I<sub>G</sub> ≈ 0</span> : impédance d'entrée énorme (centaines de MΩ, voire 20 000 MΩ). Avantage majeur sur le BJT. Et I<sub>D</sub> = I<sub>S</sub> (courant du canal). Inconvénient de cette forte impédance : sensibilité au bruit de tension thermique (bruit Johnson) et aux charges électrostatiques.</p>
+    <div class="box warn"><div class="bt">⚠ Deux tensions à ne pas confondre</div><p><b>V<sub>GS,off</sub></b> : tension (très négative) qui ferme complètement le canal (I<sub>D</sub> = 0). <b>V<sub>P</sub></b> (pincement) : tension V<sub>DS</sub> à partir de laquelle le canal est pincé mais laisse passer un courant <b>constant</b>. Numériquement |V<sub>GS,off</sub>| = V<sub>P</sub> (même valeur — les datasheets donnent V<sub>GS,off</sub>).</p></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch6-pincement" width="860" height="484" src="assets/img/fig-ch6-pincement.jpg"><figcaption><b>Blocage vs pincement.</b> À V<sub>GS,off</sub> le canal est fermé (I<sub>D</sub>=0) ; au pincement V<sub>P</sub> le canal est très étroit mais I<sub>D</sub> devient constant (la dérive compense le rétrécissement).</figcaption></figure>
+
+    <h3>Caractéristiques du JFET</h3>
+    <p>À V<sub>GS</sub> = 0 (grille reliée à la source), en augmentant V<sub>DS</sub> : I<sub>D</sub> croît (région ohmique) jusqu'au pincement, puis se stabilise à <span class="term">I<sub>DSS</sub></span> (zone active, V<sub>DS</sub> &gt; V<sub>P</sub>). La caractéristique de transfert est quadratique :</p>
+    <div class="eq">I<sub>D</sub> = I<sub>DSS</sub>(1 − <span class="frac"><span class="num">V<sub>GS</sub></span><span class="den">V<sub>GS,off</sub></span></span>)²<span class="lbl">loi quadratique (zone active)</span></div>
+    <div class="eq">R<sub>DS</sub> = <span class="frac"><span class="num">V<sub>P</sub></span><span class="den">I<sub>DSS</sub></span></span><span class="lbl">résistance ohmique du JFET</span></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch6-transfert" width="860" height="484" src="assets/img/fig-ch6-transfert.jpg"><figcaption><b>Caractéristique de transfert I<sub>D</sub> = f(V<sub>GS</sub>).</b> Loi quadratique entre V<sub>GS,off</sub> et 0, où I<sub>D</sub> atteint I<sub>DSS</sub> (courbe de transconductance).</figcaption></figure>
+
+    <h3>Régime dynamique — transconductance</h3>
+    <div class="eq">g<sub>m</sub> = <span class="frac"><span class="num">dI<sub>D</sub></span><span class="den">dV<sub>GS</sub></span></span> = <span class="frac"><span class="num">2·I<sub>DSS</sub></span><span class="den">|V<sub>P</sub>|</span></span>(1 − <span class="frac"><span class="num">V<sub>GS</sub></span><span class="den">V<sub>P</sub></span></span>)<span class="lbl">transconductance (Siemens)</span></div>
+    <p>g<sub>m</sub> mesure la qualité du contrôle de I<sub>D</sub> par V<sub>GS</sub> (pente de la courbe de transfert). ΔI<sub>D</sub> = g<sub>m</sub>·ΔV<sub>GS</sub>.</p>
+
+    <h3>Montages JFET</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Montage</th><th>Gain A<sub>V</sub></th><th>Z<sub>in</sub></th><th>Usage</th></tr>
+      <tr><td>Source commune</td><td class="mono">−g<sub>m</sub>·R<sub>D</sub></td><td>R<sub>1</sub>//R<sub>2</sub></td><td>Amplification (gain élevé)</td></tr>
+      <tr><td>Drain commun (source suiveuse)</td><td class="mono">≈ 1</td><td>R<sub>G</sub> ≈ MΩ</td><td>Suiveur, adaptation d'impédance</td></tr>
+    </table></div>
+    <p>Commutation analogique : si V<sub>GS</sub> &lt; V<sub>GS,off</sub> → interrupteur ouvert ; si V<sub>GS</sub> = 0 → R<sub>DS</sub> (zone ohmique).</p>
+
+    <h3>Le MOSFET</h3>
+    <p>La grille est isolée du canal par une fine couche de <span class="k">SiO₂</span> (d'où I<sub>G</sub> = 0 rigoureux, impédance quasi infinie). Dans un N-MOSFET (substrat P) : en augmentant V<sub>G</sub> &gt; 0, les trous sont chassés (la ZCD s'élargit) puis, quand il n'y a plus de trous, un <span class="term">canal d'inversion</span> d'électrons se forme sous SiO₂ (le substrat P est localement « inversé » en zone à électrons). Au-delà de la <span class="term">tension de seuil V<sub>T</sub></span>, le transistor conduit. En appliquant alors V<sub>DS</sub> &gt; 0, les électrons du canal dérivent de la source vers le drain.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch6-mosfet" width="860" height="484" src="assets/img/fig-ch6-mosfet.jpg"><figcaption><b>N-MOSFET : formation du canal d'inversion.</b> Sous V<sub>DS</sub>&gt;0, les électrons du canal (sous SiO₂) dérivent de la source vers le drain.</figcaption></figure>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch6-symboles" width="860" height="484" src="assets/img/fig-ch6-symboles.jpg"><figcaption><b>Symboles N-MOSFET et P-MOSFET.</b> Courant de grille nul (isolant SiO₂), canal d'inversion à électrons (N) ou à trous (P).</figcaption></figure>
+    <div class="eq">I<sub>D</sub> = <span class="frac"><span class="num">1</span><span class="den">2</span></span>·K<sub>n</sub>·<span class="frac"><span class="num">W</span><span class="den">L</span></span>·(V<sub>GS</sub> − V<sub>T</sub>)²<span class="lbl">MOSFET en région active (V_GS &gt; V_T)</span></div>
+    <ul>
+      <li>V<sub>GS</sub> &lt; V<sub>T</sub> → bloqué (cut-off).</li>
+      <li>0 &lt; V<sub>DS</sub> &lt; V<sub>GS</sub> − V<sub>T</sub> → région ohmique (R<sub>DS</sub> = V<sub>DS</sub>/I<sub>D</sub>).</li>
+      <li>V<sub>DS</sub> &gt; V<sub>GS</sub> − V<sub>T</sub> → canal pincé, région active.</li>
+    </ul>
+    <div class="eq">g<sub>m</sub> = K<sub>n</sub>·<span class="frac"><span class="num">W</span><span class="den">L</span></span>·(V<sub>GS</sub> − V<sub>T</sub>) = <span class="frac"><span class="num">2·I<sub>D</sub></span><span class="den">V<sub>GS</sub>−V<sub>T</sub></span></span><span class="lbl">transconductance MOSFET</span></div>
+
+    <h3>Comparatif BJT / JFET / MOSFET</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>BJT</th><th>JFET</th><th>MOSFET</th></tr>
+      <tr><td>Commande</td><td>courant (I<sub>C</sub>=βI<sub>B</sub>)</td><td>tension</td><td>tension</td></tr>
+      <tr><td>Porteurs</td><td>bipolaire</td><td>unipolaire</td><td>unipolaire</td></tr>
+      <tr><td>Z<sub>in</sub></td><td class="mono">−−</td><td class="mono">+ (&gt;10 MΩ)</td><td class="mono">++ (&gt;10 GΩ)</td></tr>
+      <tr><td>Stab. thermique</td><td class="mono">−−</td><td class="mono">++</td><td class="mono">++</td></tr>
+      <tr><td>Gain ampli</td><td class="mono">++</td><td class="mono">−−</td><td class="mono">−−</td></tr>
+      <tr><td>Taille</td><td class="mono">++</td><td class="mono">−−</td><td class="mono">−− (miniaturisable)</td></tr>
+    </table></div>
+  </div>
+<details class="gallery" open><summary>🖼️ Galerie de schémas du chapitre 6 <span>(5 diapos du cours)</span></summary><div class="ggrid"><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Polarisation inverse de la grille" width="760" height="428" src="assets/img/slide-polarisation-inverse-de-la-grille.jpg"><figcaption>Polarisation inverse de la grille</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Comme dit précédemment, pour avoir un courant drain maximal 𝐼𝐷𝑆𝑆il faut " width="760" height="428" src="assets/img/slide-comme-dit-precedemment-pour-avoir-un-cou.jpg"><figcaption>Comme dit précédemment, pour avoir un courant drain maximal 𝐼𝐷𝑆𝑆il faut </figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Polarisation par diviseur de tension" width="760" height="428" src="assets/img/slide-polarisation-par-diviseur-de-tension.jpg"><figcaption>Polarisation par diviseur de tension</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Principe de fonctionnement" width="760" height="428" src="assets/img/slide-principe-de-fonctionnement.jpg"><figcaption>Principe de fonctionnement</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Quand on augmente 𝑽𝑮pour le rendre positif, dans un premier temps les tr" width="760" height="428" src="assets/img/slide-quand-on-augmente-pour-le-rendre-positif.jpg"><figcaption>Quand on augmente 𝑽𝑮pour le rendre positif, dans un premier temps les tr</figcaption></figure></div></details></article>
+
+<!-- ---------- CHAPITRE 7 ---------- -->
+<article class="chapter" id="ch7">
+  <div class="chapter-hd">
+    <span class="cn">CHAP. 7</span>
+    <h2>Logique CMOS & circuits intégrés</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="7"> validé</label>
+  </div>
+  <div class="prose">
+    <p>L'aboutissement : comment on fabrique des portes logiques avec des MOSFET, puis une puce entière.</p>
+
+    <h3>MOSFET en commutation</h3>
+    <p>nMOS : bloqué si V<sub>in</sub> &lt; V<sub>T</sub>, passant (≈ R<sub>DS</sub>) si V<sub>in</sub> &gt; V<sub>T</sub> — il <strong>tire la sortie vers 0</strong>. pMOS : comportement inverse — il <strong>tire vers 1</strong>. Le premier montage (nMOS + R<sub>D</sub>) fonctionne mais consomme au repos et la résistance encombre.</p>
+    <div class="box key"><div class="bt">◆ Idée CMOS</div><p>On remplace la résistance de charge par un pMOS. Le nMOS et le pMOS sont toujours dans des états <b>opposés</b> : quand l'un conduit, l'autre est ouvert. Entre V<sub>DD</sub> et la masse il y a donc <b>toujours un interrupteur ouvert</b> ⟹ consommation statique quasi-nulle. Le courant ne circule qu'à la commutation.</p></div>
+    <p>Avantages CMOS : très faible consommation (idéal embarqué : smartphones, portables), bonne immunité au bruit (les nMOS/pMOS complémentaires se compensent). Plus lent que la TTL mais bien plus économe.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch7-cmos" width="860" height="484" src="assets/img/fig-ch7-cmos.jpg"><figcaption><b>Inverseur CMOS.</b> pMOS (tire vers 1) au-dessus, nMOS (tire vers 0) en dessous : toujours en états opposés, donc pas de courant statique.</figcaption></figure>
+
+    <h3>Construire une porte : PUN & PDN</h3>
+    <p>Toute fonction logique associe deux réseaux : le <span class="term">Pull-Up Network (PUN)</span> en haut (pMOS, relié à V<sub>DD</sub>, tire vers 1) et le <span class="term">Pull-Down Network (PDN)</span> en bas (nMOS, relié à GND, tire vers 0).</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch7-pundpn" width="860" height="484" src="assets/img/fig-ch7-pundpn.jpg"><figcaption><b>Structure générale d'une porte CMOS.</b> Réseau PUN (pMOS, vers V<sub>DD</sub>) au-dessus, réseau PDN (nMOS, vers GND) en dessous.</figcaption></figure>
+    <div class="box ex"><div class="bt">▹ Méthode</div><p><b>Réseau pMOS (PUN)</b> : partir de Y, l'exprimer uniquement avec des entrées <b>complémentées</b> (Ā, B̄…). <b>Réseau nMOS (PDN)</b> : partir de <span style="text-decoration:overline">Y</span>, l'exprimer avec des entrées <b>non complémentées</b>. Opérateur « + » ⟹ MOS en <b>parallèle</b> ; opérateur « · » ⟹ MOS en <b>série</b>. Outil clé : De Morgan.</p></div>
+    <div class="eq"><span style="text-decoration:overline">A+B</span> = Ā·B̄&nbsp;&nbsp;·&nbsp;&nbsp;<span style="text-decoration:overline">A·B</span> = Ā+B̄<span class="lbl">théorème de De Morgan</span></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Porte</th><th>Fonction</th><th>PUN (pMOS)</th><th>PDN (nMOS)</th></tr>
+      <tr><td>NOT</td><td class="mono">Y = Ā</td><td>1 pMOS (A)</td><td>1 nMOS (A)</td></tr>
+      <tr><td>NAND</td><td class="mono">Y = <span style="text-decoration:overline">A·B</span></td><td>2 // (Ā+B̄)</td><td>2 en série (A·B)</td></tr>
+      <tr><td>NOR</td><td class="mono">Y = <span style="text-decoration:overline">A+B</span></td><td>2 en série (Ā·B̄)</td><td>2 // (A+B)</td></tr>
+    </table></div>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch7-nand" width="860" height="484" src="assets/img/fig-ch7-nand.jpg"><figcaption><b>Porte NAND en CMOS.</b> Y = <span style="text-decoration:overline">A·B</span> : 2 pMOS en parallèle (PUN) + 2 nMOS en série (PDN), avec sa table de vérité.</figcaption></figure>
+
+    <h3>Du layout au silicium</h3>
+    <p>Le <span class="term">layout</span> est le dessin (CAO) qui servira à graver les masques. Règles de tracé : <em>micron</em> (dimensions absolues, optimisées) ou <em>lambda</em> (multiples de λ, portables entre fondeurs). Conventions : diffusions N/P horizontales, polysilicium vertical, pMOS près de V<sub>DD</sub>, nMOS près de GND. La grille (polysilicium) est toujours sous les niveaux de métal.</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch7-layout" width="860" height="484" src="assets/img/fig-ch7-layout.jpg"><figcaption><b>Layout de l'inverseur CMOS.</b> Coupe et vue de dessus : grille commune aux deux MOS, diffusions P (pMOS) et N (nMOS), niveaux de métal V<sub>DD</sub>/IN/OUT/GND.</figcaption></figure>
+    <p>Optimisation d'un circuit complexe : méthode des <strong>cellules standard</strong> (hauteurs constantes) ou <strong>parcours d'Euler</strong> (graphe dual → passer une seule fois sur chaque arc → une seule bande de diffusion, moins de coupures).</p>
+    <figure class="cfig"><img loading="lazy" alt="Schéma du cours : ch7-euler" width="860" height="484" src="assets/img/fig-ch7-euler.jpg"><figcaption><b>Parcours d'Euler.</b> Le graphe dual (un arc = un transistor) permet, quand un parcours existe, d'utiliser une unique bande de diffusion pour PUN et PDN.</figcaption></figure>
+    <p>Chaîne de fabrication : CAO (layout) → masques (fichier .gds2, photolithographie) → wafer de silicium (le fondeur, ex. STMicroelectronics, répète le réticule) → découpe des <span class="term">dies</span> → encapsulation (wire bonding sur les <em>plots</em>) → test.</p>
+
+    <h3>Performance : modèle RC & délai</h3>
+    <p>Aux hautes fréquences, une capacité parasite C<sub>OUT</sub> en sortie crée un filtre passe-bas qui arrondit les signaux. On modélise chaque MOS par R et C<sub>OUT</sub> :</p>
+    <div class="eq">τ = <span class="frac"><span class="num">(R<sub>N</sub> + R<sub>P</sub>)·C<sub>OUT</sub></span><span class="den">2</span></span><span class="lbl">temps de délai d'une porte (moyenne des 2 réseaux)</span></div>
+    <p>Résistance d'un rail : R = R<sub>□</sub>·ℓ/w (on compte les carrés ; un coude vaut R<sub>□</sub>/2). Capacité de sortie : C<sub>OUT</sub> = Σ C<sub>□</sub>·(ℓ·w) sur tous les matériaux reliés à la sortie. Pour n transistors en série, le délai (Elmore) ≈ (n²/2)·RC : proportionnel au <b>carré</b> du nombre de transistors en série.</p>
+    <div class="box key"><div class="bt">◆ Pourquoi miniaturiser ?</div><p>Le courant drain est ∝ W/L. Pour accélérer la charge de C<sub>OUT</sub> (donc commuter plus vite) on diminue la longueur L du canal — sans augmenter W (contre-productif pour la densité). <b>Miniaturiser = augmenter la fréquence de fonctionnement.</b> En divisant la taille par S (V<sub>DD</sub> constant) : R inchangée, délai τ/S², fréquence f·S², puissance P·S.</p></div>
+    <p>Consommation : statique P<sub>s</sub> (quasi-nulle au repos) + dynamique P<sub>d</sub> (charge/décharge des capacités). Le délai d'un circuit = le plus long chemin parmi tous les chemins possibles.</p>
+
+    <h3>Étude de cas : le MUX 4:1</h3>
+    <p>On décompose le multiplexeur 4:1 en trois MUX 2:1 (OUT = S̄·A + S·B), eux-mêmes en portes NAND. Il suffit alors de concevoir le layout d'<strong>une seule NAND</strong> et de la dupliquer — c'est toute la puissance de l'approche cellules standard.</p>
+  </div>
+<details class="gallery" open><summary>🖼️ Galerie de schémas du chapitre 7 <span>(14 diapos du cours)</span></summary><div class="ggrid"><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Elle repose sur la complémentarité de deux MOSFETs de type opposé." width="760" height="428" src="assets/img/slide-elle-repose-sur-la-complementarite-de-de.jpg"><figcaption>Elle repose sur la complémentarité de deux MOSFETs de type opposé.</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : SOMME" width="760" height="428" src="assets/img/slide-somme.jpg"><figcaption>SOMME</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : EXERCICE 3 : Créer la porte NOR en logique CMOS" width="760" height="428" src="assets/img/slide-exercice-3-creer-la-porte-nor-en-logique.jpg"><figcaption>EXERCICE 3 : Créer la porte NOR en logique CMOS</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : EXERCICE 4 : Créer la fonction 𝑌= 𝐷+ 𝐴∙𝐵+ 𝐶en logique CMOS" width="760" height="428" src="assets/img/slide-exercice-4-creer-la-fonction-en-logique-.jpg"><figcaption>EXERCICE 4 : Créer la fonction 𝑌= 𝐷+ 𝐴∙𝐵+ 𝐶en logique CMOS</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Conception - différents niveaux d’approche possibles" width="760" height="428" src="assets/img/slide-conception-differents-niveaux-d-approche.jpg"><figcaption>Conception - différents niveaux d’approche possibles</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : la méthode des cellules standards" width="760" height="428" src="assets/img/slide-la-methode-des-cellules-standards.jpg"><figcaption>la méthode des cellules standards</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : 2ème étape : Identifier le parcours d’Euler" width="760" height="428" src="assets/img/slide-2eme-etape-identifier-le-parcours-d-eule.jpg"><figcaption>2ème étape : Identifier le parcours d’Euler</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Exemple : le MUX 4:1" width="760" height="428" src="assets/img/slide-exemple-le-mux-4-1.jpg"><figcaption>Exemple : le MUX 4:1</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Dans une démarche pédagogique, on décompose le MUX 4:1 en trois MUX 2:1 " width="760" height="428" src="assets/img/slide-dans-une-demarche-pedagogique-on-decompo.jpg"><figcaption>Dans une démarche pédagogique, on décompose le MUX 4:1 en trois MUX 2:1 </figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Circuit" width="760" height="428" src="assets/img/slide-circuit.jpg"><figcaption>Circuit</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : 𝑺𝟏" width="760" height="428" src="assets/img/slide-4.jpg"><figcaption>𝑺𝟏</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : matériau" width="760" height="428" src="assets/img/slide-materiau.jpg"><figcaption>matériau</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : EXERCICE :" width="760" height="428" src="assets/img/slide-exercice-2.jpg"><figcaption>EXERCICE :</figcaption></figure><figure class="gfig"><img loading="lazy" alt="Diapo du cours : Miniaturisation" width="760" height="428" src="assets/img/slide-miniaturisation.jpg"><figcaption>Miniaturisation</figcaption></figure></div></details></article>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ NOTIONS CLÉS ============ -->
+<section class="view" id="view-notions">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">💡 Notions Clés & Essentielles</span>
+      <h2>L'essentiel, chapitre par chapitre</h2>
+      <p>Uniquement les concepts indispensables pour le Partiel. Une carte par chapitre : à relire la veille de l'examen.</p>
+    </div>
+    <div class="notion-grid">
+
+      <div class="ncard"><div class="nh"><span class="nn">CH 0</span><h3>Lois & AOP</h3></div>
+        <ul>
+          <li><b>Millman</b> calcule un potentiel instantanément ; <b>superposition</b> = une source à la fois (V→fil, I→trou).</li>
+          <li><b>Thévenin</b> (V<sub>Th</sub> à vide + R<sub>Th</sub> série) ↔ <b>Norton</b> (i<sub>N</sub> court-circuit + R<sub>N</sub> //), R<sub>N</sub>=R<sub>Th</sub>.</li>
+          <li>AOP idéal : i<sub>+</sub>=i<sub>−</sub>=0. Contre-réaction ⟹ V<sub>d</sub>=0 (linéaire), sinon ±V<sub>sat</sub>.</li>
+          <li>Suiveur = adaptation d'impédance (Z<sub>in</sub>=∞).</li>
+        </ul>
+      </div>
+
+      <div class="ncard"><div class="nh"><span class="nn">CH 1</span><h3>Conduction</h3></div>
+        <ul>
+          <li>Loi d'Ohm locale <b>j = γE</b>, γ = ne²τ/m ; R = ρℓ/S.</li>
+          <li>Mobilité μ = eτ/m ; vitesse de dérive v = −μE.</li>
+          <li><b>Conducteur</b> : T↗ ⟹ R↗ (ρ = ρ₀(1+αΔT)).</li>
+          <li>Condensateur : C = εS/d, i = C·du/dt. Usages : découplage, liaison, filtrage, anti-rebond.</li>
+        </ul>
+      </div>
+
+      <div class="ncard"><div class="nh"><span class="nn">CH 2</span><h3>Semi-conducteurs</h3></div>
+        <ul>
+          <li>Dopage <b>N</b> (P, groupe V) → e⁻ majoritaires ; <b>P</b> (bore, III) → trous majoritaires.</li>
+          <li>Loi d'action de masse <b>n·p = n<sub>i</sub>²</b>. N : n≈N<sub>D</sub> ; P : p≈N<sub>A</sub>.</li>
+          <li><b>SC</b> : T↗ ⟹ γ↗ (plus de porteurs). Relation d'Einstein D/μ = k<sub>B</sub>T/q ≈ 25 mV.</li>
+          <li>Jonction PN : ZCD + barrière V<sub>0</sub>. Directe=passante, inverse=bloquée. <b>Shockley</b>.</li>
+        </ul>
+      </div>
+
+      <div class="ncard"><div class="nh"><span class="nn">CH 3</span><h3>La diode</h3></div>
+        <ul>
+          <li>Seuil : <b>V<sub>S</sub>=0,7 V (Si)</b>, 0,3 V (Ge). Modèle parfait : V<sub>D</sub>=V<sub>S</sub> ; réel : +r·I<sub>D</sub>.</li>
+          <li>État par l'absurde ; point de fonctionnement = charge ∩ caractéristique.</li>
+          <li>Redressement : simple / <b>Graëtz</b> (double, −2V<sub>S</sub>). Écrêtage, roue libre (inductif).</li>
+          <li><b>Zener</b> = régulateur (V<sub>D</sub>=−V<sub>Z</sub>). Schottky (HF), LED, Varicap.</li>
+        </ul>
+      </div>
+
+      <div class="ncard"><div class="nh"><span class="nn">CH 4</span><h3>BJT statique</h3></div>
+        <ul>
+          <li><b>i<sub>C</sub>=β·i<sub>B</sub></b>, i<sub>E</sub>=i<sub>B</sub>+i<sub>C</sub>, α≈1, β≈100–200.</li>
+          <li>Bloqué V<sub>BE</sub>&lt;0,7 ; actif V<sub>BE</sub>=0,7 & V<sub>CB</sub>&gt;0 ; saturé V<sub>CE</sub>&lt;0,2 V.</li>
+          <li>Émetteur commun : droites d'attaque & de charge, point Q.</li>
+          <li>Polarisation par <b>pont/émetteur</b> = β-indépendante, stable (condition R<sub>1</sub>//R<sub>2</sub>&lt;0,01(β+1)R<sub>E</sub>).</li>
+        </ul>
+      </div>
+
+      <div class="ncard"><div class="nh"><span class="nn">CH 5</span><h3>BJT dynamique</h3></div>
+        <ul>
+          <li>3 condos : C<sub>1</sub>,C<sub>2</sub> liaison, <b>C<sub>3</sub> découplage</b> (booste le gain).</li>
+          <li>r<sub>E</sub> = 26 mV / I<sub>E</sub>. <b>A<sub>V</sub> ≈ −R<sub>C</sub>/r<sub>E</sub></b> (déphasage π).</li>
+          <li>Z<sub>in</sub>=R<sub>1</sub>//R<sub>2</sub>//(β+1)r<sub>E</sub> ; Z<sub>out</sub>=R<sub>C</sub>. dB : 20·log.</li>
+          <li>Classes A/B/AB/D ; Darlington β<sub>1</sub>β<sub>2</sub> ; miroir de courant ; paire diff → AOP.</li>
+        </ul>
+      </div>
+
+      <div class="ncard"><div class="nh"><span class="nn">CH 6</span><h3>Le FET</h3></div>
+        <ul>
+          <li>Commandé en <b>tension</b>, unipolaire, I<sub>G</sub>≈0 (Z<sub>in</sub> énorme), I<sub>D</sub>=I<sub>S</sub>.</li>
+          <li>JFET : <b>I<sub>D</sub>=I<sub>DSS</sub>(1−V<sub>GS</sub>/V<sub>GS,off</sub>)²</b> ; |V<sub>GS,off</sub>|=V<sub>P</sub>.</li>
+          <li>g<sub>m</sub>=dI<sub>D</sub>/dV<sub>GS</sub> ; source commune A<sub>V</sub>=−g<sub>m</sub>R<sub>D</sub> ; drain commun ≈1.</li>
+          <li>MOSFET : grille isolée (SiO₂), canal d'inversion, seuil V<sub>T</sub>, I<sub>D</sub>=½K<sub>n</sub>(W/L)(V<sub>GS</sub>−V<sub>T</sub>)².</li>
+        </ul>
+      </div>
+
+      <div class="ncard"><div class="nh"><span class="nn">CH 7</span><h3>Logique CMOS</h3></div>
+        <ul>
+          <li>nMOS tire vers <b>0</b>, pMOS vers <b>1</b> ; états opposés ⟹ conso statique ≈ 0.</li>
+          <li><b>PUN</b> (pMOS, entrées complémentées) + <b>PDN</b> (nMOS, non complémentées). De Morgan.</li>
+          <li>« + » = parallèle, « · » = série.</li>
+          <li>Délai τ=(R<sub>N</sub>+R<sub>P</sub>)C<sub>OUT</sub>/2 ; miniaturiser (L↘) = plus rapide. Layout → masque → wafer → die.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ============ FORMULES DÉTAILLÉES ============ -->
+<section class="view" id="view-formules">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">📘 Fiche Formules Détaillées</span>
+      <h2>Toutes les formules, expliquées</h2>
+      <p>Chaque formule avec la signification des variables, leurs unités et les conditions d'application. Filtrez par chapitre.</p>
+    </div>
+
+    <details class="refbox" open>
+      <summary>🔢 Constantes physiques & symboles — <b>à quoi correspond chaque grandeur</b></summary>
+      <div class="refbody">
+        <h4>Constantes fondamentales (non variables)</h4>
+        <div class="tbl-wrap"><table>
+          <tr><th>Symbole</th><th>Nom</th><th class="mono">Valeur</th><th>Unité</th></tr>
+          <tr><td class="mono">e</td><td>Charge élémentaire</td><td class="mono">1,6·10⁻¹⁹</td><td>C (coulomb)</td></tr>
+          <tr><td class="mono">k<sub>B</sub></td><td>Constante de Boltzmann</td><td class="mono">1,38·10⁻²³</td><td>J·K⁻¹</td></tr>
+          <tr><td class="mono">m<sub>e</sub></td><td>Masse de l'électron</td><td class="mono">9,1·10⁻³¹</td><td>kg</td></tr>
+          <tr><td class="mono">ε<sub>0</sub></td><td>Permittivité du vide</td><td class="mono">8,85·10⁻¹²</td><td>F·m⁻¹</td></tr>
+          <tr><td class="mono">k<sub>B</sub>T/e</td><td>Tension thermique V<sub>T</sub> (à 300 K)</td><td class="mono">≈ 26 mV</td><td>V</td></tr>
+          <tr><td class="mono">τ</td><td>Temps entre collisions (Si)</td><td class="mono">≈ 3·10⁻¹⁴</td><td>s</td></tr>
+          <tr><td class="mono">0 °C</td><td>Conversion Celsius → Kelvin</td><td class="mono">273,15 K</td><td>T(K)=θ(°C)+273,15</td></tr>
+          <tr><td class="mono">V<sub>S</sub></td><td>Tension de seuil diode (Si / Ge)</td><td class="mono">0,7 / 0,3</td><td>V</td></tr>
+        </table></div>
+
+        <h4>Grandeurs générales</h4>
+        <div class="tbl-wrap"><table>
+          <tr><th>Symbole</th><th>Signification</th><th>Unité</th></tr>
+          <tr><td class="mono">u, V</td><td>Tension / potentiel</td><td>V (volt)</td></tr>
+          <tr><td class="mono">i, I</td><td>Courant (minuscule = AC, majuscule = DC)</td><td>A (ampère)</td></tr>
+          <tr><td class="mono">R</td><td>Résistance</td><td>Ω (ohm)</td></tr>
+          <tr><td class="mono">Z</td><td>Impédance</td><td>Ω</td></tr>
+          <tr><td class="mono">P</td><td>Puissance</td><td>W (watt)</td></tr>
+          <tr><td class="mono">q</td><td>Charge électrique</td><td>C</td></tr>
+          <tr><td class="mono">f, ω</td><td>Fréquence, pulsation (ω = 2πf)</td><td>Hz, rad·s⁻¹</td></tr>
+          <tr><td class="mono">T, t</td><td>Température, temps</td><td>K, s</td></tr>
+        </table></div>
+
+        <h4>Conduction & composants (ch. 1)</h4>
+        <div class="tbl-wrap"><table>
+          <tr><th>Symbole</th><th>Signification</th><th>Unité</th></tr>
+          <tr><td class="mono">E</td><td>Champ électrique</td><td>V·m⁻¹</td></tr>
+          <tr><td class="mono">j</td><td>Vecteur densité de courant</td><td>A·m⁻²</td></tr>
+          <tr><td class="mono">γ (σ)</td><td>Conductivité</td><td>S·m⁻¹</td></tr>
+          <tr><td class="mono">ρ</td><td>Résistivité (= 1/γ)</td><td>Ω·m</td></tr>
+          <tr><td class="mono">ρ<sub>m</sub></td><td>Densité volumique de charge</td><td>C·m⁻³</td></tr>
+          <tr><td class="mono">μ</td><td>Mobilité des porteurs</td><td>m²·V⁻¹·s⁻¹</td></tr>
+          <tr><td class="mono">v</td><td>Vitesse de dérive</td><td>m·s⁻¹</td></tr>
+          <tr><td class="mono">n</td><td>Densité de porteurs (par volume)</td><td>m⁻³ (ou cm⁻³)</td></tr>
+          <tr><td class="mono">ℓ, S</td><td>Longueur, section du conducteur</td><td>m, m²</td></tr>
+          <tr><td class="mono">α</td><td>Coefficient thermique (Matthiessen)</td><td>K⁻¹</td></tr>
+          <tr><td class="mono">C</td><td>Capacité</td><td>F (farad)</td></tr>
+          <tr><td class="mono">ε, ε<sub>r</sub></td><td>Permittivité (ε=ε₀ε<sub>r</sub>), rel.</td><td>F·m⁻¹, —</td></tr>
+          <tr><td class="mono">d</td><td>Distance entre armatures</td><td>m</td></tr>
+        </table></div>
+
+        <h4>Semi-conducteurs (ch. 2)</h4>
+        <div class="tbl-wrap"><table>
+          <tr><th>Symbole</th><th>Signification</th><th>Unité</th></tr>
+          <tr><td class="mono">E<sub>g</sub></td><td>Énergie du gap (bande interdite)</td><td>eV ou J</td></tr>
+          <tr><td class="mono">n, p</td><td>Densité d'électrons / de trous</td><td>cm⁻³</td></tr>
+          <tr><td class="mono">n<sub>i</sub></td><td>Concentration intrinsèque</td><td>cm⁻³</td></tr>
+          <tr><td class="mono">N<sub>D</sub>, N<sub>A</sub></td><td>Dopage donneurs / accepteurs</td><td>cm⁻³</td></tr>
+          <tr><td class="mono">μ<sub>n</sub>, μ<sub>p</sub></td><td>Mobilité électrons / trous</td><td>cm²·V⁻¹·s⁻¹</td></tr>
+          <tr><td class="mono">D, D<sub>n</sub>, D<sub>p</sub></td><td>Coefficient de diffusion</td><td>cm²·s⁻¹</td></tr>
+          <tr><td class="mono">V<sub>0</sub></td><td>Barrière de potentiel (jonction PN)</td><td>V</td></tr>
+          <tr><td class="mono">I<sub>S</sub></td><td>Courant inverse de saturation</td><td>A</td></tr>
+          <tr><td class="mono">η</td><td>Facteur d'idéalité (Shockley, 1–2)</td><td>—</td></tr>
+        </table></div>
+
+        <h4>Diode (ch. 3)</h4>
+        <div class="tbl-wrap"><table>
+          <tr><th>Symbole</th><th>Signification</th><th>Unité</th></tr>
+          <tr><td class="mono">V<sub>D</sub>, I<sub>D</sub></td><td>Tension / courant de la diode</td><td>V, A</td></tr>
+          <tr><td class="mono">r</td><td>Résistance dynamique (modèle réel)</td><td>Ω</td></tr>
+          <tr><td class="mono">V<sub>Z</sub>, r<sub>Z</sub></td><td>Tension Zener, résistance Zener</td><td>V, Ω</td></tr>
+          <tr><td class="mono">V<sub>BR</sub></td><td>Tension de claquage (breakdown)</td><td>V</td></tr>
+          <tr><td class="mono">N<sub>1</sub>, N<sub>2</sub></td><td>Spires primaire / secondaire</td><td>—</td></tr>
+        </table></div>
+
+        <h4>Transistor bipolaire — BJT (ch. 4-5)</h4>
+        <div class="tbl-wrap"><table>
+          <tr><th>Symbole</th><th>Signification</th><th>Unité</th></tr>
+          <tr><td class="mono">i<sub>B</sub>, i<sub>C</sub>, i<sub>E</sub></td><td>Courants base / collecteur / émetteur</td><td>A</td></tr>
+          <tr><td class="mono">V<sub>BE</sub>, V<sub>CE</sub>, V<sub>CB</sub></td><td>Tensions entre bornes</td><td>V</td></tr>
+          <tr><td class="mono">β (h<sub>FE</sub>)</td><td>Gain en courant (i<sub>C</sub>/i<sub>B</sub>)</td><td>—</td></tr>
+          <tr><td class="mono">α, γ</td><td>i<sub>C</sub>/i<sub>E</sub> (≈1), β+1</td><td>—</td></tr>
+          <tr><td class="mono">V<sub>CC</sub>, V<sub>BB</sub></td><td>Tensions d'alimentation</td><td>V</td></tr>
+          <tr><td class="mono">R<sub>B</sub>, R<sub>C</sub>, R<sub>E</sub></td><td>Résistances base/collecteur/émetteur</td><td>Ω</td></tr>
+          <tr><td class="mono">V<sub>A</sub></td><td>Tension d'Early</td><td>V</td></tr>
+          <tr><td class="mono">r<sub>E</sub></td><td>Résistance dynamique d'émetteur</td><td>Ω</td></tr>
+          <tr><td class="mono">A<sub>V</sub>, A<sub>i</sub>, A<sub>P</sub></td><td>Gains tension / courant / puissance</td><td>— (ou dB)</td></tr>
+          <tr><td class="mono">Z<sub>in</sub>, Z<sub>out</sub></td><td>Impédances d'entrée / de sortie</td><td>Ω</td></tr>
+          <tr><td class="mono">g<sub>m</sub></td><td>Transconductance (Giacoletto)</td><td>S (siemens)</td></tr>
+          <tr><td class="mono">β<sub>D</sub></td><td>Gain Darlington (≈β₁β₂)</td><td>—</td></tr>
+          <tr><td class="mono">θ, η</td><td>Angle de conduction, rendement</td><td>°, %</td></tr>
+        </table></div>
+
+        <h4>Transistor à effet de champ — FET (ch. 6)</h4>
+        <div class="tbl-wrap"><table>
+          <tr><th>Symbole</th><th>Signification</th><th>Unité</th></tr>
+          <tr><td class="mono">V<sub>GS</sub>, V<sub>DS</sub></td><td>Tensions grille-source / drain-source</td><td>V</td></tr>
+          <tr><td class="mono">I<sub>D</sub>, I<sub>S</sub>, I<sub>G</sub></td><td>Courants drain / source / grille (I<sub>G</sub>≈0)</td><td>A</td></tr>
+          <tr><td class="mono">I<sub>DSS</sub></td><td>Courant drain max (V<sub>GS</sub>=0)</td><td>A</td></tr>
+          <tr><td class="mono">V<sub>P</sub></td><td>Tension de pincement</td><td>V</td></tr>
+          <tr><td class="mono">V<sub>GS,off</sub></td><td>Tension de blocage (|V<sub>GS,off</sub>|=V<sub>P</sub>)</td><td>V</td></tr>
+          <tr><td class="mono">V<sub>T</sub></td><td>Tension de seuil (MOSFET)</td><td>V</td></tr>
+          <tr><td class="mono">g<sub>m</sub></td><td>Transconductance (dI<sub>D</sub>/dV<sub>GS</sub>)</td><td>S</td></tr>
+          <tr><td class="mono">R<sub>DS</sub></td><td>Résistance ohmique du canal</td><td>Ω</td></tr>
+          <tr><td class="mono">K<sub>n</sub></td><td>Facteur de gain (μ<sub>n</sub>C<sub>ox</sub>)</td><td>A·V⁻²</td></tr>
+          <tr><td class="mono">W, L</td><td>Largeur, longueur du canal</td><td>m (µm)</td></tr>
+          <tr><td class="mono">R<sub>G</sub>, R<sub>D</sub>, R<sub>S</sub></td><td>Résistances grille/drain/source</td><td>Ω</td></tr>
+        </table></div>
+
+        <h4>Logique CMOS & circuits intégrés (ch. 7)</h4>
+        <div class="tbl-wrap"><table>
+          <tr><th>Symbole</th><th>Signification</th><th>Unité</th></tr>
+          <tr><td class="mono">V<sub>DD</sub>, GND</td><td>Alimentation, masse</td><td>V</td></tr>
+          <tr><td class="mono">R<sub>□</sub></td><td>Résistance carrée unitaire</td><td>Ω</td></tr>
+          <tr><td class="mono">C<sub>□</sub></td><td>Capacité carrée unitaire</td><td>pF·λ⁻² (ou F·m⁻²)</td></tr>
+          <tr><td class="mono">C<sub>OUT</sub></td><td>Capacité de sortie (parasite)</td><td>F (pF)</td></tr>
+          <tr><td class="mono">R<sub>N</sub>, R<sub>P</sub></td><td>Résistances réseaux N / P</td><td>Ω</td></tr>
+          <tr><td class="mono">τ</td><td>Délai / temps de propagation</td><td>s (ns)</td></tr>
+          <tr><td class="mono">ℓ, w</td><td>Longueur, largeur d'un rail métal</td><td>m (µm)</td></tr>
+          <tr><td class="mono">λ, S</td><td>Paramètre de tracé, facteur d'échelle</td><td>µm, —</td></tr>
+        </table></div>
+      </div>
+    </details>
+
+    <div class="filterbar" id="fFilter">
+      <button class="fchip active" data-f="all">Tout</button>
+      <button class="fchip" data-f="g0">Ch.0</button>
+      <button class="fchip" data-f="g1">Ch.1</button>
+      <button class="fchip" data-f="g2">Ch.2</button>
+      <button class="fchip" data-f="g3">Ch.3</button>
+      <button class="fchip" data-f="g4">Ch.4</button>
+      <button class="fchip" data-f="g5">Ch.5</button>
+      <button class="fchip" data-f="g6">Ch.6</button>
+      <button class="fchip" data-f="g7">Ch.7</button>
+    </div>
+
+    <div class="fgroup" data-fg="g0"><h3>Chapitre 0 — Lois & AOP <span>Révisions ING1</span></h3>
+      <div class="frow"><div class="fx">i = (V<sub>A</sub> − V<sub>B</sub>) / R</div><div class="fd"><span class="nm">Loi d'Ohm en potentiels.</span> <b>i</b> courant <span class="unit">A</span>, <b>V</b> potentiels <span class="unit">V</span>, <b>R</b> résistance <span class="unit">Ω</span>. <span class="cond">indépendant du sens choisi</span></div></div>
+      <div class="frow"><div class="fx">V<sub>2</sub> = R<sub>2</sub>/(R<sub>1</sub>+R<sub>2</sub>) · V<sub>s</sub></div><div class="fd"><span class="nm">Diviseur de tension.</span> <b>V<sub>2</sub></b> tension aux bornes de R<sub>2</sub>. <span class="cond">R en série, courant nul dans la branche voisine</span></div></div>
+      <div class="frow"><div class="fx">i<sub>2</sub> = R<sub>1</sub>/(R<sub>1</sub>+R<sub>2</sub>) · i<sub>0</sub></div><div class="fd"><span class="nm">Diviseur de courant.</span> <span class="cond">R en parallèle</span></div></div>
+      <div class="frow"><div class="fx">V<sub>A</sub> = (Σ V<sub>k</sub>/R<sub>k</sub> + Σ i<sub>k</sub>) / (Σ 1/R<sub>k</sub>)</div><div class="fd"><span class="nm">Théorème de Millman.</span> Potentiel en un nœud. <b>V<sub>k</sub></b>, <b>i<sub>k</sub></b> sources reliées au nœud.</div></div>
+      <div class="frow"><div class="fx">R<sub>N</sub> = R<sub>Th</sub> ; V<sub>Th</sub> = R<sub>N</sub>·i<sub>N</sub></div><div class="fd"><span class="nm">Équivalence Thévenin ↔ Norton.</span> <b>V<sub>Th</sub></b> tension à vide, <b>i<sub>N</sub></b> courant de court-circuit.</div></div>
+      <div class="frow"><div class="fx">V<sub>out</sub> = −(R<sub>f</sub>/R<sub>1</sub>)·V<sub>in</sub></div><div class="fd"><span class="nm">AOP inverseur.</span> Non-inverseur : V<sub>out</sub>=(1+R<sub>f</sub>/R<sub>1</sub>)V<sub>in</sub>. <span class="cond">régime linéaire (contre-réaction sur −)</span></div></div>
+    </div>
+
+    <div class="fgroup" data-fg="g1"><h3>Chapitre 1 — Conduction & passifs <span>Conducteurs</span></h3>
+      <div class="frow"><div class="fx">v = −μ·E ; μ = eτ/m</div><div class="fd"><span class="nm">Vitesse de dérive & mobilité.</span> <b>μ</b> <span class="unit">m²·V⁻¹·s⁻¹</span>, <b>τ</b> temps entre collisions ≈ 3·10⁻¹⁴ s, <b>E</b> champ <span class="unit">V/m</span>.</div></div>
+      <div class="frow"><div class="fx">j = γ·E ; γ = ne²τ/m</div><div class="fd"><span class="nm">Loi d'Ohm locale.</span> <b>j</b> densité de courant <span class="unit">A/m²</span>, <b>γ</b> conductivité <span class="unit">S/m</span>, <b>n</b> porteurs/m³.</div></div>
+      <div class="frow"><div class="fx">R = ρ·ℓ / S ; ρ = 1/γ</div><div class="fd"><span class="nm">Résistance géométrique.</span> <b>ρ</b> résistivité <span class="unit">Ω·m</span>, <b>ℓ</b> longueur <span class="unit">m</span>, <b>S</b> section <span class="unit">m²</span>.</div></div>
+      <div class="frow"><div class="fx">ρ<sub>T</sub> = ρ<sub>0</sub>(1 + α(T − T<sub>0</sub>))</div><div class="fd"><span class="nm">Loi de Matthiessen.</span> <b>α</b> coefficient thermique. <span class="cond">conducteur : R↗ avec T</span></div></div>
+      <div class="frow"><div class="fx">C = ε·S/d = q/u ; i = C·du/dt</div><div class="fd"><span class="nm">Condensateur.</span> <b>C</b> <span class="unit">F</span>, <b>ε</b>=ε<sub>0</sub>ε<sub>r</sub>, ε<sub>0</sub>=8,85·10⁻¹² F/m, <b>d</b> distance armatures.</div></div>
+      <div class="frow"><div class="fx">f<sub>c</sub> = 1 / (2πRC)</div><div class="fd"><span class="nm">Fréquence de coupure</span> (découplage, filtre RC). <span class="unit">Hz</span></div></div>
+    </div>
+
+    <div class="fgroup" data-fg="g2"><h3>Chapitre 2 — Semi-conducteurs <span>Jonction PN</span></h3>
+      <div class="frow"><div class="fx">E<sub>th</sub> = (3/2)·k<sub>B</sub>·T</div><div class="fd"><span class="nm">Équipartition (3 ddl translation).</span> <b>k<sub>B</sub></b>=1,38·10⁻²³ J/K, <b>T</b> en K.</div></div>
+      <div class="frow"><div class="fx">n·p = n<sub>i</sub>²</div><div class="fd"><span class="nm">Loi d'action de masse.</span> <b>n</b>,<b>p</b> densités électrons/trous <span class="unit">cm⁻³</span>. <span class="cond">équilibre thermodynamique</span></div></div>
+      <div class="frow"><div class="fx">n ≈ N<sub>D</sub>, p = n<sub>i</sub>²/N<sub>D</sub> &nbsp;(type N)</div><div class="fd"><span class="nm">Dopage N.</span> P : p≈N<sub>A</sub>, n=n<sub>i</sub>²/N<sub>A</sub>. <span class="cond">N<sub>D</sub> (ou N<sub>A</sub>) ≫ porteurs intrinsèques</span></div></div>
+      <div class="frow"><div class="fx">n<sub>i</sub> = A·T<sup>3/2</sup>·e<sup>−E_g/2k_B·T</sup></div><div class="fd"><span class="nm">Concentration intrinsèque.</span> croît avec T. <b>E<sub>g</sub></b> gap <span class="unit">eV/J</span>.</div></div>
+      <div class="frow"><div class="fx">γ<sub>sc</sub> = e(n·μ<sub>n</sub> + p·μ<sub>p</sub>)</div><div class="fd"><span class="nm">Conductivité du SC.</span> conduction e⁻ ET trous. μ<sub>n</sub> &gt; μ<sub>p</sub>.</div></div>
+      <div class="frow"><div class="fx">D/μ = k<sub>B</sub>T/q ≈ 25 mV</div><div class="fd"><span class="nm">Relation d'Einstein.</span> <b>D</b> coef. de diffusion <span class="unit">cm²/s</span>. <span class="cond">petits champs, à 20 °C</span></div></div>
+      <div class="frow"><div class="fx">V<sub>0</sub> = (k<sub>B</sub>T/e)·ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²)</div><div class="fd"><span class="nm">Barrière de potentiel.</span> ≈ 0,76 V typique. N<sub>A</sub>N<sub>D</sub>↗ ⟹ V<sub>0</sub>↗ ; T↗ ⟹ V<sub>0</sub>↘.</div></div>
+      <div class="frow"><div class="fx">I<sub>D</sub> = I<sub>S</sub>(e<sup>eU_D/η·k_B·T</sup> − 1)</div><div class="fd"><span class="nm">Relation de Shockley.</span> <b>I<sub>S</sub></b> courant inverse de saturation, <b>η</b> ∈ [1,2].</div></div>
+    </div>
+
+    <div class="fgroup" data-fg="g3"><h3>Chapitre 3 — La diode <span>Modèles & applications</span></h3>
+      <div class="frow"><div class="fx">V<sub>S</sub> = 0,7 V (Si) / 0,3 V (Ge)</div><div class="fd"><span class="nm">Tension de seuil.</span> selon le matériau.</div></div>
+      <div class="frow"><div class="fx">V<sub>D</sub> = V<sub>S</sub> + r·I<sub>D</sub></div><div class="fd"><span class="nm">Modèle réel (passante).</span> <b>r</b> résistance dynamique. Parfait : V<sub>D</sub>=V<sub>S</sub> ; idéal : V<sub>D</sub>=0.</div></div>
+      <div class="frow"><div class="fx">I<sub>D</sub> = (E − V<sub>S</sub>) / (R + r)</div><div class="fd"><span class="nm">Point de fonctionnement</span> (maille série). <span class="cond">diode passante</span></div></div>
+      <div class="frow"><div class="fx">V<sub>out</sub> = V<sub>in</sub> − V<sub>S</sub></div><div class="fd"><span class="nm">Redressement simple alternance.</span> Graëtz (double) : chute de 2·V<sub>S</sub>.</div></div>
+      <div class="frow"><div class="fx">R<sub>L,min</sub> = V<sub>Z</sub>·R / (V<sub>i</sub> − V<sub>Z</sub>)</div><div class="fd"><span class="nm">Régulateur Zener, charge variable.</span> V<sub>D</sub>=−V<sub>Z</sub> en inverse. <span class="cond">I<sub>Z</sub> ≤ I<sub>Z,max</sub></span></div></div>
+      <div class="frow"><div class="fx">N<sub>1</sub>/N<sub>2</sub> = V<sub>in</sub>/V<sub>2</sub> = i<sub>2</sub>/i<sub>1</sub></div><div class="fd"><span class="nm">Transformateur.</span> <b>N</b> nombre de spires (primaire/secondaire).</div></div>
+    </div>
+
+    <div class="fgroup" data-fg="g4"><h3>Chapitre 4 — BJT statique <span>Polarisation</span></h3>
+      <div class="frow"><div class="fx">i<sub>C</sub> = β·i<sub>B</sub> ; i<sub>E</sub> = i<sub>B</sub> + i<sub>C</sub></div><div class="fd"><span class="nm">Effet transistor.</span> <b>β</b>=h<sub>FE</sub> ≈ 100–200, α=I<sub>C</sub>/I<sub>E</sub>≈1, γ=β+1.</div></div>
+      <div class="frow"><div class="fx">i<sub>B</sub> = (V<sub>BB</sub> − V<sub>BE</sub>) / R<sub>B</sub></div><div class="fd"><span class="nm">Droite d'attaque</span> (émetteur commun). V<sub>BE</sub>=0,7 V (Si).</div></div>
+      <div class="frow"><div class="fx">V<sub>CE</sub> = V<sub>CC</sub> − R<sub>C</sub>·i<sub>C</sub></div><div class="fd"><span class="nm">Droite de charge.</span> i<sub>C,sat</sub> = V<sub>CC</sub>/R<sub>C</sub> (à V<sub>CE</sub>≈0).</div></div>
+      <div class="frow"><div class="fx">V<sub>Th</sub> = V<sub>CC</sub>·R<sub>2</sub>/(R<sub>1</sub>+R<sub>2</sub>)</div><div class="fd"><span class="nm">Pont diviseur.</span> R<sub>Th</sub>=R<sub>1</sub>//R<sub>2</sub>. <span class="cond">R<sub>1</sub>//R<sub>2</sub> &lt; 0,01(β+1)R<sub>E</sub></span></div></div>
+      <div class="frow"><div class="fx">i<sub>E</sub> = V<sub>E</sub>/R<sub>E</sub> ; V<sub>E</sub> = V<sub>BB</sub> − V<sub>BE</sub></div><div class="fd"><span class="nm">Polarisation par l'émetteur.</span> β-indépendant, i<sub>C</sub>≈i<sub>E</sub>.</div></div>
+      <div class="frow"><div class="fx">R<sub>B</sub> = (V − V<sub>BE,sat</sub>) / i<sub>B,sat</sub></div><div class="fd"><span class="nm">Commutation (saturation).</span> R<sub>C</sub>=(V<sub>CC</sub>−V<sub>CE,sat</sub>)/i<sub>C,sat</sub>. <span class="cond">β·i<sub>B</sub> &gt; i<sub>C,sat</sub></span></div></div>
+    </div>
+
+    <div class="fgroup" data-fg="g5"><h3>Chapitre 5 — BJT dynamique <span>Amplification</span></h3>
+      <div class="frow"><div class="fx">r<sub>E</sub> = 26 mV / I<sub>E</sub></div><div class="fd"><span class="nm">Résistance dynamique d'émetteur.</span> <b>I<sub>E</sub></b> courant DC. <span class="cond">à T = 300 K</span></div></div>
+      <div class="frow"><div class="fx">A<sub>V</sub> ≈ −R<sub>C</sub> / r<sub>E</sub></div><div class="fd"><span class="nm">Gain en tension</span> (émetteur commun, C<sub>3</sub> présent). déphasage π. Sans C<sub>3</sub> : −R<sub>C</sub>/(R<sub>E</sub>+r<sub>E</sub>).</div></div>
+      <div class="frow"><div class="fx">Z<sub>in</sub> = R<sub>1</sub>//R<sub>2</sub>//(β+1)r<sub>E</sub></div><div class="fd"><span class="nm">Impédance d'entrée.</span> Z<sub>out</sub> = R<sub>C</sub>.</div></div>
+      <div class="frow"><div class="fx">A<sub>P</sub> = A<sub>V</sub>·A<sub>i</sub></div><div class="fd"><span class="nm">Gain en puissance.</span> dB : A<sub>V,dB</sub>=20·log(A<sub>V</sub>), A<sub>P,dB</sub>=10·log(A<sub>P</sub>).</div></div>
+      <div class="frow"><div class="fx">v<sub>out</sub> = A<sub>V</sub>·v<sub>in</sub>·R<sub>L</sub>/(Z<sub>out</sub>+R<sub>L</sub>)</div><div class="fd"><span class="nm">Sortie chargée</span> (diviseur). Adaptation : Z<sub>o,1</sub>=Z<sub>i,2</sub>.</div></div>
+      <div class="frow"><div class="fx">β<sub>D</sub> ≈ β<sub>1</sub>·β<sub>2</sub></div><div class="fd"><span class="nm">Paire Darlington.</span> g<sub>m</sub>=I<sub>C</sub>/V<sub>T</sub>, r<sub>π</sub>=β/g<sub>m</sub> (Giacoletto).</div></div>
+    </div>
+
+    <div class="fgroup" data-fg="g6"><h3>Chapitre 6 — Le FET <span>JFET & MOSFET</span></h3>
+      <div class="frow"><div class="fx">I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>GS,off</sub>)²</div><div class="fd"><span class="nm">JFET, transfert quadratique.</span> <b>I<sub>DSS</sub></b> courant max (V<sub>GS</sub>=0). <span class="cond">zone active, V<sub>DS</sub>&gt;V<sub>P</sub></span></div></div>
+      <div class="frow"><div class="fx">R<sub>DS</sub> = V<sub>P</sub> / I<sub>DSS</sub></div><div class="fd"><span class="nm">Résistance ohmique</span> du JFET. |V<sub>GS,off</sub>| = V<sub>P</sub>.</div></div>
+      <div class="frow"><div class="fx">g<sub>m</sub> = dI<sub>D</sub>/dV<sub>GS</sub> = (2I<sub>DSS</sub>/|V<sub>P</sub>|)(1−V<sub>GS</sub>/V<sub>P</sub>)</div><div class="fd"><span class="nm">Transconductance.</span> <span class="unit">S (Siemens)</span>. ΔI<sub>D</sub>=g<sub>m</sub>·ΔV<sub>GS</sub>.</div></div>
+      <div class="frow"><div class="fx">A<sub>V</sub> = −g<sub>m</sub>·R<sub>D</sub></div><div class="fd"><span class="nm">Ampli source commune.</span> Drain commun (suiveur) : A<sub>V</sub>≈1, Z<sub>in</sub>=R<sub>G</sub>≈MΩ.</div></div>
+      <div class="frow"><div class="fx">I<sub>D</sub> = ½·K<sub>n</sub>·(W/L)·(V<sub>GS</sub>−V<sub>T</sub>)²</div><div class="fd"><span class="nm">MOSFET, région active.</span> <b>V<sub>T</sub></b> tension de seuil, <b>W/L</b> géométrie. <span class="cond">V<sub>GS</sub>&gt;V<sub>T</sub> et V<sub>DS</sub>&gt;V<sub>GS</sub>−V<sub>T</sub></span></div></div>
+      <div class="frow"><div class="fx">g<sub>m</sub> = K<sub>n</sub>(W/L)(V<sub>GS</sub>−V<sub>T</sub>) = 2I<sub>D</sub>/(V<sub>GS</sub>−V<sub>T</sub>)</div><div class="fd"><span class="nm">Transconductance MOSFET.</span> K<sub>n</sub>=μ<sub>n</sub>C<sub>ox</sub> facteur de gain.</div></div>
+    </div>
+
+    <div class="fgroup" data-fg="g7"><h3>Chapitre 7 — Logique CMOS <span>Performance</span></h3>
+      <div class="frow"><div class="fx"><span style="text-decoration:overline">A+B</span>=Ā·B̄ ; <span style="text-decoration:overline">A·B</span>=Ā+B̄</div><div class="fd"><span class="nm">De Morgan.</span> « + » → parallèle, « · » → série.</div></div>
+      <div class="frow"><div class="fx">V<sub>out</sub> = R<sub>DS</sub>·V<sub>DD</sub>/(R<sub>DS</sub>+R<sub>D</sub>) ≈ 0</div><div class="fd"><span class="nm">Commutation nMOS.</span> <span class="cond">R<sub>D</sub> ≫ R<sub>DS</sub>, V<sub>in</sub>&gt;V<sub>T</sub></span></div></div>
+      <div class="frow"><div class="fx">R = R<sub>□</sub>·ℓ/w</div><div class="fd"><span class="nm">Résistance d'un rail.</span> <b>R<sub>□</sub></b> résistance carrée <span class="unit">Ω</span>, coude = R<sub>□</sub>/2.</div></div>
+      <div class="frow"><div class="fx">C<sub>OUT</sub> = Σ C<sub>□</sub>·(ℓ·w)</div><div class="fd"><span class="nm">Capacité de sortie.</span> somme sur tous les matériaux reliés à la sortie.</div></div>
+      <div class="frow"><div class="fx">τ = (R<sub>N</sub> + R<sub>P</sub>)·C<sub>OUT</sub> / 2</div><div class="fd"><span class="nm">Délai d'une porte.</span> moyenne des deux réseaux. n en série : τ≈(n²/2)RC.</div></div>
+      <div class="frow"><div class="fx">I<sub>DS</sub> ∝ W/L</div><div class="fd"><span class="nm">Miniaturisation.</span> L↘ ⟹ I<sub>DS</sub>↗ ⟹ commutation plus rapide. Taille /S : τ/S², f·S².</div></div>
+    </div>
+  </div>
+</section>
+<!-- ============ FORMULES EXPRESS ============ -->
+<section class="view" id="view-express">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">⚡ Fiche Formules Express</span>
+      <h2>Aide-mémoire brut</h2>
+      <p>Les formules seules, sans explication — pour une vérification rapide ou une révision de dernière minute.</p>
+    </div>
+    <div class="express">
+      <div class="eg"><h4>Ch.0 · Lois</h4>
+        <div class="ei"><span class="nm">Ohm</span><span class="vl">i = (V<sub>A</sub>−V<sub>B</sub>)/R</span></div>
+        <div class="ei"><span class="nm">Div. tension</span><span class="vl">V<sub>2</sub>=R<sub>2</sub>/(R<sub>1</sub>+R<sub>2</sub>)·V<sub>s</sub></span></div>
+        <div class="ei"><span class="nm">Div. courant</span><span class="vl">i<sub>2</sub>=R<sub>1</sub>/(R<sub>1</sub>+R<sub>2</sub>)·i<sub>0</sub></span></div>
+        <div class="ei"><span class="nm">Millman</span><span class="vl">V=ΣV<sub>k</sub>/R<sub>k</sub>+Σi<sub>k</sub> / Σ1/R<sub>k</sub></span></div>
+        <div class="ei"><span class="nm">Th↔No</span><span class="vl">V<sub>Th</sub>=R<sub>N</sub>i<sub>N</sub>, R<sub>N</sub>=R<sub>Th</sub></span></div>
+        <div class="ei"><span class="nm">AOP inv.</span><span class="vl">−R<sub>f</sub>/R<sub>1</sub>·V<sub>in</sub></span></div>
+        <div class="ei"><span class="nm">AOP non-inv</span><span class="vl">(1+R<sub>f</sub>/R<sub>1</sub>)V<sub>in</sub></span></div>
+      </div>
+      <div class="eg"><h4>Ch.1 · Conduction</h4>
+        <div class="ei"><span class="nm">Dérive</span><span class="vl">v=−μE</span></div>
+        <div class="ei"><span class="nm">Mobilité</span><span class="vl">μ=eτ/m</span></div>
+        <div class="ei"><span class="nm">Ohm local</span><span class="vl">j=γE, γ=ne²τ/m</span></div>
+        <div class="ei"><span class="nm">Résistance</span><span class="vl">R=ρℓ/S</span></div>
+        <div class="ei"><span class="nm">Matthiessen</span><span class="vl">ρ=ρ<sub>0</sub>(1+αΔT)</span></div>
+        <div class="ei"><span class="nm">Condo</span><span class="vl">C=εS/d, i=C·du/dt</span></div>
+        <div class="ei"><span class="nm">Coupure</span><span class="vl">f<sub>c</sub>=1/2πRC</span></div>
+      </div>
+      <div class="eg"><h4>Ch.2 · SC & PN</h4>
+        <div class="ei"><span class="nm">Équipart.</span><span class="vl">E<sub>th</sub>=3/2·k<sub>B</sub>T</span></div>
+        <div class="ei"><span class="nm">Action masse</span><span class="vl">np=n<sub>i</sub>²</span></div>
+        <div class="ei"><span class="nm">Type N</span><span class="vl">n≈N<sub>D</sub>, p=n<sub>i</sub>²/N<sub>D</sub></span></div>
+        <div class="ei"><span class="nm">Intrinsèque</span><span class="vl">n<sub>i</sub>=A·T<sup>3/2</sup>e<sup>−E_g/2k_BT</sup></span></div>
+        <div class="ei"><span class="nm">Conduct.</span><span class="vl">γ<sub>sc</sub>=e(nμ<sub>n</sub>+pμ<sub>p</sub>)</span></div>
+        <div class="ei"><span class="nm">Einstein</span><span class="vl">D/μ=k<sub>B</sub>T/q≈25mV</span></div>
+        <div class="ei"><span class="nm">Barrière</span><span class="vl">V<sub>0</sub>=k<sub>B</sub>T/e·ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²)</span></div>
+        <div class="ei"><span class="nm">Shockley</span><span class="vl">I<sub>D</sub>=I<sub>S</sub>(e<sup>eU/ηk_BT</sup>−1)</span></div>
+      </div>
+      <div class="eg"><h4>Ch.3 · Diode</h4>
+        <div class="ei"><span class="nm">Seuil Si/Ge</span><span class="vl">0,7 / 0,3 V</span></div>
+        <div class="ei"><span class="nm">Modèle réel</span><span class="vl">V<sub>D</sub>=V<sub>S</sub>+rI<sub>D</sub></span></div>
+        <div class="ei"><span class="nm">Point fct</span><span class="vl">I<sub>D</sub>=(E−V<sub>S</sub>)/(R+r)</span></div>
+        <div class="ei"><span class="nm">Redress. 1</span><span class="vl">V<sub>out</sub>=V<sub>in</sub>−V<sub>S</sub></span></div>
+        <div class="ei"><span class="nm">Graëtz</span><span class="vl">V<sub>out</sub>=V<sub>in</sub>−2V<sub>S</sub></span></div>
+        <div class="ei"><span class="nm">Zener R<sub>Lmin</sub></span><span class="vl">V<sub>Z</sub>R/(V<sub>i</sub>−V<sub>Z</sub>)</span></div>
+        <div class="ei"><span class="nm">Transfo</span><span class="vl">N<sub>1</sub>/N<sub>2</sub>=V<sub>in</sub>/V<sub>2</sub>=i<sub>2</sub>/i<sub>1</sub></span></div>
+      </div>
+      <div class="eg"><h4>Ch.4 · BJT statique</h4>
+        <div class="ei"><span class="nm">Gains</span><span class="vl">i<sub>C</sub>=βi<sub>B</sub>, i<sub>E</sub>=i<sub>B</sub>+i<sub>C</sub>, α≈1</span></div>
+        <div class="ei"><span class="nm">Attaque</span><span class="vl">i<sub>B</sub>=(V<sub>BB</sub>−V<sub>BE</sub>)/R<sub>B</sub></span></div>
+        <div class="ei"><span class="nm">Charge</span><span class="vl">V<sub>CE</sub>=V<sub>CC</sub>−R<sub>C</sub>i<sub>C</sub></span></div>
+        <div class="ei"><span class="nm">i<sub>C,sat</sub></span><span class="vl">V<sub>CC</sub>/R<sub>C</sub></span></div>
+        <div class="ei"><span class="nm">Pont</span><span class="vl">V<sub>Th</sub>=V<sub>CC</sub>R<sub>2</sub>/(R<sub>1</sub>+R<sub>2</sub>)</span></div>
+        <div class="ei"><span class="nm">Émetteur</span><span class="vl">i<sub>E</sub>=(V<sub>BB</sub>−V<sub>BE</sub>)/R<sub>E</sub></span></div>
+        <div class="ei"><span class="nm">Seuils</span><span class="vl">bloq&lt;0,7 ; sat V<sub>CE</sub>&lt;0,2</span></div>
+      </div>
+      <div class="eg"><h4>Ch.5 · BJT dynamique</h4>
+        <div class="ei"><span class="nm">r<sub>E</sub></span><span class="vl">26mV/I<sub>E</sub></span></div>
+        <div class="ei"><span class="nm">Gain V</span><span class="vl">A<sub>V</sub>≈−R<sub>C</sub>/r<sub>E</sub></span></div>
+        <div class="ei"><span class="nm">Z<sub>in</sub></span><span class="vl">R<sub>1</sub>//R<sub>2</sub>//(β+1)r<sub>E</sub></span></div>
+        <div class="ei"><span class="nm">Z<sub>out</sub></span><span class="vl">R<sub>C</sub></span></div>
+        <div class="ei"><span class="nm">Puissance</span><span class="vl">A<sub>P</sub>=A<sub>V</sub>A<sub>i</sub></span></div>
+        <div class="ei"><span class="nm">dB</span><span class="vl">20·log(A<sub>V</sub>) ; 10·log(A<sub>P</sub>)</span></div>
+        <div class="ei"><span class="nm">Darlington</span><span class="vl">β<sub>D</sub>≈β<sub>1</sub>β<sub>2</sub></span></div>
+        <div class="ei"><span class="nm">η class A/B</span><span class="vl">≤50% / ≤78,5%</span></div>
+      </div>
+      <div class="eg"><h4>Ch.6 · FET</h4>
+        <div class="ei"><span class="nm">JFET I<sub>D</sub></span><span class="vl">I<sub>DSS</sub>(1−V<sub>GS</sub>/V<sub>GS,off</sub>)²</span></div>
+        <div class="ei"><span class="nm">R<sub>DS</sub></span><span class="vl">V<sub>P</sub>/I<sub>DSS</sub></span></div>
+        <div class="ei"><span class="nm">g<sub>m</sub> JFET</span><span class="vl">(2I<sub>DSS</sub>/|V<sub>P</sub>|)(1−V<sub>GS</sub>/V<sub>P</sub>)</span></div>
+        <div class="ei"><span class="nm">ΔI<sub>D</sub></span><span class="vl">g<sub>m</sub>·ΔV<sub>GS</sub></span></div>
+        <div class="ei"><span class="nm">Source com.</span><span class="vl">A<sub>V</sub>=−g<sub>m</sub>R<sub>D</sub></span></div>
+        <div class="ei"><span class="nm">Drain com.</span><span class="vl">A<sub>V</sub>≈1</span></div>
+        <div class="ei"><span class="nm">MOSFET I<sub>D</sub></span><span class="vl">½K<sub>n</sub>(W/L)(V<sub>GS</sub>−V<sub>T</sub>)²</span></div>
+        <div class="ei"><span class="nm">g<sub>m</sub> MOS</span><span class="vl">2I<sub>D</sub>/(V<sub>GS</sub>−V<sub>T</sub>)</span></div>
+      </div>
+      <div class="eg"><h4>Ch.7 · CMOS</h4>
+        <div class="ei"><span class="nm">De Morgan</span><span class="vl"><span style="text-decoration:overline">A+B</span>=ĀB̄ ; <span style="text-decoration:overline">AB</span>=Ā+B̄</span></div>
+        <div class="ei"><span class="nm">Rail</span><span class="vl">R=R<sub>□</sub>ℓ/w</span></div>
+        <div class="ei"><span class="nm">Coude</span><span class="vl">R<sub>□</sub>/2</span></div>
+        <div class="ei"><span class="nm">C sortie</span><span class="vl">C<sub>OUT</sub>=ΣC<sub>□</sub>(ℓw)</span></div>
+        <div class="ei"><span class="nm">Délai</span><span class="vl">τ=(R<sub>N</sub>+R<sub>P</sub>)C<sub>OUT</sub>/2</span></div>
+        <div class="ei"><span class="nm">n série</span><span class="vl">τ≈(n²/2)RC</span></div>
+        <div class="ei"><span class="nm">Miniatur.</span><span class="vl">I<sub>DS</sub>∝W/L ; τ→τ/S²</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ EXOS TYPES ============ -->
+<section class="view" id="view-exos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">🎯 Exos Types à savoir faire</span>
+      <h2>Ce que l'examen demande vraiment</h2>
+      <p>Pour chaque chapitre, les exercices qui tombent (d'après vos annales et le programme) et la méthode pas-à-pas pour les traiter. À maîtriser avant le Partiel.</p>
+    </div>
+    <div class="exo-grid">
+
+      <div class="exocard"><div class="eh"><span class="en">CH 0</span><h3>Réseaux linéaires & AOP</h3></div>
+        <div class="exo-item"><div class="q">Trouver un potentiel / courant dans un circuit à plusieurs sources</div><div class="m"><b>Méthode :</b> nœuds si on cherche des potentiels, mailles si des courants ; <b>Millman</b> pour un potentiel direct ; <b>superposition</b> (une source à la fois) pour vérifier.</div></div>
+        <div class="exo-item"><div class="q">Réduire un circuit à son équivalent Thévenin ou Norton</div><div class="m"><b>Méthode :</b> V<sub>Th</sub> = tension à vide (bornes ouvertes) ; R<sub>Th</sub> = R vue sources neutralisées ; I<sub>N</sub> = V<sub>Th</sub>/R<sub>Th</sub>.</div></div>
+        <div class="exo-item"><div class="q">Calculer la sortie d'un montage à AOP</div><div class="m"><b>Méthode :</b> vérifier la contre-réaction (sur l'entrée −) → régime linéaire → V<sub>+</sub> = V<sub>−</sub> et i<sub>±</sub> = 0 → loi des nœuds à l'entrée −.</div></div>
+      </div>
+
+      <div class="exocard"><div class="eh"><span class="en">CH 1</span><h3>Conduction & passifs</h3></div>
+        <div class="exo-item"><div class="q">Calculer R, i, la vitesse de dérive d'un conducteur</div><div class="m"><b>Méthode :</b> R = ρℓ/S puis i = u/R ; vitesse de dérive via v = −μE avec E = u/ℓ.</div></div>
+        <div class="exo-item"><div class="q">Choisir / dimensionner un condensateur (découplage, filtre)</div><div class="m"><b>Méthode :</b> f<sub>c</sub> = 1/(2πRC) → grand C pour couper le bas (électrolytique), petit C pour le haut (céramique).</div></div>
+      </div>
+
+      <div class="exocard"><div class="eh"><span class="en">CH 2</span><h3>Semi-conducteurs & PN</h3></div>
+        <div class="exo-item"><div class="q">Calculer n, p et la conductivité après dopage</div><div class="m"><b>Méthode :</b> type N → n ≈ N<sub>D</sub>, p = n<sub>i</sub>²/N<sub>D</sub> (et inversement en P) ; puis γ<sub>sc</sub> = e(nμ<sub>n</sub> + pμ<sub>p</sub>).</div></div>
+        <div class="exo-item"><div class="q">Identifier le type de dopant et calculer la barrière V<sub>0</sub></div><div class="m"><b>Méthode :</b> groupe V (5 e⁻) = donneur/type N, groupe III = accepteur/type P ; V<sub>0</sub> = (k<sub>B</sub>T/e)·ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²).</div></div>
+      </div>
+
+      <div class="exocard"><div class="eh"><span class="en">CH 3</span><h3>La diode</h3></div>
+        <div class="exo-item"><div class="q">Déterminer l'état d'une diode et son point de fonctionnement</div><div class="m"><b>Méthode :</b> supposer bloquée → calculer V<sub>D</sub> → si &gt; V<sub>S</sub>, contradiction → passante (V<sub>D</sub> = V<sub>S</sub>) ; sinon graphiquement (droite de charge ∩ caractéristique).</div></div>
+        <div class="exo-item"><div class="q">Dimensionner un régulateur à diode Zener</div><div class="m"><b>Méthode :</b> loi des nœuds I<sub>R</sub> = I<sub>Z</sub> + I<sub>L</sub> ; conditions 0 ≤ I<sub>Z</sub> ≤ I<sub>Z,max</sub> → bornes R<sub>L,min/max</sub> ou V<sub>i,min/max</sub>.</div></div>
+        <div class="exo-item"><div class="q">Analyser un redresseur / écrêteur</div><div class="m"><b>Méthode :</b> raisonner alternance par alternance : pour chacune, dire quelles diodes sont passantes, puis écrire V<sub>out</sub>.</div></div>
+      </div>
+
+      <div class="exocard"><div class="eh"><span class="en">CH 4</span><h3>BJT en statique</h3></div>
+        <div class="exo-item"><div class="q">Déterminer le mode (bloqué / actif / saturé)</div><div class="m"><b>Méthode :</b> comparer V<sub>BE</sub> à 0,7 V (blocage ?), puis V<sub>CB</sub>/V<sub>CE</sub> (saturé si V<sub>CE</sub> &lt; 0,2 V).</div></div>
+        <div class="exo-item"><div class="q">Calculer le point de repos Q (i<sub>B</sub>, i<sub>C</sub>, V<sub>CE</sub>)</div><div class="m"><b>Méthode :</b> maille base → i<sub>B</sub> ; i<sub>C</sub> = β·i<sub>B</sub> (plafonné à i<sub>C,sat</sub>) ; maille collecteur → V<sub>CE</sub> ; vérifier la saturation.</div></div>
+        <div class="exo-item"><div class="q">Dimensionner R<sub>B</sub>, R<sub>C</sub> (polarisation ou commutation)</div><div class="m"><b>Méthode :</b> partir du Q voulu et remonter les mailles ; en commutation, prendre les valeurs de saturation de la datasheet (i<sub>B,sat</sub>, V<sub>BE,sat</sub>).</div></div>
+      </div>
+
+      <div class="exocard"><div class="eh"><span class="en">CH 5</span><h3>BJT en dynamique</h3></div>
+        <div class="exo-item"><div class="q">Calculer A<sub>V</sub>, Z<sub>in</sub>, Z<sub>out</sub> d'un émetteur commun</div><div class="m"><b>Méthode :</b> r<sub>E</sub> = 26 mV/I<sub>E</sub> ; passer en schéma AC (C = fils, R<sub>E</sub> court-circuitée) ; A<sub>V</sub> ≈ −R<sub>C</sub>/r<sub>E</sub>, Z<sub>in</sub> = R<sub>1</sub>//R<sub>2</sub>//(β+1)r<sub>E</sub>, Z<sub>out</sub> = R<sub>C</sub>.</div></div>
+        <div class="exo-item"><div class="q">Sortie sur charge / mise en cascade</div><div class="m"><b>Méthode :</b> modèle (Z<sub>in</sub>, Z<sub>out</sub>, A<sub>V</sub>) + diviseur de tension avec R<sub>L</sub> ; en cascade, produit des gains chargés.</div></div>
+      </div>
+
+      <div class="exocard"><div class="eh"><span class="en">CH 6</span><h3>Le FET</h3></div>
+        <div class="exo-item"><div class="q">Trouver le point de repos d'un JFET (V<sub>GS</sub>, V<sub>DS</sub>, I<sub>D</sub>)</div><div class="m"><b>Méthode :</b> coupler I<sub>D</sub> = I<sub>DSS</sub>(1−V<sub>GS</sub>/V<sub>GS,off</sub>)² à la maille (I<sub>D</sub> = f(V<sub>GS</sub>)) → équation du 2<sup>d</sup> degré, garder la racine V<sub>GS</sub> &gt; V<sub>GS,off</sub>.</div></div>
+        <div class="exo-item"><div class="q">Gain d'un ampli source commune / drain commun</div><div class="m"><b>Méthode :</b> source commune A<sub>V</sub> = −g<sub>m</sub>R<sub>D</sub> ; drain commun (suiveur) A<sub>V</sub> ≈ 1.</div></div>
+        <div class="exo-item"><div class="q">MOSFET : état et région de fonctionnement</div><div class="m"><b>Méthode :</b> comparer V<sub>GS</sub> à V<sub>T</sub> (bloqué ?) ; V<sub>DS</sub> à V<sub>GS</sub>−V<sub>T</sub> (ohmique vs active).</div></div>
+      </div>
+
+      <div class="exocard"><div class="eh"><span class="en">CH 7</span><h3>Logique CMOS</h3></div>
+        <div class="exo-item"><div class="q">Dessiner la porte CMOS d'une fonction Y</div><div class="m"><b>Méthode :</b> PUN (pMOS) : Y avec entrées complémentées (via De Morgan) ; PDN (nMOS) : Ȳ avec entrées non complémentées ; « + » → parallèle, « · » → série.</div></div>
+        <div class="exo-item"><div class="q">Calculer une résistance de rail / une capacité / un délai</div><div class="m"><b>Méthode :</b> R = R<sub>□</sub>·(nombre de carrés), coude = R<sub>□</sub>/2 ; C<sub>OUT</sub> = ΣC<sub>□</sub>·(ℓ·w) ; délai τ = (R<sub>N</sub>+R<sub>P</sub>)·C<sub>OUT</sub>/2.</div></div>
+        <div class="exo-item"><div class="q">Trouver le délai (chemin critique) d'un circuit</div><div class="m"><b>Méthode :</b> évaluer le délai de tous les chemins et prendre le plus grand ; n transistors en série → délai ≈ (n²/2)·RC.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="view" id="view-quiz">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">🧠 Quiz & Flashcards</span>
+      <h2>Testez-vous</h2>
+      <p>Choisissez les chapitres, le format (QCM ou flashcards) et l'ordre. Les questions couvrent le style des annales <em>et</em> ce qu'elles ne testent pas, pour ne rien laisser de côté.</p>
+    </div>
+
+    <div class="quiz-setup" id="quizSetup">
+      <div class="qs-block">
+        <div class="qs-label">1 · Chapitres</div>
+        <div class="chapchips" id="chapChips"></div>
+        <div class="qs-row" style="margin-top:10px">
+          <button class="qs-mini" id="chapAll">Tout sélectionner</button>
+          <button class="qs-mini" id="chapNone">Tout désélectionner</button>
+        </div>
+      </div>
+      <div class="qs-block">
+        <div class="qs-label">2 · Format</div>
+        <div class="seg" id="segFormat"><button data-fmt="qcm" class="on">QCM</button><button data-fmt="flash">Flashcards</button></div>
+      </div>
+      <div class="qs-block">
+        <div class="qs-label">3 · Ordre</div>
+        <div class="seg" id="segOrder"><button data-ord="chap" class="on">Dans l'ordre</button><button data-ord="rand">Aléatoire</button></div>
+      </div>
+      <div class="quiz-start">
+        <button class="btn btn-primary" id="quizStart">Commencer →</button>
+        <div class="warnmsg" id="quizWarn">Sélectionnez au moins un chapitre.</div>
+      </div>
+    </div>
+
+    <div class="quiz-run" id="quizRun">
+      <div class="qbar">
+        <div class="qcount" id="qCount">1 / 10</div>
+        <div class="prog-track"><div class="prog-fill" id="qProg"></div></div>
+        <div class="qscore" id="qScore">Score : 0</div>
+      </div>
+      <div id="qContainer"></div>
+      <div class="qnav">
+        <button class="btn btn-ghost" id="qQuit">Quitter</button>
+        <button class="btn btn-primary" id="qNext" style="display:none">Suivant →</button>
+      </div>
+    </div>
+
+    <div class="qresult" id="quizResult">
+      <div class="qs-label" style="text-align:center">Résultat</div>
+      <div class="big" id="rScore">0%</div>
+      <div class="rmsg" id="rMsg"></div>
+      <div class="rbtns">
+        <button class="btn btn-primary" id="rRetry">Rejouer</button>
+        <button class="btn btn-ghost" id="rBack">Nouveaux réglages</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLANNING ============ -->
+<section class="view" id="view-planning">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">📅 Planning de révision sur-mesure</span>
+      <h2>Un semestre, cinq matières, deux projets</h2>
+      <p>Calé sur le calendrier officiel ING2 2026-2027 : Partiel élec le 14 décembre, DS début novembre, tests Java hebdomadaires, soutenance du projet élec mi-octobre. Rythme <strong>équilibré (5-6 j/7, ~3-4 h/jour)</strong> pensé pour éviter le surmenage.</p>
+    </div>
+
+    <div class="leg">
+      <span><i class="sub-elec"></i>Électronique</span>
+      <span><i class="sub-math"></i>Maths</span>
+      <span><i class="sub-meca"></i>Mécanique</span>
+      <span><i class="sub-info"></i>Informatique (Java)</span>
+      <span><i class="sub-eng"></i>Anglais</span>
+      <span><i class="sub-proj"></i>Projets</span>
+    </div>
+
+    <div class="section-head" style="padding-top:20px"><span class="eyebrow">Vue d'ensemble</span><h2 style="font-size:22px">Les 4 phases jusqu'au Partiel</h2></div>
+
+    <div class="wk">
+      <div class="wk-hd"><span class="wn">PHASE 1</span><h3>Sept. · Apprendre au fil de l'eau</h3><span class="phase">31 août → 3 oct</span></div>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 6px">Ne pas prendre de retard : chaque notion vue en amphi est révisée <b>la semaine même</b>. Objectif : chapitres 0 → 4 assimilés, kick-off des deux projets.</p>
+      <div class="days">
+        <div class="day"><div class="dn">Élec</div><div class="task sub-elec">Ch.0 → Ch.4 : refaire les TD (composants, SC, diode, BJT)</div></div>
+        <div class="day"><div class="dn">Info</div><div class="task sub-info">Tests Java hebdo (SEB) : lire le cours AVANT chaque séance</div></div>
+        <div class="day"><div class="dn">Projets</div><div class="task sub-proj">Kick-off projet élec · démarrage projet Java (UML thème libre)</div></div>
+        <div class="day"><div class="dn">Autres</div><div class="task sub-math">Maths</div><div class="task sub-meca">Méca</div><div class="task sub-eng">Anglais : entretien régulier</div></div>
+      </div>
+    </div>
+
+    <div class="wk">
+      <div class="wk-hd"><span class="wn">PHASE 2</span><h3>Oct. · Consolider & premières évals</h3><span class="phase exam">Interro élec ~5 oct · Soutenance projet élec ~12 oct</span></div>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 6px">Montée en charge : chapitres 5-6, première interro écrite d'élec, soutenance du projet élec, Test 5 Java. Terminer avant les vacances de la Toussaint.</p>
+      <div class="days">
+        <div class="day"><div class="dn">Élec</div><div class="task sub-elec">Ch.5 BJT dynamique · Ch.6 FET · interro écrite (~5 oct)</div></div>
+        <div class="day"><div class="dn">Projets</div><div class="task sub-proj">Finaliser + répéter soutenance projet élec (~12 oct)</div></div>
+        <div class="day"><div class="dn">Info</div><div class="task sub-info">Test 5 Java (~12 oct) · avancer le code du projet</div></div>
+        <div class="day"><div class="dn">Autres</div><div class="task sub-math">Maths : DM</div><div class="task sub-meca">Méca : TD</div><div class="task sub-eng">Anglais</div></div>
+      </div>
+    </div>
+
+    <div class="wk">
+      <div class="wk-hd"><span class="wn">VACANCES</span><h3>Toussaint · Rattraper & respirer</h3><span class="phase rest">19 → 26 oct</span></div>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 6px">Pas de bachotage intensif : on rattrape les points faibles (½ journée/jour max) et on avance les projets. Le reste = <b>vrai repos</b>.</p>
+      <div class="days">
+        <div class="day"><div class="dn">Priorité 1</div><div class="task sub-elec">Reprendre les chapitres élec mal compris (fiches Notions clés)</div></div>
+        <div class="day"><div class="dn">Priorité 2</div><div class="task sub-proj">Gros bloc projet Java (UML + implémentation)</div></div>
+        <div class="day"><div class="dn">Léger</div><div class="task sub-math">Maths : annales</div><div class="task sub-eng">Anglais : séries en VO</div></div>
+        <div class="day"><div class="dn">Repos</div><div class="task rest">Au moins 3 jours off complets — récupération</div></div>
+      </div>
+    </div>
+
+    <div class="wk">
+      <div class="wk-hd"><span class="wn">PHASE 3</span><h3>Nov. · DS & derniers chapitres</h3><span class="phase exam">DS élec + DS Java ~2 nov · Interro élec ~16 nov</span></div>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 6px">Le pic d'évaluations. Chapitre 7 (CMOS), DS élec (1h30) et DS Java (1h30) début novembre, seconde interro élec mi-novembre.</p>
+      <div class="days">
+        <div class="day"><div class="dn">Élec</div><div class="task sub-elec">Ch.7 CMOS/CI · DS (~2 nov) · interro (~16 nov)</div></div>
+        <div class="day"><div class="dn">Info</div><div class="task sub-info">DS Java (~2 nov) : réviser tests 1→5 + code</div></div>
+        <div class="day"><div class="dn">Projets</div><div class="task sub-proj">Boucler le projet Java (rendu + démo)</div></div>
+        <div class="day"><div class="dn">Autres</div><div class="task sub-math">Maths</div><div class="task sub-meca">Méca : DS éventuel</div><div class="task sub-eng">Anglais</div></div>
+      </div>
+    </div>
+
+    <div class="wk">
+      <div class="wk-hd"><span class="wn">PHASE 4</span><h3>Déc. · Sprint Partiel élec</h3><span class="phase exam">Révisions 7-13 déc → PARTIEL 14 déc</span></div>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 6px">Révision ciblée : re-parcourir tout le cours via les fiches, puis <b>annales</b> en conditions réelles (DS/Partiels Paris fournis dans le dossier ANNALES).</p>
+      <div class="days">
+        <div class="day"><div class="dn">J-7 à J-4</div><div class="task sub-elec">Relecture active Ch.0→7 + Formules détaillées</div></div>
+        <div class="day"><div class="dn">J-3 à J-1</div><div class="task sub-elec">Annales chronométrées (PARTIEL Paris 20-24) + corrections</div></div>
+        <div class="day"><div class="dn">Veille</div><div class="task sub-elec">Fiche Formules Express + Notions clés, au calme. Dodo tôt.</div></div>
+        <div class="day"><div class="dn">Jour J</div><div class="task rest">14 déc · Partiel 1h30 — relire l'énoncé, gérer le temps</div></div>
+      </div>
+    </div>
+
+    <div class="section-head" style="padding-top:36px"><span class="eyebrow">Modèle</span><h2 style="font-size:22px">Une semaine-type équilibrée</h2><p>À dupliquer en période de cours. ~3-4 h de travail perso/jour hors amphis, un week-end respirant.</p></div>
+    <div class="wk">
+      <div class="days">
+        <div class="day"><div class="dn">Lundi</div><div class="task sub-elec">Élec : TD du jour</div><div class="task sub-info">Java : lecture cours</div></div>
+        <div class="day"><div class="dn">Mardi</div><div class="task sub-math">Maths : exos</div><div class="task sub-proj">Projet Java : 1h</div></div>
+        <div class="day"><div class="dn">Mercredi</div><div class="task sub-meca">Méca : TD</div><div class="task sub-elec">Élec : fiche chapitre</div></div>
+        <div class="day"><div class="dn">Jeudi</div><div class="task sub-info">Java : prépa test SEB</div><div class="task sub-eng">Anglais : 45 min</div></div>
+        <div class="day"><div class="dn">Vendredi</div><div class="task sub-elec">Élec : refaire exos ratés</div><div class="task sub-proj">Projet élec</div></div>
+        <div class="day"><div class="dn">Samedi</div><div class="task sub-math">Maths ou méca : annale (2h)</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="task rest">Repos · 1h de relecture légère max</div></div>
+      </div>
+    </div>
+
+    <div class="section-head" style="padding-top:36px"><span class="eyebrow">Sprint final</span><h2 style="font-size:22px">Semaine de révisions · 7 → 14 déc</h2><p>Semaine banalisée « Révisions » : focus quasi-total sur le Partiel élec, en gardant le sommeil et une pause quotidienne.</p></div>
+    <div class="wk">
+      <div class="days">
+        <div class="day"><div class="dn">Lun 7</div><div class="task sub-elec">Ch.0-1-2 : relecture + refaire 1 exo/chapitre</div></div>
+        <div class="day"><div class="dn">Mar 8</div><div class="task sub-elec">Ch.3-4 : diode + BJT statique (polarisations)</div></div>
+        <div class="day"><div class="dn">Mer 9</div><div class="task sub-elec">Ch.5-6 : BJT dyn. + FET (gains, g<sub>m</sub>)</div></div>
+        <div class="day"><div class="dn">Jeu 10</div><div class="task sub-elec">Ch.7 CMOS + Formules détaillées en entier</div></div>
+        <div class="day"><div class="dn">Ven 11</div><div class="task sub-elec">Annale 1 chronométrée + correction</div></div>
+        <div class="day"><div class="dn">Sam 12</div><div class="task sub-elec">Annale 2 + points faibles ciblés</div></div>
+        <div class="day"><div class="dn">Dim 13</div><div class="task rest">Formules Express + Notions clés · repos, coucher tôt</div></div>
+        <div class="day"><div class="dn">Lun 14</div><div class="task sub-elec">PARTIEL 1h30 🎯</div></div>
+      </div>
+    </div>
+
+    <div class="section-head" style="padding-top:36px"><span class="eyebrow">Méthode</span><h2 style="font-size:22px">Rester efficace sans se cramer</h2></div>
+    <div class="tips">
+      <div class="tip"><div class="th">⏱ Pomodoro 50/10</div><p>50 min de concentration, 10 min de pause. Après 3-4 cycles, une vraie pause de 30 min. Le cerveau consolide mieux par blocs.</p></div>
+      <div class="tip"><div class="th">🔁 Révision active</div><p>Ne pas relire passivement : refaire les exos, réexpliquer à voix haute, se tester avec les Notions clés. C'est ce qui ancre.</p></div>
+      <div class="tip"><div class="th">📐 Annales en conditions</div><p>Le dossier ANNALES contient DS et Partiels Paris (2019→2024) avec corrigés. Les faire chronométrés, sans le cours, dès novembre.</p></div>
+      <div class="tip"><div class="th">🔀 Alterner les matières</div><p>Une matière technique (élec/maths) le matin, une plus légère (anglais, projet) l'après-midi. L'alternance limite la saturation.</p></div>
+      <div class="tip"><div class="th">🛠 Projets réguliers</div><p>1h de projet plusieurs fois/semaine plutôt qu'un rush : les deux projets (élec + Java) avancent sans empiéter sur les révisions.</p></div>
+      <div class="tip"><div class="th">😴 Sommeil non négociable</div><p>7-8 h de sommeil, surtout la veille des évals. Une nuit blanche coûte plus de points qu'elle n'en rapporte.</p></div>
+    </div>
+
+    <div class="box warn" style="margin-top:30px"><div class="bt">✎ Personnaliser</div><p>Ce planning s'appuie sur vos plannings de cours officiels (élec + Java). Pour l'ajuster à vos créneaux réels (horaires d'amphis/TD, jours off, dates exactes des interros de maths/méca/anglais), collez votre emploi du temps dans le chat et je régénère les semaines-types en conséquence.</p></div>
+  </div>
+</section>
+
+<div class="foot">
+  <div class="wrap">
+    <span>De l'Atome à la Puce · Électronique ING2 S1 · 2026-2027</span>
+    <span id="footProg">Progression : 0 / 8</span>
+  </div>
+</div>
+</main>
+<script src="js/app.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/lightbox.js"></script>
+</body>
+</html>
