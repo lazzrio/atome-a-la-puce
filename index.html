@@ -27,10 +27,12 @@
     <nav class="nav" id="nav">
       <button data-go="home" class="active">Accueil</button>
       <button data-go="cours">📚 Cours complet</button>
+      <button data-go="deroules">🧭 Déroulés</button>
       <button data-go="notions">💡 Notions clés</button>
       <button data-go="formules">📘 Formules détaillées</button>
       <button data-go="express">⚡ Formules express</button>
       <button data-go="exos">🎯 Exos types</button>
+      <button data-go="boite">🧰 À côté</button>
       <button data-go="quiz">🧠 Quiz</button>
       <button data-go="planning">📅 Planning</button>
     </nav>
@@ -59,6 +61,7 @@
         <div class="hero-meta">
           <div><div class="n">8</div><div class="l">Chapitres</div></div>
           <div><div class="n">70+</div><div class="l">Formules</div></div>
+          <div><div class="n">14</div><div class="l">Déroulés</div></div>
           <div><div class="n">14 déc</div><div class="l">Partiel · 1h30</div></div>
         </div>
       </div>
@@ -77,15 +80,17 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Navigation</span>
-      <h2>Quatre espaces pour réviser</h2>
-      <p>Le cours complet pour comprendre, les notions clés pour l'essentiel, deux fiches de formules pour réviser vite, et un planning sur-mesure.</p>
+      <h2>Huit espaces pour réviser</h2>
+      <p>Le cours complet pour comprendre, <strong>14 exos types déroulés pas à pas</strong> pour savoir calculer, les notions clés avec réflexes et pièges, deux fiches de formules, le kit « à connaître à côté », un quiz et un planning sur-mesure.</p>
     </div>
     <div class="card-grid">
       <button class="card" data-go="cours"><div class="ic">📚</div><h3>Le Cours Complet</h3><p>L'intégralité du programme, expliqué pas à pas, chapitre par chapitre, sans doublons.</p><span class="tag">8 chapitres →</span></button>
+      <button class="card" data-go="deroules"><div class="ic">🧭</div><h3>Déroulés d'exos</h3><p>Table de décision « je vois → je fais » + 14 exercices types résolus avec valeurs numériques : Thévenin, diode, Zener, point Q, gain AC, JFET, CMOS, délai.</p><span class="tag">Pas à pas →</span></button>
       <button class="card" data-go="notions"><div class="ic">💡</div><h3>Notions Clés</h3><p>Fiches de synthèse : uniquement les concepts indispensables pour l'examen.</p><span class="tag">Essentiel →</span></button>
       <button class="card" data-go="formules"><div class="ic">📘</div><h3>Formules Détaillées</h3><p>Toutes les formules avec variables, unités et conditions d'application.</p><span class="tag">Référence →</span></button>
       <button class="card" data-go="express"><div class="ic">⚡</div><h3>Formules Express</h3><p>Aide-mémoire ultra-synthétique : les formules brutes pour vérifier vite.</p><span class="tag">Anti-sèche →</span></button>
       <button class="card" data-go="exos"><div class="ic">🎯</div><h3>Exos Types</h3><p>Ce que l'examen demande vraiment : les exercices types et leur méthode, chapitre par chapitre.</p><span class="tag">Savoir-faire →</span></button>
+      <button class="card" data-go="boite"><div class="ic">🧰</div><h3>À connaître à côté</h3><p>Parallèles de tête, dB, constantes du silicium, unités, datasheet, ordres de grandeur, pièges par chapitre, rédaction.</p><span class="tag">Kit →</span></button>
       <button class="card" data-go="quiz"><div class="ic">🧠</div><h3>Quiz & Flashcards</h3><p>Testez-vous : QCM et flashcards, chapitres au choix, dans l'ordre ou en aléatoire.</p><span class="tag">S'entraîner →</span></button>
     </div>
 
@@ -655,86 +660,539 @@
     </div>
   </div>
 </section>
+<!-- ============ DÉROULÉS ============ -->
+<section class="view" id="view-deroules">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">🧭 Déroulés d'exos types</span>
+      <h2>Comment on cherche, puis comment on calcule</h2>
+      <p>D'abord la <strong>table de décision</strong> (« je vois ça → je fais ça »), puis <strong>14 exercices types résolus pas à pas</strong> avec des valeurs numériques réalistes, les ordres de grandeur à retrouver, et le « pourquoi » de chaque étape. Ce sont les modèles à refaire seul, cahier fermé, avant le Partiel.</p>
+    </div>
+
+    <h3 class="subhead">🔎 Comment on cherche — la table de décision</h3>
+    <p class="sublead">En électronique, 80 % de la réussite est dans les 30 premières secondes : reconnaître le type de problème et poser la bonne hypothèse.</p>
+    <div class="tbl-wrap"><table class="dtable">
+      <tr><th>Je vois dans l'énoncé…</th><th>… je fais</th></tr>
+      <tr><td>Un circuit à plusieurs sources, on demande <b>un potentiel</b> en un nœud</td><td><span class="arrow">→</span><b>Millman</b> si toutes les branches arrivent au nœud, sinon méthode des nœuds. <b>Superposition</b> pour vérifier (V → fil, I → trou).</td></tr>
+      <tr><td>« Remplacer le circuit vu de A-B par… », « générateur équivalent », une <b>charge variable</b> R<sub>L</sub></td><td><span class="arrow">→</span><b>Thévenin</b> : V<sub>Th</sub> = tension à vide (R<sub>L</sub> enlevée), R<sub>Th</sub> = résistance vue de A-B sources neutralisées. Puis pont diviseur avec R<sub>L</sub>.</td></tr>
+      <tr><td>Un AOP avec une résistance qui relie la <b>sortie à l'entrée −</b></td><td><span class="arrow">→</span>Contre-réaction ⟹ régime linéaire ⟹ V<sub>+</sub> = V<sub>−</sub>, i<sub>±</sub> = 0. Loi des nœuds à l'entrée −. Vérifier ensuite |V<sub>out</sub>| &lt; V<sub>sat</sub>.</td></tr>
+      <tr><td>Un AOP <b>sans</b> contre-réaction (ou réaction sur +)</td><td><span class="arrow">→</span>Comparateur : V<sub>out</sub> = +V<sub>sat</sub> si V<sub>+</sub> &gt; V<sub>−</sub>, sinon −V<sub>sat</sub>.</td></tr>
+      <tr><td>ρ, γ, ℓ, S, « fil », « vitesse de dérive »</td><td><span class="arrow">→</span>R = ρℓ/S, i = u/R, j = i/S, E = u/ℓ, v = j/(ne) = μE. Tout en <b>SI</b> (m, m², m⁻³).</td></tr>
+      <tr><td>N<sub>D</sub>, N<sub>A</sub>, n<sub>i</sub>, « dopé », « conductivité du silicium »</td><td><span class="arrow">→</span>Majoritaires ≈ dopage, minoritaires = n<sub>i</sub>²/dopage, γ = e(nμ<sub>n</sub> + pμ<sub>p</sub>) (le terme minoritaire est négligeable). V<sub>0</sub> = (kT/e)·ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²).</td></tr>
+      <tr><td>Une ou plusieurs <b>diodes</b> dans un circuit DC</td><td><span class="arrow">→</span><b>Hypothèse</b> (bloquée ou passante) ⟹ calcul ⟹ <b>vérification</b> (bloquée : V<sub>D</sub> &lt; V<sub>S</sub> ; passante : I<sub>D</sub> &gt; 0). Contradiction ⟹ changer d'hypothèse.</td></tr>
+      <tr><td>Une diode <b>Zener</b>, « régulateur », « R<sub>L,min</sub> », « V<sub>i,max</sub> »</td><td><span class="arrow">→</span>Loi des nœuds I<sub>R</sub> = I<sub>Z</sub> + I<sub>L</sub> avec V<sub>out</sub> = V<sub>Z</sub>. Encadrer I<sub>Z</sub> entre I<sub>Z,min</sub> et I<sub>Z,max</sub> ⟹ bornes sur R<sub>L</sub> ou V<sub>i</sub>.</td></tr>
+      <tr><td>Un signal <b>sinusoïdal</b> et des diodes (redresseur, écrêteur)</td><td><span class="arrow">→</span>Raisonner <b>alternance par alternance</b> : quelles diodes conduisent quand V<sub>in</sub> &gt; 0 ? quand V<sub>in</sub> &lt; 0 ? Tracer V<sub>out</sub>(t) avec la chute V<sub>S</sub>.</td></tr>
+      <tr><td>Un <b>BJT</b> et on demande « mode », « point de repos », « Q »</td><td><span class="arrow">→</span>Supposer <b>actif</b> : V<sub>BE</sub> = 0,7 V, maille de base ⟹ I<sub>B</sub>, I<sub>C</sub> = βI<sub>B</sub>, maille de collecteur ⟹ V<sub>CE</sub>. Vérifier V<sub>CE</sub> &gt; 0,2 V (sinon saturé : I<sub>C</sub> = I<sub>C,sat</sub>) et I<sub>B</sub> &gt; 0 (sinon bloqué).</td></tr>
+      <tr><td>Un BJT polarisé par <b>pont diviseur</b> R<sub>1</sub>/R<sub>2</sub> + R<sub>E</sub></td><td><span class="arrow">→</span>Thévenin sur la base (V<sub>Th</sub>, R<sub>Th</sub>), puis V<sub>E</sub> = V<sub>Th</sub> − 0,7, I<sub>E</sub> = V<sub>E</sub>/R<sub>E</sub> ≈ I<sub>C</sub>. Vérifier R<sub>Th</sub> ≪ (β+1)R<sub>E</sub>.</td></tr>
+      <tr><td>« gain en tension », « impédance d'entrée », des <b>condensateurs</b> C<sub>1</sub>, C<sub>2</sub>, C<sub>3</sub></td><td><span class="arrow">→</span>Deux temps : <b>DC</b> (C ouverts) ⟹ Q ⟹ r<sub>E</sub> = 26 mV/I<sub>E</sub>. Puis <b>AC</b> (C = fils, sources DC = masse) ⟹ A<sub>V</sub> = −R<sub>C</sub>/r<sub>E</sub>, Z<sub>in</sub>, Z<sub>out</sub>.</td></tr>
+      <tr><td>Un <b>JFET</b> avec R<sub>S</sub> (autopolarisation)</td><td><span class="arrow">→</span>V<sub>GS</sub> = −R<sub>S</sub>I<sub>D</sub> injecté dans I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>GS,off</sub>)² ⟹ équation du 2<sup>nd</sup> degré, garder la racine avec V<sub>GS,off</sub> &lt; V<sub>GS</sub> &lt; 0.</td></tr>
+      <tr><td>Un <b>MOSFET</b>, on demande la région</td><td><span class="arrow">→</span>V<sub>GS</sub> &lt; V<sub>T</sub> ⟹ bloqué. Sinon supposer saturé (I<sub>D</sub> = ½K<sub>n</sub>(W/L)(V<sub>GS</sub>−V<sub>T</sub>)²), calculer V<sub>DS</sub>, vérifier V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>T</sub>. Sinon ohmique.</td></tr>
+      <tr><td>« Réaliser la fonction Y = … en <b>CMOS</b> »</td><td><span class="arrow">→</span>PDN (nMOS) à partir de Ȳ sans complémenter les entrées : « + » = parallèle, « · » = série. PUN (pMOS) = structure <b>duale</b> (série ↔ parallèle) avec les mêmes entrées. Compter les transistors.</td></tr>
+      <tr><td>« délai », « chemin critique », R<sub>□</sub>, C<sub>□</sub></td><td><span class="arrow">→</span>R = R<sub>□</sub> × nombre de carrés (coude = ½), C<sub>OUT</sub> = ΣC<sub>□</sub>·surface, τ = (R<sub>N</sub>+R<sub>P</sub>)C<sub>OUT</sub>/2, n en série ⟹ (n²/2)RC. Le délai du circuit = le chemin le plus long.</td></tr>
+    </table></div>
+
+    <div class="box key"><div class="bt">◆ Les 5 réflexes avant de calculer</div>
+      <ol>
+        <li><b>DC avant AC.</b> Le point de repos d'abord (condensateurs ouverts), le petit signal ensuite (condensateurs = fils, sources DC = masse).</li>
+        <li><b>Hypothèse → calcul → vérification.</b> Diode, transistor, AOP : on ne « devine » pas l'état, on le suppose puis on le contrôle. Une contradiction n'est pas une erreur, c'est une information.</li>
+        <li><b>Noter les valeurs par défaut :</b> V<sub>S</sub> = V<sub>BE</sub> = 0,7 V ; V<sub>CE,sat</sub> ≈ 0,2 V ; V<sub>T</sub> = kT/e = 26 mV ; β ≈ 100–200 sauf datasheet.</li>
+        <li><b>Ordres de grandeur :</b> I<sub>B</sub> en µA, I<sub>C</sub> en mA, r<sub>E</sub> en dizaines d'Ω, gains 10–300, Z<sub>in</sub> en kΩ (BJT) ou MΩ (FET). Un résultat hors gamme ⟹ relire.</li>
+        <li><b>Unités SI :</b> cm⁻³ → m⁻³ (×10⁶), cm²/V·s → m²/V·s (×10⁻⁴), mA × kΩ = V (pratique), µA × kΩ = mV.</li>
+      </ol>
+    </div>
+
+    <h3 class="subhead">🔧 Les 14 déroulés</h3>
+    <div class="jumpbar">
+      <a href="#e1">E1 Thévenin</a><a href="#e2">E2 AOP &amp; dB</a><a href="#e3">E3 Fil &amp; dérive</a><a href="#e4">E4 Dopage</a><a href="#e5">E5 Barrière V₀</a><a href="#e6">E6 Diode</a><a href="#e7">E7 Zener</a><a href="#e8">E8 BJT base</a><a href="#e9">E9 BJT pont</a><a href="#e10">E10 Gain AC</a><a href="#e11">E11 JFET</a><a href="#e12">E12 MOSFET</a><a href="#e13">E13 Porte CMOS</a><a href="#e14">E14 Délai</a>
+    </div>
+    <div class="dgrid">
+
+      <!-- E1 -->
+      <article class="deroule" id="e1">
+        <div class="dh"><span class="dn">E1</span><span class="dch">Ch. 0 · Thévenin</span><h3>Pont diviseur chargé : V<sub>CC</sub> = 12 V, R<sub>1</sub> = 4 kΩ, R<sub>2</sub> = 8 kΩ, charge R<sub>L</sub> = 8 kΩ aux bornes de R<sub>2</sub></h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>La tension V<sub>L</sub> aux bornes de la charge. Piège : le diviseur de tension « nu » donne 8 V, mais la charge tire du courant et fait chuter la tension. Thévenin règle ça proprement.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Tension à vide (on enlève R<sub>L</sub>)</div><div class="sd"><div class="calc">V_Th = V_CC · R₂/(R₁+R₂) = 12 · 8/12 = 8 V</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Résistance vue de A-B, source neutralisée (V<sub>CC</sub> → fil)</div><div class="sd">R<sub>1</sub> et R<sub>2</sub> se retrouvent en parallèle :<div class="calc">R_Th = R₁ // R₂ = (4·8)/(4+8) = 32/12 ≈ 2,67 kΩ</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Remettre la charge sur le générateur équivalent</div><div class="sd"><div class="calc">V_L = V_Th · R_L/(R_Th + R_L) = 8 · 8/(2,67 + 8) = 8 · 0,75 = 6 V</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Contrôle sans Thévenin</div><div class="sd">R<sub>2</sub> // R<sub>L</sub> = 4 kΩ, diviseur : 12 · 4/(4+4) = 6 V ✓. Norton au passage : I<sub>N</sub> = V<sub>Th</sub>/R<sub>Th</sub> = 3 mA.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>V<sub>Th</sub> = 8 V, R<sub>Th</sub> = 2,67 kΩ, V<sub>L</sub> = 6 V (et non 8 V !).</div>
+        <div class="why"><b class="lab">Pourquoi Thévenin</b>Dès que la charge <em>varie</em>, on ne refait pas tout le circuit : on garde (V<sub>Th</sub>, R<sub>Th</sub>) et on ne change que R<sub>L</sub>. Règle pratique : un pont diviseur se comporte en source de tension si R<sub>L</sub> ≫ R<sub>Th</sub> (ici 8 k n'est pas ≫ 2,67 k, d'où la chute de 25 %).</div>
+      </article>
+
+      <!-- E2 -->
+      <article class="deroule" id="e2">
+        <div class="dh"><span class="dn">E2</span><span class="dch">Ch. 0 · AOP et décibels</span><h3>Non-inverseur R<sub>1</sub> = 1 kΩ, R<sub>f</sub> = 9 kΩ ; puis inverseur R<sub>1</sub> = 2 kΩ, R<sub>f</sub> = 10 kΩ ; alimentation ±15 V</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>Le gain de chaque montage, en linéaire et en dB, et la plage de V<sub>in</sub> pour laquelle l'AOP reste en régime linéaire.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Vérifier le régime</div><div class="sd">R<sub>f</sub> relie la sortie à l'entrée − : contre-réaction négative ⟹ régime linéaire ⟹ V<sub>+</sub> = V<sub>−</sub> et i<sub>±</sub> = 0.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Non-inverseur : loi des nœuds à l'entrée −</div><div class="sd">V<sub>−</sub> = V<sub>in</sub> est le point milieu du diviseur R<sub>1</sub>/R<sub>f</sub> alimenté par V<sub>out</sub> :<div class="calc">V_in = V_out · R₁/(R₁+R_f)  ⟹  A = V_out/V_in = 1 + R_f/R₁ = 1 + 9 = 10   ⟹  20·log(10) = 20 dB</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Inverseur : V<sub>−</sub> = V<sub>+</sub> = 0 (masse virtuelle)</div><div class="sd"><div class="calc">i = V_in/R₁ traverse R_f (i₋ = 0) :  V_out = 0 − R_f · i = −(R_f/R₁)·V_in = −5·V_in
+|A| = 5  ⟹  20·log(5) ≈ 14 dB   (le signe − est un déphasage de 180°, pas un gain négatif en dB)</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Plage linéaire</div><div class="sd">La sortie ne peut pas dépasser ±V<sub>sat</sub> ≈ ±15 V (souvent ±13–14 V en réel). Non-inverseur : |V<sub>in</sub>| &lt; 15/10 = 1,5 V. Inverseur : |V<sub>in</sub>| &lt; 3 V. Au-delà, V<sub>out</sub> = ±V<sub>sat</sub> (écrêtage).</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>A = +10 (20 dB), linéaire pour |V<sub>in</sub>| &lt; 1,5 V ; A = −5 (14 dB), linéaire pour |V<sub>in</sub>| &lt; 3 V.</div>
+        <div class="why"><b class="lab">Table dB à connaître</b>×1 = 0 dB, ×√2 = 3 dB, ×2 = 6 dB, ×10 = 20 dB, ×100 = 40 dB. Pour un gain en puissance c'est 10·log (car P ∝ V²). Un gain 0,5 = −6 dB (atténuation).</div>
+      </article>
+
+      <!-- E3 -->
+      <article class="deroule" id="e3">
+        <div class="dh"><span class="dn">E3</span><span class="dch">Ch. 1 · Conduction</span><h3>Fil de cuivre ℓ = 10 m, diamètre 1 mm, ρ = 1,7·10⁻⁸ Ω·m, parcouru par i = 2 A. Calculer R, u, j, E et la vitesse de dérive (n = 8,5·10²⁸ m⁻³).</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>Une chaîne de formules, chacune à une ligne. Le seul danger : les unités (mm → m, section = πr² avec le <em>rayon</em>).</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Section et résistance</div><div class="sd"><div class="calc">S = π r² = π (0,5·10⁻³)² = 7,85·10⁻⁷ m²
+R = ρ ℓ / S = 1,7·10⁻⁸ · 10 / 7,85·10⁻⁷ ≈ 0,22 Ω</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Tension, champ, densité de courant</div><div class="sd"><div class="calc">u = R i = 0,22 · 2 ≈ 0,43 V          E = u/ℓ = 0,043 V/m
+j = i/S = 2 / 7,85·10⁻⁷ ≈ 2,5·10⁶ A/m²   (vérif : j = γE = (1/ρ)·E = 5,9·10⁷ · 0,043 ≈ 2,5·10⁶ ✓)</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Vitesse de dérive</div><div class="sd"><div class="calc">j = n e v  ⟹  v = j/(n e) = 2,5·10⁶ / (8,5·10²⁸ · 1,6·10⁻¹⁹) = 2,5·10⁶ / 1,36·10¹⁰ ≈ 1,9·10⁻⁴ m/s ≈ 0,2 mm/s</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Mobilité (bonus)</div><div class="sd">v = μE ⟹ μ = v/E = 1,9·10⁻⁴/0,043 ≈ 4,3·10⁻³ m²/V·s. Ordre de grandeur correct pour le cuivre.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>R ≈ 0,22 Ω ; u ≈ 0,43 V ; j ≈ 2,5·10⁶ A/m² ; v ≈ 0,2 mm/s.</div>
+        <div class="why"><b class="lab">L'ordre de grandeur à retenir</b>La vitesse de dérive des électrons est de l'ordre du <b>mm/s</b> alors que le signal se propage quasi à la vitesse de la lumière : ce qui se propage, c'est le champ E, pas les électrons.</div>
+      </article>
+
+      <!-- E4 -->
+      <article class="deroule" id="e4">
+        <div class="dh"><span class="dn">E4</span><span class="dch">Ch. 2 · Dopage</span><h3>Silicium dopé au phosphore N<sub>D</sub> = 10¹⁶ cm⁻³ à 300 K (n<sub>i</sub> = 1,5·10¹⁰ cm⁻³, μ<sub>n</sub> = 1350, μ<sub>p</sub> = 480 cm²/V·s)</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>Le type, les densités n et p, la conductivité et la résistivité. Puis comparer au silicium intrinsèque.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Identifier</div><div class="sd">Phosphore : groupe V, 5 électrons de valence ⟹ <b>donneur</b> ⟹ type <b>N</b>, électrons majoritaires.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Densités (N<sub>D</sub> ≫ n<sub>i</sub>)</div><div class="sd"><div class="calc">n ≈ N_D = 10¹⁶ cm⁻³
+p = n_i²/N_D = (1,5·10¹⁰)² / 10¹⁶ = 2,25·10²⁰ / 10¹⁶ = 2,25·10⁴ cm⁻³</div>Rapport n/p ≈ 4·10¹¹ : les trous sont totalement négligeables.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Conductivité (en unités cm : e en C, n en cm⁻³, μ en cm²/V·s ⟹ γ en S/cm)</div><div class="sd"><div class="calc">γ = e (n μ_n + p μ_p) ≈ 1,6·10⁻¹⁹ · 10¹⁶ · 1350 ≈ 2,2 S/cm     ⟹  ρ = 1/γ ≈ 0,46 Ω·cm</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Comparaison avec l'intrinsèque</div><div class="sd"><div class="calc">γ_i = e n_i (μ_n + μ_p) = 1,6·10⁻¹⁹ · 1,5·10¹⁰ · 1830 ≈ 4,4·10⁻⁶ S/cm</div>Le dopage à 1 atome pour ~5 millions (10¹⁶ / 5·10²² atomes de Si) multiplie la conductivité par ~500 000. C'est tout le principe du semi-conducteur.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>Type N ; n = 10¹⁶ cm⁻³, p = 2,25·10⁴ cm⁻³ ; γ ≈ 2,2 S/cm, ρ ≈ 0,46 Ω·cm.</div>
+        <div class="why"><b class="lab">Piège d'unités</b>Si l'énoncé mélange cm⁻³ et m²/V·s, tout convertir : 10¹⁶ cm⁻³ = 10²² m⁻³ ; 1350 cm²/V·s = 0,135 m²/V·s. Alors γ = 1,6·10⁻¹⁹ · 10²² · 0,135 = 216 S/m = 2,16 S/cm ✓ (1 S/cm = 100 S/m).</div>
+      </article>
+
+      <!-- E5 -->
+      <article class="deroule" id="e5">
+        <div class="dh"><span class="dn">E5</span><span class="dch">Ch. 2 · Jonction PN</span><h3>Barrière de potentiel d'une jonction Si avec N<sub>A</sub> = 10¹⁷ cm⁻³, N<sub>D</sub> = 10¹⁶ cm⁻³ à 300 K</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>V<sub>0</sub>, puis l'effet d'une hausse de température et d'un dopage plus fort. Formule : V<sub>0</sub> = (k<sub>B</sub>T/e)·ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²).</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Tension thermique</div><div class="sd"><div class="calc">k_B T / e = 1,38·10⁻²³ · 300 / 1,6·10⁻¹⁹ ≈ 0,026 V = 26 mV</div>À retenir par cœur, c'est aussi le V<sub>T</sub> de r<sub>E</sub> = 26 mV/I<sub>E</sub>.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Argument du logarithme</div><div class="sd"><div class="calc">N_A N_D / n_i² = 10¹⁷ · 10¹⁶ / (1,5·10¹⁰)² = 10³³ / 2,25·10²⁰ ≈ 4,4·10¹²
+ln(4,4·10¹²) = ln 4,4 + 12·ln 10 ≈ 1,48 + 27,6 ≈ 29,1</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Barrière</div><div class="sd"><div class="calc">V₀ = 0,026 · 29,1 ≈ 0,76 V</div>Cohérent avec la valeur « typique » du cours et proche du seuil 0,7 V de la diode.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Variations</div><div class="sd">Dopage ×10 sur N<sub>D</sub> ⟹ ln augmente de ln 10 = 2,3 ⟹ V<sub>0</sub> +60 mV. T qui monte ⟹ n<sub>i</sub> explose (e<sup>−E_g/2kT</sup>) ⟹ l'argument du ln chute plus vite que kT/e ne monte ⟹ <b>V<sub>0</sub> diminue</b> (≈ −2 mV/°C, c'est le capteur de température à diode).</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>V<sub>0</sub> ≈ 0,76 V.</div>
+        <div class="why"><b class="lab">Calculer un ln sans calculatrice</b>ln(a·10<sup>k</sup>) = ln a + 2,3·k. Avec ln 2 ≈ 0,69, ln 3 ≈ 1,1, ln 5 ≈ 1,6, on encadre n'importe quel logarithme à 5 % près.</div>
+      </article>
+
+      <!-- E6 -->
+      <article class="deroule" id="e6">
+        <div class="dh"><span class="dn">E6</span><span class="dch">Ch. 3 · État d'une diode</span><h3>Source E en série avec R = 1 kΩ et une diode Si. Cas (a) E = 5 V dans le sens passant ; (b) E = 0,5 V ; (c) E = 5 V, diode retournée. Modèle parfait, puis réel avec r = 10 Ω.</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>L'état de la diode et le point de fonctionnement (V<sub>D</sub>, I<sub>D</sub>) dans chaque cas, par la méthode de l'hypothèse.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">(a) Hypothèse « bloquée »</div><div class="sd">I<sub>D</sub> = 0 ⟹ pas de chute dans R ⟹ V<sub>D</sub> = E = 5 V. Or une diode bloquée doit avoir V<sub>D</sub> &lt; 0,7 V : <b>contradiction</b> ⟹ elle est passante.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">(a) Hypothèse « passante », modèle parfait V<sub>D</sub> = 0,7 V</div><div class="sd"><div class="calc">Maille : E − R I_D − V_S = 0  ⟹  I_D = (E − V_S)/R = (5 − 0,7)/1000 = 4,3 mA  &gt; 0 ✓ cohérent</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">(a) Modèle réel</div><div class="sd"><div class="calc">I_D = (E − V_S)/(R + r) = 4,3/1010 ≈ 4,26 mA ;  V_D = V_S + r I_D = 0,7 + 0,043 ≈ 0,74 V</div>Différence de 1 % : le modèle parfait suffit dès que R ≫ r.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">(b) E = 0,5 V</div><div class="sd">Hypothèse bloquée : V<sub>D</sub> = 0,5 V &lt; 0,7 V ✓ cohérent ⟹ <b>bloquée</b>, I<sub>D</sub> = 0, V<sub>R</sub> = 0. (Hypothèse passante donnerait I<sub>D</sub> = (0,5 − 0,7)/R &lt; 0 : absurde.)</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">(c) Diode en inverse</div><div class="sd">Hypothèse bloquée : V<sub>D</sub> = −5 V &lt; 0,7 ✓ ⟹ <b>bloquée</b>. Vérifier que |−5 V| &lt; V<sub>BR</sub> (ex. 100 V pour une 1N4148) : pas de claquage. Toute la tension E est aux bornes de la diode.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>(a) passante, I<sub>D</sub> = 4,3 mA, V<sub>D</sub> = 0,7 V (0,74 V en réel) ; (b) bloquée ; (c) bloquée, V<sub>D</sub> = −5 V.</div>
+        <div class="why"><b class="lab">Avec plusieurs diodes</b>Même méthode : on suppose un état pour <em>chaque</em> diode (2 diodes = 4 combinaisons), on calcule, on vérifie <em>toutes</em> les conditions. Commencer par l'hypothèse la plus plausible (celle où la source « pousse » dans le sens passant).</div>
+      </article>
+
+      <!-- E7 -->
+      <article class="deroule" id="e7">
+        <div class="dh"><span class="dn">E7</span><span class="dch">Ch. 3 · Régulateur Zener</span><h3>V<sub>i</sub> = 12 V, R = 220 Ω, V<sub>Z</sub> = 5,1 V, I<sub>Z,max</sub> = 50 mA, I<sub>Z,min</sub> = 1 mA. Charge R<sub>L</sub> variable.</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>(1) Vérifier que la Zener survit sans charge. (2) R<sub>L,min</sub> pour rester régulé. (3) Puissance dans R et dans la Zener.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Courant dans R (constant tant que la régulation tient)</div><div class="sd"><div class="calc">I_R = (V_i − V_Z)/R = (12 − 5,1)/220 = 6,9/220 ≈ 31,4 mA</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Sans charge : tout passe dans la Zener</div><div class="sd">I<sub>Z</sub> = I<sub>R</sub> = 31,4 mA &lt; I<sub>Z,max</sub> = 50 mA ✓. Puissance dissipée : P<sub>Z</sub> = 5,1 · 0,0314 ≈ 0,16 W (choisir une Zener 0,5 W).</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Avec charge : loi des nœuds</div><div class="sd"><div class="calc">I_R = I_Z + I_L   ⟹   I_L = I_R − I_Z
+Régulation maintenue tant que I_Z ≥ I_Z,min  ⟹  I_L ≤ I_R − I_Z,min = 31,4 − 1 = 30,4 mA
+R_L,min = V_Z / I_L,max = 5,1 / 0,0304 ≈ 168 Ω</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Formule du cours (I<sub>Z,min</sub> = 0)</div><div class="sd"><div class="calc">R_L,min = V_Z · R / (V_i − V_Z) = 5,1 · 220 / 6,9 ≈ 163 Ω</div>Même résultat à 3 % près ; la version avec I<sub>Z,min</sub> est plus sûre.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Si R<sub>L</sub> &lt; R<sub>L,min</sub> ?</div><div class="sd">La Zener se bloque (I<sub>Z</sub> = 0), le circuit redevient un simple diviseur R/R<sub>L</sub> : V<sub>out</sub> = 12·R<sub>L</sub>/(220 + R<sub>L</sub>) &lt; 5,1 V. Plus de régulation.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>I<sub>R</sub> ≈ 31 mA ; sans charge OK (P<sub>Z</sub> ≈ 0,16 W) ; R<sub>L,min</sub> ≈ 165–170 Ω.</div>
+        <div class="why"><b class="lab">Le raisonnement en « budget de courant »</b>R fournit un courant fixe I<sub>R</sub>. La charge en prend ce qu'elle veut, la Zener absorbe <em>le reste</em>. Quand le reste devient nul, la régulation lâche. Le problème inverse (V<sub>i</sub> variable, R<sub>L</sub> fixe) se traite pareil : V<sub>i,min</sub> tel que I<sub>R</sub> ≥ I<sub>L</sub> + I<sub>Z,min</sub>, V<sub>i,max</sub> tel que I<sub>R</sub> ≤ I<sub>L</sub> + I<sub>Z,max</sub>.</div>
+      </article>
+
+      <!-- E8 -->
+      <article class="deroule" id="e8">
+        <div class="dh"><span class="dn">E8</span><span class="dch">Ch. 4 · Polarisation par la base</span><h3>V<sub>CC</sub> = 12 V, V<sub>BB</sub> = 5 V, R<sub>B</sub> = 100 kΩ, R<sub>C</sub> = 1 kΩ. Point Q pour β = 100, puis β = 300.</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>(I<sub>B</sub>, I<sub>C</sub>, V<sub>CE</sub>) et le mode. Puis montrer pourquoi cette polarisation est « β-dépendante ».</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Hypothèse : mode actif, V<sub>BE</sub> = 0,7 V. Maille de base</div><div class="sd"><div class="calc">I_B = (V_BB − V_BE)/R_B = (5 − 0,7)/100 k = 43 µA</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Courant de collecteur et maille de collecteur (β = 100)</div><div class="sd"><div class="calc">I_C = β I_B = 4,3 mA
+V_CE = V_CC − R_C I_C = 12 − 1 k · 4,3 m = 7,7 V  &gt; 0,2 V  ✓  mode actif confirmé</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Droite de charge et saturation</div><div class="sd"><div class="calc">I_C,sat = V_CC / R_C = 12 mA   (à V_CE ≈ 0)</div>Q = (7,7 V ; 4,3 mA) est à peu près au milieu de la droite de charge : bon pour amplifier.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Même circuit, β = 300 (autre exemplaire, ou T plus élevée)</div><div class="sd"><div class="calc">I_C = 300 · 43 µ = 12,9 mA  &gt; I_C,sat = 12 mA  ⟹  IMPOSSIBLE  ⟹  transistor SATURÉ
+On plafonne : I_C = I_C,sat ≈ 12 mA, V_CE = V_CE,sat ≈ 0,1–0,2 V</div></div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>β = 100 : actif, Q = (7,7 V ; 4,3 mA). β = 300 : saturé, V<sub>CE</sub> ≈ 0,2 V. Le point Q dépend de β ⟹ mauvaise polarisation pour un ampli, très bien pour un interrupteur.</div>
+        <div class="why"><b class="lab">Le test de saturation, toujours</b>Après I<sub>C</sub> = βI<sub>B</sub>, comparer à I<sub>C,sat</sub>. Un V<sub>CE</sub> négatif dans la maille de collecteur est le signal d'alarme : ça veut dire « saturé ». En commutation on <em>veut</em> β·I<sub>B</sub> ≫ I<sub>C,sat</sub> (facteur 2 à 10 de sécurité).</div>
+      </article>
+
+      <!-- E9 -->
+      <article class="deroule" id="e9">
+        <div class="dh"><span class="dn">E9</span><span class="dch">Ch. 4 · Polarisation par pont diviseur</span><h3>V<sub>CC</sub> = 12 V, R<sub>1</sub> = 10 kΩ, R<sub>2</sub> = 2,2 kΩ, R<sub>E</sub> = 2,2 kΩ, R<sub>C</sub> = 3,3 kΩ, β = 150</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>Le point Q par la méthode Thévenin-sur-la-base, la vérification de la condition de « vraie source », et pourquoi Q ne dépend presque plus de β.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Thévenin vu de la base</div><div class="sd"><div class="calc">V_Th = V_CC · R₂/(R₁+R₂) = 12 · 2,2/12,2 ≈ 2,16 V
+R_Th = R₁ // R₂ = 10·2,2/12,2 ≈ 1,80 kΩ</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Condition de stabilité</div><div class="sd"><div class="calc">R_Th &lt; 0,01·(β+1)·R_E = 0,01 · 151 · 2,2 k = 3,32 kΩ   ⟹  1,80 k &lt; 3,32 k ✓</div>Le pont se comporte comme une vraie source de tension : le courant de base ne le « charge » pas.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Méthode rapide (β-indépendante)</div><div class="sd"><div class="calc">V_E = V_Th − V_BE = 2,16 − 0,7 = 1,46 V
+I_E = V_E / R_E = 1,46 / 2,2 k ≈ 0,66 mA ≈ I_C
+V_C = V_CC − R_C I_C = 12 − 3,3 k · 0,66 m ≈ 9,8 V
+V_CE = V_C − V_E ≈ 9,8 − 1,46 ≈ 8,4 V  &gt; 0,2 ✓ actif</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Méthode exacte (pour voir l'écart)</div><div class="sd"><div class="calc">Maille base : V_Th − R_Th I_B − V_BE − R_E (β+1) I_B = 0
+I_B = 1,46 / (1,8 k + 151 · 2,2 k) = 1,46 / 334 k ≈ 4,4 µA  ⟹  I_C = 150 · 4,4 µ ≈ 0,66 mA</div>Identique à 1 % près. Avec β = 300 : I<sub>B</sub> = 1,46/(1,8 k + 662 k) = 2,2 µA, I<sub>C</sub> = 0,66 mA — <b>inchangé</b>. C'est tout l'intérêt de R<sub>E</sub>.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>Q ≈ (V<sub>CE</sub> = 8,4 V ; I<sub>C</sub> = 0,66 mA), stable en β.</div>
+        <div class="why"><b class="lab">Pourquoi R<sub>E</sub> stabilise</b>Si β augmente, I<sub>C</sub> veut augmenter ⟹ V<sub>E</sub> = R<sub>E</sub>I<sub>E</sub> augmente ⟹ V<sub>BE</sub> = V<sub>B</sub> − V<sub>E</sub> diminue ⟹ I<sub>B</sub> diminue ⟹ I<sub>C</sub> revient. C'est une contre-réaction, comme dans l'AOP.</div>
+      </article>
+
+      <!-- E10 -->
+      <article class="deroule" id="e10">
+        <div class="dh"><span class="dn">E10</span><span class="dch">Ch. 5 · Émetteur commun en AC</span><h3>Même montage que E9 (I<sub>E</sub> = 0,66 mA), avec C<sub>1</sub>, C<sub>2</sub> de liaison et C<sub>3</sub> de découplage sur R<sub>E</sub>. Charge R<sub>L</sub> = 10 kΩ.</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>r<sub>E</sub>, A<sub>V</sub> à vide et en dB, Z<sub>in</sub>, Z<sub>out</sub>, gain avec la charge, et gain sans C<sub>3</sub>.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Résistance dynamique d'émetteur (à partir du DC)</div><div class="sd"><div class="calc">r_E = 26 mV / I_E = 26 / 0,66 ≈ 39 Ω</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Schéma AC : C = fils, V<sub>CC</sub> = masse, R<sub>E</sub> court-circuitée par C<sub>3</sub></div><div class="sd">Entrée : R<sub>1</sub> et R<sub>2</sub> tous deux entre base et masse (V<sub>CC</sub> est à la masse en AC) ⟹ en parallèle avec (β+1)r<sub>E</sub>. Sortie : R<sub>C</sub> entre collecteur et masse.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Gains et impédances</div><div class="sd"><div class="calc">A_V = −R_C / r_E = −3300 / 39 ≈ −84      ⟹  20·log(84) ≈ 38,5 dB, déphasage 180°
+Z_in = R₁ // R₂ // (β+1) r_E = 1,8 k // (151 · 39 = 5,9 k) ≈ 1,38 kΩ
+Z_out = R_C = 3,3 kΩ</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Avec la charge R<sub>L</sub> (diviseur de tension en sortie)</div><div class="sd"><div class="calc">A_V,chargé = A_V · R_L/(Z_out + R_L) = −84 · 10/13,3 ≈ −63    (équivalent : −(R_C // R_L)/r_E = −2,48 k/39 ≈ −63)</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Sans C<sub>3</sub></div><div class="sd"><div class="calc">A_V = −R_C / (R_E + r_E) = −3300 / 2239 ≈ −1,5</div>Le découplage multiplie le gain par ~57. En échange, sans C<sub>3</sub> le gain ≈ −R<sub>C</sub>/R<sub>E</sub> est <em>indépendant de r<sub>E</sub></em>, donc de la température : compromis gain / stabilité.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>r<sub>E</sub> ≈ 39 Ω ; A<sub>V</sub> ≈ −84 (38,5 dB) ; Z<sub>in</sub> ≈ 1,4 kΩ ; Z<sub>out</sub> = 3,3 kΩ ; chargé ≈ −63 ; sans C<sub>3</sub> ≈ −1,5.</div>
+        <div class="why"><b class="lab">Le fil conducteur</b>Tout le chapitre 5 tient dans : Q (DC) ⟹ r<sub>E</sub> ⟹ modèle en π ⟹ trois nombres (A<sub>V</sub>, Z<sub>in</sub>, Z<sub>out</sub>). Ensuite l'ampli est une boîte noire qu'on charge ou qu'on cascade avec des diviseurs de tension.</div>
+      </article>
+
+      <!-- E11 -->
+      <article class="deroule" id="e11">
+        <div class="dh"><span class="dn">E11</span><span class="dch">Ch. 6 · JFET autopolarisé</span><h3>I<sub>DSS</sub> = 10 mA, V<sub>GS,off</sub> = −4 V, R<sub>S</sub> = 500 Ω, R<sub>D</sub> = 1 kΩ, V<sub>DD</sub> = 15 V, grille à la masse par R<sub>G</sub></h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>Le point de repos (V<sub>GS</sub>, I<sub>D</sub>, V<sub>DS</sub>), la vérification de la zone active, puis g<sub>m</sub> et le gain en source commune.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Équation de la maille grille-source</div><div class="sd">I<sub>G</sub> = 0 ⟹ V<sub>G</sub> = 0 ; V<sub>S</sub> = R<sub>S</sub> I<sub>D</sub> ⟹ <div class="calc">V_GS = −R_S · I_D = −0,5 · I_D     (V en volts, I_D en mA)</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Injecter dans la loi quadratique</div><div class="sd"><div class="calc">I_D = I_DSS (1 − V_GS/V_GS,off)² = 10 (1 − (−0,5 I_D)/(−4))² = 10 (1 − 0,125 I_D)²
+I_D = 10 − 2,5 I_D + 0,15625 I_D²   ⟹   0,15625 I_D² − 3,5 I_D + 10 = 0</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Résoudre et choisir la racine</div><div class="sd"><div class="calc">Δ = 3,5² − 4 · 0,15625 · 10 = 12,25 − 6,25 = 6   ⟹  √Δ ≈ 2,45
+I_D = (3,5 ± 2,45)/(2 · 0,15625) = (3,5 ± 2,45)/0,3125  ⟹  19,0 mA  ou  3,36 mA</div>19 mA &gt; I<sub>DSS</sub> et donnerait V<sub>GS</sub> = −9,5 V &lt; V<sub>GS,off</sub> : impossible. On garde <b>I<sub>D</sub> = 3,36 mA</b>, V<sub>GS</sub> = −1,68 V (bien entre −4 et 0 ✓).</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">V<sub>DS</sub> et zone de fonctionnement</div><div class="sd"><div class="calc">V_DS = V_DD − (R_D + R_S) I_D = 15 − 1,5 k · 3,36 m ≈ 10 V
+Condition zone active : V_DS &gt; V_GS − V_GS,off = −1,68 + 4 = 2,3 V   ⟹  10 &gt; 2,3 ✓</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Transconductance et gain (source commune, R<sub>S</sub> découplée)</div><div class="sd"><div class="calc">g_m = (2 I_DSS/|V_P|)(1 − V_GS/V_GS,off) = (20 m/4)(1 − 0,42) = 5 m · 0,58 ≈ 2,9 mS
+A_V = −g_m R_D = −2,9 m · 1 k ≈ −2,9</div>Faible gain : c'est la contrepartie de l'impédance d'entrée énorme du FET.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>I<sub>D</sub> ≈ 3,4 mA, V<sub>GS</sub> ≈ −1,7 V, V<sub>DS</sub> ≈ 10 V (zone active) ; g<sub>m</sub> ≈ 2,9 mS, A<sub>V</sub> ≈ −2,9.</div>
+        <div class="why"><b class="lab">Sans calcul : la méthode graphique</b>Tracer la parabole I<sub>D</sub>(V<sub>GS</sub>) entre V<sub>GS,off</sub> et 0, et la droite V<sub>GS</sub> = −R<sub>S</sub>I<sub>D</sub> (passe par l'origine, pente −1/R<sub>S</sub>). L'intersection est Q. Utile pour vérifier l'ordre de grandeur de la racine choisie.</div>
+      </article>
+
+      <!-- E12 -->
+      <article class="deroule" id="e12">
+        <div class="dh"><span class="dn">E12</span><span class="dch">Ch. 6 · MOSFET</span><h3>N-MOS avec K<sub>n</sub>·W/L = 2 mA/V², V<sub>T</sub> = 1 V, V<sub>GS</sub> = 3 V, V<sub>DD</sub> = 10 V. (a) R<sub>D</sub> = 1,5 kΩ ; (b) R<sub>D</sub> = 5 kΩ.</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>La région de fonctionnement et I<sub>D</sub>, V<sub>DS</sub>, g<sub>m</sub>. Méthode : supposer saturé, vérifier V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>T</sub>.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Le transistor conduit-il ?</div><div class="sd">V<sub>GS</sub> = 3 V &gt; V<sub>T</sub> = 1 V ⟹ canal d'inversion formé ⟹ conduit. Tension de commande utile : V<sub>GS</sub> − V<sub>T</sub> = 2 V.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Hypothèse « saturé » (zone active)</div><div class="sd"><div class="calc">I_D = ½ · K_n (W/L) · (V_GS − V_T)² = ½ · 2 m · 2² = 4 mA</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">(a) R<sub>D</sub> = 1,5 kΩ — vérification</div><div class="sd"><div class="calc">V_DS = V_DD − R_D I_D = 10 − 1,5 k · 4 m = 4 V  ≥  V_GS − V_T = 2 V  ✓  saturé confirmé
+g_m = 2 I_D/(V_GS − V_T) = 8 m / 2 = 4 mS</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">(b) R<sub>D</sub> = 5 kΩ — vérification</div><div class="sd"><div class="calc">V_DS = 10 − 5 k · 4 m = −10 V   ⟹  absurde (V_DS &lt; 0)</div>L'hypothèse est fausse : le transistor est en <b>région ohmique</b> (canal non pincé). I<sub>D</sub> est plus petit que 4 mA et V<sub>DS</sub> est petit ; il se comporte comme une résistance R<sub>DS</sub> ≈ 1/(K<sub>n</sub>(W/L)(V<sub>GS</sub>−V<sub>T</sub>)) = 250 Ω, d'où V<sub>DS</sub> ≈ 10 · 250/5250 ≈ 0,5 V. C'est le régime « interrupteur fermé » du chapitre 7.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>(a) saturé : I<sub>D</sub> = 4 mA, V<sub>DS</sub> = 4 V, g<sub>m</sub> = 4 mS. (b) ohmique : V<sub>DS</sub> ≈ 0,5 V, le MOS agit en interrupteur fermé.</div>
+        <div class="why"><b class="lab">Trois régions, un seul test</b>V<sub>GS</sub> &lt; V<sub>T</sub> : bloqué. Sinon, V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>T</sub> : saturé (source de courant, pour amplifier). V<sub>DS</sub> &lt; V<sub>GS</sub> − V<sub>T</sub> : ohmique (résistance commandée, pour commuter). Le MOSFET logique (ch. 7) vit dans bloqué/ohmique, jamais en saturé.</div>
+      </article>
+
+      <!-- E13 -->
+      <article class="deroule" id="e13">
+        <div class="dh"><span class="dn">E13</span><span class="dch">Ch. 7 · Synthèse CMOS</span><h3>Réaliser Y = <span style="text-decoration:overline">A·B + C</span> en logique CMOS et compter les transistors</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>Le réseau PDN (nMOS, vers GND) et le réseau PUN (pMOS, vers V<sub>DD</sub>), puis la vérification sur la table de vérité.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">PDN : partir de Ȳ, entrées non complémentées</div><div class="sd"><div class="calc">Ȳ = A·B + C     ⟹   « · » = série,  « + » = parallèle
+PDN = (nMOS_A en série avec nMOS_B)  en parallèle avec  nMOS_C</div>Lecture : la sortie est tirée à 0 si (A et B) ou si C.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">PUN : la structure duale (série ↔ parallèle), mêmes entrées, transistors pMOS</div><div class="sd"><div class="calc">Y = (A·B + C)̄ = (A·B)̄ · C̄ = (Ā + B̄) · C̄     (De Morgan deux fois)
+PUN = (pMOS_A en parallèle avec pMOS_B)  en série avec  pMOS_C</div>Un pMOS conduit quand son entrée vaut 0 : la sortie est tirée à 1 si (A = 0 ou B = 0) et C = 0. ✓ cohérent avec Y.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Compter</div><div class="sd">3 entrées ⟹ 3 nMOS + 3 pMOS = <b>6 transistors</b>. Règle : une fonction à n entrées réalisée en une seule porte complexe (AOI) coûte 2n transistors.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Vérifier une ligne de la table</div><div class="sd">A = 1, B = 1, C = 0 : PDN : A·B conduit ⟹ chemin vers GND ⟹ Y = 0. PUN : pMOS_A et pMOS_B tous deux ouverts ⟹ pas de chemin vers V<sub>DD</sub> ✓ (jamais les deux réseaux fermés en même temps : pas de court-circuit).</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>PDN : (A série B) // C ; PUN : (A // B) série C ; 6 transistors.</div>
+        <div class="why"><b class="lab">Si la fonction n'est pas « inversée »</b>Y = A·B + C (sans barre) n'est pas réalisable en une seule porte CMOS (une porte CMOS statique est toujours inverseuse). On réalise <span style="text-decoration:overline">A·B + C</span> (6 T) puis un inverseur (2 T) = 8 transistors. Même logique pour AND = NAND + NOT.</div>
+      </article>
+
+      <!-- E14 -->
+      <article class="deroule" id="e14">
+        <div class="dh"><span class="dn">E14</span><span class="dch">Ch. 7 · Résistances, capacités, délai</span><h3>R<sub>□</sub>(métal) = 0,1 Ω, rail de 40 λ × 4 λ avec un coude ; R<sub>N</sub> = R<sub>P</sub> = 5 kΩ ; C<sub>OUT</sub> = 20 fF. Délai d'un inverseur, puis d'une NAND3.</h3></div>
+        <div class="enonce"><b class="lab">Ce qu'on cherche</b>Appliquer la méthode des carrés, puis le modèle RC du délai, puis la règle du carré du nombre de transistors en série.</div>
+        <ol class="steps">
+          <li class="step"><span class="sn"></span><div><div class="st">Résistance du rail par comptage de carrés</div><div class="sd"><div class="calc">nombre de carrés = ℓ/w = 40/4 = 10 ;  un coude compte ½ carré
+R_rail = R_□ · (10 + 0,5) = 0,1 · 10,5 ≈ 1,05 Ω</div>Négligeable devant les 5 kΩ des transistors : c'est en général le cas pour le métal, pas pour le polysilicium (R<sub>□</sub> ~ 10–50 Ω).</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Délai de l'inverseur</div><div class="sd"><div class="calc">τ = (R_N + R_P) · C_OUT / 2 = (5 k + 5 k) · 20 f / 2 = 100 ps</div></div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">NAND à 3 entrées : 3 nMOS en série dans le PDN</div><div class="sd"><div class="calc">τ_descente ≈ (n²/2) · R_N · C = (9/2) · 5 k · 20 f = 450 ps      (Elmore)
+τ_montée : les 3 pMOS sont en parallèle ⟹ au pire un seul conduit : R_P · C = 100 ps</div>Le délai « pire cas » est 450 ps : la NAND3 est ~4,5 fois plus lente que l'inverseur sur le front descendant.</div></div></li>
+          <li class="step"><span class="sn"></span><div><div class="st">Fréquence max et miniaturisation</div><div class="sd">Chaîne de 5 portes de 100 ps : chemin critique 0,5 ns ⟹ période ≥ 1 ns ⟹ f &lt; 1 GHz. En divisant les dimensions par S = 2 (V<sub>DD</sub> constant) : τ → τ/4, f → 4f.</div></div></li>
+        </ol>
+        <div class="answer"><b class="lab">Réponse</b>R<sub>rail</sub> ≈ 1 Ω ; τ<sub>inv</sub> = 100 ps ; τ<sub>NAND3</sub> ≈ 450 ps (descente) / 100 ps (montée).</div>
+        <div class="why"><b class="lab">Pourquoi n² et pas n</b>n transistors en série : la résistance totale est nR <em>et</em> chaque nœud intermédiaire porte sa capacité ; la somme des produits R×C cumulés donne ≈ n²/2. Conséquence de conception : on évite plus de 3–4 transistors en série et on met les entrées « tardives » près de la sortie.</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOÎTE À OUTILS « À CÔTÉ » ============ -->
+<section class="view" id="view-boite">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">🧰 À connaître à côté</span>
+      <h2>Ce qui n'est pas « au programme » mais qui fait la différence</h2>
+      <p>Ordres de grandeur, calcul mental des parallèles et des dB, unités, constantes du silicium, lecture d'une datasheet, résolution d'un second degré… et les pièges classiques par chapitre. À relire la veille.</p>
+    </div>
+
+    <h3 class="subhead">📎 Le kit de calcul</h3>
+    <div class="kit">
+      <div class="kcard"><h3>// Résistances en parallèle, de tête</h3>
+        <ul>
+          <li>Formule : <span class="mono">R₁ // R₂ = R₁R₂/(R₁+R₂)</span>. Deux résistances égales ⟹ R/2. Trois égales ⟹ R/3.</li>
+          <li>Rapport ≥ 10 : <span class="mono">R₁ // R₂ ≈ la plus petite</span> (à 10 % près). 100 k // 1 k ≈ 0,99 k.</li>
+          <li>Le résultat est <b>toujours inférieur</b> à la plus petite des deux. Sinon, erreur.</li>
+          <li>Série : les tensions s'ajoutent (diviseur de tension). Parallèle : les courants s'ajoutent (diviseur de courant).</li>
+          <li>Astuce mA·kΩ : 4,3 mA × 1 kΩ = 4,3 V ; 43 µA × 100 kΩ = 4,3 V.</li>
+        </ul>
+      </div>
+
+      <div class="kcard"><h3>dB Décibels sans calculatrice</h3>
+        <div class="tbl-wrap"><table>
+          <tr><th>Gain</th><th>20·log (tension)</th><th>Gain</th><th>20·log</th></tr>
+          <tr><td class="mono">×1</td><td class="mono">0 dB</td><td class="mono">×0,5</td><td class="mono">−6 dB</td></tr>
+          <tr><td class="mono">×√2 ≈ 1,41</td><td class="mono">3 dB</td><td class="mono">×0,707</td><td class="mono">−3 dB</td></tr>
+          <tr><td class="mono">×2</td><td class="mono">6 dB</td><td class="mono">×5</td><td class="mono">14 dB</td></tr>
+          <tr><td class="mono">×10</td><td class="mono">20 dB</td><td class="mono">×100</td><td class="mono">40 dB</td></tr>
+          <tr><td class="mono">×20</td><td class="mono">26 dB</td><td class="mono">×1000</td><td class="mono">60 dB</td></tr>
+        </table></div>
+        <p>Les gains se <b>multiplient</b>, les dB s'<b>ajoutent</b> : 84 = 10 × 8,4 ⟹ 20 + 18,5 = 38,5 dB. Puissance : 10·log (×2 = 3 dB, ×10 = 10 dB).</p>
+      </div>
+
+      <div class="kcard"><h3>Si Constantes du silicium à 300 K</h3>
+        <ul class="mono">
+          <li>n<sub>i</sub> ≈ 1,5·10¹⁰ cm⁻³ (parfois 1,0·10¹⁰ selon la source — prendre celle de l'énoncé)</li>
+          <li>E<sub>g</sub> ≈ 1,12 eV ; densité atomique ≈ 5·10²² cm⁻³</li>
+          <li>μ<sub>n</sub> ≈ 1350, μ<sub>p</sub> ≈ 480 cm²/V·s (μ<sub>n</sub> ≈ 3 μ<sub>p</sub>)</li>
+          <li>k<sub>B</sub>T/e = 26 mV ; D/μ = 26 mV (Einstein)</li>
+          <li>V<sub>S</sub> ≈ 0,7 V (Si), 0,3 V (Ge), 0,2–0,4 V (Schottky), 1,8–3,3 V (LED selon couleur)</li>
+          <li>I<sub>S</sub> double tous les ≈ 10 °C ; V<sub>D</sub> baisse de ≈ 2 mV/°C à I constant</li>
+        </ul>
+        <p>1 eV = 1,6·10⁻¹⁹ J. 1 S/cm = 100 S/m. 1 cm⁻³ = 10⁶ m⁻³.</p>
+      </div>
+
+      <div class="kcard"><h3>10ⁿ Préfixes et unités</h3>
+        <div class="tbl-wrap"><table>
+          <tr><th>p</th><th>n</th><th>µ</th><th>m</th><th>k</th><th>M</th><th>G</th></tr>
+          <tr><td class="mono">10⁻¹²</td><td class="mono">10⁻⁹</td><td class="mono">10⁻⁶</td><td class="mono">10⁻³</td><td class="mono">10³</td><td class="mono">10⁶</td><td class="mono">10⁹</td></tr>
+        </table></div>
+        <ul>
+          <li>Ω = V/A ; S = A/V = 1/Ω ; F = C/V = A·s/V ; H = V·s/A.</li>
+          <li>γ en S/m ; ρ en Ω·m ; j en A/m² ; E en V/m ; μ en m²/(V·s).</li>
+          <li>g<sub>m</sub> en S (mS typiquement) ; r<sub>E</sub> en Ω ; τ = RC en s (kΩ × pF = ns, kΩ × fF = ps).</li>
+          <li>Puissance : P = U·I = R·I² = U²/R. Une résistance ¼ W supporte ≈ 15 mA sous 15 V (P = 0,22 W).</li>
+        </ul>
+      </div>
+
+      <div class="kcard"><h3>x² Second degré et logarithmes</h3>
+        <ul>
+          <li><span class="mono">ax² + bx + c = 0 ⟹ Δ = b² − 4ac, x = (−b ± √Δ)/(2a)</span>. En électronique, <b>une seule racine est physique</b> : vérifier V<sub>GS,off</sub> &lt; V<sub>GS</sub> &lt; 0, I<sub>D</sub> &lt; I<sub>DSS</sub>, V<sub>DS</sub> &gt; 0.</li>
+          <li><span class="mono">ln(a·10ᵏ) = ln a + 2,3k</span> ; ln 2 = 0,69, ln 3 = 1,10, ln 5 = 1,61, ln 10 = 2,30.</li>
+          <li><span class="mono">e<sup>x</sup></span> : e<sup>0,7/0,026</sup> = e<sup>27</sup> ≈ 5·10¹¹ — d'où le « mur » de la caractéristique de diode à 0,7 V.</li>
+          <li>Shockley inversé : <span class="mono">V<sub>D</sub> = ηV<sub>T</sub> · ln(I<sub>D</sub>/I<sub>S</sub> + 1)</span>. ×10 sur I<sub>D</sub> ⟹ +60 mV sur V<sub>D</sub> (η = 1).</li>
+        </ul>
+      </div>
+
+      <div class="kcard"><h3>📄 Lire une datasheet</h3>
+        <ul>
+          <li><b>Absolute maximum ratings</b> : à ne jamais dépasser (V<sub>CEO</sub>, I<sub>C,max</sub>, P<sub>tot</sub>, V<sub>RRM</sub>). Ce ne sont pas des valeurs de fonctionnement.</li>
+          <li><b>h<sub>FE</sub></b> = β, donné en <em>plage</em> (ex. 100–300) à un I<sub>C</sub> et V<sub>CE</sub> précis. Prendre le min pour dimensionner une saturation, le typique pour un ampli.</li>
+          <li><b>V<sub>CE(sat)</sub></b> donné pour un couple (I<sub>C</sub>, I<sub>B</sub>), souvent I<sub>C</sub>/I<sub>B</sub> = 10.</li>
+          <li><b>V<sub>BE(on)</sub></b> ≈ 0,65–0,7 V ; <b>V<sub>GS(th)</sub></b> = V<sub>T</sub> du MOSFET, en plage aussi.</li>
+          <li><b>I<sub>DSS</sub>, V<sub>GS(off)</sub></b> pour un JFET : très dispersés (facteur 2–3 d'un exemplaire à l'autre) — d'où l'intérêt de l'autopolarisation.</li>
+          <li>Les courbes sont à 25 °C sauf mention. β et I<sub>S</sub> montent avec T.</li>
+        </ul>
+      </div>
+
+      <div class="kcard"><h3>✏ Conventions et notations</h3>
+        <ul>
+          <li><b>Majuscules</b> = grandeurs DC / totales (I<sub>C</sub>, V<sub>CE</sub>) ; <b>minuscules</b> = petites variations AC (i<sub>c</sub>, v<sub>ce</sub>). Total = DC + AC.</li>
+          <li>Indice double V<sub>CE</sub> = V<sub>C</sub> − V<sub>E</sub>. Indice répété V<sub>CC</sub>, V<sub>DD</sub> = alimentation.</li>
+          <li>Convention récepteur : flèche de tension et flèche de courant en sens opposés ⟹ u = Ri. Générateur : même sens.</li>
+          <li>NPN : flèche de l'émetteur vers l'extérieur (« Not Pointing iN »). PNP : vers l'intérieur. Courants : I<sub>E</sub> sort du NPN.</li>
+          <li>Masse = référence 0 V, tous les potentiels s'y rapportent. Un nœud à V<sub>CC</sub> est « à la masse » en AC.</li>
+        </ul>
+      </div>
+
+      <div class="kcard"><h3>🧠 Ordres de grandeur « radar »</h3>
+        <div class="tbl-wrap"><table>
+          <tr><th>Grandeur</th><th>Plausible</th><th>Suspect</th></tr>
+          <tr><td>I<sub>B</sub></td><td class="mono">1–100 µA</td><td class="mono">&gt; 1 mA</td></tr>
+          <tr><td>I<sub>C</sub>, I<sub>D</sub></td><td class="mono">0,1–50 mA</td><td class="mono">&gt; 1 A (sauf puissance)</td></tr>
+          <tr><td>r<sub>E</sub></td><td class="mono">5–100 Ω</td><td class="mono">kΩ</td></tr>
+          <tr><td>|A<sub>V</sub>| émetteur commun</td><td class="mono">20–300</td><td class="mono">&gt; 1000</td></tr>
+          <tr><td>Z<sub>in</sub> BJT / FET</td><td class="mono">kΩ / MΩ</td><td class="mono">Ω</td></tr>
+          <tr><td>V<sub>0</sub> jonction Si</td><td class="mono">0,6–0,9 V</td><td class="mono">&gt; 1,2 V</td></tr>
+          <tr><td>τ porte CMOS</td><td class="mono">10 ps – 1 ns</td><td class="mono">µs</td></tr>
+          <tr><td>V<sub>CE</sub> en mode actif</td><td class="mono">1 V … V<sub>CC</sub> − 1 V</td><td class="mono">&lt; 0 ou &gt; V<sub>CC</sub></td></tr>
+        </table></div>
+      </div>
+    </div>
+
+    <h3 class="subhead">⚠ Les pièges classiques, chapitre par chapitre</h3>
+    <div class="trapgrid">
+      <div class="trapc"><b class="lab">Ch. 0 · diviseur</b>Utiliser V₂ = V·R₂/(R₁+R₂) alors qu'une charge est branchée sur R₂. <span class="fix">✓ Remplacer R₂ par R₂ // R<sub>L</sub>, ou passer par Thévenin.</span></div>
+      <div class="trapc"><b class="lab">Ch. 0 · Thévenin</b>Calculer R<sub>Th</sub> en laissant les sources. <span class="fix">✓ Sources de tension → fil, sources de courant → trou, puis résistance vue des bornes.</span></div>
+      <div class="trapc"><b class="lab">Ch. 0 · AOP</b>Écrire V<sub>+</sub> = V<sub>−</sub> sans contre-réaction, ou oublier la saturation. <span class="fix">✓ Vérifier d'abord qu'une résistance relie la sortie à l'entrée −. Puis vérifier |V<sub>out</sub>| &lt; V<sub>sat</sub>.</span></div>
+      <div class="trapc"><b class="lab">Ch. 1 · section</b>S = πd² au lieu de πr² = πd²/4 (facteur 4 sur R). <span class="fix">✓ Convertir le diamètre en rayon avant tout.</span></div>
+      <div class="trapc"><b class="lab">Ch. 1 · température</b>Conclure « R augmente avec T » pour un semi-conducteur. <span class="fix">✓ Conducteur : R↗. Semi-conducteur et isolant : R↘ (plus de porteurs).</span></div>
+      <div class="trapc"><b class="lab">Ch. 2 · minoritaires</b>Prendre p = n<sub>i</sub> dans un type N. <span class="fix">✓ p = n<sub>i</sub>²/N<sub>D</sub>, bien plus petit que n<sub>i</sub>.</span></div>
+      <div class="trapc"><b class="lab">Ch. 2 · polarisation</b>Inverser le sens : « P au − = directe ». <span class="fix">✓ Directe = P au +, N au − (P comme Plus). La barrière V₀ diminue.</span></div>
+      <div class="trapc"><b class="lab">Ch. 3 · état de la diode</b>Décider « passante » parce que la source est positive, sans vérifier E &gt; V<sub>S</sub>. <span class="fix">✓ Hypothèse bloquée → V<sub>D</sub> → comparer à 0,7 V.</span></div>
+      <div class="trapc"><b class="lab">Ch. 3 · Zener</b>Oublier que la Zener doit être en <em>inverse</em>, ou oublier la résistance série. <span class="fix">✓ Cathode côté +. Sans R série, I<sub>Z</sub> n'est pas limité : destruction.</span></div>
+      <div class="trapc"><b class="lab">Ch. 3 · Graëtz</b>Chute de V<sub>S</sub> au lieu de 2V<sub>S</sub>. <span class="fix">✓ À chaque alternance, le courant traverse <b>deux</b> diodes en série.</span></div>
+      <div class="trapc"><b class="lab">Ch. 4 · saturation</b>Garder I<sub>C</sub> = βI<sub>B</sub> alors que V<sub>CE</sub> calculé est négatif. <span class="fix">✓ I<sub>C</sub> ≤ I<sub>C,sat</sub> = V<sub>CC</sub>/R<sub>C</sub>. Plafonner et prendre V<sub>CE,sat</sub>.</span></div>
+      <div class="trapc"><b class="lab">Ch. 4 · pont diviseur</b>Calculer V<sub>B</sub> par le diviseur nu puis oublier R<sub>E</sub> dans la maille. <span class="fix">✓ V<sub>E</sub> = V<sub>B</sub> − 0,7 puis I<sub>E</sub> = V<sub>E</sub>/R<sub>E</sub>. Et V<sub>CE</sub> = V<sub>CC</sub> − R<sub>C</sub>I<sub>C</sub> − R<sub>E</sub>I<sub>E</sub>.</span></div>
+      <div class="trapc"><b class="lab">Ch. 5 · schéma AC</b>Laisser V<sub>CC</sub> comme un nœud à part, ou laisser R<sub>E</sub> alors que C<sub>3</sub> la découple. <span class="fix">✓ V<sub>CC</sub> → masse (R₁ et R<sub>C</sub> vont à la masse). C₃ court-circuite R<sub>E</sub>.</span></div>
+      <div class="trapc"><b class="lab">Ch. 5 · r<sub>E</sub></b>Utiliser I<sub>C</sub> en mA sans convertir : r<sub>E</sub> = 26/4,3 ≈ 6 Ω est juste <em>si</em> 26 est en mV et I en mA. <span class="fix">✓ Toujours 26 mV / I<sub>E</sub>(mA) = Ω.</span></div>
+      <div class="trapc"><b class="lab">Ch. 5 · dB</b>Écrire un gain négatif « −38 dB » pour A<sub>V</sub> = −84. <span class="fix">✓ dB = 20·log|A<sub>V</sub>| = +38,5 dB ; le signe est un déphasage de π.</span></div>
+      <div class="trapc"><b class="lab">Ch. 6 · racine</b>Garder la racine I<sub>D</sub> &gt; I<sub>DSS</sub> du second degré. <span class="fix">✓ Contraintes physiques : 0 &lt; I<sub>D</sub> &lt; I<sub>DSS</sub> et V<sub>GS,off</sub> &lt; V<sub>GS</sub> &lt; 0 (JFET canal N).</span></div>
+      <div class="trapc"><b class="lab">Ch. 6 · V<sub>P</sub> vs V<sub>GS,off</sub></b>Les confondre dans les formules. <span class="fix">✓ Même valeur absolue ; V<sub>GS,off</sub> &lt; 0 dans la loi quadratique, V<sub>P</sub> &gt; 0 dans R<sub>DS</sub> = V<sub>P</sub>/I<sub>DSS</sub>.</span></div>
+      <div class="trapc"><b class="lab">Ch. 7 · PUN</b>Mettre le même schéma en haut et en bas. <span class="fix">✓ PUN = dual du PDN : série ↔ parallèle. Et une porte CMOS est toujours inverseuse.</span></div>
+      <div class="trapc"><b class="lab">Ch. 7 · délai</b>Multiplier par n au lieu de n²/2 pour n transistors en série. <span class="fix">✓ Elmore : ≈ (n²/2)RC. C'est pourquoi on limite à 3–4 en série.</span></div>
+    </div>
+
+    <h3 class="subhead">✍ Rédiger une copie qui rapporte</h3>
+    <div class="kit">
+      <div class="kcard"><h3>1 · Écrire l'hypothèse</h3>
+        <ul>
+          <li>« On suppose la diode passante : V<sub>D</sub> = 0,7 V. » Puis le calcul, puis « I<sub>D</sub> = 4,3 mA &gt; 0 : hypothèse validée. » Sans la vérification, la moitié des points saute.</li>
+          <li>« Le transistor est supposé en mode actif (V<sub>BE</sub> = 0,7 V) ; on vérifiera V<sub>CE</sub> &gt; 0,2 V. »</li>
+          <li>« Contre-réaction sur l'entrée − ⟹ régime linéaire ⟹ V<sub>+</sub> = V<sub>−</sub>. »</li>
+        </ul>
+      </div>
+      <div class="kcard"><h3>2 · Un schéma par étape</h3>
+        <ul>
+          <li>Redessiner le schéma DC (condensateurs enlevés) et le schéma AC (condensateurs = fils, V<sub>CC</sub> = masse) séparément. C'est souvent noté.</li>
+          <li>Flécher les courants et les tensions avec la convention choisie.</li>
+          <li>Pour Thévenin : dessiner le circuit « vu des bornes » sans la charge.</li>
+        </ul>
+      </div>
+      <div class="kcard"><h3>3 · Chiffres et unités</h3>
+        <ul>
+          <li>Écrire la formule littérale, <em>puis</em> l'application numérique, <em>puis</em> le résultat avec unité. « I<sub>B</sub> = (V<sub>BB</sub> − V<sub>BE</sub>)/R<sub>B</sub> = 4,3/100 k = 43 µA. »</li>
+          <li>Deux chiffres significatifs suffisent (β est connu à ±50 % !).</li>
+          <li>Encadrer le point Q, le gain, la valeur dimensionnée. Comparer à l'ordre de grandeur attendu.</li>
+        </ul>
+      </div>
+      <div class="kcard"><h3>4 · Le Partiel en 1h30</h3>
+        <ul>
+          <li>Lire tout le sujet (5 min). Commencer par l'exercice de cours (QCM, définitions) : points rapides.</li>
+          <li>Les exos BJT/FET s'enchaînent : DC ⟹ AC. Si le DC est faux, l'AC l'est aussi : soigner le point Q.</li>
+          <li>Question de cours type : « pourquoi C<sub>3</sub> ? », « avantage du CMOS ? », « différence BJT/FET ? » — une réponse en 3 lignes avec le mot-clé (découplage ⟹ gain ; conso statique nulle ; commande en tension / Z<sub>in</sub>).</li>
+          <li>Garder 5 min : relire les unités et les signes des gains.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ NOTIONS CLÉS ============ -->
 <section class="view" id="view-notions">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">💡 Notions Clés & Essentielles</span>
       <h2>L'essentiel, chapitre par chapitre</h2>
-      <p>Uniquement les concepts indispensables pour le Partiel. Une carte par chapitre : à relire la veille de l'examen.</p>
+      <p>Uniquement les concepts indispensables pour le Partiel. Une carte par chapitre, avec les <strong>réflexes</strong> de calcul et le <strong>piège</strong> classique : à relire la veille de l'examen.</p>
     </div>
-    <div class="notion-grid">
+        <div class="notion-grid">
 
       <div class="ncard"><div class="nh"><span class="nn">CH 0</span><h3>Lois & AOP</h3></div>
         <ul>
           <li><b>Millman</b> calcule un potentiel instantanément ; <b>superposition</b> = une source à la fois (V→fil, I→trou).</li>
           <li><b>Thévenin</b> (V<sub>Th</sub> à vide + R<sub>Th</sub> série) ↔ <b>Norton</b> (i<sub>N</sub> court-circuit + R<sub>N</sub> //), R<sub>N</sub>=R<sub>Th</sub>.</li>
           <li>AOP idéal : i<sub>+</sub>=i<sub>−</sub>=0. Contre-réaction ⟹ V<sub>d</sub>=0 (linéaire), sinon ±V<sub>sat</sub>.</li>
-          <li>Suiveur = adaptation d'impédance (Z<sub>in</sub>=∞).</li>
+          <li>Suiveur = adaptation d'impédance (Z<sub>in</sub>=∞). Inverseur −R<sub>f</sub>/R<sub>1</sub>, non-inverseur 1 + R<sub>f</sub>/R<sub>1</sub>.</li>
         </ul>
+        <div class="reflex"><b class="lab">⚡ Réflexes</b>Charge variable ⟹ Thévenin. Diviseur de tension valable seulement à vide (sinon R₂ // R<sub>L</sub>). AOP : chercher la résistance sortie → entrée − avant d'écrire V<sub>+</sub> = V<sub>−</sub>.</div>
+        <div class="piege"><b class="lab">⚠ Piège</b>R<sub>Th</sub> se calcule sources <em>neutralisées</em>. Et un AOP sature dès que |V<sub>out</sub>| voudrait dépasser V<sub>sat</sub>.</div>
       </div>
 
       <div class="ncard"><div class="nh"><span class="nn">CH 1</span><h3>Conduction</h3></div>
         <ul>
-          <li>Loi d'Ohm locale <b>j = γE</b>, γ = ne²τ/m ; R = ρℓ/S.</li>
-          <li>Mobilité μ = eτ/m ; vitesse de dérive v = −μE.</li>
-          <li><b>Conducteur</b> : T↗ ⟹ R↗ (ρ = ρ₀(1+αΔT)).</li>
-          <li>Condensateur : C = εS/d, i = C·du/dt. Usages : découplage, liaison, filtrage, anti-rebond.</li>
+          <li>Loi d'Ohm locale <b>j = γE</b>, γ = ne²τ/m ; R = ρℓ/S ; ρ = 1/γ.</li>
+          <li>Mobilité μ = eτ/m ; vitesse de dérive v = −μE (≈ mm/s !) ; j = nev.</li>
+          <li><b>Conducteur</b> : T↗ ⟹ R↗ (ρ = ρ₀(1+αΔT)). Isolant/SC : T↗ ⟹ R↘.</li>
+          <li>Condensateur : C = εS/d, i = C·du/dt, Z = 1/(jCω). Usages : découplage, liaison, filtrage, anti-rebond. f<sub>c</sub> = 1/(2πRC).</li>
         </ul>
+        <div class="reflex"><b class="lab">⚡ Réflexes</b>Chaîne R = ρℓ/S ⟹ i = u/R ⟹ j = i/S ⟹ v = j/(ne). Tout en SI. Condensateur = ouvert en DC, fil en AC (haute fréquence).</div>
+        <div class="piege"><b class="lab">⚠ Piège</b>Section = πr², pas πd². Et les électrolytiques sont <em>polarisés</em> : sens de branchement.</div>
       </div>
 
       <div class="ncard"><div class="nh"><span class="nn">CH 2</span><h3>Semi-conducteurs</h3></div>
         <ul>
-          <li>Dopage <b>N</b> (P, groupe V) → e⁻ majoritaires ; <b>P</b> (bore, III) → trous majoritaires.</li>
-          <li>Loi d'action de masse <b>n·p = n<sub>i</sub>²</b>. N : n≈N<sub>D</sub> ; P : p≈N<sub>A</sub>.</li>
-          <li><b>SC</b> : T↗ ⟹ γ↗ (plus de porteurs). Relation d'Einstein D/μ = k<sub>B</sub>T/q ≈ 25 mV.</li>
-          <li>Jonction PN : ZCD + barrière V<sub>0</sub>. Directe=passante, inverse=bloquée. <b>Shockley</b>.</li>
+          <li>Dopage <b>N</b> (P, As : groupe V) → e⁻ majoritaires ; <b>P</b> (B : groupe III) → trous majoritaires.</li>
+          <li>Loi d'action de masse <b>n·p = n<sub>i</sub>²</b>. N : n≈N<sub>D</sub>, p = n<sub>i</sub>²/N<sub>D</sub> ; P : p≈N<sub>A</sub>.</li>
+          <li>γ<sub>sc</sub> = e(nμ<sub>n</sub> + pμ<sub>p</sub>). <b>SC</b> : T↗ ⟹ γ↗. Einstein D/μ = k<sub>B</sub>T/q ≈ 26 mV.</li>
+          <li>Jonction PN : ZCD + barrière V<sub>0</sub> = (kT/e)ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²) ≈ 0,7–0,8 V. Directe = passante, inverse = bloquée (I<sub>S</sub>). <b>Shockley</b> I = I<sub>S</sub>(e<sup>V/ηV<sub>T</sub></sup> − 1).</li>
         </ul>
+        <div class="reflex"><b class="lab">⚡ Réflexes</b>Groupe V = donneur = N ; groupe III = accepteur = P. Minoritaires négligeables dans γ. ln(a·10ᵏ) = ln a + 2,3k pour V<sub>0</sub> de tête.</div>
+        <div class="piege"><b class="lab">⚠ Piège</b>Dopage ×10 ⟹ V<sub>0</sub> +60 mV seulement (logarithme). T↗ ⟹ V<sub>0</sub>↘ (n<sub>i</sub> explose).</div>
       </div>
 
       <div class="ncard"><div class="nh"><span class="nn">CH 3</span><h3>La diode</h3></div>
         <ul>
-          <li>Seuil : <b>V<sub>S</sub>=0,7 V (Si)</b>, 0,3 V (Ge). Modèle parfait : V<sub>D</sub>=V<sub>S</sub> ; réel : +r·I<sub>D</sub>.</li>
-          <li>État par l'absurde ; point de fonctionnement = charge ∩ caractéristique.</li>
-          <li>Redressement : simple / <b>Graëtz</b> (double, −2V<sub>S</sub>). Écrêtage, roue libre (inductif).</li>
-          <li><b>Zener</b> = régulateur (V<sub>D</sub>=−V<sub>Z</sub>). Schottky (HF), LED, Varicap.</li>
+          <li>Seuil : <b>V<sub>S</sub>=0,7 V (Si)</b>, 0,3 V (Ge). Idéale : 0 ; parfaite : V<sub>S</sub> ; réelle : V<sub>S</sub> + r·I<sub>D</sub>.</li>
+          <li>État par <b>hypothèse + vérification</b> ; point de fonctionnement = droite de charge ∩ caractéristique ; I<sub>D</sub> = (E − V<sub>S</sub>)/(R + r).</li>
+          <li>Redressement : simple (−V<sub>S</sub>) / <b>Graëtz</b> (double, −2V<sub>S</sub>) → filtre RC → régulateur. Écrêtage, roue libre (inductif), protection, capteur T (−2 mV/°C).</li>
+          <li><b>Zener</b> en inverse = régulateur (V<sub>out</sub> = V<sub>Z</sub>), toujours avec R série ; I<sub>R</sub> = I<sub>Z</sub> + I<sub>L</sub>. Schottky (HF), LED, Varicap.</li>
         </ul>
+        <div class="reflex"><b class="lab">⚡ Réflexes</b>Supposer bloquée ⟹ calculer V<sub>D</sub> ⟹ &gt; 0,7 V ? ⟹ passante. Zener : « budget de courant » I<sub>R</sub> fixe, la Zener prend le reste ; régulation tant que I<sub>Z,min</sub> ≤ I<sub>Z</sub> ≤ I<sub>Z,max</sub>.</div>
+        <div class="piege"><b class="lab">⚠ Piège</b>Une diode passante n'a pas V<sub>D</sub> = 0 (modèle parfait : 0,7 V). Graëtz : deux diodes conduisent à chaque alternance ⟹ chute 2V<sub>S</sub>.</div>
       </div>
 
       <div class="ncard"><div class="nh"><span class="nn">CH 4</span><h3>BJT statique</h3></div>
         <ul>
-          <li><b>i<sub>C</sub>=β·i<sub>B</sub></b>, i<sub>E</sub>=i<sub>B</sub>+i<sub>C</sub>, α≈1, β≈100–200.</li>
-          <li>Bloqué V<sub>BE</sub>&lt;0,7 ; actif V<sub>BE</sub>=0,7 & V<sub>CB</sub>&gt;0 ; saturé V<sub>CE</sub>&lt;0,2 V.</li>
-          <li>Émetteur commun : droites d'attaque & de charge, point Q.</li>
-          <li>Polarisation par <b>pont/émetteur</b> = β-indépendante, stable (condition R<sub>1</sub>//R<sub>2</sub>&lt;0,01(β+1)R<sub>E</sub>).</li>
+          <li><b>i<sub>C</sub>=β·i<sub>B</sub></b>, i<sub>E</sub>=i<sub>B</sub>+i<sub>C</sub>, α≈1, β≈100–300 (datasheet, dispersé, ↗ avec T).</li>
+          <li>Bloqué V<sub>BE</sub>&lt;0,7 ; actif V<sub>BE</sub>=0,7 & V<sub>CE</sub>&gt;0,2 ; saturé V<sub>CE</sub>≈0,2 V (I<sub>C</sub> = I<sub>C,sat</sub> = V<sub>CC</sub>/R<sub>C</sub>).</li>
+          <li>Émetteur commun : droite d'attaque i<sub>B</sub> = (V<sub>BB</sub>−0,7)/R<sub>B</sub>, droite de charge V<sub>CE</sub> = V<sub>CC</sub> − R<sub>C</sub>i<sub>C</sub>, point Q.</li>
+          <li>Polarisation par <b>pont/émetteur</b> = β-indépendante, stable (Thévenin sur la base, condition R<sub>1</sub>//R<sub>2</sub> &lt; 0,01(β+1)R<sub>E</sub>) : V<sub>E</sub> = V<sub>Th</sub> − 0,7, I<sub>C</sub> ≈ V<sub>E</sub>/R<sub>E</sub>.</li>
         </ul>
+        <div class="reflex"><b class="lab">⚡ Réflexes</b>Supposer actif ⟹ I<sub>B</sub> ⟹ I<sub>C</sub> = βI<sub>B</sub> ⟹ V<sub>CE</sub> ⟹ tester V<sub>CE</sub> &gt; 0,2 V. Commutation : vouloir βI<sub>B</sub> ≫ I<sub>C,sat</sub>. Ampli : Q au milieu de la droite de charge.</div>
+        <div class="piege"><b class="lab">⚠ Piège</b>V<sub>CE</sub> négatif = saturé, pas « erreur de calcul ». Avec R<sub>E</sub>, V<sub>CE</sub> = V<sub>CC</sub> − R<sub>C</sub>I<sub>C</sub> − R<sub>E</sub>I<sub>E</sub>.</div>
       </div>
 
       <div class="ncard"><div class="nh"><span class="nn">CH 5</span><h3>BJT dynamique</h3></div>
         <ul>
-          <li>3 condos : C<sub>1</sub>,C<sub>2</sub> liaison, <b>C<sub>3</sub> découplage</b> (booste le gain).</li>
-          <li>r<sub>E</sub> = 26 mV / I<sub>E</sub>. <b>A<sub>V</sub> ≈ −R<sub>C</sub>/r<sub>E</sub></b> (déphasage π).</li>
-          <li>Z<sub>in</sub>=R<sub>1</sub>//R<sub>2</sub>//(β+1)r<sub>E</sub> ; Z<sub>out</sub>=R<sub>C</sub>. dB : 20·log.</li>
-          <li>Classes A/B/AB/D ; Darlington β<sub>1</sub>β<sub>2</sub> ; miroir de courant ; paire diff → AOP.</li>
+          <li>3 condos : C<sub>1</sub>,C<sub>2</sub> liaison (bloquent le DC), <b>C<sub>3</sub> découplage</b> sur R<sub>E</sub> (booste le gain ×50).</li>
+          <li>r<sub>E</sub> = 26 mV / I<sub>E</sub>. <b>A<sub>V</sub> ≈ −R<sub>C</sub>/r<sub>E</sub></b> (déphasage π) ; sans C<sub>3</sub> : −R<sub>C</sub>/(R<sub>E</sub>+r<sub>E</sub>).</li>
+          <li>Z<sub>in</sub>=R<sub>1</sub>//R<sub>2</sub>//(β+1)r<sub>E</sub> ; Z<sub>out</sub>=R<sub>C</sub>. Chargé : ×R<sub>L</sub>/(Z<sub>out</sub>+R<sub>L</sub>). dB : 20·log|A<sub>V</sub>|, 10·log A<sub>P</sub>.</li>
+          <li>Classes A (360°, η ≤ 50 %) / B (180°, 78,5 %, croisement) / AB / D (PWM) ; Darlington β<sub>1</sub>β<sub>2</sub> ; miroir de courant ; paire diff → AOP.</li>
         </ul>
+        <div class="reflex"><b class="lab">⚡ Réflexes</b>DC ⟹ I<sub>E</sub> ⟹ r<sub>E</sub> ⟹ schéma AC (C = fils, V<sub>CC</sub> = masse) ⟹ (A<sub>V</sub>, Z<sub>in</sub>, Z<sub>out</sub>). Ensuite l'ampli est une boîte noire : diviseurs de tension pour la charge et la cascade.</div>
+        <div class="piege"><b class="lab">⚠ Piège</b>Le signe − de A<sub>V</sub> n'est pas « des dB négatifs ». R<sub>C</sub> et R<sub>1</sub> vont à la masse en AC (V<sub>CC</sub> = masse).</div>
       </div>
 
       <div class="ncard"><div class="nh"><span class="nn">CH 6</span><h3>Le FET</h3></div>
         <ul>
-          <li>Commandé en <b>tension</b>, unipolaire, I<sub>G</sub>≈0 (Z<sub>in</sub> énorme), I<sub>D</sub>=I<sub>S</sub>.</li>
-          <li>JFET : <b>I<sub>D</sub>=I<sub>DSS</sub>(1−V<sub>GS</sub>/V<sub>GS,off</sub>)²</b> ; |V<sub>GS,off</sub>|=V<sub>P</sub>.</li>
-          <li>g<sub>m</sub>=dI<sub>D</sub>/dV<sub>GS</sub> ; source commune A<sub>V</sub>=−g<sub>m</sub>R<sub>D</sub> ; drain commun ≈1.</li>
-          <li>MOSFET : grille isolée (SiO₂), canal d'inversion, seuil V<sub>T</sub>, I<sub>D</sub>=½K<sub>n</sub>(W/L)(V<sub>GS</sub>−V<sub>T</sub>)².</li>
+          <li>Commandé en <b>tension</b>, unipolaire, I<sub>G</sub>≈0 (Z<sub>in</sub> énorme), I<sub>D</sub>=I<sub>S</sub>. Gain plus faible que le BJT.</li>
+          <li>JFET : <b>I<sub>D</sub>=I<sub>DSS</sub>(1−V<sub>GS</sub>/V<sub>GS,off</sub>)²</b> (V<sub>GS,off</sub> &lt; V<sub>GS</sub> &lt; 0) ; |V<sub>GS,off</sub>|=V<sub>P</sub> ; R<sub>DS</sub> = V<sub>P</sub>/I<sub>DSS</sub>.</li>
+          <li>g<sub>m</sub>=dI<sub>D</sub>/dV<sub>GS</sub> = (2I<sub>DSS</sub>/|V<sub>P</sub>|)(1−V<sub>GS</sub>/V<sub>P</sub>) ; source commune A<sub>V</sub>=−g<sub>m</sub>R<sub>D</sub> ; drain commun ≈1.</li>
+          <li>MOSFET : grille isolée (SiO₂), canal d'inversion, seuil V<sub>T</sub>, I<sub>D</sub>=½K<sub>n</sub>(W/L)(V<sub>GS</sub>−V<sub>T</sub>)² si V<sub>DS</sub> ≥ V<sub>GS</sub>−V<sub>T</sub> ; sinon ohmique ; g<sub>m</sub> = 2I<sub>D</sub>/(V<sub>GS</sub>−V<sub>T</sub>).</li>
         </ul>
+        <div class="reflex"><b class="lab">⚡ Réflexes</b>Autopolarisation : V<sub>GS</sub> = −R<sub>S</sub>I<sub>D</sub> dans la loi quadratique ⟹ 2<sup>nd</sup> degré ⟹ garder la racine physique. MOSFET : bloqué ? puis supposer saturé, vérifier V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>T</sub>.</div>
+        <div class="piege"><b class="lab">⚠ Piège</b>Deux racines, une seule physique (I<sub>D</sub> &lt; I<sub>DSS</sub>). Le FET logique (ch. 7) est bloqué/ohmique, jamais saturé.</div>
       </div>
 
       <div class="ncard"><div class="nh"><span class="nn">CH 7</span><h3>Logique CMOS</h3></div>
         <ul>
-          <li>nMOS tire vers <b>0</b>, pMOS vers <b>1</b> ; états opposés ⟹ conso statique ≈ 0.</li>
-          <li><b>PUN</b> (pMOS, entrées complémentées) + <b>PDN</b> (nMOS, non complémentées). De Morgan.</li>
-          <li>« + » = parallèle, « · » = série.</li>
-          <li>Délai τ=(R<sub>N</sub>+R<sub>P</sub>)C<sub>OUT</sub>/2 ; miniaturiser (L↘) = plus rapide. Layout → masque → wafer → die.</li>
+          <li>nMOS tire vers <b>0</b> (conduit si entrée = 1), pMOS vers <b>1</b> (conduit si entrée = 0) ; états opposés ⟹ conso statique ≈ 0, courant seulement à la commutation.</li>
+          <li><b>PDN</b> (nMOS, depuis Ȳ, entrées directes) + <b>PUN</b> (pMOS, structure duale). « + » = parallèle, « · » = série. De Morgan. Porte CMOS = toujours inverseuse ; n entrées ⟹ 2n transistors.</li>
+          <li>Layout : diffusions horizontales, poly vertical, pMOS près de V<sub>DD</sub>. Cellules standard, parcours d'Euler ⟹ une seule bande de diffusion.</li>
+          <li>Délai τ=(R<sub>N</sub>+R<sub>P</sub>)C<sub>OUT</sub>/2 ; n en série ⟹ (n²/2)RC ; R = R<sub>□</sub>·(carrés), coude ½ ; miniaturiser (L↘) ⟹ τ/S², f·S². Chemin critique = le plus long. CAO → masques → wafer → die → boîtier.</li>
         </ul>
+        <div class="reflex"><b class="lab">⚡ Réflexes</b>Écrire Ȳ ⟹ dessiner le PDN ⟹ dualiser pour le PUN ⟹ compter 2n ⟹ vérifier une ligne de table de vérité. Fonction non inversée ⟹ +1 inverseur (2 T).</div>
+        <div class="piege"><b class="lab">⚠ Piège</b>PUN ≠ copie du PDN. Délai en n², pas en n : éviter &gt; 3–4 transistors en série.</div>
       </div>
 
     </div>
@@ -1263,6 +1721,7 @@
 
     <div class="section-head" style="padding-top:36px"><span class="eyebrow">Méthode</span><h2 style="font-size:22px">Rester efficace sans se cramer</h2></div>
     <div class="tips">
+      <div class="tip"><div class="th">🧭 Un déroulé par soir</div><p>Les 14 déroulés couvrent tout ce qui se calcule au Partiel. En refaire un par soir cahier fermé, puis comparer étape par étape : deux semaines et le programme est vu en actes.</p></div>
       <div class="tip"><div class="th">⏱ Pomodoro 50/10</div><p>50 min de concentration, 10 min de pause. Après 3-4 cycles, une vraie pause de 30 min. Le cerveau consolide mieux par blocs.</p></div>
       <div class="tip"><div class="th">🔁 Révision active</div><p>Ne pas relire passivement : refaire les exos, réexpliquer à voix haute, se tester avec les Notions clés. C'est ce qui ancre.</p></div>
       <div class="tip"><div class="th">📐 Annales en conditions</div><p>Le dossier ANNALES contient DS et Partiels Paris (2019→2024) avec corrigés. Les faire chronométrés, sans le cours, dès novembre.</p></div>

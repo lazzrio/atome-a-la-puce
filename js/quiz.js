@@ -60,7 +60,25 @@
    {c:7,q:"Théorème de De Morgan :",o:["¬(A+B) = ¬A·¬B","¬(A+B) = ¬A+¬B","¬(A·B) = ¬A·¬B","A+B = A·B"],a:0,e:"¬(A+B) = Ā·B̄ et ¬(A·B) = Ā+B̄."},
    {c:7,q:"Un opérateur « · » (ET) se traduit par des MOS :",o:["en parallèle","en série","en pont","déconnectés"],a:1,e:"« · » → série ; « + » → parallèle."},
    {c:7,q:"Le délai d'une porte CMOS (modèle RC) :",o:["R_N·R_P·C","(R_N+R_P)·C_OUT/2","C_OUT/R","R/C_OUT"],a:1,e:"τ = (R_N + R_P)·C_OUT / 2."},
-   {c:7,q:"Miniaturiser (diminuer L) permet de :",o:["ralentir le circuit","augmenter la fréquence","augmenter la conso statique","réduire I_DS"],a:1,e:"I_DS ∝ W/L : L diminue → commutation plus rapide."}
+   {c:7,q:"Miniaturiser (diminuer L) permet de :",o:["ralentir le circuit","augmenter la fréquence","augmenter la conso statique","réduire I_DS"],a:1,e:"I_DS ∝ W/L : L diminue → commutation plus rapide."},
+   /* ---- Méthodes & déroulés (ajout) ---- */
+   {c:0,q:"Pont diviseur 12 V, R1 = 4 kΩ, R2 = 8 kΩ, charge 8 kΩ sur R2. Tension aux bornes de la charge :",o:["8 V","6 V","4 V","12 V"],a:1,e:"Thévenin : V_Th = 8 V, R_Th = 4//8 = 2,67 kΩ ; V_L = 8·8/(2,67+8) = 6 V. Le diviseur « nu » (8 V) est faux car la charge tire du courant."},
+   {c:0,q:"Non-inverseur avec R1 = 1 kΩ, Rf = 9 kΩ : gain en dB ?",o:["9 dB","10 dB","19 dB","20 dB"],a:3,e:"A = 1 + Rf/R1 = 10 ⟹ 20·log(10) = 20 dB."},
+   {c:1,q:"Fil de diamètre 1 mm : sa section vaut",o:["π·10⁻⁶ m²","π·(0,5·10⁻³)² ≈ 7,85·10⁻⁷ m²","10⁻⁶ m²","π·10⁻³ m²"],a:1,e:"S = πr² avec r = d/2 = 0,5 mm. Erreur classique : utiliser d au lieu de r (facteur 4)."},
+   {c:2,q:"Si type N, N_D = 10¹⁶ cm⁻³, n_i = 1,5·10¹⁰ cm⁻³. Densité de trous p ≈",o:["1,5·10¹⁰ cm⁻³","10¹⁶ cm⁻³","2,25·10⁴ cm⁻³","0"],a:2,e:"p = n_i²/N_D = 2,25·10²⁰/10¹⁶ = 2,25·10⁴ cm⁻³ — négligeable devant n."},
+   {c:2,q:"Si on multiplie N_D par 10, la barrière V₀ :",o:["est multipliée par 10","augmente d'environ 60 mV","diminue","ne change pas"],a:1,e:"V₀ = (kT/e)·ln(N_A N_D/n_i²) : ×10 dans le ln ⟹ +26 mV × ln 10 ≈ +60 mV."},
+   {c:3,q:"Source 5 V, R = 1 kΩ, diode Si en direct. Courant (modèle parfait) :",o:["5 mA","4,3 mA","0","0,7 mA"],a:1,e:"Hypothèse bloquée ⟹ V_D = 5 V > 0,7 : contradiction ⟹ passante, I = (5 − 0,7)/1 k = 4,3 mA."},
+   {c:3,q:"Régulateur Zener : V_i = 12 V, R = 220 Ω, V_Z = 5,1 V. Le courant dans R vaut",o:["54 mA","31 mA","23 mA","12 mA"],a:1,e:"I_R = (V_i − V_Z)/R = 6,9/220 ≈ 31 mA, constant tant que la Zener régule. La charge en prend une part, la Zener absorbe le reste."},
+   {c:4,q:"Polarisation par la base : I_B = 43 µA, R_C = 1 kΩ, V_CC = 12 V, β = 300. Le transistor est",o:["actif, V_CE = −0,9 V","saturé, I_C ≈ 12 mA","bloqué","actif, V_CE = 7,7 V"],a:1,e:"βI_B = 12,9 mA > I_C,sat = 12 mA ⟹ saturé : I_C plafonne à 12 mA, V_CE ≈ 0,2 V. Un V_CE négatif calculé signifie « saturé »."},
+   {c:4,q:"Pont diviseur : V_Th = 2,16 V, R_E = 2,2 kΩ. Le courant d'émetteur vaut environ",o:["0,98 mA","0,66 mA","2,16 mA","0,32 mA"],a:1,e:"V_E = 2,16 − 0,7 = 1,46 V ; I_E = 1,46/2,2 k ≈ 0,66 mA, indépendant de β."},
+   {c:5,q:"I_E = 0,66 mA, R_C = 3,3 kΩ, C₃ présent. Gain en tension à vide :",o:["−3,3","−84","−1,5","+84"],a:1,e:"r_E = 26/0,66 ≈ 39 Ω ; A_V = −R_C/r_E = −3300/39 ≈ −84 (38,5 dB)."},
+   {c:5,q:"Même ampli sans le condensateur de découplage C₃ (R_E = 2,2 kΩ) :",o:["A_V ≈ −84","A_V ≈ −1,5","A_V ≈ 0","A_V ≈ −39"],a:1,e:"A_V = −R_C/(R_E + r_E) = −3300/2239 ≈ −1,5. C₃ multiplie le gain par ~57."},
+   {c:5,q:"En schéma AC, la borne V_CC de R_C est reliée à :",o:["l'entrée","la masse","le collecteur","rien (ouvert)"],a:1,e:"Une source DC a une impédance nulle : en petit signal, V_CC est à la masse. R_C et R₁ vont donc à la masse."},
+   {c:6,q:"JFET autopolarisé : le second degré donne I_D = 19 mA ou 3,4 mA, avec I_DSS = 10 mA. On garde",o:["19 mA","3,4 mA","les deux","aucune"],a:1,e:"I_D ne peut dépasser I_DSS et V_GS doit rester entre V_GS,off et 0 : seule 3,4 mA est physique."},
+   {c:6,q:"N-MOS, V_T = 1 V, V_GS = 3 V. Avec R_D on calcule V_DS = −10 V. Conclusion :",o:["le transistor est bloqué","il est saturé","l'hypothèse « saturé » est fausse : région ohmique","erreur d'énoncé"],a:2,e:"V_DS négatif est impossible : le canal n'est pas pincé, le MOS est en région ohmique (interrupteur fermé), V_DS petit."},
+   {c:7,q:"Réseau PDN de Y = (A·B + C)̄ :",o:["A // B, en série avec C","(A série B) // C","A série B série C","A // B // C"],a:1,e:"Ȳ = A·B + C ⟹ « · » série, « + » parallèle : (nMOS_A série nMOS_B) en parallèle avec nMOS_C."},
+   {c:7,q:"Combien de transistors pour Y = (A·B + C)̄ en CMOS ?",o:["3","4","6","8"],a:2,e:"3 entrées ⟹ 3 nMOS + 3 pMOS = 6. Y = A·B + C sans barre demanderait un inverseur en plus (8)."},
+   {c:7,q:"Inverseur : τ = 100 ps. Une NAND3 (3 nMOS en série) a un délai de descente d'environ",o:["100 ps","300 ps","450 ps","900 ps"],a:2,e:"Elmore : (n²/2)·RC = 4,5 × (R_N C) = 4,5 × 100 ps = 450 ps. Le délai croît comme n²."},
   ];
   var FLASH=[
    {c:0,q:"Théorème pour un potentiel direct connaissant tous les composants d'un nœud ?",a:"Millman : V = (ΣVk/Rk + Σik) / (Σ1/Rk)."},

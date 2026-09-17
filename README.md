@@ -13,8 +13,10 @@ Statique, sans dépendance, hébergeable tel quel sur GitHub Pages.
 | 💡 **Notions clés** | Une fiche de synthèse par chapitre — l'essentiel pour l'examen |
 | 📘 **Formules détaillées** | Toutes les formules + constantes, variables, unités et conditions |
 | ⚡ **Formules express** | Aide-mémoire brut, format anti-sèche |
+| 🧭 **Déroulés** | Table de décision + 14 exercices types résolus pas à pas avec valeurs numériques (Thévenin, diode, Zener, point Q, gain AC, JFET, MOSFET, CMOS, délai) |
 | 🎯 **Exos types** | Les exercices qui tombent et leur méthode, chapitre par chapitre |
-| 🧠 **Quiz & Flashcards** | 51 QCM + 32 flashcards, chapitres au choix, ordre ou aléatoire |
+| 🧰 **À côté** | Kit de calcul (parallèles, dB, constantes Si, unités, datasheet), pièges par chapitre, rédaction |
+| 🧠 **Quiz & Flashcards** | 68 QCM + 32 flashcards, chapitres au choix, ordre ou aléatoire |
 | 📅 **Planning** | Planning de révision du semestre, rythme équilibré |
 
 **Fonctionnalités** : thème clair/sombre, suivi de progression (localStorage),
