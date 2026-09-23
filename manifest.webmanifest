@@ -1,0 +1,30 @@
+{
+  "name": "De l'atome à la puce — Électronique (ECE ING2)",
+  "short_name": "Atome → puce",
+  "description": "Cours, TD corrigés, formules et quiz d'électronique ING2.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a1113",
+  "theme_color": "#0d8073",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

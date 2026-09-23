@@ -20,28 +20,57 @@
 
   /* ---------- NAVIGATION ---------- */
   var views=document.querySelectorAll(".view"), navBtns=document.querySelectorAll("#nav button");
-  function go(name,anchor){
+  function saut(el){ var h=document.documentElement, avant=h.style.scrollBehavior; h.style.scrollBehavior="auto"; el.scrollIntoView(true); h.style.scrollBehavior=avant; }
+  var VIEWS=["home","cours","deroules","notions","formules","express","exos","boite","quiz","planning"];
+  var current=null;
+  function go(name,anchor,fromHash){
+    if(VIEWS.indexOf(name)<0)name="home";
+    if(!fromHash){
+      var url=(name==="home"&&!anchor)?location.pathname+location.search:"#"+(anchor||name);
+      try{ if(name!==current)history.pushState(null,"",url); else history.replaceState(null,"",url); }catch(e){}
+    }
+    current=name;
     views.forEach(function(v){v.classList.toggle("active",v.id==="view-"+name);});
     navBtns.forEach(function(b){b.classList.toggle("active",b.getAttribute("data-go")===name);});
     document.getElementById("nav").classList.remove("open");
     if(anchor){ var el=document.getElementById(anchor);
-      if(el){ setTimeout(function(){el.scrollIntoView({behavior:"smooth",block:"start"});},60); return; } }
-    window.scrollTo({top:0,behavior:"smooth"});
+      if(el){ setTimeout(function(){ if(fromHash)saut(el); else el.scrollIntoView({behavior:"smooth",block:"start"}); },60); return; } }
+    if(fromHash)window.scrollTo(0,0); else window.scrollTo({top:0,behavior:"smooth"});
   }
   document.body.addEventListener("click",function(e){
     var t=e.target.closest("[data-go]"); if(!t)return;
     e.preventDefault(); go(t.getAttribute("data-go"), t.getAttribute("data-anchor"));
   });
   document.getElementById("burger").addEventListener("click",function(){
-    document.getElementById("nav").classList.toggle("open");
+    var open=document.getElementById("nav").classList.toggle("open");
+    this.setAttribute("aria-expanded",open?"true":"false");
   });
+
+  /* ---------- ADRESSES : index.html#cours, index.html#ch4, index.html#e7 ---------- */
+  function route(){
+    var h=decodeURIComponent((location.hash||"").slice(1));
+    if(!h)return false;
+    if(VIEWS.indexOf(h)>=0){ go(h,null,true); return true; }
+    var el=document.getElementById(h), v=el&&el.closest(".view");
+    if(v){ go(v.id.slice(5),h,true); return true; }
+    return false;
+  }
+  window.addEventListener("hashchange",function(){ if(!route())go("home",null,true); });
+  if(!route())current="home";
 
   /* ---------- COUNTDOWN ---------- */
   (function(){
-    var target=new Date(2026,11,14,8,0,0); // 14 déc 2026
-    var now=new Date();
-    var days=Math.max(0,Math.ceil((target-now)/(1000*60*60*24)));
-    var el=document.getElementById("countdown"); if(el)el.textContent=days;
+    var evals=[
+      {d:new Date(2026,10,7,8,45,0), t:"jours avant l'évaluation du samedi 7 novembre (8h45)"},
+      {d:new Date(2026,11,14,8,0,0), t:"jours avant la semaine des partiels (14 décembre)"}
+    ];
+    var now=new Date(), cible=null;
+    for(var i=0;i<evals.length;i++){ if(evals[i].d>now){ cible=evals[i]; break; } }
+    var el=document.getElementById("countdown"), lb=document.getElementById("countdownLbl");
+    if(!cible){ if(el)el.textContent="✓"; if(lb)lb.textContent="évaluations du semestre terminées"; return; }
+    var days=Math.max(0,Math.ceil((cible.d-now)/(1000*60*60*24)));
+    if(el)el.textContent=days;
+    if(lb)lb.textContent=cible.t;
   })();
 
   /* ---------- CHAPTERS DATA (home) ---------- */
@@ -92,6 +121,7 @@
       e.preventDefault();
       var id=a.getAttribute("href").slice(1), el=document.getElementById(id);
       if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
+      try{ history.replaceState(null,"","#"+id); }catch(e){}
     });
   });
   if("IntersectionObserver" in window){
@@ -116,4 +146,9 @@
       fgroups.forEach(function(g){ g.style.display=(f==="all"||g.getAttribute("data-fg")===f)?"":"none"; });
     });
   });
+
+  /* ---------- HORS LIGNE (GitHub Pages, https) ---------- */
+  if("serviceWorker" in navigator && location.protocol==="https:"){
+    window.addEventListener("load",function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
+  }
 })();

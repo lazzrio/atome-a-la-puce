@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TD corrigés — De l'Atome à la Puce</title>
+<meta name="description" content="Électronique ING2 ECE : tout le poly de TD « De l'atome à la puce » corrigé en détail (87 exercices), avec méthodes et erreurs du poly signalées.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0d8073" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1113" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:title" content="De l'atome à la puce — TD corrigés">
+<meta property="og:description" content="Les 11 TD du poly corrigés pas à pas : méthodes, calculs, pièges et erreurs du poly.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="cx-page">
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html" aria-label="Accueil du site">
+      <span class="chip-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"/></svg></span>
+      De l'Atome à la Puce
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#cours"><span class="ni">📚</span> Cours</a>
+      <a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
+      <a href="corriges.html" class="active" aria-current="page"><span class="ni">✅</span> Corrigés</a>
+      <a href="index.html#notions"><span class="ni">💡</span> Notions</a>
+      <a href="index.html#formules"><span class="ni">📘</span> Formules</a>
+      <a href="index.html#express"><span class="ni">⚡</span> Express</a>
+      <a href="index.html#exos"><span class="ni">🎯</span> Exos</a>
+      <a href="index.html#boite"><span class="ni">🧰</span> À côté</a>
+      <a href="index.html#quiz"><span class="ni">🧠</span> Quiz</a>
+      <a href="index.html#planning"><span class="ni">📅</span> Planning</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</div>
+
+<main>
+<div class="hero hero-sm">
+  <div class="hero-grid"></div>
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">✅ Poly de TD · De l'atome à la puce · 2026-2027</span>
+      <h1>Tout le poly de TD, <em>corrigé</em>.</h1>
+      <p class="lead">Les 11 TD du livret d'exercices : les exercices « Travaux dirigés » que le poly ne corrige pas, les applications directes dont le corrigé a été revu (erreurs signalées) et les exercices supplémentaires. Pour chacun : la méthode, la correction pas à pas, les pièges et le regard d'ingénieur.</p>
+      <div class="hero-meta">
+        <div><div class="n">87</div><div class="l">Exercices</div></div>
+        <div><div class="n">23</div><div class="l">TD non corrigés dans le poly</div></div>
+        <div><div class="n">11</div><div class="l">TD</div></div>
+      </div>
+      <div class="cx-legend">
+        <span><span class="cx-tag td">TD</span> non corrigé dans le poly</span>
+        <span><span class="cx-tag ad">AD</span> application directe, corrigé du poly revu</span>
+        <span><span class="cx-tag es">ES</span> exercice supplémentaire</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cx-howto">
+    <div><b>1 · Chercher d'abord</b>Au moins 10 minutes, schéma recopié, sans rien ouvrir. Bloqué ? Relisez le chapitre du cours (lien en tête de chaque TD).</div>
+    <div><b>2 · Ouvrir la méthode</b>Le bloc 💡 donne l'idée clé (hypothèse sur l'état des composants, modèle à utiliser…). Reprenez avec cette seule indication.</div>
+    <div><b>3 · Comparer</b>Le bloc ✅ détaille chaque étape et chaque application numérique. Repérez l'endroit exact où vous avez bloqué.</div>
+    <div><b>4 · Refaire et cocher</b>Refaites l'exercice seul quelques jours plus tard, puis cliquez « Marquer fait ». La progression reste sur cet appareil.</div>
+  </div>
+
+  <div class="section-head" style="padding-top:34px">
+    <span class="eyebrow">Sommaire</span>
+    <h2>Onze TD, dans l'ordre du poly</h2>
+    <p>Toutes les valeurs ont été recalculées (plus de 240 contrôles numériques) et les schémas relus sur le PDF. Quand le corrigé du poly contient une erreur, un encadré « Erreur du poly » l'explique et donne la bonne valeur.</p>
+  </div>
+  <nav class="cx-index" aria-label="TD">
+    <a class="cx-card" href="#td1"><span class="n">TD 1 · p. 5-9 · 6 exos</span><span class="t">Résistivité et capacité</span><span class="d">Drude, résistivité, vitesse de dérive, condensateur plan.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td2"><span class="n">TD 2 · p. 10-18 · 9 exos</span><span class="t">Les semi-conducteurs</span><span class="d">Dopage, action de masse, photoconduction, germanium en température.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td3"><span class="n">TD 3 · p. 19-32 · 9 exos</span><span class="t">La diode à jonction PN</span><span class="d">Modèles, écrêteurs, droite de charge, redresseur à AOP.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td4"><span class="n">TD 4 · p. 33-42 · 9 exos</span><span class="t">La diode Zener</span><span class="d">Régulateurs, plages de charge et de tension, transfert.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td5"><span class="n">TD 5 · p. 43-57 · 10 exos</span><span class="t">Polarisation du BJT</span><span class="d">Linéaire ou saturé, ponts, commutation, régulateur, capteur.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td6"><span class="n">TD 6 · p. 58-66 · 6 exos</span><span class="t">BJT en dynamique</span><span class="d">Modèle r<sub>e</sub>, condensateurs, cascade, conception d'un EC.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td7"><span class="n">TD 7 · p. 67-81 · 11 exos</span><span class="t">Polarisation du JFET</span><span class="d">Autopolarisation, pont, région ohmique, paire de JFET.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td8"><span class="n">TD 8 · p. 82-90 · 4 exos</span><span class="t">Le FET en dynamique</span><span class="d">Grille, drain et source communs, effet Miller.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td9"><span class="n">TD 9 · p. 91-100 · 10 exos</span><span class="t">Logique CMOS</span><span class="d">PUN/PDN, lecture de circuits, XOR, MUX, layouts d'Euler.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td10"><span class="n">TD 10 · p. 101-109 · 7 exos</span><span class="t">Performances CMOS</span><span class="d">Capacité de sortie, délais, chemin critique, fabrication, coûts.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td11"><span class="n">TD 11 · p. 110-126 · 6 exos</span><span class="t">Révisions</span><span class="d">BJT + FET, limiteur à diodes, CC-BC, SEU dans une SRAM, cascode.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+  </nav>
+
+  <div class="cx-toolbar" role="search">
+    <input id="cxSearch" class="cx-search" type="search" placeholder="Rechercher : Zener, Thévenin, JFET, Euler…" aria-label="Rechercher dans les corrigés">
+    <select id="cxCat" class="cx-select" aria-label="Filtrer par TD">
+        <option value="all">Tous les TD</option>
+        <option value="td1">TD 1 — Résistivité et capacité</option>
+        <option value="td2">TD 2 — Les semi-conducteurs</option>
+        <option value="td3">TD 3 — La diode à jonction PN</option>
+        <option value="td4">TD 4 — La diode Zener</option>
+        <option value="td5">TD 5 — Polarisation du BJT</option>
+        <option value="td6">TD 6 — BJT en dynamique</option>
+        <option value="td7">TD 7 — Polarisation du JFET</option>
+        <option value="td8">TD 8 — Le FET en dynamique</option>
+        <option value="td9">TD 9 — Logique CMOS</option>
+        <option value="td10">TD 10 — Performances CMOS</option>
+        <option value="td11">TD 11 — Révisions</option>
+    </select>
+    <select id="cxType" class="cx-select" aria-label="Filtrer par type d'exercice">
+      <option value="all">Tous les types</option>
+      <option value="td">TD non corrigés dans le poly</option>
+      <option value="ad">Applications directes</option>
+      <option value="es">Exercices supplémentaires</option>
+    </select>
+    <button type="button" class="cx-btn" id="cxExpand">Tout déplier</button>
+    <button type="button" class="cx-btn" id="cxMeth">Méthodes seules</button>
+    <span class="cx-progress" id="cxProgress" aria-live="polite"></span>
+  </div>
+  <p class="cx-empty" id="cxEmpty" hidden>Aucun exercice ne correspond à ces critères.</p>
+
+<section class="cx-chap" id="td1" data-cat="td1">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 1 · Poly p. 5-9</span>
+    <h2>Résistivité et capacité</h2>
+    <p>Trois formules portent tout le TD : <b>R = ρℓ/S</b>, <b>j = σE = n e v</b> (vitesse de dérive v = µE) et <b>C = ε₀ε<sub>r</sub> S/e</b>. Le piège n° 1 est l'homogénéité des unités (cm ou m, Ω·cm ou Ω·m). <a href="index.html#ch1">Revoir le cours (ch. 1)</a></p>
+  </div>
+
+  <article class="cx" id="ex1-1">
+    <header class="cx-hd"><span class="cx-num">Ex 1.1</span><h3>Cuivre ou aluminium pour une ligne électrique ?</h3><span class="cx-tag ad">AD1.1</span></header>
+    <div class="cx-enonce">Relier deux villes distantes de ℓ, masse de métal imposée. Al : 2,7 g/cm³, 2,85 µΩ·cm. Cu : 8,96 g/cm³, 1,73 µΩ·cm. Quel métal minimise les pertes Joule ?</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Pertes Joule = R I² : on compare les <b>résistances</b>. La contrainte « masse fixée » impose la section : m = m₀ S ℓ ⇒ S = m/(m₀ ℓ). En remplaçant dans R = ρℓ/S, on obtient R = ρ m₀ ℓ²/m : à m et ℓ fixés, il faut le plus petit produit <b>ρ·m₀</b>.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">R/ℓ = ρ/S = ρ m₀ ℓ / m
+(ρ m₀)_Al = 2,85 × 2,7  = 7,7  µΩ·g/cm²
+(ρ m₀)_Cu = 1,73 × 8,96 = 15,5 µΩ·g/cm²</div>
+      <div class="answer"><b class="lab">Réponse</b>L'aluminium : à masse égale, sa résistance est deux fois plus faible (il est 1,6 fois plus résistif, mais 3,3 fois plus léger, donc on peut lui donner une section 3,3 fois plus grande).</div>
+      <div class="why"><b class="lab">Culture ingénieur</b>C'est exactement pourquoi les lignes haute tension aériennes sont en aluminium (souvent avec une âme en acier pour la tenue mécanique), alors que le cuivre reste roi dans les câbles et les circuits imprimés, où c'est le volume, pas la masse, qui est limité.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex1-2">
+    <header class="cx-hd"><span class="cx-num">Ex 1.2</span><h3>Résistivité d'un cuivre avec impuretés</h3><span class="cx-tag ad">AD1.2-1.3</span></header>
+    <div class="cx-enonce">Cuivre commercial : Fe 100 ppm, Cr 100 ppm, Ag 400 ppm (atomiques). σ₀ = 5,97·10⁵ Ω⁻¹·cm⁻¹ (cuivre pur, 20 °C). Δρ lu sur la figure 1.1. 1) ρ du cuivre commercial ; 2) résistance d'un fil de 100 m et 3 mm de diamètre.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div><b>Règle de Matthiessen</b> : les contributions à la résistivité s'additionnent, ρ = ρ<sub>pur</sub> + Σ Δρ<sub>impuretés</sub>. Chaque droite de la figure est proportionnelle à la concentration : lire la pente, puis multiplier.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Lectures (figure 1.1, droites proportionnelles) :
+  Fe : 0,5 µΩ·cm à 500 ppm ⟹ 0,10 µΩ·cm à 100 ppm
+  Cr : 0,25 µΩ·cm à 500 ppm ⟹ 0,05 µΩ·cm à 100 ppm
+  Ag : 0,02 µΩ·cm à 500 ppm ⟹ ≈ 0,016 µΩ·cm à 400 ppm (le poly arrondit à 0,02)
+Δρ ≈ 0,17 µΩ·cm
+ρ₀ = 1/σ₀ = 1/5,97·10⁵ = 1,675 µΩ·cm   ⟹   ρ = 1,675 + 0,17 = 1,845 µΩ·cm   (+10 %)
+R = ρℓ/S = 1,845·10⁻⁶ Ω·cm × 10⁴ cm / (π × 0,15² cm²) = 0,26 Ω</div>
+      <div class="why"><b class="lab">Piège d'unités</b>Tout mettre en cm (ℓ = 100 m = 10⁴ cm, rayon 0,15 cm) puisque ρ est en Ω·cm. L'argent, pourtant le plus concentré, pèse le moins : son effet par ppm est 25 fois plus faible que celui du fer.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex1-3">
+    <header class="cx-hd"><span class="cx-num">Ex 1.3</span><h3>Vitesse de dérive dans un thermistor en silicium</h3><span class="cx-tag ad">AD1.4-1.5</span></header>
+    <div class="cx-enonce">Disque de silicium intrinsèque, épaisseur e = 4 mm, U = 1 V entre ses faces. Mobilité des électrons µ = 0,14 m²/(V·s). Vitesse de dérive, puis temps de traversée.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Champ uniforme entre deux faces : E = U/e. Puis v = µE et t = e/v.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">E = U/e = 1/0,004 = 250 V/m
+v = µE = 0,14 × 250 = 35 m/s
+t = e/v = 0,004/35 = 1,14·10⁻⁴ s = 0,114 ms</div>
+      <div class="why"><b class="lab">Ordre de grandeur</b>La dérive est lente (quelques m/s à km/s) comparée à l'agitation thermique (~10⁵ m/s). Le signal électrique, lui, se propage à une fraction de la vitesse de la lumière : ce ne sont pas les électrons qui « courent ».</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex1-4">
+    <header class="cx-hd"><span class="cx-num">Ex 1.4</span><h3>Électrons par seconde dans un fil de cuivre</h3><span class="cx-tag ad">AD1.6-1.7</span></header>
+    <div class="cx-enonce">Fil de cuivre : 6 m, diamètre 5,6 mm, ρ₀ = 1,54·10⁻⁶ Ω·cm à 0 °C, U = 0,1 V. 1) Nombre d'électrons traversant une section par seconde. 2) Même chose à 100 °C (ρ = 2,22·10⁻⁶ Ω·cm).</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Nombre d'électrons par seconde = I/e, avec I = U/R = U S/(ρℓ). Travailler dans <b>un seul</b> système d'unités : ici tout en cm (S en cm², ℓ en cm, ρ en Ω·cm).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">S = π × 0,56²/4 = 0,246 cm²     ℓ = 600 cm
+R = ρℓ/S = 1,54·10⁻⁶ × 600 / 0,246 = 3,75 mΩ
+I = U/R = 0,1 / 3,75·10⁻³ = 26,7 A
+x₀ = I/e = 26,7 / 1,6·10⁻¹⁹ = 1,66·10²⁰ électrons/s
+À 100 °C : x ∝ 1/ρ ⟹ x₁₀₀ = x₀ × 1,54/2,22 = 1,15·10²⁰ électrons/s</div>
+      <div class="why"><b class="lab">Erreur du poly</b>La ligne d'application numérique de l'AD1.6 écrit U = 1 (au lieu de 0,1 V) et ℓ = 6 (en m, alors que ρ est en Ω·cm et S en cm²). Telle qu'écrite, elle donnerait 1,66·10²³ ; le résultat final 1,66·10²⁰ est pourtant juste. Retenir la version homogène ci-dessus.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex1-5">
+    <header class="cx-hd"><span class="cx-num">Ex 1.5</span><h3>Conductivité, densité de courant, champ, vitesse de dérive</h3><span class="cx-tag td">Q1.1-1.4 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Conducteur cylindrique r = 5 mm, ℓ = 50 cm, U = 12 V, i = 0,1 A. Q1.1 conductivité ; Q1.2 densité de courant ; Q1.3 champ électrique ; Q1.4 vitesse de dérive sachant que le fil contient N = 10²⁴ électrons (libres).</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>R = U/i, puis σ = ℓ/(R S). j = i/S, E = U/ℓ (et contrôle j = σE). Pour la vitesse : n = N/V avec V = Sℓ, puis j = n e v. Raccourci : v = iℓ/(N e).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Q1.1 — Conductivité</div><div class="sd"><div class="calc">R = U/i = 12/0,1 = 120 Ω        S = π r² = π (5·10⁻³)² = 7,85·10⁻⁵ m²
+σ = ℓ/(R S) = 0,5 / (120 × 7,85·10⁻⁵) = 53 S/m      (ρ = 1/σ = 1,9·10⁻² Ω·m)</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q1.2 — Densité de courant</div><div class="sd"><div class="calc">j = i/S = 0,1 / 7,85·10⁻⁵ = 1,27·10³ A/m²</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q1.3 — Champ électrique</div><div class="sd"><div class="calc">E = U/ℓ = 12/0,5 = 24 V/m        contrôle : σE = 53 × 24 = 1,27·10³ A/m² ✓</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q1.4 — Vitesse de dérive</div><div class="sd"><div class="calc">n = N/(Sℓ) = 10²⁴ / 3,93·10⁻⁵ = 2,55·10²⁸ m⁻³
+v = j/(n e) = 1,27·10³ / (2,55·10²⁸ × 1,6·10⁻¹⁹) = 3,1·10⁻⁷ m/s
+(raccourci : v = iℓ/(N e) = 0,1 × 0,5 / (10²⁴ × 1,6·10⁻¹⁹))</div></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Réponses</b>σ ≈ 53 S/m ; j ≈ 1,27 kA/m² ; E = 24 V/m ; v ≈ 3·10⁻⁷ m/s (soit une mobilité µ = v/E ≈ 1,3·10⁻⁸ m²/V·s : c'est un très mauvais conducteur, ρ ≈ 10⁶ fois celle du cuivre).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex1-6">
+    <header class="cx-hd"><span class="cx-num">Ex 1.6</span><h3>Condensateur plan, vide puis diélectrique</h3><span class="cx-tag td">Q1.5-1.8 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Q = 3·10⁻¹⁰ C à stocker ; S = 900 mm², e = 2 mm. Q1.5 tension nécessaire dans le vide ; Q1.6 avec un diélectrique ε<sub>r</sub> = 4 ; Q1.7 capacités ; Q1.8 densité surfacique de charges (µC/m²) dans le cas 2.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>C = ε₀ε<sub>r</sub>S/e puis U = Q/C. Le diélectrique multiplie C par ε<sub>r</sub>, donc divise la tension par ε<sub>r</sub> à charge fixée. La densité de charge libre sur les armatures est σ = Q/S (c'est aussi le déplacement électrique D).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">S = 900 mm² = 9·10⁻⁴ m²     e = 2·10⁻³ m     ε₀ = 8,85·10⁻¹² F/m
+Q1.7  C₁ = ε₀S/e = 8,85·10⁻¹² × 9·10⁻⁴ / 2·10⁻³ = 3,98 pF      C₂ = 4 C₁ = 15,9 pF
+Q1.5  U₁ = Q/C₁ = 3·10⁻¹⁰ / 3,98·10⁻¹² = 75 V
+Q1.6  U₂ = Q/C₂ = 18,8 V
+Q1.8  σ = D = Q/S = 3·10⁻¹⁰ / 9·10⁻⁴ = 3,3·10⁻⁷ C/m² = 0,33 µC/m²</div>
+      <div class="why"><b class="lab">Pour aller plus loin</b>Dans le diélectrique, les charges liées (polarisation) valent P = D(1 − 1/ε<sub>r</sub>) = 0,25 µC/m² : elles compensent les trois quarts de la charge libre, d'où un champ 4 fois plus faible (E = U/e = 9,4 kV/m au lieu de 37,6 kV/m).</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td2" data-cat="td2">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 2 · Poly p. 10-18</span>
+    <h2>Les semi-conducteurs</h2>
+    <p>Boîte à outils : <b>σ = e(nµₙ + pµₚ)</b> ; loi d'action de masse <b>n·p = nᵢ²</b> ; dopage N : n ≈ N<sub>D</sub>, p = nᵢ²/N<sub>D</sub> ; dopage P : p ≈ N<sub>A</sub>, n = nᵢ²/N<sub>A</sub> ; nombre d'atomes par volume = ρ·𝒩<sub>A</sub>/M. <a href="index.html#ch2">Revoir le cours (ch. 2)</a></p>
+  </div>
+
+  <article class="cx" id="ex2-1">
+    <header class="cx-hd"><span class="cx-num">Ex 2.1</span><h3>Questions de cours sur le modèle des bandes</h3><span class="cx-tag ad">AD2.1-2.4</span></header>
+    <div class="cx-enonce">1) Électrons libres des métaux ; 2) électrons dans la bande de conduction du silicium à T &gt; 0 K ? 3) Pourquoi la bande de conduction d'un isolant est vide ; 4) évolution de la conductivité d'un semi-conducteur avec T.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Métaux</div><div class="sd">Bandes de valence et de conduction se chevauchent (gap nul) : les électrons de valence occupent des états délocalisés et se déplacent librement.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Silicium à T &gt; 0 K : oui</div><div class="sd">L'agitation thermique (kT ≈ 26 meV à 300 K) fait franchir le gap de 1,12 eV à une petite fraction d'électrons : nᵢ ≈ 10¹⁰ cm⁻³ pour 5·10²² atomes/cm³.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Isolant</div><div class="sd">Gap de plusieurs eV (≈ 9 eV pour SiO₂) : la probabilité thermique, en e<sup>−Eg/2kT</sup>, est astronomiquement faible, la bande de conduction reste vide (avant claquage).</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Conductivité et température</div><div class="sd">Intrinsèque : σ augmente très vite avec T (nᵢ ∝ T<sup>3/2</sup> e<sup>−Eg/2kT</sup>), malgré la baisse de mobilité. <b>Nuance</b> : dans un semi-conducteur dopé, en régime extrinsèque (n ≈ N<sub>D</sub> constant), σ baisse légèrement quand T monte, car la mobilité diminue ; elle ne remonte qu'à haute température (régime intrinsèque).</div></div></li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex2-2">
+    <header class="cx-hd"><span class="cx-num">Ex 2.2</span><h3>La photorésistance</h3><span class="cx-tag ad">AD2.5-2.6</span></header>
+    <div class="cx-enonce">Silicium : E<sub>g</sub> = 1,12 eV. Un photon visible (0,4 à 0,8 µm) peut-il faire franchir le gap ? Pourquoi la résistance d'une photorésistance baisse-t-elle avec l'éclairement ?</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Condition d'absorption : hc/λ ≥ E<sub>g</sub> ⟺ λ ≤ hc/E<sub>g</sub>. Retenir <b>λ(µm) ≈ 1,24/E<sub>g</sub>(eV)</b>.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">λ_max = hc/E_g = 6,63·10⁻³⁴ × 3·10⁸ / (1,12 × 1,6·10⁻¹⁹) = 1,11 µm
+Tout le visible (λ ≤ 0,8 µm, soit E ≥ 1,55 eV) convient.</div>
+      <p>Chaque photon absorbé crée une paire électron-trou : n et p augmentent, donc σ = e(nµₙ + pµₚ) augmente et la résistance chute.</p>
+      <div class="why"><b class="lab">Remarque</b>Le poly arrondit hc/E<sub>g</sub> à 1 µm (6,63 × 3 ≈ 20 et 1,12 × 1,6 ≈ 2) ; la valeur exacte est 1,11 µm, conclusion inchangée. C'est aussi pourquoi le silicium détecte le proche infrarouge (capteurs d'appareils photo, télécommandes à 940 nm).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex2-3">
+    <header class="cx-hd"><span class="cx-num">Ex 2.3</span><h3>Dopage du germanium à l'antimoine</h3><span class="cx-tag ad">AD2.7-2.13</span></header>
+    <div class="cx-enonce">Ge intrinsèque : ρ = 0,44 Ω·m, µₙ = 0,40, µₚ = 0,19 m²/V·s, nᵢ = 2,4·10¹⁹ m⁻³, N<sub>Ge</sub> = 4,4·10²⁸ m⁻³. Dopage : 1 atome de Sb (colonne 15) pour 10⁶ atomes de Ge, tous ionisés.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">AD2.7   Sb a 5 électrons de valence : 4 liaisons + 1 électron cédé ⟹ dopage N
+AD2.8   « tous ionisés » : chaque Sb a cédé son 5ᵉ électron, n ≈ N_D
+AD2.9   N_D = 4,4·10²⁸ / 10⁶ = 4,4·10²² m⁻³
+AD2.10  N_D ≫ nᵢ ⟹ n ≈ N_D = 4,4·10²² m⁻³
+AD2.11  p = nᵢ²/n = (2,4·10¹⁹)² / 4,4·10²² = 1,3·10¹⁶ m⁻³
+AD2.12  γ ≈ N_D e µₙ = 4,4·10²² × 1,6·10⁻¹⁹ × 0,40 = 2,8·10³ S/m
+AD2.13  ρ = 1/γ = 3,6·10⁻⁴ Ω·m   (au lieu de 0,44 Ω·m)</div>
+      <div class="answer"><b class="lab">Conclusion</b>Une impureté pour un million d'atomes divise la résistivité par ≈ 1 200. Contrôle de l'énoncé : ρᵢ = 1/(nᵢ e (µₙ + µₚ)) = 0,44 Ω·m ✓.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex2-4">
+    <header class="cx-hd"><span class="cx-num">Ex 2.4</span><h3>Silicium dopé à l'indium</h3><span class="cx-tag td">Q2.1-2.5 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Si intrinsèque : nᵢ = 10¹⁰ cm⁻³, µₙ = 1 450, µₚ = 450 cm²/V·s, M = 28,1 g/mol, masse volumique 2,42 g/cm³. Q2.1 σ et ρ intrinsèques. Dopage indium (colonne 13) : 1 atome pour 10⁷ Si. Q2.2 donneur ou accepteur ? Q2.3 type ? Q2.4 n et p ? Q2.5 σ et ρ, intérêt du dopage.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Rester en cm (cm⁻³, cm²/V·s) : σ sort en S/cm. Densité d'atomes N<sub>Si</sub> = ρ𝒩<sub>A</sub>/M, puis N<sub>A</sub> = N<sub>Si</sub>/10⁷. Porteurs majoritaires ≈ dopage, minoritaires par action de masse.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.1 — Intrinsèque (n = p = nᵢ)</div><div class="sd"><div class="calc">σᵢ = nᵢ e (µₙ + µₚ) = 10¹⁰ × 1,6·10⁻¹⁹ × 1 900 = 3,0·10⁻⁶ S/cm = 3,0·10⁻⁴ S/m
+ρᵢ = 1/σᵢ = 3,3·10⁵ Ω·cm = 3,3 kΩ·m</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.2-Q2.3 — Nature du dopage</div><div class="sd">L'indium n'a que 3 électrons de valence : il lui en manque un pour les 4 liaisons, il <b>accepte</b> un électron (création d'un trou). Semi-conducteur de <b>type P</b>.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.4 — Concentrations</div><div class="sd"><div class="calc">N_Si = 2,42 × 6,02·10²³ / 28,1 = 5,18·10²² atomes/cm³
+N_A = 5,18·10²² / 10⁷ = 5,2·10¹⁵ cm⁻³
+p ≈ N_A = 5,2·10¹⁵ cm⁻³      n = nᵢ²/p = 10²⁰ / 5,2·10¹⁵ = 1,9·10⁴ cm⁻³</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.5 — Conductivité dopée</div><div class="sd"><div class="calc">σ ≈ p e µₚ = 5,2·10¹⁵ × 1,6·10⁻¹⁹ × 450 = 0,37 S/cm = 37 S/m
+ρ = 2,7 Ω·cm = 0,027 Ω·m      σ/σᵢ ≈ 1,2·10⁵</div></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Conclusion</b>0,1 ppm d'indium multiplie la conductivité par ≈ 120 000 et fixe le type de porteurs : c'est ce contrôle précis qui rend possibles diodes et transistors. (La masse volumique usuelle du silicium est 2,33 g/cm³ ; avec la valeur du poly, 2,42, on trouve les résultats ci-dessus.)</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex2-5">
+    <header class="cx-hd"><span class="cx-num">Ex 2.5</span><h3>Résistivité du germanium pur et température</h3><span class="cx-tag td">Q2.6-2.12 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Ge : M = 72,6 g/mol, 5,36 g/cm³, E<sub>g</sub> = 0,67 eV ; µₙ = 3 800 (T/300)<sup>−1,66</sup>, µₚ = 1 500 (T/300)<sup>−2,33</sup> cm²/V·s ; nᵢ = A T<sup>3/2</sup> e<sup>−Eg/2kT</sup>, A = 1,44·10²¹ S.I. Q2.6 atomes/cm³ ; Q2.7 unité de A ; Q2.8 nᵢ à 300 K ; Q2.9 proportion d'atomes ionisés (comparer à Cu, Al) ; Q2.10 ρ à 300 K ; Q2.11 tout recalculer à 200 °C ; Q2.12 lecture graphique de nᵢ.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>En S.I., nᵢ est en m⁻³ : convertir en cm⁻³ (× 10⁻⁶) avant de comparer à N<sub>Ge</sub>. Calculer l'exposant E<sub>g</sub>/(2kT) séparément (sans unité, E<sub>g</sub> en joules). Températures en <b>kelvins</b> : 200 °C = 473 K.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.6 — Densité d'atomes</div><div class="sd"><div class="calc">N_Ge = 5,36 × 6,02·10²³ / 72,6 = 4,44·10²² atomes/cm³</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.7 — Unité de A</div><div class="sd">nᵢ en m⁻³, T<sup>3/2</sup> en K<sup>3/2</sup>, exponentielle sans dimension : <b>A en m⁻³·K<sup>−3/2</sup></b>.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.8 — nᵢ à T₀ = 300 K</div><div class="sd"><div class="calc">E_g/(2kT) = 0,67 × 1,6·10⁻¹⁹ / (2 × 1,38·10⁻²³ × 300) = 12,95
+nᵢ = 1,44·10²¹ × 300^1,5 × e^(−12,95) = 1,79·10¹⁹ m⁻³ = 1,8·10¹³ cm⁻³</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.9 — Proportion d'atomes « ionisés »</div><div class="sd"><div class="calc">nᵢ / N_Ge = 1,8·10¹³ / 4,44·10²² = 4·10⁻¹⁰   (4 atomes sur 10 milliards)</div>Cuivre : 1 électron libre par atome (proportion 1) ; aluminium : 3 par atome. Le germanium a environ 2,5 milliards de fois moins de porteurs par atome qu'un métal.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.10 — Résistivité à 300 K</div><div class="sd"><div class="calc">ρ = 1 / (nᵢ e (µₙ + µₚ)) = 1 / (1,8·10¹³ × 1,6·10⁻¹⁹ × 5 300) = 66 Ω·cm = 0,66 Ω·m</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.11 — À T₁ = 200 °C = 473 K</div><div class="sd"><div class="calc">µₙ = 3 800 × (473/300)^−1,66 = 1 780 cm²/V·s     µₚ = 1 500 × (473/300)^−2,33 = 520 cm²/V·s
+E_g/(2kT₁) = 8,21  ⟹  nᵢ = 1,44·10²¹ × 473^1,5 × e^(−8,21) = 4,0·10²¹ m⁻³ = 4,0·10¹⁵ cm⁻³
+proportion : 9·10⁻⁸       N_Ge inchangé (4,44·10²² cm⁻³)
+ρ = 1 / (4,0·10¹⁵ × 1,6·10⁻¹⁹ × 2 300) = 0,67 Ω·cm</div>La mobilité est divisée par 2, mais nᵢ est multiplié par 225 : la résistivité chute d'un facteur 100.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q2.12 — Lecture graphique (figure 2.2)</div><div class="sd">Abscisses : 1000/T = 3,33 (300 K) et 2,11 (473 K). La droite du Ge perd environ 2 décades par unité d'abscisse (≈ 10¹⁷ à 1,5 ; ≈ 10¹⁵ à 2,5). Lecture : <b>nᵢ ≈ 2·10¹³ cm⁻³ à 300 K</b> et <b>≈ 6·10¹⁵ cm⁻³ à 473 K</b>. Même ordre de grandeur que le calcul ; l'écart à haute température vient de l'hypothèse E<sub>g</sub> constant (en réalité E<sub>g</sub> diminue quand T augmente).</div></div></li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex2-6">
+    <header class="cx-hd"><span class="cx-num">Ex 2.6</span><h3>Photoconduction dans du silicium dopé N</h3><span class="cx-tag es">ES2.1-2.3</span></header>
+    <div class="cx-enonce">27 °C, γᵢ = 4,3·10⁻⁴ S/m, N<sub>D</sub> = 5·10¹⁴ cm⁻³, µₙ = 0,13, µₚ = 0,048 m²/V·s. Puis éclairement créant G = 5·10²² paires/(s·cm³), durée de vie τ = 1 µs.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Convertir N<sub>D</sub> en m⁻³ avant de multiplier par des mobilités en m²/V·s. Sous éclairement stationnaire, génération = recombinaison : <b>Δn = Δp = G·τ</b>.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">ES2.1  N_D = 5·10¹⁴ cm⁻³ = 5·10²⁰ m⁻³
+       γ = N_D e µₙ = 5·10²⁰ × 1,6·10⁻¹⁹ × 0,13 = 10,4 S/m      ρ = 96 mΩ·m
+       γ/γᵢ = 10,4 / 4,3·10⁻⁴ ≈ 24 000
+ES2.2  Δn = Δp = G τ = 5·10²² × 10⁻⁶ = 5·10¹⁶ cm⁻³  (≫ N_D = 5·10¹⁴)
+       n = N_D + Δn ≈ 5,05·10¹⁶ cm⁻³      p ≈ 5·10¹⁶ cm⁻³
+ES2.3  γ = e (n µₙ + p µₚ) ≈ 1,6·10⁻¹⁹ × 5·10²² × (0,13 + 0,048) ≈ 1,4·10³ S/m
+       ρ ≈ 0,7 mΩ·m</div>
+      <div class="why"><b class="lab">Erreurs de forme du poly</b>ES2.1 : la ligne « 5·10¹⁴ × 1,6·10⁻¹⁹ × 13·10⁻² = 10,4 » mélange cm⁻³ et m²/V·s (le produit tel qu'écrit vaut 1,04·10⁻⁵) ; il faut N<sub>D</sub> = 5·10²⁰ m⁻³. ES2.2 : la formule « 5·10²² / (durée de création · durée d'existence) » est à remplacer par Δn = G·τ. Les résultats numériques du poly sont justes.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex2-7">
+    <header class="cx-hd"><span class="cx-num">Ex 2.7</span><h3>Mobilité des électrons dans l'aluminium</h3><span class="cx-tag es">ES2.4</span></header>
+    <div class="cx-enonce">Al : 3 électrons de valence, M = 26,98 g/mol, 2,7 g/cm³, ρ = 2,65 µΩ·cm. Calculer µₙ.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">n_Al = 2,7 × 6,02·10²³ / 26,98 = 6,0·10²² atomes/cm³   ⟹   n = 3 n_Al = 1,8·10²³ e⁻/cm³
+µ = 1/(n e ρ) = 1 / (1,8·10²³ × 1,6·10⁻¹⁹ × 2,65·10⁻⁶) = 13 cm²/V·s</div>
+      <p>Cent fois moins mobile que dans le silicium (≈ 1 400 cm²/V·s), mais 10⁵ à 10⁷ fois plus d'électrons libres : c'est le nombre de porteurs, pas leur mobilité, qui fait d'un métal un bon conducteur.</p>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex2-8">
+    <header class="cx-hd"><span class="cx-num">Ex 2.8</span><h3>Plaquette à dopages multiples</h3><span class="cx-tag es">ES2.5-2.7</span></header>
+    <div class="cx-enonce">Zone 1 : N<sub>A</sub> = 10¹³ cm⁻³ (plaquette) ; zone 2 (caisson dans la zone 1) : N<sub>D</sub> = 10¹⁵ ; zones 3 (dans la zone 2) et 4 (dans la zone 1) : N<sub>A</sub> = 10¹⁷. nᵢ = 8,3·10⁹ cm⁻³. Types, concentrations, résistivités.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Diffusions successives : un dopage s'ajoute aux précédents (compensation). Le dopage net est la différence ; ici chaque diffusion domine la précédente d'un facteur 100, donc on garde le dopage le plus fort. Puis majoritaires = dopage, minoritaires = nᵢ²/majoritaires.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">ES2.5  zone 1 : P     zone 2 : N (10¹⁵ − 10¹³ ≈ 10¹⁵)     zones 3 et 4 : P (≈ 10¹⁷)
+ES2.6  zone 1   : p ≈ 10¹³ cm⁻³   n = nᵢ²/p = 6,9·10⁶ cm⁻³
+       zone 2   : n ≈ 10¹⁵ cm⁻³   p = nᵢ²/n = 6,9·10⁴ cm⁻³
+       zones 3-4 : p ≈ 10¹⁷ cm⁻³   n = nᵢ²/p = 6,9·10² cm⁻³
+ES2.7  ρ = 1 / (e (n µₙ + p µₚ)) ≈ 1/(e × majoritaires × µ_majoritaires), µ lue sur la figure 2.4 :
+       zone 1   : µₚ ≈ 500   ⟹ ρ ≈ 1,3·10³ Ω·cm
+       zone 2   : µₙ ≈ 1 380 ⟹ ρ ≈ 4,5 Ω·cm
+       zones 3-4 : µₚ ≈ 340   ⟹ ρ ≈ 0,18 Ω·cm</div>
+      <div class="why"><b class="lab">Erreurs du poly</b>ES2.6 : zone 2, il faut n ≈ <b>N<sub>D</sub></b> (et non N<sub>A</sub>), et le dénominateur écrit 10¹³ au lieu de 10¹⁵ ; zones 3-4, les porteurs sont inversés : c'est <b>p ≈ N<sub>A</sub></b> = 10¹⁷ et <b>n</b> = 689 cm⁻³ (le poly écrit n ≈ N<sub>A</sub> et p = 689). ES2.7 : ρ = 1/[e(pµₚ <b>+</b> nµₙ)], avec un « + » (le poly écrit un « − »). La figure 2.4 est légendée « 200 K », mais ses valeurs à faible dopage (1 400 et 500 cm²/V·s) sont celles du silicium à 300 K.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex2-9">
+    <header class="cx-hd"><span class="cx-num">Ex 2.9</span><h3>Si le silicium était un métal…</h3><span class="cx-tag es">ES2.8</span></header>
+    <div class="cx-enonce">Nombre d'électrons libres par cm³ si chaque atome de Si en libérait un (2,33 g/cm³, 28,086 g/mol).</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">N = 2,33 × 6,02·10²³ / 28,086 = 5,0·10²² atomes/cm³ = n
+comparaison : nᵢ(Si, 300 K) ≈ 10¹⁰ cm⁻³, soit 5·10¹² fois moins</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td3" data-cat="td3">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 3 · Poly p. 19-32</span>
+    <h2>La diode à jonction PN</h2>
+    <p>Méthode universelle : <b>faire une hypothèse sur l'état de chaque diode</b> (passante ou bloquée), la remplacer par son modèle, calculer, puis <b>vérifier</b> (courant positif dans une diode passante, tension inférieure au seuil aux bornes d'une diode bloquée). Modèles du cours : <b>idéale</b> (interrupteur, V<sub>S</sub> = 0), <b>parfaite</b> (source V<sub>S</sub> ≈ 0,7 V), <b>réelle</b> (V<sub>S</sub> + r<sub>d</sub>·I). <a href="index.html#ch3">Revoir le cours (ch. 3)</a></p>
+  </div>
+
+  <article class="cx" id="ex3-1">
+    <header class="cx-hd"><span class="cx-num">Ex 3.1</span><h3>QCM d'auto-évaluation</h3><span class="cx-tag ad">AD3.1-3.12</span></header>
+    <div class="cx-enonce">Douze questions de cours ; pour AD3.9 à AD3.12, circuit de la figure 3.1 : source 15 V, diode en série, charge 1 kΩ.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">AD3.1  a et c : polarisé (anode ≠ cathode) et non linéaire (I exponentiel en V)
+AD3.2  b et d : en inverse (« à l'envers ») ; c aussi : faiblement en direct, sous le seuil
+AD3.3  a : polarisation directe
+AD3.4  d : sa tension de seuil (≈ 0,6-0,7 V pour le Si)
+AD3.5  b : ≈ 0,3 V pour le germanium
+AD3.6  d : aucune ; le courant inverse est de l'ordre du nA au µA (25 nA pour une 1N4148)
+AD3.7  a : 0 V (diode idéale = interrupteur parfait)
+AD3.8  b : verticale (plus aucune résistance au-delà du seuil)
+AD3.9  c : I = 15 V / 1 kΩ = 15 mA (idéale, pas de seuil)
+AD3.10 b : I = (15 − 0,7) / 1 kΩ = 14,3 mA (parfaite)
+AD3.11 d : 15 V (diode en court-circuit)
+AD3.12 b : la diode est un circuit ouvert (aucun courant)</div>
+      <div class="why"><b class="lab">Remarques sur le poly</b>À l'AD3.2, le poly coche les quatre propositions : « en direct » n'est juste que si la tension directe reste sous le seuil (c'est le sens de « faiblement »). Les AD3.11-3.12 renvoient à la « figure 2.1 » : il s'agit de la figure 3.1, et la proposition « 0 A » de l'AD3.11 devrait être « 0 V ».</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex3-2">
+    <header class="cx-hd"><span class="cx-num">Ex 3.2</span><h3>Diode en sortie d'un pont diviseur</h3><span class="cx-tag ad">AD3.13-3.14</span></header>
+    <div class="cx-enonce">E = 10 V, R₁ = 100 Ω (en haut), R₂ = 40 Ω (en bas), diode en parallèle sur R₂ (anode en A). État de la diode, puis courant qui la traverse (modèle parfait, V<sub>S</sub> = 0,7 V).</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Hypothèse « bloquée » : on calcule U<sub>AB</sub> à vide (pont diviseur). Si U<sub>AB</sub> &gt; V<sub>S</sub>, contradiction : la diode conduit. Pour le courant, le plus rapide est le <b>Thévenin</b> vu par la diode : E<sub>th</sub> = U<sub>AB</sub> à vide, R<sub>th</sub> = R₁∥R₂.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Bloquée ? U_AB = E R₂/(R₁ + R₂) = 10 × 40/140 = 2,86 V &gt; 0,7 V  ⟹  contradiction : passante
+Thévenin : E_th = 2,86 V     R_th = 100 × 40 / 140 = 28,6 Ω
+i = (E_th − V_S) / R_th = (2,86 − 0,7) / 28,6 = 75,5 mA
+contrôle (loi des nœuds) : i = (10 − 0,7)/100 − 0,7/40 = 93 − 17,5 = 75,5 mA ✓</div>
+      <div class="answer"><b class="lab">Réponse</b>Diode passante, i ≈ 75 mA.</div>
+      <div class="why"><b class="lab">Erreur du poly</b>L'application numérique de l'AD3.14 prend E = 5 V au lieu de 10 V (valeur de la figure 3.2 et de l'AD3.13) : elle trouve 26 mA. Avec E = 10 V, le courant est de 75,5 mA.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex3-3">
+    <header class="cx-hd"><span class="cx-num">Ex 3.3</span><h3>Allumage d'une LED</h3><span class="cx-tag ad">AD3.15</span></header>
+    <div class="cx-enonce">E = 5 V, résistance R en série avec la diode (r<sub>d</sub> = 10 Ω, V<sub>S</sub> = 0,7 V). R pour I = 20 mA ?</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">E = R I + V_S + r_d I   ⟹   R = (E − V_S)/I − r_d = (5 − 0,7)/0,02 − 10 = 205 Ω
+valeur normalisée : 200 Ω (E24) ⟹ I = 4,3/210 = 20,5 mA</div>
+      <div class="why"><b class="lab">Réalité des LED</b>Une vraie LED a un seuil bien plus élevé (≈ 1,8-2 V en rouge, ≈ 3 V en bleu ou blanc) : avec V<sub>S</sub> = 2 V, il faudrait R = 3/0,02 − 10 = 140 Ω. La datasheet donne V<sub>F</sub> au courant nominal.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex3-4">
+    <header class="cx-hd"><span class="cx-num">Ex 3.4</span><h3>Écrêteur à deux diodes</h3><span class="cx-tag ad">AD3.16</span></header>
+    <div class="cx-enonce">u<sub>e</sub> = 15 cos ωt (50 Hz) ; branche D₁ + E₁ = 10 V et branche D₂ (inversée) + E₂ = 5 V en parallèle sur la sortie ; diodes idéales ; R<sub>L</sub> ≫ r<sub>g</sub>. Tracer u<sub>s</sub>(t).</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Écrire la tension aux bornes de chaque diode supposée bloquée (u<sub>s</sub> = u<sub>e</sub> puisque i ≈ 0) : D₁ conduit si u<sub>e</sub> &gt; E₁, D₂ si u<sub>e</sub> &lt; −E₂. Une diode idéale passante impose la tension de sa branche.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">u_e &lt; −5 V        : D₂ passante  ⟹ u_s = −E₂ = −5 V
+−5 V &lt; u_e &lt; 10 V : les deux bloquées ⟹ u_s = u_e
+u_e &gt; 10 V        : D₁ passante  ⟹ u_s = E₁ = 10 V</div>
+      <div class="answer"><b class="lab">Réponse</b>Une sinusoïde d'amplitude 15 V écrêtée à +10 V et à −5 V (plateaux pendant que |u<sub>e</sub>| dépasse le seuil de la branche).</div>
+      <div class="why"><b class="lab">Application</b>C'est le principe des protections d'entrée (diodes vers V<sub>CC</sub> et vers la masse sur les broches d'un microcontrôleur) : la tension est bornée à [−0,6 V ; V<sub>CC</sub> + 0,6 V].</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex3-5">
+    <header class="cx-hd"><span class="cx-num">Ex 3.5</span><h3>Point de fonctionnement de deux diodes en parallèle</h3><span class="cx-tag ad">AD3.17-3.20</span></header>
+    <div class="cx-enonce">E = 2 V, R = 200 Ω, puis D₁ et D₂ en parallèle ; caractéristiques de la figure 3.6. Montrer i = 3,6 mA à 1 V et 7 mA à 1,4 V ; tracer i(V<sub>D</sub>) ; point de fonctionnement ; i₁ et i₂.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Diodes en parallèle : même tension, courants qui s'additionnent ⟹ on <b>additionne les courbes verticalement</b>. Le point de fonctionnement est l'intersection avec la <b>droite de charge</b> I = (E − V<sub>D</sub>)/R, qui passe par (0 ; E/R) et (E ; 0).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">V_D = 1,0 V : i₁ ≈ 1,6 mA, i₂ ≈ 2,0 mA ⟹ i = 3,6 mA
+V_D = 1,4 V : i₁ ≈ 3,0 mA, i₂ ≈ 4,0 mA ⟹ i = 7,0 mA
+Droite de charge : (0 V ; 10 mA) et (2 V ; 0)
+Entre 1,0 et 1,2 V, i ≈ 3,6 + 9 (V − 1) mA ; droite : I = 10 − 5V
+Intersection : 3,6 + 9V − 9 = 10 − 5V ⟹ V_D ≈ 1,1 V, i ≈ 4,5 mA
+Au point P : i₁ ≈ 2,0 mA, i₂ ≈ 2,5 mA (somme 4,5 mA ✓)</div>
+      <div class="why"><b class="lab">À retenir</b>La méthode graphique (caractéristique ∩ droite de charge) est exactement celle du transistor en statique (TD5, TD7) : même geste, autre composant.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex3-6">
+    <header class="cx-hd"><span class="cx-num">Ex 3.6</span><h3>Quatre circuits « presque simples »</h3><span class="cx-tag td">Q3.1-3.4 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Diodes parfaites au silicium (V<sub>S</sub> = 0,7 V). (a) E = 5 V, D₁ et D₂ en série, R = 1 kΩ vers la masse, S aux bornes de R. (b) E = 10 V, R₁ = 4 kΩ, D, R₂ = 3 kΩ reliée à −5 V, S aux bornes de R₂. (c) E = 10 V, R = 1 kΩ, puis D₁ et D₂ en parallèle vers la masse, S aux bornes des diodes. (d) E₁ = 2 V via D₁ et E₂ = 4 V via D₂ vers le nœud A ; R = 1 kΩ de A vers −1 V ; S aux bornes de R.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Loi des mailles avec une source 0,7 V par diode passante. Pour un potentiel imposé (−5 V, −1 V), la tension « motrice » est la <b>différence de potentiel</b> entre les extrémités de la maille. En (d), deux sources alimentent un même nœud via des diodes : c'est un <b>OU à diodes</b>, la plus grande tension l'emporte.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">(a) Deux diodes en série</div><div class="sd"><div class="calc">i = (5 − 2 × 0,7) / 1 kΩ = 3,6 mA        S = R i = 3,6 V</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">(b) Maille entre +10 V et −5 V</div><div class="sd"><div class="calc">i = (10 − (−5) − 0,7) / (4 k + 3 k) = 14,3 / 7 k = 2,04 mA
+S = R₂ i = 6,13 V        (potentiel du nœud par rapport à la masse : −5 + 6,13 = +1,13 V)</div>Vérification : la diode conduit bien (i &gt; 0).</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">(c) Deux diodes en parallèle</div><div class="sd"><div class="calc">S = 0,7 V        i = (10 − 0,7) / 1 kΩ = 9,3 mA        i₁ = i₂ = 4,65 mA si les diodes sont identiques</div>Avec des modèles parfaits, la répartition est indéterminée ; en réalité la diode la plus « chaude » prend plus de courant (d'où des résistances de ballast pour mettre des diodes en parallèle).</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">(d) OU à diodes</div><div class="sd">Les deux diodes passantes imposeraient V<sub>A</sub> = 1,3 V et V<sub>A</sub> = 3,3 V : impossible. D₂ (source la plus haute) conduit : V<sub>A</sub> = 4 − 0,7 = 3,3 V. Alors D₁ a son anode à 2 V et sa cathode à 3,3 V : bloquée ✓.<div class="calc">i = (3,3 − (−1)) / 1 kΩ = 4,3 mA        S = 4,3 V        i₁ = 0, i₂ = 4,3 mA</div></div></div></li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex3-7">
+    <header class="cx-hd"><span class="cx-num">Ex 3.7</span><h3>Redresseur simple alternance « de précision » à AOP</h3><span class="cx-tag td">Q3.5-3.13 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">u<sub>e</sub> = V₀ cos ωt sur l'entrée +. Sortie de l'AOP (A) → diode idéale (anode A, cathode B) → R vers la masse ; B relié à l'entrée −, u<sub>s</sub> = V<sub>B</sub>. AOP idéal, saturation ±V<sub>SAT</sub>.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Un AOP est en régime <b>linéaire</b> s'il existe une contre-réaction (sortie reliée à l'entrée −) : alors V⁺ = V⁻. Sans contre-réaction, il est <b>saturé</b> : sortie +V<sub>SAT</sub> si V⁺ &gt; V⁻, −V<sub>SAT</sub> sinon. Ici, la contre-réaction passe par la diode : elle n'existe que si la diode conduit.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Q3.5-Q3.6 — Diode bloquée</div><div class="sd">Aucun courant dans R ⟹ u<sub>s</sub> = R·0 = 0. L'entrée − est reliée à B : V⁻ = u<sub>s</sub> = 0.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q3.7 — Régime</div><div class="sd">La boucle de contre-réaction est coupée : l'AOP fonctionne en <b>comparateur</b> (saturé), V<sub>A</sub> = ±V<sub>SAT</sub>.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q3.8 — Condition de blocage</div><div class="sd">Diode bloquée ⟺ V<sub>A</sub> &lt; V<sub>B</sub> = 0. Parmi ±V<sub>SAT</sub>, seule <b>−V<sub>SAT</sub></b> convient.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q3.9 — Condition sur u<sub>e</sub></div><div class="sd">V<sub>A</sub> = −V<sub>SAT</sub> ⟺ V⁺ &lt; V⁻ ⟺ u<sub>e</sub> &lt; 0. Donc <b>u<sub>s</sub> = 0 quand u<sub>e</sub> &lt; 0</b>.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q3.10-Q3.11 — Diode passante</div><div class="sd">La boucle est fermée (A → diode → B → entrée −) : régime <b>linéaire</b>. Si u<sub>e</sub> &gt; 0, l'hypothèse « bloquée » donnerait V<sub>A</sub> = +V<sub>SAT</sub> &gt; 0 = V<sub>B</sub> : la diode serait polarisée en direct, contradiction. Elle conduit donc dès que u<sub>e</sub> &gt; 0.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q3.12 — Expression de u<sub>s</sub></div><div class="sd">Régime linéaire : V⁻ = V⁺ ⟹ <b>u<sub>s</sub> = u<sub>e</sub></b>. L'AOP fournit V<sub>A</sub> = u<sub>e</sub> + V<sub>diode</sub> : il compense automatiquement le seuil.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q3.13 — Chronogrammes</div><div class="sd">u<sub>s</sub>(t) = u<sub>e</sub>(t) pendant les alternances positives, 0 pendant les négatives : redressement simple alternance <b>sans perte de 0,7 V</b>, même pour des signaux de quelques millivolts.</div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Intérêt</b>Un redresseur à diode seule ne laisse rien passer sous 0,7 V : inutilisable pour mesurer un petit signal (capteur, audio). Le montage à AOP (« super-diode ») est la base des voltmètres AC et des détecteurs de crête.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex3-8">
+    <header class="cx-hd"><span class="cx-num">Ex 3.8</span><h3>Synthétiser une caractéristique par morceaux</h3><span class="cx-tag es">ES3.1</span></header>
+    <div class="cx-enonce">Quatre branches en parallèle sur E, chacune : diode idéale + R<sub>k</sub> + source E<sub>k</sub>. La caractéristique i(E) passe par (1 V ; 1 mA), (2 V ; 4 mA), (3 V ; 9 mA), (4 V ; 25 mA), droite entre ces points. Trouver les E<sub>k</sub> et R<sub>k</sub>.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Chaque cassure de la courbe correspond à une diode qui <b>se met à conduire</b> : la branche k s'active quand E &gt; E<sub>k</sub>, donc E<sub>k</sub> est l'abscisse de la cassure. Sur chaque segment, la <b>pente</b> est la somme des 1/R des branches actives : 1/R<sub>k</sub> = pente du segment − pente du segment précédent.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Segment [0 ; 1 V]  : pente 1 mA/V   ⟹ E₁ = 0,  R₁ = 1 kΩ
+Segment [1 ; 2 V]  : pente 3 mA/V   ⟹ E₂ = 1 V, 1/R₂ = 3 − 1 = 2 mA/V ⟹ R₂ = 500 Ω
+Segment [2 ; 3 V]  : pente 5 mA/V   ⟹ E₃ = 2 V, 1/R₃ = 5 − 3 = 2 mA/V ⟹ R₃ = 500 Ω
+Segment [3 ; 4 V]  : pente 16 mA/V  ⟹ E₄ = 3 V, 1/R₄ = 16 − 5 = 11 mA/V ⟹ R₄ = 91 Ω</div>
+      <div class="why"><b class="lab">Erreurs du poly</b>À la fin, le poly écrit « E₃ = 3 V » et « R₃ = 91 Ω » (et 1/R₃ dans l'équation) : il s'agit de <b>E₄</b> et <b>R₄</b>. Il renvoie aussi à une « figure 2.9 (a) » au lieu de 3.9 (a). La méthode des pentes ci-dessus évite de réécrire quatre équations.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex3-9">
+    <header class="cx-hd"><span class="cx-num">Ex 3.9</span><h3>Écrêteur mixte</h3><span class="cx-tag es">ES3.2</span></header>
+    <div class="cx-enonce">u<sub>e</sub> sinusoïdale de 100 V crête à crête, u<sub>e</sub>(0) = −50 V. D₁ de A vers B ; R₁ = 1 kΩ de B vers un point à −30 V (E₁) ; R₂ = 1 kΩ de B vers C ; D₂ de C vers D, D à +20 V (E₂) ; u<sub>s</sub> = V<sub>C</sub>. Diodes idéales.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">u_e &lt; −30 V        : D₁ bloquée ; aucun courant, V_C = V_B = −30 V ; D₂ : −30 − 20 &lt; 0, bloquée ⟹ u_s = −30 V
+−30 V &lt; u_e &lt; 20 V : D₁ passante (V_B = u_e), D₂ bloquée, aucun courant dans R₂ ⟹ u_s = u_e
+u_e &gt; 20 V         : D₂ passante ⟹ u_s = +20 V</div>
+      <div class="answer"><b class="lab">Réponse</b>u<sub>e</sub>(t) = −50 cos ωt, écrêtée en bas à −30 V et en haut à +20 V.</div>
+      <div class="why"><b class="lab">Remarque</b>Sur le schéma de synthèse du poly, l'axe porte « E₁ = −30 V » : il faut lire −E₁ = −30 V (E₁ = 30 V avec son « + » à la masse).</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td4" data-cat="td4">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 4 · Poly p. 33-42</span>
+    <h2>La diode Zener</h2>
+    <p>Régulateur Zener : tant que la Zener conduit en inverse avec I<sub>Z,min</sub> ≤ I<sub>Z</sub> ≤ I<sub>Z,max</sub>, u<sub>L</sub> = V<sub>Z</sub>. Deux équations suffisent : <b>i = (E − V<sub>Z</sub>)/R</b> et <b>i = i<sub>Z</sub> + i<sub>L</sub></b>. Pour savoir si la Zener conduit, comparer V<sub>Z</sub> à la tension <b>à vide</b> (Zener retirée) à ses bornes. <a href="index.html#ch3">Revoir le cours (ch. 3)</a></p>
+  </div>
+
+  <article class="cx" id="ex4-1">
+    <header class="cx-hd"><span class="cx-num">Ex 4.1</span><h3>Zener en régime alternatif</h3><span class="cx-tag ad">AD4.1-4.2</span></header>
+    <div class="cx-enonce">u<sub>e</sub> = A sin ωt → R → nœud ; R vers la masse ; R/2 puis la Zener vers la masse. Modèles de la diode ; expression de i dans la Zener.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Plutôt que trois équations de mailles, remplacer tout ce qui est à gauche de la branche R/2 + Zener par son <b>Thévenin</b> : E<sub>th</sub> = u<sub>e</sub>/2 (pont R-R), R<sub>th</sub> = R∥R = R/2.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Modèles : i &gt; 0 (direct)  : u_z = V_S (+ r_s i)      i &lt; 0 (inverse) : u_z = −V_Z (+ r_z i)
+Thévenin : E_th = u_e/2,  R_th = R/2  ⟹  i = (u_e/2 − u_z) / (R/2 + R/2) = u_e/(2R) − u_z/R
+Validité : i = (A sin ωt − 2V_S)/(2R)  si A sin ωt &gt; 2V_S
+           i = (A sin ωt + 2V_Z)/(2R)  si A sin ωt &lt; −2V_Z
+           i = 0                       entre les deux (diode bloquée)</div>
+      <div class="why"><b class="lab">Complément au poly</b>Le poly donne i = (A/2R) sin ωt − u<sub>z</sub>/R sans préciser que cette expression n'est valable que lorsque la diode conduit : entre −2V<sub>Z</sub> et 2V<sub>S</sub> pour A sin ωt, i = 0. Il écrit aussi « I<sub>Z,MAX</sub> = 100 mV » sur la figure 4.2 : c'est 100 mA.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex4-2">
+    <header class="cx-hd"><span class="cx-num">Ex 4.2</span><h3>Stabilisateur : régulation aval puis amont</h3><span class="cx-tag ad">AD4.3-4.13</span></header>
+    <div class="cx-enonce">R = 100 Ω, V<sub>Z</sub> = 6,2 V, I<sub>Z,max</sub> = 100 mA (I<sub>Z,min</sub> = 0, Zener idéale). Partie 1 : E = 24 V fixe, plage de R<sub>L</sub>. Partie 2 : R<sub>L</sub> = 220 Ω, plage de E ; puis protection en cas de déconnexion de la charge.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Partie 1 — E fixe, R<sub>L</sub> variable</div><div class="sd"><div class="calc">i = (24 − 6,2)/100 = 178 mA   (constant tant que la Zener régule)
+i_L = i − i_Z  :  i_L,min = 178 − 100 = 78 mA      i_L,max = 178 − 0 = 178 mA
+R_L = V_Z / i_L :  R_L,min = 6,2/0,178 = 34,8 Ω      R_L,max = 6,2/0,078 = 79,5 Ω</div>Au-delà de 79,5 Ω, la Zener devrait absorber plus de 100 mA : elle serait détruite. En dessous de 34,8 Ω, elle se bloque et u<sub>L</sub> chute.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Partie 2 — R<sub>L</sub> fixe, E variable</div><div class="sd"><div class="calc">i_L = 6,2/220 = 28,2 mA
+i_min = 0 + 28,2 = 28,2 mA        i_max = 100 + 28,2 = 128,2 mA
+E = R i + V_Z :  E_min = 100 × 0,0282 + 6,2 = 9,0 V     E_max = 100 × 0,1282 + 6,2 = 19,0 V</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Charge déconnectée à E<sub>max</sub></div><div class="sd"><div class="calc">i_L = 0 ⟹ i_Z = (19 − 6,2)/100 = 128 mA &gt; 100 mA : destruction
+Protection : E_max = V_Z + R I_Z,max = 6,2 + 100 × 0,1 = 16,2 V</div></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Remarques sur le poly</b>Le poly arrondit i à 180 mA, d'où R<sub>L,min</sub> = 34,4 Ω et R<sub>L,max</sub> = 77,5 Ω ; avec 178 mA on trouve 34,8 Ω et 79,5 Ω. À l'AD4.10, la seconde ligne est notée « i<sub>MIN</sub> » alors qu'il s'agit de i<sub>MAX</sub> = 128 mA.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex4-3">
+    <header class="cx-hd"><span class="cx-num">Ex 4.3</span><h3>Caractéristique de transfert d'un régulateur</h3><span class="cx-tag ad">AD4.14</span></header>
+    <div class="cx-enonce">R = 100 Ω, R<sub>L</sub> = 100 Ω, V<sub>Z</sub> = 5,6 V (idéale). E<sub>min</sub> de régulation ; tracer u<sub>L</sub>(E).</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Zener bloquée : u_L = E R_L/(R + R_L) = E/2
+Régulation dès que E/2 ≥ V_Z ⟺ E ≥ 11,2 V
+u_L = E/2 pour E &lt; 11,2 V ; u_L = 5,6 V au-delà</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex4-4">
+    <header class="cx-hd"><span class="cx-num">Ex 4.4</span><h3>Courant dans un régulateur à E variable</h3><span class="cx-tag ad">AD4.15-4.16</span></header>
+    <div class="cx-enonce">R = 820 Ω, V<sub>Z</sub> = 10 V, E de 20 à 40 V, sortie à vide. Courants min et max ; puis avec r<sub>Z</sub> = 7 Ω.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Zener idéale : i = (E − V_Z)/R :  i_min = 10/820 = 12,2 mA     i_max = 30/820 = 36,6 mA
+Avec r_Z = 7 Ω : i = (E − V_Z)/(R + r_Z) : i_min = 10/827 = 12,1 mA     i_max = 30/827 = 36,3 mA
+Tension de sortie : u_s = V_Z + r_Z i varie de 10,08 V à 10,25 V</div>
+      <div class="why"><b class="lab">Erreur du poly</b>L'A.N. de l'AD4.16 utilise 820 + 8 au lieu de 820 + 7 (i<sub>max</sub> = 36,2 au lieu de 36,3 mA). Intérêt de r<sub>Z</sub> : il montre que la régulation n'est pas parfaite (0,17 V de variation ici).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex4-5">
+    <header class="cx-hd"><span class="cx-num">Ex 4.5</span><h3>Diode classique et diode Zener</h3><span class="cx-tag td">Q4.1 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">u<sub>e</sub> = ±10 V → D₁ (Zener : V<sub>S</sub> = 0,6 V en direct, V<sub>Z</sub> = 3,2 V en inverse) → R₁ → nœud N ; de N vers la masse : R₂, et D₂ (V<sub>S</sub> = 0,6 V, anode à la masse, cathode en N). Trouver R₁ et R₂ pour |i| = 10 mA dans les deux cas.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Traiter séparément u<sub>e</sub> = +10 V et u<sub>e</sub> = −10 V : identifier l'état de chaque diode (D₂ ne conduit que si N est négatif), écrire une maille dans chaque cas. Deux cas, deux équations, deux inconnues.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">u<sub>e</sub> = +10 V</div><div class="sd">D₁ conduit en direct (0,6 V), N est positif donc D₂ est bloquée : le courant traverse R₁ puis R₂.<div class="calc">10 = 0,6 + (R₁ + R₂) × 0,01  ⟹  R₁ + R₂ = 940 Ω</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">u<sub>e</sub> = −10 V</div><div class="sd">Le courant circule de la masse vers la source : D₂ conduit (V<sub>N</sub> = −0,6 V) et D₁ est en régime Zener (3,2 V). R₂, en parallèle sur D₂, ne voit que 0,6 V.<div class="calc">V_N − u_e = R₁ |i| + V_Z  ⟹  −0,6 + 10 = 0,01 R₁ + 3,2  ⟹  R₁ = 620 Ω
+R₂ = 940 − 620 = 320 Ω</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Vérifications</div><div class="sd">+10 V : V<sub>N</sub> = 320 × 0,01 = 3,2 V &gt; 0 ⟹ D₂ bloquée ✓. −10 V : courant dans R₂ = 0,6/320 = 1,9 mA, donc D₂ porte 10 − 1,9 = 8,1 mA &gt; 0 ✓.</div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Réponse</b>R₁ = 620 Ω, R₂ = 320 Ω (valeurs normalisées proches : 620 Ω et 330 Ω en E24).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex4-6">
+    <header class="cx-hd"><span class="cx-num">Ex 4.6</span><h3>Régulation d'une tension redressée (40 à 60 V)</h3><span class="cx-tag td">Q4.2-4.5 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">E → R → nœud ; Zener V<sub>Z</sub> = 45 V (idéale) et R<sub>L</sub> = 1,8 kΩ en parallèle. À E = 40 V on mesure i = 20 mA. Q4.2 R ; Q4.3 E de début de régulation ; Q4.4 u<sub>s</sub>(E) ; Q4.5 courant Zener à 60 V.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>À 40 V, la Zener (45 V) ne peut pas conduire : u<sub>s</sub> ≤ E &lt; V<sub>Z</sub>. Le circuit est un simple pont diviseur R, R<sub>L</sub>, ce qui donne R. La régulation commence quand la tension à vide du pont atteint V<sub>Z</sub>.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Q4.2  Zener bloquée : R + R_L = E/i = 40/0,02 = 2 kΩ  ⟹  R = 200 Ω
+      (contrôle : u_s = 1,8 k × 20 mA = 36 V &lt; 45 V ✓)
+Q4.3  u_s = E R_L/(R + R_L) = 0,9 E ≥ 45 V  ⟺  E ≥ 50 V
+Q4.4  u_s = 0,9 E pour E &lt; 50 V ;  u_s = 45 V pour 50 V ≤ E ≤ 60 V
+Q4.5  i = (60 − 45)/200 = 75 mA ;  i_L = 45/1 800 = 25 mA  ⟹  i_Z = 50 mA</div>
+      <div class="why"><b class="lab">Conséquence pratique</b>Entre 40 et 50 V la sortie n'est pas régulée : pour réguler sur toute la plage, il faudrait une Zener de tension plus faible ou une résistance R plus petite. Puissance dans la Zener à 60 V : 45 × 0,05 = 2,25 W (composant de puissance). L'énoncé renvoie à « la figure 3.6 » : il s'agit de la figure 4.6.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex4-7">
+    <header class="cx-hd"><span class="cx-num">Ex 4.7</span><h3>Deux Zener en série</h3><span class="cx-tag es">ES4.1-4.2</span></header>
+    <div class="cx-enonce">E = 45 V, deux Zener de 15 V (200 mA max) en série, R<sub>L</sub> = 100 Ω. Tension régulée, plage de R.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">u_L = 15 + 15 = 30 V        i_L = 30/100 = 0,3 A
+R_min (i_Z = I_Z,max) : R = (45 − 30)/(0,2 + 0,3) = 30 Ω
+R_max (i_Z = 0, limite de conduction) : pont diviseur 45 × 100/(100 + R) = 30 ⟹ R = 50 Ω
+⟹ 30 Ω ≤ R ≤ 50 Ω</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex4-8">
+    <header class="cx-hd"><span class="cx-num">Ex 4.8</span><h3>Régulateur 18 V pour E entre 22 et 28 V</h3><span class="cx-tag es">ES4.3</span></header>
+    <div class="cx-enonce">V<sub>Z</sub> = 18 V, R<sub>L</sub> = 18 Ω, 200 mA ≤ i<sub>Z</sub> ≤ 2 A. Plage de R ?</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">i_L = 18/18 = 1 A
+R_max (E_min, i_Z,min) = (22 − 18)/(0,2 + 1) = 3,33 Ω
+R_min (E_max, i_Z,max) = (28 − 18)/(2 + 1)   = 3,33 Ω</div>
+      <div class="answer"><b class="lab">Réponse</b>La « plage » se réduit à une seule valeur : R = 10/3 ≈ 3,33 Ω, sans aucune marge.</div>
+      <div class="why"><b class="lab">Regard d'ingénieur</b>Le poly s'arrête au calcul, mais le résultat dit que ce cahier des charges est à la limite : la moindre tolérance sur R (±5 %) fait sortir de la zone de régulation ou détruit la Zener. En plus, la Zener dissiperait jusqu'à 18 × 2 = 36 W et R jusqu'à 30 W : on utilise plutôt un régulateur à transistor (Ex 5.9) ou un régulateur intégré (7818).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex4-9">
+    <header class="cx-hd"><span class="cx-num">Ex 4.9</span><h3>Tension de sortie et courant Zener</h3><span class="cx-tag es">ES4.4-4.5</span></header>
+    <div class="cx-enonce">E = 120 V, R = 5 kΩ, V<sub>Z</sub> = 50 V, R<sub>L</sub> = 10 kΩ.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Tension à vide (Zener retirée) : 120 × 10/(5 + 10) = 80 V &gt; 50 V ⟹ la Zener conduit
+u_L = V_Z = 50 V
+i = (120 − 50)/5 k = 14 mA ;  i_L = 50/10 k = 5 mA  ⟹  i_Z = 9 mA</div>
+      <div class="why"><b class="lab">Rigueur</b>Le poly justifie la conduction par « E &gt; V<sub>Z</sub> » : ce n'est pas suffisant (avec R<sub>L</sub> = 2 kΩ, la tension à vide ne serait que 34 V et la Zener resterait bloquée malgré E = 120 V). Le bon test compare V<sub>Z</sub> à la tension à vide.</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td5" data-cat="td5">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 5 · Poly p. 43-57</span>
+    <h2>Polarisation du transistor bipolaire</h2>
+    <p>Démarche : <b>1.</b> hypothèse « régime linéaire » (V<sub>BE</sub> = 0,7 V, I<sub>C</sub> = βI<sub>B</sub>, I<sub>E</sub> = (β+1)I<sub>B</sub>) ; <b>2.</b> maille d'entrée → I<sub>B</sub> ; <b>3.</b> maille de sortie → V<sub>CE</sub> ; <b>4.</b> vérifier V<sub>CE</sub> &gt; V<sub>CE,sat</sub>. Sinon le transistor est <b>saturé</b> : V<sub>CE</sub> = V<sub>CE,sat</sub> et I<sub>C</sub> &lt; βI<sub>B</sub>. Pont diviseur : toujours passer par le <b>Thévenin</b> de la base. <a href="index.html#ch4">Revoir le cours (ch. 4)</a></p>
+  </div>
+
+  <article class="cx" id="ex5-1">
+    <header class="cx-hd"><span class="cx-num">Ex 5.1</span><h3>Émetteur commun polarisé par la base : linéaire ou saturé ?</h3><span class="cx-tag ad">AD5.1-5.3</span></header>
+    <div class="cx-enonce">R<sub>B</sub> = 10 kΩ (de V<sub>CC</sub> à la base), R<sub>C</sub> = 50 Ω, V<sub>CC</sub> = 10 V, β = 100, V<sub>CE,sat</sub> = 0,2 V. 1) Point de polarisation ; 2) avec R<sub>C</sub> = 1 kΩ ; 3) avec R<sub>C</sub> = 4 kΩ et R<sub>B</sub> variable : I<sub>C,sat</sub> et condition de fonctionnement linéaire.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">AD5.1 — R<sub>C</sub> = 50 Ω</div><div class="sd"><div class="calc">I_B = (10 − 0,7)/10 k = 0,93 mA    I_C = β I_B = 93 mA
+V_CE = 10 − 50 × 0,093 = 5,35 V &gt; 0,2 V  ⟹  régime linéaire confirmé</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">AD5.2 — R<sub>C</sub> = 1 kΩ</div><div class="sd"><div class="calc">hypothèse linéaire : V_CE = 10 − 1 000 × 0,093 = −83 V : impossible ⟹ saturé
+I_C = (10 − 0,2)/1 k = 9,8 mA  ≪  β I_B = 93 mA</div>Sur la caractéristique de sortie : droite de charge de (0 ; V<sub>CC</sub>/R<sub>C</sub>) à (V<sub>CC</sub> ; 0). Avec 50 Ω, le point est au milieu (5,35 V ; 93 mA) ; avec 1 kΩ, la droite (pente 20 fois plus faible) coupe la courbe I<sub>B</sub> = 0,93 mA dans la zone de saturation, en (0,2 V ; 9,8 mA).</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">AD5.3 — R<sub>C</sub> = 4 kΩ, R<sub>B</sub> variable</div><div class="sd"><div class="calc">I_C,sat = (10 − 0,2)/4 k = 2,45 mA  ⟹  I_B &lt; I_C,sat/β = 24,5 µA
+(V_CC − V_BE)/R_B &lt; I_C,sat/β  ⟺  R_B &gt; β (V_CC − V_BE)/I_C,sat = 100 × 9,3/2,45 mA = 380 kΩ</div></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Remarques sur le poly</b>Il arrondit I<sub>C,sat</sub> à 2,5 mA, d'où R<sub>B</sub> &gt; 372 kΩ (380 kΩ sans arrondi). Plusieurs renvois « Figure 4.1 » désignent la figure 5.1 (numérotation d'une ancienne édition), et « 10 00 » doit se lire 1 000 Ω.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-2">
+    <header class="cx-hd"><span class="cx-num">Ex 5.2</span><h3>Émetteur commun avec résistance d'émetteur</h3><span class="cx-tag ad">AD5.4-5.5</span></header>
+    <div class="cx-enonce">R<sub>B</sub> = 14 kΩ, R<sub>C</sub> = 50 Ω, R<sub>E</sub> = 70 Ω, β = 200, V<sub>CC</sub> = 15 V, régime linéaire. Courants, potentiels, état des jonctions.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Maille d'entrée : V<sub>CC</sub> = R<sub>B</sub>I<sub>B</sub> + V<sub>BE</sub> + R<sub>E</sub>(β+1)I<sub>B</sub>. Vue de la base, R<sub>E</sub> « pèse » <b>(β+1)R<sub>E</sub></b> : c'est la règle de réflexion d'impédance.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I_B = (15 − 0,7)/(14 k + 201 × 70) = 14,3/28,07 k = 509 µA
+I_C = 200 I_B = 102 mA       I_E = 201 I_B = 102,4 mA
+V_E = 70 × 0,1024 = 7,17 V   V_B = 7,87 V   V_C = 15 − 50 × 0,102 = 9,9 V
+V_BE = +0,7 V (direct)   V_BC = 7,87 − 9,9 = −2,0 V (inverse)  ⟹  régime actif (amplification)</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-3">
+    <header class="cx-hd"><span class="cx-num">Ex 5.3</span><h3>Dimensionner une polarisation par pont</h3><span class="cx-tag ad">AD5.6-5.10</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 10 V, β = 150, objectif V<sub>C</sub> = 6 V, V<sub>E</sub> = 2 V, I<sub>B</sub> = 100 µA, R₂ = 10 kΩ. Trouver R<sub>C</sub>, R<sub>E</sub>, V<sub>B</sub>, R₁.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I_C = 150 × 100 µA = 15 mA      I_E = 151 × 100 µA = 15,1 mA
+R_C = (10 − 6)/15 mA = 267 Ω   → 270 Ω (E12)
+R_E = 2/15,1 mA = 132 Ω        → 130 Ω (E24)
+V_B = V_E + 0,7 = 2,7 V
+Nœud de base : I₁ = I₂ + I_B  ⟺  (V_CC − V_B)/R₁ = V_B/R₂ + I_B
+R₁ = (10 − 2,7)/(2,7/10 k + 100 µA) = 7,3/370 µA = 19,7 kΩ → 20 kΩ</div>
+      <div class="why"><b class="lab">Remarque</b>Le poly donne directement 270 Ω et 130 Ω : ce sont les valeurs normalisées les plus proches de 267 et 132 Ω. Sa première ligne de l'AD5.9 (« I₁ + I₂ = I<sub>B</sub> ») est une coquille : c'est bien I₁ = I₂ + I<sub>B</sub>.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-4">
+    <header class="cx-hd"><span class="cx-num">Ex 5.4</span><h3>Émetteur commun en polarisation directe</h3><span class="cx-tag td">Q5.1-5.5 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">R<sub>B</sub> de V<sub>CC</sub> à la base, charge R<sub>L</sub> = 60 Ω de V<sub>CC</sub> au collecteur, émetteur à la masse. β = 100, V<sub>BE</sub> = 0,7 V, V<sub>CC</sub> = 12 V. Q5.1 R<sub>B</sub> pour I<sub>L</sub> = 100 mA ; Q5.2 I<sub>C</sub> maximal ; Q5.3 R<sub>B</sub> correspondant ; Q5.4 résistances pour V<sub>CE</sub> = 6 V, I<sub>C</sub> = 3,6 mA ; Q5.5 allure des caractéristiques.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Le courant de la charge est le courant collecteur. On remonte : I<sub>B</sub> = I<sub>C</sub>/β, puis la maille d'entrée donne R<sub>B</sub> = (V<sub>CC</sub> − V<sub>BE</sub>)/I<sub>B</sub>. Le courant maximal est atteint à la saturation (V<sub>CE</sub> ≈ 0).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.1 — I<sub>L</sub> = 100 mA</div><div class="sd"><div class="calc">I_B = 100 mA/100 = 1 mA  ⟹  R_B = (12 − 0,7)/1 mA = 11,3 kΩ
+contrôle : V_CE = 12 − 60 × 0,1 = 6 V &gt; V_CE,sat ✓</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.2 — Courant maximal</div><div class="sd"><div class="calc">I_C,max = I_C,sat = (V_CC − V_CE,sat)/R_L ≈ 12/60 = 200 mA</div>Au-delà, augmenter I<sub>B</sub> ne sert plus à rien : le transistor est saturé.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.3 — R<sub>B</sub> à la limite de saturation</div><div class="sd"><div class="calc">I_B = I_C,sat/β = 2 mA  ⟹  R_B = 11,3/2 mA = 5,65 kΩ
+R_B &gt; 5,65 kΩ : régime linéaire ;  R_B &lt; 5,65 kΩ : saturation</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.4 — Point V<sub>CE</sub> = 6 V, I<sub>C</sub> = 3,6 mA</div><div class="sd"><div class="calc">R_C = (12 − 6)/3,6 mA = 1,67 kΩ      I_B = 36 µA  ⟹  R_B = 11,3/36 µA = 314 kΩ</div>Le point est au milieu de la droite de charge (V<sub>CE</sub> = V<sub>CC</sub>/2) : excursion maximale et symétrique du signal.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.5 — Allure des caractéristiques</div><div class="sd"><b>Transfert</b> I<sub>C</sub>(I<sub>B</sub>) : droite de pente β = 100 depuis l'origine, puis palier à I<sub>C,sat</sub> = V<sub>CC</sub>/R<sub>C</sub> = 7,2 mA (atteint pour I<sub>B</sub> = 72 µA). <b>Sortie</b> I<sub>C</sub>(V<sub>CE</sub>) : réseau de courbes quasi horizontales à I<sub>C</sub> = βI<sub>B</sub> ; droite de charge de (0 ; 7,2 mA) à (12 V ; 0) ; point Q en (6 V ; 3,6 mA) sur la courbe I<sub>B</sub> = 36 µA.</div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Limite de ce montage</b>I<sub>C</sub> = βI<sub>B</sub> dépend directement de β, qui varie d'un transistor à l'autre (souvent du simple au triple) et avec la température : c'est la polarisation la moins stable. D'où la polarisation par pont avec R<sub>E</sub>.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-5">
+    <header class="cx-hd"><span class="cx-num">Ex 5.5</span><h3>Polarisation par pont : droites d'attaque et de charge</h3><span class="cx-tag td">Q5.6-5.9 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 12 V, R₁ = 16 kΩ (V<sub>CC</sub>-base), R₂ = 1 kΩ (base-masse), R<sub>C</sub> = 240 Ω, émetteur à la masse. Q5.6 équivalence avec une polarisation à deux sources ; Q5.7 droites d'attaque et de charge ; Q5.8 au point I<sub>B</sub> = 100 µA, V<sub>CE</sub> = 6 V, autres grandeurs et état de la jonction B-C ; Q5.9 α et β.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Thévenin du pont vu de la base : E<sub>th</sub> = V<sub>CC</sub>R₂/(R₁ + R₂), R<sub>th</sub> = R₁∥R₂. Le montage devient « source E<sub>th</sub> + R<sub>th</sub> » sur la base et « V<sub>CC</sub> + R<sub>C</sub> » sur le collecteur : deux sources, deux mailles indépendantes.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.6 — Équivalence à deux sources</div><div class="sd"><div class="calc">E_th = 12 × 1/17 = 0,706 V        R_th = 16 k × 1 k / 17 k = 941 Ω</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.7 — Droites statiques</div><div class="sd"><div class="calc">Attaque (entrée) : V_BE = E_th − R_th I_B  ⟺  I_B = (0,706 − V_BE)/941
+    points : (V_BE = 0 ; I_B = 750 µA) et (V_BE = 0,706 V ; I_B = 0)
+Charge (sortie)  : V_CE = V_CC − R_C I_C  ⟺  I_C = (12 − V_CE)/240
+    points : (V_CE = 0 ; I_C = 50 mA) et (V_CE = 12 V ; I_C = 0)</div>Le point de repos est à l'intersection de chaque droite avec la caractéristique correspondante du transistor.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.8 — Point de fonctionnement</div><div class="sd"><div class="calc">V_BE = 0,706 − 941 × 100 µA = 0,61 V       I_C = (12 − 6)/240 = 25 mA
+I_E = I_C + I_B = 25,1 mA          V_BC = V_BE − V_CE = 0,61 − 6 = −5,4 V &lt; 0
+contrôle du pont : I₁ = (12 − 0,61)/16 k = 0,712 mA ; I₂ = 0,61/1 k = 0,612 mA ; I₁ − I₂ = 100 µA ✓</div>La jonction base-collecteur est polarisée en <b>inverse</b> (V<sub>BC</sub> &lt; 0) et la jonction base-émetteur en direct : régime actif, le transistor amplifie.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q5.9 — Gains</div><div class="sd"><div class="calc">β = I_C/I_B = 25 mA/0,1 mA = 250        α = I_C/I_E = β/(β + 1) = 0,996</div></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Pourquoi V<sub>BE</sub> ≠ 0,7 V ici</b>E<sub>th</sub> = 0,706 V est à peine au-dessus du seuil : la valeur 0,7 V du modèle simplifié donnerait I<sub>B</sub> ≈ 6 µA. C'est la caractéristique réelle (exponentielle) qui fixe V<sub>BE</sub> ≈ 0,61 V pour 100 µA. Un pont qui donne E<sub>th</sub> si proche du seuil rend le point de repos très sensible : en conception, on vise V<sub>B</sub> de quelques volts avec une résistance d'émetteur.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-6">
+    <header class="cx-hd"><span class="cx-num">Ex 5.6</span><h3>Voyant LED sur une sortie logique TTL</h3><span class="cx-tag es">ES5.1-5.2</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 5 V ; LED : 1,6 V, 20 mA ; transistor : β = 100, V<sub>BE</sub> = 0,7 V, V<sub>CE,sat</sub> = 0,2 V ; sortie TTL : V<sub>OH,min</sub> = 2,4 V, I<sub>OH,max</sub> = 400 µA.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Pourquoi un transistor : la sortie TTL ne fournit que 400 µA, la LED en demande 20 mA
+R_C = (5 − 1,6 − 0,2)/20 mA = 160 Ω
+I_B = I_C/β = 200 µA (≤ 400 µA ✓)      R_B = (2,4 − 0,7)/200 µA = 8,5 kΩ</div>
+      <div class="why"><b class="lab">Bonne pratique</b>Le transistor sert ici d'interrupteur : on veut qu'il soit <b>franchement saturé</b>, pas à la limite. On prend en général I<sub>B</sub> = 2 à 5 fois I<sub>C</sub>/β, par exemple R<sub>B</sub> = 4,7 kΩ (I<sub>B</sub> ≈ 360 µA, encore sous les 400 µA de la sortie TTL). Le dimensionnement du poly, à la limite exacte, ne garantit pas la saturation si β ou V<sub>OH</sub> sont plus faibles.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-7">
+    <header class="cx-hd"><span class="cx-num">Ex 5.7</span><h3>Courant de base minimal de saturation</h3><span class="cx-tag es">ES5.3</span></header>
+    <div class="cx-enonce">R<sub>C</sub> = 1 kΩ, β = 100, V<sub>CE,sat</sub> = 0,1 V (V<sub>CC</sub> = 12 V dans la correction).</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I_C,sat = (V_CC − V_CE,sat)/R_C = 11,9 mA      I_B,min = I_C,sat/β = 119 µA</div>
+      <div class="why"><b class="lab">Énoncé incomplet</b>La valeur V<sub>CC</sub> = 12 V n'apparaît que dans la correction du poly (ni dans l'énoncé ni sur la figure 5.7).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-8">
+    <header class="cx-hd"><span class="cx-num">Ex 5.8</span><h3>Porte logique « mystère » à transistor</h3><span class="cx-tag es">ES5.4-5.7</span></header>
+    <div class="cx-enonce">Deux entrées V<sub>IN,1</sub>, V<sub>IN,2</sub> (0 ou 5 V), chacune reliée à la base par R<sub>B</sub> = 10 kΩ ; R<sub>C</sub> = 1 kΩ, V<sub>CC</sub> = 5 V, β = 100.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">0 / 0 : jonction B-E non polarisée ⟹ bloqué ⟹ V_OUT = 5 V
+5 / 0 : I_B = (5 − 0,7)/10 k + (0 − 0,7)/10 k = 0,43 − 0,07 = 0,36 mA
+        linéaire ⟹ I_C = 36 mA, V_OUT = −31 V : impossible ⟹ saturé, V_OUT ≈ V_CE,sat ≈ 0
+5 / 5 : I_B = 2 × 0,43 = 0,86 mA ⟹ saturé, V_OUT ≈ 0
+Table : 00 → 1 ; 01 → 0 ; 10 → 0 ; 11 → 0  ⟹  porte NOR</div>
+      <div class="why"><b class="lab">Culture</b>C'est la logique RTL (Resistor-Transistor Logic) des années 1960 : l'ordinateur de guidage d'Apollo était construit uniquement avec des portes NOR de ce type. Détail : le courant qui repart vers l'entrée à 0 V (0,07 mA) diminue I<sub>B</sub> ; le poly le prend bien en compte.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-9">
+    <header class="cx-hd"><span class="cx-num">Ex 5.9</span><h3>Régulateur de tension à transistor ballast</h3><span class="cx-tag es">ES5.8-5.12</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 12 V (moyenne), R₁ = 180 Ω vers la base, Zener V<sub>Z</sub> = 5,6 V base-masse, V<sub>BE</sub> = 0,6 V, β = 150 ; émetteur vers R₂ = 220 Ω + LED (2 V, 10 Ω) et vers la charge R<sub>L</sub>.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">V_B = V_Z = 5,6 V        I_R1 = (12 − 5,6)/180 = 35,6 mA
+V_E = 5,6 − 0,6 = 5,0 V   I_LED = (5 − 2)/(220 + 10) = 13 mA
+V_CE = 12 − 5 = 7 V</div>
+      <div class="why"><b class="lab">Pourquoi c'est mieux qu'une Zener seule</b>La sortie V<sub>E</sub> = V<sub>Z</sub> − V<sub>BE</sub> ne dépend pas de la charge tant que le transistor reste linéaire et que la Zener conduit (I<sub>B</sub> &lt; I<sub>R1</sub>) : la charge peut tirer jusqu'à (β+1)·35,6 mA ≈ 5 A en théorie, alors qu'une Zener seule est limitée par I<sub>Z,max</sub>. En pratique, la limite est la puissance du transistor : P = V<sub>CE</sub>·I<sub>E</sub> = 7 W pour 1 A. C'est le principe des régulateurs intégrés 78xx.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex5-10">
+    <header class="cx-hd"><span class="cx-num">Ex 5.10</span><h3>Détecteur d'humidité pour bonsaï</h3><span class="cx-tag es">ES5.13-5.17</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 3 V ; R<sub>B</sub> de V<sub>CC</sub> à la base ; terre (R<sub>T</sub>) entre base et masse ; LED (2 V) + R<sub>C</sub> au collecteur. β = 100, V<sub>CE,sat</sub> = 0,2 V, V<sub>BE</sub> = 0,6 V. Terre humide : R<sub>T</sub> = 0 ; sèche : R<sub>T</sub> → ∞. LED à 20 mA quand la terre est sèche.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Thévenin de la base : E_th = V_CC R_T/(R_B + R_T),  R_th = R_B ∥ R_T
+Terre sèche (R_T → ∞) : E_th = V_CC = 3 V, R_th = R_B
+Terre humide (R_T = 0) : E_th = 0, R_th = 0 ⟹ V_BE = 0, transistor bloqué, LED éteinte
+Sécheresse, limite de saturation : I_B = 20 mA/100 = 200 µA
+R_B = (3 − 0,6)/200 µA = 12 kΩ        R_C = (3 − 2 − 0,2)/20 mA = 40 Ω</div>
+      <div class="why"><b class="lab">À améliorer</b>Même remarque qu'à l'Ex 5.6 : pour saturer franchement, choisir R<sub>B</sub> plus faible (par exemple 4,7 kΩ). Et en réalité, la terre humide n'est pas un court-circuit : le transistor commence à conduire dès que le pont R<sub>B</sub>-R<sub>T</sub> amène la base à 0,6 V : 3·R<sub>T</sub>/(12 k + R<sub>T</sub>) = 0,6 ⟹ R<sub>T</sub> = 3 kΩ. La LED s'allume progressivement au-delà.</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td6" data-cat="td6">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 6 · Poly p. 58-66</span>
+    <h2>Transistor bipolaire en régime dynamique</h2>
+    <p>Protocole petits signaux : <b>1.</b> polarisation (DC) → I<sub>E</sub> ; <b>2.</b> r<sub>e</sub> = 26 mV / I<sub>E</sub> ; <b>3.</b> schéma AC : sources continues à la masse, condensateurs en court-circuit, transistor remplacé par (β+1)r<sub>e</sub> entre base et émetteur et une source βi<sub>b</sub> (∥ r<sub>o</sub>) ; <b>4.</b> Z<sub>i</sub>, Z<sub>o</sub>, A<sub>v</sub>. Émetteur découplé : <b>A<sub>v</sub> ≈ −R<sub>C</sub>/r<sub>e</sub></b> ; avec R<sub>E1</sub> non découplée : <b>A<sub>v</sub> ≈ −R<sub>C</sub>/(r<sub>e</sub> + R<sub>E1</sub>)</b>. <a href="index.html#ch5">Revoir le cours (ch. 5)</a></p>
+  </div>
+
+  <article class="cx" id="ex6-1">
+    <header class="cx-hd"><span class="cx-num">Ex 6.1</span><h3>Émetteur commun et modèle r<sub>e</sub></h3><span class="cx-tag ad">AD6.1-6.4</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 12 V, R₁ = 270 kΩ (V<sub>CC</sub>-base), R₂ = 2,2 kΩ (V<sub>CC</sub>-collecteur), émetteur à la masse, C₁ et C₂ de liaison ; β = 60, V<sub>BE</sub> = 0,7 V, r<sub>o</sub> = 40 kΩ. Schéma équivalent, r<sub>e</sub>, Z<sub>i</sub>, Z<sub>o</sub>, A<sub>v</sub>.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">DC : I_B = (12 − 0,7)/270 k = 41,9 µA     I_E = 61 I_B = 2,55 mA     r_e = 26 mV/2,55 mA = 10,2 Ω
+AC : entrée : R₁ ∥ (β+1) r_e ;  sortie : β i_b ∥ r_o ∥ R₂
+Z_i = 270 k ∥ (61 × 10,2) = 270 k ∥ 621 Ω = 620 Ω
+Z_o = r_o ∥ R₂ = 40 k ∥ 2,2 k = 2,09 kΩ
+A_v = −β (r_o ∥ R₂) / ((β+1) r_e) = −201       (−R₂/r_e = −216 si l'on néglige r_o)</div>
+      <div class="why"><b class="lab">Incohérence du poly</b>Il tient compte de r<sub>o</sub> pour Z<sub>o</sub> (2,1 kΩ) mais pas pour A<sub>v</sub> (−216). Pour être cohérent : A<sub>v</sub> ≈ −(r<sub>o</sub>∥R₂)/r<sub>e</sub> ≈ −205 (−201 avec le facteur β/(β+1)). L'écart (7 %) reste faible : r<sub>o</sub> ≫ R₂.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex6-2">
+    <header class="cx-hd"><span class="cx-num">Ex 6.2</span><h3>Condensateur de liaison</h3><span class="cx-tag ad">AD6.5</span></header>
+    <div class="cx-enonce">Source → R₁ = 1 kΩ → C → R₂ = 3 kΩ vers la masse. Signal entre 100 et 200 kHz. Choisir C.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Le circuit est un passe-haut de fréquence de coupure f<sub>c</sub> = 1/(2π(R₁ + R₂)C). Règle de sécurité : placer f<sub>c</sub> une décade sous la plus basse fréquence utile, soit f<sub>c</sub> = f<sub>min</sub>/10.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">f_min = 100 kHz ⟹ f_c = 10 kHz
+C ≥ 1/(2π × 10⁴ × 4 000) = 3,98 nF   → 4,7 nF (ou 10 nF) normalisé</div>
+      <div class="why"><b class="lab">Incohérence du poly</b>L'énoncé parle de 100 à 200 <b>kHz</b>, mais la correction raisonne sur 100 <b>Hz</b> (f<sub>c</sub> = 10 Hz) et trouve 3,98 µF. Ce condensateur convient aussi (plus C est grand, plus la coupure est basse), mais il est 1 000 fois plus gros que nécessaire. Avec la bande de l'énoncé, 3,98 nF suffisent.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex6-3">
+    <header class="cx-hd"><span class="cx-num">Ex 6.3</span><h3>Condensateur de découplage</h3><span class="cx-tag ad">AD6.6</span></header>
+    <div class="cx-enonce">Source → R₁ = 500 Ω → point A ; R₂ = 3 kΩ et C entre A et la masse. C pour que A soit à la masse en AC dès 20 Hz.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Résistance vue par C : R₁ ∥ R₂ = 500 × 3 000/3 500 = 429 Ω
+f_c = 20 Hz / 10 = 2 Hz  ⟹  C = 1/(2π × 2 × 429) = 186 µF   → 220 µF normalisé</div>
+      <div class="why"><b class="lab">Coquille du poly</b>La ligne d'A.N. affiche « 2π × 20 × … » mais le résultat 186 µF correspond bien à 2 Hz (avec 20 Hz on trouverait 18,6 µF). Retenir : la résistance à prendre est celle <b>vue par le condensateur</b> (Thévenin), ici R₁∥R₂, pas R₁ + R₂.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex6-4">
+    <header class="cx-hd"><span class="cx-num">Ex 6.4</span><h3>Émetteur commun polarisé par pont, découplage total puis partiel</h3><span class="cx-tag td">Q6.1-6.9 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 20 V, R₁ = 180 kΩ, R₂ = 15 kΩ, R<sub>C</sub> = 4,7 kΩ, R<sub>E</sub> = R<sub>E1</sub> + R<sub>E2</sub> = 1 kΩ, C₁ = C₂ = 100 µF, C<sub>E</sub> = 220 µF ; β = 60, V<sub>BE</sub> = 0,7 V, r<sub>o</sub> → ∞, f = 1 kHz. Q6.1-6.4 : C<sub>E</sub> découple tout R<sub>E</sub>. Q6.5-6.9 : C<sub>E</sub> branché en E₂ (R<sub>E1</sub> non découplée).</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Polarisation par le <b>Thévenin de la base</b> : ici (β+1)R<sub>E</sub> = 61 kΩ n'est pas très grand devant R<sub>th</sub> ≈ 14 kΩ, donc négliger I<sub>B</sub> dans le pont fausserait I<sub>E</sub> de 20 %. En AC, une résistance d'émetteur non découplée apparaît multipliée par (β+1) vue de la base.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Polarisation</div><div class="sd"><div class="calc">E_th = 20 × 15/195 = 1,54 V       R_th = 180 k ∥ 15 k = 13,8 kΩ
+I_B = (1,54 − 0,7)/(13,8 k + 61 × 1 k) = 11,2 µA     I_E = 61 I_B = 0,683 mA
+r_e = 26 mV/0,683 mA = 38 Ω         V_CE = 20 − 4,7 k × 0,672 m − 1 k × 0,683 m = 16,2 V (linéaire ✓)</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q6.1 — Impédances des condensateurs à 1 kHz</div><div class="sd"><div class="calc">|Z_C1| = |Z_C2| = 1/(2π × 10³ × 100·10⁻⁶) = 1,6 Ω        |Z_CE| = 0,72 Ω</div>Négligeables devant les résistances du montage : courts-circuits en AC.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q6.2 à Q6.4 — Émetteur totalement découplé</div><div class="sd"><div class="calc">Schéma : R_th = R₁∥R₂ en entrée, (β+1) r_e base-masse, β i_b ∥ R_C en sortie
+Z_i = 13,8 k ∥ (61 × 38) = 13,8 k ∥ 2,32 k = 1,99 kΩ        Z_o = R_C = 4,7 kΩ
+A_v = −β R_C / ((β+1) r_e) = −60 × 4 700 / 2 321 = −122       (≈ −R_C/r_e = −124)</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q6.5-Q6.6 — C<sub>E</sub> en E₂ (R<sub>E1</sub> = 1,2 kΩ non découplée)</div><div class="sd">Vue de la base, l'émetteur présente (β+1)(r<sub>e</sub> + R<sub>E1</sub>). Maille d'entrée : u<sub>e</sub> = (β+1)(r<sub>e</sub> + R<sub>E1</sub>) i<sub>b</sub> ; maille de sortie : u<sub>s</sub> = −β i<sub>b</sub> R<sub>C</sub> (deux mailles liées par i<sub>b</sub>).<div class="calc">Z_i = 13,8 k ∥ 61 × (38 + 1 200) = 13,8 k ∥ 75,5 k = 11,7 kΩ        Z_o = 4,7 kΩ</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q6.7 — Gain et modèle équivalent</div><div class="sd"><div class="calc">A_v = −β R_C / ((β+1)(r_e + R_E1)) = −282 000 / 75 500 = −3,7</div>Modèle : entrée = résistance Z<sub>i</sub> ; sortie = source de tension A<sub>v</sub>·u<sub>e</sub> en série avec Z<sub>o</sub>. Le gain a chuté, mais il ne dépend presque plus de β ni de r<sub>e</sub> (donc de la température) : A<sub>v</sub> ≈ −R<sub>C</sub>/R<sub>E1</sub>.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q6.8 — R<sub>E1</sub> pour A<sub>v</sub> = −10</div><div class="sd"><div class="calc">(β+1)(r_e + R_E1) = β R_C/10  ⟹  R_E1 = 60 × 4 700/(61 × 10) − 38 = 424 Ω   → 430 Ω (E24)
+(approximation −R_C/(r_e + R_E1) = −10 ⟹ R_E1 = 432 Ω)</div>Compatible avec R<sub>E</sub> = 1 kΩ : R<sub>E2</sub> ≈ 570 Ω reste découplée.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q6.9 — Avec une charge R<sub>L</sub></div><div class="sd"><div class="calc">u_s = A_v u_e × R_L/(R_L + Z_o)          i_s = u_s/R_L = A_v u_e /(R_L + Z_o)</div>La charge forme un pont diviseur avec Z<sub>o</sub> : pour ne pas perdre de gain, il faut R<sub>L</sub> ≫ Z<sub>o</sub>.</div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Énoncé contradictoire</b>La Q6.6 impose R<sub>E1</sub> = 1,2 kΩ alors que R<sub>E1</sub> + R<sub>E2</sub> = 1 kΩ. Comme R<sub>E1</sub> ≫ r<sub>e</sub>, le résultat ne dépend presque pas du point de polarisation : en recalculant la polarisation avec R<sub>E</sub> = 1,2 kΩ (r<sub>e</sub> = 44 Ω), on trouve Z<sub>i</sub> = 11,7 kΩ et A<sub>v</sub> = −3,7, identiques.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex6-5">
+    <header class="cx-hd"><span class="cx-num">Ex 6.5</span><h3>Deux amplificateurs en cascade</h3><span class="cx-tag td">Q6.10-6.13 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">R<sub>source</sub> = 1 kΩ ; étage 1 : Z<sub>i1</sub> = 50 kΩ, Z<sub>o1</sub> = 20 Ω, A<sub>v1</sub> ≈ 1 ; étage 2 : Z<sub>i2</sub> = 1,2 kΩ, Z<sub>o2</sub> = 4,6 kΩ, A<sub>v2</sub> = −640 ; charge R<sub>L</sub> = 2,2 kΩ. Gains totaux en tension (sans et avec charge), en courant, et vérification du produit des gains en courant.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Chaque étage = Z<sub>i</sub> en entrée, source A<sub>v</sub>u<sub>e</sub> + Z<sub>o</sub> en sortie. À chaque interface, un <b>pont diviseur</b> Z<sub>i,suivant</sub>/(Z<sub>i,suivant</sub> + Z<sub>o,précédent</sub>) s'applique. Gain en courant : A<sub>i</sub> = (u<sub>s</sub>/R<sub>L</sub>)/(u<sub>e</sub>/Z<sub>i1</sub>) = A<sub>v</sub>·Z<sub>i1</sub>/R<sub>L</sub>.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Q6.10  A_vT = A_v1 × Z_i2/(Z_i2 + Z_o1) × A_v2 = 1 × 1 200/1 220 × (−640) = −630
+Q6.11  A_vT,L = A_vT × R_L/(R_L + Z_o2) = −630 × 2 200/6 800 = −204
+       (depuis la source : × Z_i1/(Z_i1 + R_source) = 50/51 ⟹ ≈ −200)
+Q6.12  A_iT,L = A_vT,L × Z_i1/R_L = −204 × 50 000/2 200 ≈ −4,6·10³
+Q6.13  A_i1 = (u_e2/Z_i2)/(u_e/Z_i1) = 0,984 × 50 000/1 200 = 41,0
+       A_i2 = (u_s/R_L)/(u_e2/Z_i2) = (−640 × 0,324) × 1 200/2 200 = −112,9
+       A_i1 × A_i2 = −4,6·10³ = A_iT,L ✓</div>
+      <div class="answer"><b class="lab">Réponse à Q6.13</b>Oui : le courant de sortie de l'étage 1 est exactement le courant d'entrée de l'étage 2, donc les gains en courant <b>chargés</b> se multiplient. Attention : ce n'est pas vrai des gains « à vide ».</div>
+      <div class="why"><b class="lab">Rôle de l'étage 1</b>Un gain de 1 semble inutile, mais Z<sub>i1</sub> = 50 kΩ ne charge pas la source et Z<sub>o1</sub> = 20 Ω attaque l'étage 2 sans perte : c'est un <b>adaptateur d'impédance</b> (collecteur commun). Sans lui, la source de 1 kΩ attaquerait directement Z<sub>i2</sub> = 1,2 kΩ et perdrait 45 % du signal.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex6-6">
+    <header class="cx-hd"><span class="cx-num">Ex 6.6</span><h3>Concevoir un amplificateur émetteur commun</h3><span class="cx-tag es">ES6.5-6.7</span></header>
+    <div class="cx-enonce">Q2N2222, V<sub>CC</sub> = 24 V, A<sub>v</sub> = −100 à vide, I<sub>C</sub> = 4 mA, f ≤ 100 kHz ; polarisation au milieu de la droite de charge, R<sub>B2</sub> ≤ βR<sub>E</sub>/10 ; source de 50 Ω, charge 1 kΩ, signal source de 10 mV.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Ordre de conception : β (datasheet, valeur <b>minimale</b>) → I<sub>E</sub> → r<sub>e</sub> → R<sub>C</sub> par le gain → R<sub>E</sub> par la droite de charge (I<sub>C,sat</sub> = 2I<sub>C</sub>) → R<sub>B2</sub> par la règle de stabilité → R<sub>B1</sub> par le pont.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">β : h_FE min du 2N2222 = 50 à 1 mA, 75 à 10 mA ⟹ β = 50 (cas le plus défavorable)
+I_E = (1 + 1/50) × 4 mA = 4,08 mA ⟹ r_e = 26/4,08 = 6,4 Ω
+R_C = |A_v| r_e = 100 × 6,4 ≈ 634 Ω → 620 ou 680 Ω (E12/E24)
+Droite de charge : I_C,sat = 8 mA (V_CE = 12 V au repos), V_CE,sat = 0,3 V
+R_E = (24 − 634 × 8·10⁻³ − 0,3)/8·10⁻³ = 2,3 kΩ
+R_B2 ≤ 50 × 2,3 k/10 = 11,5 kΩ
+V_B = 0,7 + R_E I_E = 0,7 + 2,3 k × 4,1 m = 10,1 V ⟹ R_B1 = R_B2 (V_CC − V_B)/V_B = 15,7 kΩ
+ES6.6  R_B = 15,7 k ∥ 11,5 k = 6,64 kΩ ;  Z_i = 6,64 k ∥ (51 × 6,34) = 308 Ω
+       r_o = 1/h_oe = 1/(5·10⁻⁶ S) = 200 kΩ ⟹ Z_o = 634 ∥ 200 k ≈ 632 Ω
+ES6.7  u_e = 10 mV × 308/(308 + 50) = 8,6 mV
+       u_s = −100 × 1 000/(1 000 + 632) × 8,6 mV ≈ −527 mV (amplitude 0,53 V)</div>
+      <div class="why"><b class="lab">Erreurs du poly</b>ES6.6 : r<sub>o</sub> = 1/(5·10⁻⁶) vaut <b>200 kΩ</b>, pas 5 MΩ (conclusion inchangée : r<sub>o</sub> ≫ R<sub>C</sub>). ES6.5 : le dénominateur de l'A.N. de R<sub>B1</sub> oublie R<sub>E</sub> (« 0,7 + 4,1·10⁻³ » au lieu de 0,7 + 2,3 k × 4,1 mA) ; le résultat 15,7 kΩ est juste. La numérotation passe de ES5.17 à ES6.5.</div>
+      <div class="why"><b class="lab">Regard critique</b>Le gain chargé n'est plus que −61 (et −53 vu de la source) : un émetteur commun seul a une impédance de sortie trop forte pour une charge de 1 kΩ. Solution classique : ajouter un étage collecteur commun en sortie (voir Ex 6.5).</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td7" data-cat="td7">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 7 · Poly p. 67-81</span>
+    <h2>Polarisation du JFET</h2>
+    <p>JFET canal N en saturation (région « à courant constant ») : <b>I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)²</b> avec V<sub>P</sub> &lt; V<sub>GS</sub> ≤ 0 et <b>V<sub>DS</sub> &gt; V<sub>GS</sub> − V<sub>P</sub></b>. I<sub>G</sub> = 0 : la grille ne consomme rien, donc aucune chute dans R<sub>G</sub>. Autopolarisation : V<sub>GS</sub> = −R<sub>S</sub>I<sub>D</sub> ⟹ équation du second degré, dont <b>une seule racine</b> vérifie V<sub>P</sub> &lt; V<sub>GS</sub> ≤ 0. <a href="index.html#ch6">Revoir le cours (ch. 6)</a></p>
+  </div>
+
+  <article class="cx" id="ex7-1">
+    <header class="cx-hd"><span class="cx-num">Ex 7.1</span><h3>JFET autopolarisé</h3><span class="cx-tag ad">AD7.1</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 20 V, R<sub>D</sub> = 3,3 kΩ, R<sub>S</sub> = 1 kΩ, R<sub>G</sub> = 1 MΩ ; I<sub>DSS</sub> = 8 mA, V<sub>P</sub> = −6 V. Point de polarisation.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Travailler en mA et kΩ : I<sub>D</sub> = 8(1 − I<sub>D</sub>·1/6)². Développer, résoudre, puis <b>éliminer la racine non physique</b> (celle qui donne V<sub>GS</sub> &lt; V<sub>P</sub>, canal pincé, impossible avec un courant non nul).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">V_G = 0 (I_G = 0) ⟹ V_GS = −R_S I_D = −I_D (V, avec I_D en mA)
+I_D = 8 (1 − I_D/6)²  ⟹  2 I_D² − 33 I_D + 72 = 0  ⟹  I_D = 13,9 mA ou 2,59 mA
+13,9 mA ⟹ V_GS = −13,9 V &lt; V_P : rejeté        2,59 mA ⟹ V_GS = −2,59 V ✓
+V_DS = V_DD − I_D (R_D + R_S) = 20 − 2,59 × 4,3 = 8,9 V   (&gt; V_GS − V_P = 3,4 V : saturation ✓)</div>
+      <div class="why"><b class="lab">Remarque</b>Le poly saute les étapes (« ⟺ … ⟺ I<sub>D</sub> = 2,6 mA ») et arrondit : V<sub>DS</sub> = 8,82 V avec 2,6 mA, 8,88 V avec 2,587 mA.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-2">
+    <header class="cx-hd"><span class="cx-num">Ex 7.2</span><h3>JFET en région ohmique : atténuateur commandé en tension</h3><span class="cx-tag ad">AD7.2-7.3</span></header>
+    <div class="cx-enonce">Pentes de la caractéristique près de l'origine : 0,8 mA à 0,1 V (V<sub>GS</sub> = 0), 0,4 mA (−2 V), 0,1 mA (−4 V). Puis R = 1 kΩ en série avec le canal, u<sub>e</sub> = 50 mV, u<sub>s</sub> aux bornes du canal.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">r_DS = V_DS/I_D : 125 Ω (0 V) ; 250 Ω (−2 V) ; 1 kΩ (−4 V)
+u_s = u_e r_DS/(r_DS + R) : 5,6 mV (atténuation 0,11) ; 10 mV (0,2) ; 25 mV (0,5)</div>
+      <div class="why"><b class="lab">Application</b>Pour de petites tensions V<sub>DS</sub>, le JFET se comporte comme une résistance réglée par V<sub>GS</sub> : contrôle automatique de gain, atténuateurs, modulateurs. Condition : rester en région ohmique, V<sub>DS</sub> ≪ V<sub>GS</sub> − V<sub>P</sub>.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-3">
+    <header class="cx-hd"><span class="cx-num">Ex 7.3</span><h3>Polarisation par tension de grille négative</h3><span class="cx-tag ad">AD7.4</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 16 V, R<sub>D</sub> = 2,2 kΩ, grille reliée par R = 1 MΩ à une source de −3 V, source à la masse ; I<sub>DSS</sub> = 10 mA, V<sub>P</sub> = −4,5 V.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I_G = 0 ⟹ V_GS = −3 V (aucune chute dans R)
+I_D = 10 (1 − 3/4,5)² = 1,11 mA        V_DS = 16 − 2,2 k × 1,11 mA = 13,6 V</div>
+      <div class="why"><b class="lab">Coquille du poly</b>« 2,2·10⁻³ » dans l'A.N. de V<sub>DS</sub> : c'est R<sub>D</sub> = 2,2·10³ Ω. Ce montage est simple mais sensible à la dispersion de I<sub>DSS</sub> et V<sub>P</sub> (fortes d'un JFET à l'autre) : l'autopolarisation par R<sub>S</sub> stabilise mieux.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-4">
+    <header class="cx-hd"><span class="cx-num">Ex 7.4</span><h3>V<sub>DD</sub> minimal pour la région à courant constant</h3><span class="cx-tag td">Q7.1 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Grille et source à la masse, R<sub>D</sub> = 560 Ω ; V<sub>GS,off</sub> = −4 V, I<sub>DSS</sub> = 12 mA.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>V<sub>GS</sub> = 0 ⟹ I<sub>D</sub> = I<sub>DSS</sub>. La saturation exige V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>GS,off</sub> = |V<sub>P</sub>|. Il faut donc fournir cette tension plus la chute dans R<sub>D</sub>.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I_D = I_DSS = 12 mA       V_DS,min = 0 − (−4) = 4 V
+V_DD,min = V_DS,min + R_D I_D = 4 + 560 × 0,012 = 10,7 V</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-5">
+    <header class="cx-hd"><span class="cx-num">Ex 7.5</span><h3>Autopolarisation</h3><span class="cx-tag td">Q7.2 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 20 V, R<sub>D</sub> = 2 kΩ, R<sub>S</sub> = 300 Ω, R entre grille et masse ; I<sub>DSS</sub> = 5 mA, V<sub>P</sub> = −2,5 V.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">V_GS = −0,3 I_D (V, mA) ⟹ I_D = 5 (1 − 0,12 I_D)²  ⟹  0,072 I_D² − 2,2 I_D + 5 = 0
+I_D = 28,1 mA (V_GS = −8,4 V &lt; V_P : rejeté)  ou  I_D = 2,47 mA (V_GS = −0,74 V ✓)
+V_DS = 20 − 2,47 × (2 + 0,3) = 14,3 V   (&gt; V_GS − V_P = 1,76 V ✓)</div>
+      <div class="answer"><b class="lab">Réponse</b>(V<sub>DS</sub> ; I<sub>D</sub>) ≈ (14,3 V ; 2,47 mA), V<sub>GS</sub> ≈ −0,74 V.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-6">
+    <header class="cx-hd"><span class="cx-num">Ex 7.6</span><h3>Paire de JFET à source commune (« miroir »)</h3><span class="cx-tag td">Q7.3-7.5 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">T1 et T2 identiques (I<sub>DSS</sub> = 2 mA, V<sub>P</sub> = −2 V) ; drains reliés à +15 V par R<sub>D</sub> = 10 kΩ ; les deux grilles à la masse (M) ; sources reliées au nœud S, puis R vers V<sub>EE</sub> = −15 V.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Q7.3 — V<sub>GS1</sub> = V<sub>GS2</sub></div><div class="sd">Les deux grilles sont au même potentiel (0 V) et les deux sources au même nœud S : V<sub>GS1</sub> = V<sub>GS2</sub> = 0 − V<sub>S</sub>. Transistors identiques en saturation ⟹ mêmes courants : I<sub>D1</sub> = I<sub>D2</sub>.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q7.4 — Valeur de R</div><div class="sd"><div class="calc">0,5 = 2 (1 + V_GS/2)²  ⟹  1 + V_GS/2 = 0,5  ⟹  V_GS = −1 V  ⟹  V_S = +1 V
+Courant dans R : I_D1 + I_D2 = 1 mA  ⟹  R = (V_S − V_EE)/1 mA = (1 + 15)/1 mA = 16 kΩ</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q7.5 — Potentiels</div><div class="sd"><div class="calc">V_M = V_G1 = V_G2 = 0      V_S = +1 V      V_D1 = V_D2 = 15 − 10 k × 0,5 mA = 10 V
+V_DS = 9 V &gt; V_GS − V_P = 1 V : saturation ✓</div></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">À quoi ça sert</b>C'est la structure d'une <b>paire différentielle</b> : la résistance R (ou une source de courant) impose le courant total, partagé également au repos. C'est l'étage d'entrée des AOP à entrée JFET (TL071, TL081).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-7">
+    <header class="cx-hd"><span class="cx-num">Ex 7.7</span><h3>Autopolarisation (bis)</h3><span class="cx-tag es">ES7.1</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 18 V, R<sub>D</sub> = 1,5 kΩ, R<sub>S</sub> = 2,2 kΩ, R<sub>G</sub> = 1 MΩ ; I<sub>DSS</sub> = 12 mA, V<sub>P</sub> = −4 V.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I_D = 12 (1 − 2,2 I_D/4)² = 12 (1 − 0,55 I_D)²   (mA)
+⟹ 3,63 I_D² − 14,2 I_D + 12 = 0  ⟹  I_D = 2,68 mA (V_GS = −5,9 V : rejeté) ou 1,23 mA
+V_GS = −2,2 × 1,23 = −2,72 V      V_DS = 18 − 1,23 × 3,7 = 13,4 V</div>
+      <div class="why"><b class="lab">Erreurs de recopie du poly</b>R<sub>S</sub> écrit « 2,2·10⁻³ » au lieu de 2,2·10³ ; 550² = 302 500 et non « 3 025 200 » ; l'équation finale doit être 3 630 I<sub>D</sub>² − <b>14,2</b> I<sub>D</sub> + 0,012 = 0 (en A) — le poly écrit −13,2 puis utilise bien −14,2 — et « 4·3630·<b>2,012</b> » doit se lire 0,012. Le poly arrondit I<sub>D</sub> à 1,2 mA, d'où V<sub>GS</sub> = −2,64 V (−2,72 V sans arrondi). Il ne donne pas V<sub>DS</sub>. Sur son graphique, l'étiquette « I<sub>DSS</sub> = V<sub>DD</sub>/(R<sub>S</sub> + R<sub>D</sub>) » confond I<sub>DSS</sub> avec l'ordonnée à l'origine de la droite de charge (4,9 mA).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-8">
+    <header class="cx-hd"><span class="cx-num">Ex 7.8</span><h3>Polarisation par pont diviseur</h3><span class="cx-tag es">ES7.2</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 16 V, R₁ = 2,1 MΩ, R₂ = 270 kΩ, R<sub>D</sub> = 2,4 kΩ, R<sub>S</sub> = 1,5 kΩ ; I<sub>DSS</sub> = 8 mA, V<sub>P</sub> = −4 V.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">V_G = 16 × 270/2 370 = 1,82 V        V_GS = V_G − R_S I_D = 1,82 − 1,5 I_D
+I_D = 8 (1 + (1,82 − 1,5 I_D)/4)² = 8 (1,456 − 0,375 I_D)²
+⟹ 1,125 I_D² − 9,74 I_D + 16,96 = 0  ⟹  I_D = 6,24 mA (V_GS = −7,5 V : rejeté) ou 2,42 mA
+V_GS = −1,80 V        V_DS = 16 − 2,42 × 3,9 = 6,6 V   (&gt; V_GS − V_P = 2,2 V ✓)</div>
+      <div class="why"><b class="lab">Erreurs de recopie du poly</b>R₁ = 2,1 MΩ (« 2,1·10³ » dans l'A.N.) ; le terme constant est 1,456, pas 0,456 ; avant de résoudre, il faut passer I<sub>D</sub> dans le même membre : 1 125 I<sub>D</sub>² − <b>9,74</b> I<sub>D</sub> + 0,017 = 0 (en A), et non −8,73 ; le dénominateur « 2·3630 » est celui de l'exercice précédent (ici 2·1 125). Les valeurs finales (2,41 mA, −1,80 V) sont néanmoins justes.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-9">
+    <header class="cx-hd"><span class="cx-num">Ex 7.9</span><h3>Polarisation graphique d'un amplificateur JFET</h3><span class="cx-tag es">ES7.3-7.5</span></header>
+    <div class="cx-enonce">E = 12 V, courant de repos I<sub>DS0</sub> = 2 mA, caractéristique de transfert fournie (I<sub>DSS</sub> ≈ 8 mA, V<sub>P</sub> ≈ −4,5 V), R<sub>S</sub> découplée par C<sub>S</sub>.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Lecture : I_D = 2 mA ⟹ V_GS0 ≈ −2,25 V   (contrôle : 8 (1 − 2,25/4,5)² = 2 mA ✓)
+R_S = −V_GS0/I_D0 = 2,25/2 mA = 1,125 kΩ
+g₀ = dI_D/dV_GS = (2 I_DSS/|V_P|)(1 − V_GS0/V_P) = (16/4,5)(1 − 0,5) = 1,78 mS
+autre forme utile : g_m = 2 √(I_DSS I_D)/|V_P| = 2 √(8 × 2)/4,5 = 1,78 mS</div>
+      <div class="why"><b class="lab">Suite logique</b>Avec R<sub>S</sub> découplée, le gain vaudra A<sub>v</sub> = −g₀·(R<sub>D</sub>∥R<sub>L</sub>). La pente est maximale à V<sub>GS</sub> = 0 (g<sub>m0</sub> = 2I<sub>DSS</sub>/|V<sub>P</sub>| = 3,6 mS) et diminue quand on polarise plus près du pincement.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-10">
+    <header class="cx-hd"><span class="cx-num">Ex 7.10</span><h3>Dimensionner R<sub>S</sub> et R<sub>D</sub> ; questions de physique du JFET</h3><span class="cx-tag es">ES7.6-7.10</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 30 V, point voulu V<sub>GS</sub> = −4 V, V<sub>DS</sub> = 15 V, I<sub>DSS</sub> = 30 mA, V<sub>P</sub> = −10 V. Puis : dopage des grilles, pincement, régions ohmique et de saturation.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I_D = 30 (1 − V_GS/V_P)² = 30 (1 − 0,4)² = 10,8 mA
+R_S = −V_GS/I_D = 4/10,8 mA = 370 Ω
+R_D + R_S = (V_DD − V_DS)/I_D = 15/10,8 mA = 1,39 kΩ  ⟹  R_D = 1,02 kΩ</div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">ES7.7 — Grilles très dopées (P⁺)</div><div class="sd">Dans une jonction, la zone de déplétion s'étend surtout du côté <b>le moins dopé</b> (w ∝ 1/N). Avec des grilles P⁺ et un canal N peu dopé, toute la déplétion mord dans le canal : c'est elle qui le rétrécit et permet la commande.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">ES7.8 — Pincement</div><div class="sd">Le canal est complètement pincé (blocage) quand V<sub>GS</sub> = V<sub>P</sub> (≈ −10 V ici). Côté drain, le pincement apparaît quand la tension grille-canal y atteint V<sub>P</sub> : V<sub>GD</sub> = V<sub>P</sub> ⟺ V<sub>DS</sub> = V<sub>GS</sub> − V<sub>P</sub> (entrée en saturation).</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">ES7.9-7.10 — Ohmique ou saturation</div><div class="sd">Région ohmique (résistance variable) : <b>V<sub>DS</sub> &lt; V<sub>GS</sub> − V<sub>P</sub></b> (en pratique V<sub>DS</sub> ≪). Saturation (amplification) : <b>V<sub>DS</sub> &gt; V<sub>GS</sub> − V<sub>P</sub></b>, avec V<sub>P</sub> &lt; V<sub>GS</sub> ≤ 0.</div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Erreurs du poly</b>La loi de l'énoncé est imprimée I<sub>D</sub> = 30(1 − V<sub>GS</sub>/10)² : avec V<sub>GS</sub> = −4 V elle donnerait 58,8 mA. La bonne écriture est 30(1 − V<sub>GS</sub>/(−10))² = 30(1 + V<sub>GS</sub>/10)², et c'est d'ailleurs 10,8 mA que le poly calcule. Il écrit aussi « V<sub>GS</sub> = R<sub>S</sub>I<sub>D</sub> » (il manque le signe −). Aux ES7.8-7.10, il mélange deux conventions (V<sub>P</sub> négatif puis « V<sub>P</sub> &gt; 0 ») : « V<sub>DS</sub> &lt; V<sub>P</sub> » n'est vrai que pour V<sub>GS</sub> = 0 et V<sub>P</sub> pris en valeur absolue ; la condition générale est celle ci-dessus.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex7-11">
+    <header class="cx-hd"><span class="cx-num">Ex 7.11</span><h3>Concevoir une polarisation par pont</h3><span class="cx-tag es">ES7.11</span></header>
+    <div class="cx-enonce">Objectif I<sub>DQ</sub> = 5 mA, V<sub>DSQ</sub> = 5 V ; I<sub>DSS</sub> = 12 mA, V<sub>P</sub> = −3,5 V, V<sub>DD</sub> = 10 V, R<sub>S</sub> = 500 Ω, R₁ + R₂ = 100 kΩ.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">V_GS = V_P (1 − √(I_D/I_DSS)) = −3,5 (1 − √(5/12)) = −1,24 V
+V_S = R_S I_D = 2,5 V   ⟹   V_G = V_GS + V_S = 1,26 V
+R₂ = V_G (R₁ + R₂)/V_DD = 12,6 kΩ      R₁ = 87,4 kΩ
+R_D = (V_DD − V_DS − V_S)/I_D = (10 − 5 − 2,5)/5 mA = 500 Ω
+Contrôle : V_DS = 5 V &gt; V_GS − V_P = 2,26 V ✓</div>
+      <div class="why"><b class="lab">Pourquoi un pont</b>Avec V<sub>G</sub> &gt; 0, on peut prendre R<sub>S</sub> plus grande pour un même courant : la contre-réaction de source est plus forte et le point de repos dépend moins de la dispersion (I<sub>DSS</sub>, V<sub>P</sub>) du transistor.</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td8" data-cat="td8">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 8 · Poly p. 82-90</span>
+    <h2>Le FET en régime dynamique</h2>
+    <p>Modèle petits signaux : grille isolée (i<sub>g</sub> = 0), source de courant <b>g<sub>m</sub>v<sub>gs</sub></b> entre drain et source, en parallèle avec r<sub>0</sub> = V<sub>A</sub>/I<sub>D</sub> (∞ si λ = 0). Transconductance : JFET <b>g<sub>m</sub> = 2√(I<sub>DSS</sub>I<sub>D</sub>)/|V<sub>P</sub>|</b> ; MOSFET <b>g<sub>m</sub> = 2K<sub>n</sub>(V<sub>GS</sub> − V<sub>Th</sub>)</b> si I<sub>D</sub> = K<sub>n</sub>(V<sub>GS</sub> − V<sub>Th</sub>)², mais <b>K<sub>n</sub>(V<sub>GS</sub> − V<sub>Th</sub>)</b> si I<sub>D</sub> = ½K<sub>n</sub>(V<sub>GS</sub> − V<sub>Th</sub>)² (le poly utilise les deux conventions). Trois montages : source commune (A<sub>v</sub> = −g<sub>m</sub>R<sub>D</sub>′), drain commun ou suiveur (A<sub>v</sub> = g<sub>m</sub>R<sub>S</sub>′/(1 + g<sub>m</sub>R<sub>S</sub>′) &lt; 1), grille commune (A<sub>v</sub> = +g<sub>m</sub>R<sub>D</sub>′, entrée ≈ 1/g<sub>m</sub>). <a href="index.html#ch6">Revoir le cours (ch. 6)</a></p>
+  </div>
+
+  <article class="cx" id="ex8-1">
+    <header class="cx-hd"><span class="cx-num">Ex 8.1</span><h3>MOSFET à alimentation symétrique (montage grille commune)</h3><span class="cx-tag ad">AD8.1-8.2</span></header>
+    <div class="cx-enonce">±5 V, grille à la masse, R<sub>D</sub> = 5 kΩ, R<sub>S</sub> = 10 kΩ vers −5 V ; entrée v<sub>i</sub> sur la source (C<sub>C1</sub>), sortie sur le drain (C<sub>C2</sub>) vers R<sub>L</sub> = 4 kΩ. V<sub>Th</sub> = 1 V, K<sub>n</sub> = 3 mA/V², λ = 0 (I<sub>D</sub> = K<sub>n</sub>(V<sub>GS</sub> − V<sub>Th</sub>)²).</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Statique</div><div class="sd"><div class="calc">V_G = 0 ⟹ V_S = −V_GS ; maille de source : V_GS + R_S I_D − V_DD = 0 ⟹ I_D = (5 − V_GS)/10 k
+3 mA (V_GS − 1)² = (5 − V_GS)/10 k  ⟹  30 V_GS² − 59 V_GS + 25 = 0
+V_GS = 1,35 V (&gt; V_Th ✓) ou 0,62 V (&lt; V_Th, transistor bloqué : rejeté)
+I_D = (5 − 1,35)/10 k = 0,365 mA        V_DS = 10 − 15 k × 0,365 mA = 4,5 V</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Dynamique</div><div class="sd"><div class="calc">g_m = 2 K_n (V_GS − V_Th) = 2 × 3 × 0,35 = 2,1 mS
+Grille à la masse : v_gs = −v_i ; le courant g_m v_gs traverse R_D ∥ R_L
+A_v = +g_m (R_D ∥ R_L) = 2,1 mS × 2,22 kΩ = +4,65
+Résistance d'entrée (côté source) : R_S ∥ 1/g_m = 10 k ∥ 478 Ω = 456 Ω</div></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Erreurs du poly</b>Le montage est appelé « suiveur », mais la grille est à la masse, l'entrée sur la source et la sortie sur le drain : c'est un <b>grille commune</b>. Son gain est <b>positif</b> (non inverseur) : A<sub>v</sub> = +4,65, alors que le poly écrit −4,67. Coquilles : « on obtient de (1) » désigne l'équation (2), et l'égalité s'écrit K<sub>n</sub>(V<sub>GS</sub> − V<sub>Th</sub>)² = (V<sub>DD</sub> − V<sub>GS</sub>)/R<sub>S</sub> (pas V<sub>DS</sub>).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex8-2">
+    <header class="cx-hd"><span class="cx-num">Ex 8.2</span><h3>MOSFET en drain commun (vrai suiveur)</h3><span class="cx-tag ad">AD8.3-8.4</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 5 V, drain à V<sub>DD</sub>, pont R₁-R₂ sur la grille (R₁∥R₂ = 300 kΩ), R<sub>S</sub> à la masse, sortie sur la source. Point voulu : I<sub>D</sub> = 1,7 mA, V<sub>DS</sub> = 3 V. V<sub>Th</sub> = 1 V, K<sub>n</sub> = 1 mA/V², λ = 0.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">R_S = (V_DD − V_DS)/I_D = 2/1,7 mA = 1,18 kΩ
+V_GS = V_Th + √(I_D/K_n) = 1 + √1,7 = 2,30 V
+V_G = V_GS + R_S I_D = 2,30 + 2 = 4,30 V ⟹ R₂/(R₁ + R₂) = 0,861
+R₁ = (R₁∥R₂)/0,861 = 348 kΩ        R₂ = (R₁∥R₂)/0,139 = 2,16 MΩ
+g_m = 2 K_n (V_GS − V_Th) = 2,6 mS
+A_v = g_m R_S/(1 + g_m R_S) = 3,07/4,07 = 0,75</div>
+      <div class="why"><b class="lab">À retenir</b>Gain positif et inférieur à 1 : c'est un adaptateur d'impédance (entrée ≈ R₁∥R₂ = 300 kΩ, sortie ≈ R<sub>S</sub>∥1/g<sub>m</sub> ≈ 290 Ω). Le poly écrit R<sub>S</sub> = (V<sub>DD</sub> − V<sub>GS</sub>)/I<sub>D</sub> mais calcule bien (V<sub>DD</sub> − V<sub>DS</sub>)/I<sub>D</sub> = (5 − 3)/1,7 mA.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex8-3">
+    <header class="cx-hd"><span class="cx-num">Ex 8.3</span><h3>Amplificateur JFET à résistance de source partiellement découplée</h3><span class="cx-tag td">Q8.1-8.5 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 20 V, R<sub>D</sub> = 8 kΩ, R<sub>G</sub> = 50 kΩ, R<sub>S1</sub> = 100 Ω (non découplée) + R<sub>S2</sub> = 250 Ω (découplée par C<sub>S</sub>), sortie au drain vers R<sub>L</sub> = 4 kΩ. V<sub>P</sub> = −2 V, I<sub>DSS</sub> = 2 mA, λ = 0. Q8.1 g<sub>m</sub> ; Q8.2 A<sub>v</sub> ; Q8.3 A<sub>i</sub> ; Q8.4-8.5 résistances d'entrée et de sortie.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>En continu, toute la résistance de source compte (350 Ω) ; en alternatif, seule R<sub>S1</sub> reste (R<sub>S2</sub> est court-circuitée par C<sub>S</sub>). Une résistance de source non découplée divise le gain par (1 + g<sub>m</sub>R<sub>S1</sub>).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Polarisation</div><div class="sd"><div class="calc">I_D = 2 (1 − 0,35 I_D/2)² (mA)  ⟹  0,0613 I_D² − 1,7 I_D + 2 = 0  ⟹  I_D = 1,23 mA
+V_GS = −0,35 × 1,23 = −0,43 V        V_DS = 20 − 1,23 × 8,35 = 9,7 V (saturation ✓)</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q8.1 — Transconductance</div><div class="sd"><div class="calc">g_m = (2 I_DSS/|V_P|)(1 − V_GS/V_P) = 2 × (1 − 0,215) = 1,57 mS    (= 2√(2 × 1,23)/2)</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q8.2 — Gain en tension</div><div class="sd"><div class="calc">A_v = −g_m (R_D ∥ R_L)/(1 + g_m R_S1) = −1,57 mS × 2,67 kΩ / 1,157 = −3,6</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q8.3 — Gain en courant</div><div class="sd"><div class="calc">i_i = v_i/R_G (la grille ne consomme rien)     i_o = v_o/R_L
+A_i = A_v R_G/R_L = −3,6 × 50/4 = −45</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q8.4-Q8.5 — Résistances</div><div class="sd">Entrée : <b>R<sub>i</sub> = R<sub>G</sub> = 50 kΩ</b>. Sortie (λ = 0) : <b>R<sub>0</sub> = R<sub>D</sub> = 8 kΩ</b>.</div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Remarques sur l'énoncé</b>Le poly l'appelle « amplificateur suiveur », mais la sortie est prise sur le drain : c'est un <b>source commune</b> (gain négatif). Les notations sont inversées : la Q8.4 demande la résistance de sortie sous le nom R<sub>i</sub> et la Q8.5 la résistance d'entrée sous le nom R<sub>0</sub>.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex8-4">
+    <header class="cx-hd"><span class="cx-num">Ex 8.4</span><h3>MOSFET polarisé par contre-réaction drain-grille</h3><span class="cx-tag es">ES8.1-8.2</span></header>
+    <div class="cx-enonce">V<sub>DD</sub> = 15 V, R<sub>D</sub> = 15 kΩ, R<sub>G</sub> = 10 MΩ entre drain et grille, source à la masse, R<sub>L</sub> = 5 kΩ. V<sub>Th</sub> = 1,5 V, K<sub>n</sub> = 0,25 mA/V² avec I<sub>D</sub> = ½K<sub>n</sub>(V<sub>GS</sub> − V<sub>Th</sub>)², V<sub>A</sub> = 50 V.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I_G = 0 ⟹ V_G = V_D = 15 − 15 I_D (mA, V)
+I_D = ⅛ (13,5 − 15 I_D)²  ⟹  225 I_D² − 413 I_D + 182,25 = 0  ⟹  I_D = 0,74 mA ou 1,10 mA
+1,10 mA ⟹ V_GS = 15 − 16,5 = −1,5 V &lt; V_Th : transistor bloqué, rejeté  ⟹  I_D = 0,74 mA
+V_GS = V_D = 3,93 V ;  V_ov = V_GS − V_Th = 2,43 V
+g_m = K_n V_ov = 0,607 mA/V ;  r_0 = V_A/I_D = 67,8 kΩ ;  R_L′ = r_0 ∥ R_D ∥ R_L = 3,55 kΩ
+A_v ≈ −g_m R_L′ = −2,16   (le courant dans R_G, 10 MΩ, est négligeable)
+R_i = v_i/i_i = R_G/(1 − A_v) = 10 MΩ/3,16 = 3,17 MΩ</div>
+      <div class="why"><b class="lab">Effet Miller</b>R<sub>G</sub> relie l'entrée à une sortie qui bouge en sens inverse (A<sub>v</sub> &lt; 0) : vue de l'entrée, elle est divisée par (1 − A<sub>v</sub>). Le poly retient la bonne racine sans le justifier et donne une valeur « I<sub>DSS</sub> = 12 mA » sans objet pour un MOSFET à enrichissement.</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td9" data-cat="td9">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 9 · Poly p. 91-100</span>
+    <h2>Logique CMOS</h2>
+    <p>Une porte CMOS statique calcule toujours <b>Y = NON(f)</b>. Réseau N (pull-down, nMOS, conduit quand l'entrée vaut 1) : il réalise <b>Ȳ = f(A, B, …)</b> avec <b>ET = série, OU = parallèle</b>. Réseau P (pull-up, pMOS, conduit quand l'entrée vaut 0) : c'est le <b>dual</b> (série ↔ parallèle), il réalise Y = f(Ā, B̄, …). Règle de conception : écrire Ȳ sans complément sur les entrées ; sinon, il faut des inverseurs. <a href="index.html#ch7">Revoir le cours (ch. 7)</a></p>
+  </div>
+
+  <article class="cx" id="ex9-1">
+    <header class="cx-hd"><span class="cx-num">Ex 9.1</span><h3>Y = NON(A + B) + Ā·C̄ en logique CMOS</h3><span class="cx-tag ad">AD9.1-9.2</span></header>
+    <div class="cx-enonce">1) Circuit en portes logiques sans simplifier ; 2) structure CMOS.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Portes : NOR(A, B) ; ET(Ā, C̄) (avec deux inverseurs) ; OU des deux résultats
+Réseau P : Y = Ā B̄ + Ā C̄ = Ā (B̄ + C̄)
+   ⟹ pMOS A en série avec (pMOS B ∥ pMOS C)
+Réseau N : Ȳ = (A + B)(A + C) = A + A C + A B + B C = A + B C
+   ⟹ nMOS A en parallèle avec (nMOS B en série avec nMOS C)
+Total : 6 transistors, aucun inverseur</div>
+      <div class="why"><b class="lab">Coquille du poly</b>La ligne « AA + AC + BA = BC » doit se lire « AA + AC + BA <b>+</b> BC ». Contrôle de dualité : complémenter Ā(B̄ + C̄) redonne A + BC ✓.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-2">
+    <header class="cx-hd"><span class="cx-num">Ex 9.2</span><h3>Reverse-engineering d'un layout</h3><span class="cx-tag ad">AD9.3-9.5</span></header>
+    <div class="cx-enonce">Layout à 4 entrées A, B, C, D (figure 9.1) : retrouver la structure, l'équation, puis un circuit avec le moins de portes.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Suivre la diffusion P (en haut) puis N (en bas) : deux transistors sont <b>en série</b> s'ils partagent une zone de diffusion sans contact vers une autre équipotentielle, <b>en parallèle</b> si leurs deux côtés sont reliés aux mêmes nœuds (par le métal).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Réseau P : pMOS A, B, C en série, l'ensemble en parallèle avec pMOS D
+   ⟹ Y = Ā B̄ C̄ + D̄
+Réseau N : nMOS A, B, C en parallèle, en série avec nMOS D
+   ⟹ Ȳ = D (A + B + C)   ⟹   Y = NON(D · (A + B + C))   (porte OAI31, 8 transistors)
+Moins de portes : OU3(A, B, C) → NAND2 avec D : 2 portes
+   (la forme Ā B̄ C̄ + D̄ en demanderait 7 : 4 inverseurs, un ET3, un OU2…)</div>
+      <div class="why"><b class="lab">À retenir</b>Ce sont les deux écritures d'une même fonction (De Morgan). En CMOS, la meilleure réalisation est souvent <b>une seule porte complexe</b> : ici 8 transistors, sans aucun inverseur.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-3">
+    <header class="cx-hd"><span class="cx-num">Ex 9.3</span><h3>Porte XOR en CMOS</h3><span class="cx-tag ad">AD9.6</span></header>
+    <div class="cx-enonce">Schéma d'un OU exclusif à deux entrées.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">OUT = Ā B + A B̄
+Réseau P : (pMOS A en série avec pMOS B̄) ∥ (pMOS Ā en série avec pMOS B)
+Réseau N : OUT‾ = A B + Ā B̄ ⟹ (nMOS A série nMOS B) ∥ (nMOS Ā série nMOS B̄)
+Signaux Ā et B̄ fournis par deux inverseurs
+Total : 8 + 4 = 12 transistors</div>
+      <div class="why"><b class="lab">Pour aller plus loin</b>Le XOR n'est pas une fonction « inverseuse » en toutes ses entrées : il faut toujours les compléments. Des réalisations à portes de transmission n'utilisent que 6 transistors ; c'est une brique de base des additionneurs.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-4">
+    <header class="cx-hd"><span class="cx-num">Ex 9.4</span><h3>Coupes et vues de dessus des transistors MOS</h3><span class="cx-tag ad">AD9.7-9.9</span></header>
+    <div class="cx-enonce">Dessiner et légender la coupe transversale et la vue de dessus d'un nMOS, puis d'un pMOS.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">nMOS (coupe) : substrat P ; deux îlots N⁺ (source, drain) ; entre eux le canal ;
+               au-dessus du canal, oxyde de grille SiO₂ très fin puis grille en polysilicium ;
+               oxyde épais d'isolation autour ; contacts métal sur source, drain (et grille)
+pMOS (coupe) : même empilement, mais îlots P⁺ dans un caisson N (N-well) creusé dans le substrat P
+Vue de dessus : rectangle de zone active (diffusion) traversé par une bande de polysilicium (la grille) ;
+               le transistor est l'intersection poly/diffusion, de largeur W (le long de la bande)
+               et de longueur L (largeur de la bande) ; carrés de contact de part et d'autre</div>
+      <div class="why"><b class="lab">Point clé</b>Le polysilicium doit <b>déborder</b> de la zone active (sinon source et drain seraient court-circuités par un canal non contrôlé) : c'est l'une des erreurs du layout de l'Ex 10.5.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-5">
+    <header class="cx-hd"><span class="cx-num">Ex 9.5</span><h3>Lire six circuits CMOS</h3><span class="cx-tag td">Q9.1-9.2 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Six schémas (a) à (f) de la figure 9.2 : équations à partir des réseaux P (Q9.1), puis des réseaux N (Q9.2).</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Réseau P : écrire les conditions de conduction avec les entrées complémentées (série = ET, parallèle = OU) : on obtient Y. Réseau N : même lecture avec les entrées directes : on obtient Ȳ. Les deux résultats doivent être duaux (vérification par De Morgan).</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">     Réseau P (Q9.1)          Réseau N (Q9.2)            Fonction
+(a)  Y = Ā B̄ + C̄              Ȳ = C (A + B)              OAI21 : NON(C·(A + B))
+(b)  Y = Ā B̄                  Ȳ = A + B                  NOR2
+(c)  Y = Ā + B̄                Ȳ = A B                    NAND2
+(d)  Y = Ā + B̄ + C̄            Ȳ = A B C                  NAND3
+(e)  Y = (Ā + B̄)(C̄ + D̄)       Ȳ = A B + C D              AOI22 : NON(AB + CD)
+(f)  Y = (Ā + D̄ Ē)(B̄ + C̄)     Ȳ = A (D + E) + B C        NON(A(D + E) + BC)</div>
+      <div class="why"><b class="lab">Lecture des schémas</b>(a) pMOS A et B en série, en parallèle avec pMOS C ; nMOS C en série avec (A ∥ B). (e) deux paires de pMOS en parallèle mises en série ; deux paires de nMOS en série mises en parallèle. (f) pMOS A ∥ (D série E), en série avec (B ∥ C) ; côté N, branche A série (D ∥ E) en parallèle avec la branche B série C.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-6">
+    <header class="cx-hd"><span class="cx-num">Ex 9.6</span><h3>e = NON(a + b·c + d) : structure et layout</h3><span class="cx-tag td">Q9.3-9.4 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Q9.3 structure CMOS ; Q9.4 layout avec des zones actives continues.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Layout sans cassure : chercher un <b>chemin d'Euler commun</b> aux deux réseaux (un ordre des entrées qui parcourt chaque transistor une seule fois, dans le graphe du réseau N comme dans celui du réseau P). On place alors les bandes de polysilicium dans cet ordre, sur une diffusion P et une diffusion N continues.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Réseau N : ē = a + b c + d  ⟹  nMOS a ∥ (b série c) ∥ nMOS d
+Réseau P : e = ā (b̄ + c̄) d̄  ⟹  pMOS a en série avec (b ∥ c) en série avec pMOS d
+8 transistors
+Chemin d'Euler commun : ordre a, d, c, b
+   réseau N : GND –a– e –d– GND –c– X –b– e        (X : nœud entre b et c)
+   réseau P : VDD –a– P1 –d– P2 –c– e –b– P2
+Layout : 4 bandes de poly dans l'ordre a, d, c, b ; diffusion N : contacts GND | e | GND | (X) | e
+         diffusion P : contacts VDD | (P1) | (P2) | e | P2, les deux zones P2 reliées par du métal</div>
+      <div class="why"><b class="lab">Pourquoi</b>Chaque rupture de la zone active coûte de la surface (espacements minimaux) et ajoute de la capacité parasite : un seul ruban continu est plus compact et plus rapide.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-7">
+    <header class="cx-hd"><span class="cx-num">Ex 9.7</span><h3>Circuit à portes de transmission : le multiplexeur</h3><span class="cx-tag es">ES9.1-9.3</span></header>
+    <div class="cx-enonce">Un inverseur produit z̄ ; deux portes de transmission relient x et y à la sortie s (figure 9.3).</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Porte de transmission de x : nMOS commandé par z, pMOS par z̄ ⟹ passante si z = 1
+Porte de transmission de y : nMOS commandé par z̄, pMOS par z ⟹ passante si z = 0
+Table : z = 0 ⟹ s = y ;  z = 1 ⟹ s = x
+s = z̄ y + z x   :  multiplexeur 2 vers 1 (z est l'entrée de sélection)</div>
+      <div class="why"><b class="lab">Erreur du poly</b>Sa table de vérité est juste (s = y quand z = 0), mais son équation « s = z̄x + zy » est inversée : c'est s = z̄y + zx.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-8">
+    <header class="cx-hd"><span class="cx-num">Ex 9.8</span><h3>Du schéma logique à la porte CMOS</h3><span class="cx-tag es">ES9.4-9.5</span></header>
+    <div class="cx-enonce">m = NOR(x₁x₂, x₃x₄, x₅) (deux ET vers un NOR3).</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">m = NON(x₁x₂ + x₃x₄ + x₅) = (x̄₁ + x̄₂)(x̄₃ + x̄₄) x̄₅
+Réseau N : (x₁ série x₂) ∥ (x₃ série x₄) ∥ x₅
+Réseau P : (x₁ ∥ x₂) série (x₃ ∥ x₄) série x₅
+10 transistors en une seule porte (au lieu de 2 × 6 + 6 = 18 avec deux ET et un NOR3 séparés)</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-9">
+    <header class="cx-hd"><span class="cx-num">Ex 9.9</span><h3>De la table de vérité au circuit minimal</h3><span class="cx-tag es">ES9.6-9.7</span></header>
+    <div class="cx-enonce">f(x, y, z) vaut 0 uniquement pour (0,1,0), (0,1,1) et (1,1,0).</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">f̄ = x̄ y z̄ + x̄ y z + x y z̄ = x̄ y + x y z̄ = y (x̄ + z̄)
+f = ȳ + x z     (f = 1 si y = 0, ou si x = z = 1)
+Solution du poly : porte complexe (réseau N : y série (x̄ ∥ z̄)) + 2 inverseurs pour x̄, z̄ : 6 + 4 = 10 transistors
+Mieux : f = NAND(y, NAND(x, z))   ⟹   2 × 4 = 8 transistors, sans inverseur</div>
+      <div class="why"><b class="lab">Complément au poly</b>La question demande « le moins de transistors possible » : la forme NAND-NAND fait mieux que la solution proposée (8 contre 10). Vérification : NAND(x, z) = x̄ + z̄, puis NAND(y, x̄ + z̄) = ȳ + xz ✓.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex9-10">
+    <header class="cx-hd"><span class="cx-num">Ex 9.10</span><h3>m = NON(x·(y·z + z·w)) : structure et layout</h3><span class="cx-tag es">ES9.8-9.9</span></header>
+    <div class="cx-enonce">Structure CMOS puis layout à zones actives continues.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Factoriser d'abord : m̄ = x z (y + w)
+Réseau N : x série z série (y ∥ w)          Réseau P : m = x̄ + z̄ + ȳ w̄ ⟹ x ∥ z ∥ (y série w)
+8 transistors
+Chemin d'Euler commun : ordre x, z, w, y
+   réseau N : GND –x– n1 –z– n2 –w– m –y– n2
+   réseau P : m –x– VDD –z– m –w– p1 –y– VDD</div>
+      <div class="why"><b class="lab">Astuce</b>Avant de dessiner, factoriser (yz + zw = z(y + w)) économise un transistor et simplifie le chemin d'Euler. Plusieurs ordres conviennent (x, z, y, w marche aussi) : l'essentiel est que le même ordre parcoure les deux graphes.</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td10" data-cat="td10">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 10 · Poly p. 101-109</span>
+    <h2>Performances des circuits CMOS</h2>
+    <p>Modèle du cours : chaque surface d'une équipotentielle apporte une capacité <b>C = C□ × aire</b> ; le délai d'une porte vaut <b>τ = (R<sub>N</sub> + R<sub>P</sub>)·C<sub>OUT</sub>/2</b>, où R<sub>N</sub> et R<sub>P</sub> sont les résistances du chemin le plus défavorable (transistors en <b>série</b> : les résistances s'ajoutent). Délai d'un circuit : le plus long des chemins (<b>chemin critique</b>). Miniaturisation à tension constante (facteur S) : τ′ = τ/S², f′ = f·S², P′ = P/S. <a href="index.html#ch7">Revoir le cours (ch. 7)</a></p>
+  </div>
+
+  <article class="cx" id="ex10-1">
+    <header class="cx-hd"><span class="cx-num">Ex 10.1</span><h3>Capacité de sortie et délai d'une porte NAND</h3><span class="cx-tag td">Q10.1-10.3 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Masque d'une NAND2 (figure 10.1), 1 carreau = 2λ ; capacités : diffusion N 0,14, diffusion P 0,11, poly 0,01, métal 0,01, contact 0,5 pF/λ² ; R<sub>N</sub> = 7,5 kΩ, R<sub>P</sub> = 15 kΩ.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Repérer l'<b>équipotentielle de sortie</b> : le drain commun des deux pMOS (zone P entre les deux grilles), le drain du nMOS du haut de la pile (zone N à droite de la grille B), le métal 1 qui les relie et les contacts posés dessus. Compter les carreaux de chaque couche (1 carreau = (2λ)² = 4λ²), comme dans l'exemple de l'amphi (3,88 pF pour le petit masque du cours). Les grilles (poly) appartiennent aux entrées, pas à la sortie.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Q10.1 — Capacité de sortie</div><div class="sd"><div class="calc">Diffusion P de sortie : 4 × 2 carreaux = 8 carreaux = 32 λ²  ⟹ 32 × 0,11 = 3,52 pF
+Diffusion N de sortie : 3 × 2 carreaux = 6 carreaux = 24 λ²  ⟹ 24 × 0,14 = 3,36 pF
+Métal 1 de sortie : 4 (sur le contact P) + 4 (descente) + 16 (barre horizontale)
+                    + 4 (descente) + 4 (sur le contact N) = 32 carreaux = 128 λ² ⟹ 1,28 pF
+Contacts : 2 contacts d'un carreau (4 λ²) ⟹ 2 × 4 × 0,5 = 4,0 pF
+C_OUT ≈ 3,52 + 3,36 + 1,28 + 4,0 ≈ 12,2 pF</div>Si l'on prend, comme dans l'exemple de l'amphi, des contacts de λ × λ, la part des contacts tombe à 1 pF et C<sub>OUT</sub> ≈ 9,2 pF. Le via vers le métal 2 n'est pas compté (aucune valeur donnée).</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q10.2 — Circuit équivalent</div><div class="sd">NAND2 (deux pMOS en parallèle entre V<sub>DD</sub> et la sortie, deux nMOS en série entre la sortie et la masse) avec un condensateur C<sub>OUT</sub> entre la sortie et la masse.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q10.3 — Délai</div><div class="sd"><div class="calc">R_N : deux nMOS en série ⟹ 2 × 7,5 = 15 kΩ
+R_P : cas le plus lent, un seul pMOS conduit ⟹ 15 kΩ
+τ = (R_N + R_P) C_OUT / 2 = 15 kΩ × 12,2 pF ≈ 0,18 µs</div></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Ce qu'il faut retenir</b>Le résultat dépend des conventions de comptage (taille des contacts, diffusion sous le métal) : à l'examen, <b>écrire la convention</b> avant de compter. Les ordres de grandeur du poly (pF par λ²) sont pédagogiques ; en technologie réelle, on parle de femtofarads.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex10-2">
+    <header class="cx-hd"><span class="cx-num">Ex 10.2</span><h3>Chemin critique d'un circuit logique</h3><span class="cx-tag td">Q10.4-10.5 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Délais : inverseur 1, NAND 2, NOR 3. Circuit (figure 10.2) : niveau 1 : inverseur I1, NOR N1, NAND A1 ; niveau 2 : NOR N2 (I1, N1) et NAND A2 (I1, A1) ; niveau 3 : NOR N3, inverseur I2, NOR N4 et NAND A3 (tous alimentés par N2 et/ou A2) ; niveau 4 : inverseur I3 après N4 ; sorties : NAND A4 (N3, I3), NOR N5 (I2, I3), NAND A5 (I3, A3). Q10.4 délai ; Q10.5 nombre minimal de portes à accélérer (délai divisé par 2) pour descendre à 10.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Propager les <b>instants d'arrivée</b> de gauche à droite : sortie d'une porte = max(arrivées de ses entrées) + son délai. Le délai du circuit est le max sur les sorties ; le chemin qui y mène est le chemin critique.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">I1 : 1      N1 : 3      A1 : 2
+N2 : max(1, 3) + 3 = 6       A2 : max(1, 2) + 2 = 4
+N3 : 6 + 3 = 9    I2 : 4 + 1 = 5    N4 : 6 + 3 = 9    A3 : 6 + 2 = 8
+I3 : 9 + 1 = 10
+A4 : max(9, 10) + 2 = 12     N5 : max(5, 10) + 3 = 13     A5 : max(10, 8) + 2 = 12
+Délai = 13 ; chemin critique : N1 → N2 → N4 → I3 → N5 (3 + 3 + 3 + 1 + 3)</div>
+      <p><b>Q10.5.</b> Il faut gagner 3 unités sur le chemin critique. Accélérer une seule porte fait gagner au plus 1,5 (un NOR) : impossible. Avec deux NOR du chemin critique, il faut aussi que les autres chemins passent sous 10 : <b>N2 et N4</b> (ou <b>N1 et N4</b>) conviennent (chemins les plus longs alors à 10 ; toutes les combinaisons ont été vérifiées). Réponse : <b>2 portes</b>.</p>
+      <div class="why"><b class="lab">Piège</b>Accélérer N5 (la dernière porte) ne suffit pas avec une autre : les chemins vers A4 et A5 (12 unités) passent par N4 et I3 mais pas par N5. On accélère ce qui est commun au plus grand nombre de chemins longs.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex10-3">
+    <header class="cx-hd"><span class="cx-num">Ex 10.3</span><h3>Délai d'un circuit CMOS à deux étages</h3><span class="cx-tag td">Q10.6 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">Figure 10.3 : étage 1, réseau P = (C ∥ D) série A série B, réseau N = (C série D) ∥ A ∥ B, sortie X ; étage 2, réseau P = pMOS X série (B ∥ C ∥ D), réseau N = X ∥ (B série C série D), sortie OUT. R<sub>N</sub> = 7,5 kΩ, R<sub>P</sub> = 15 kΩ, 5 pF sur chaque sortie.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Fonctions : X = NON(A + B + C·D)      OUT = NON(X + B·C·D)
+Étage 1 : R_N (pire cas, C série D) = 15 kΩ ; R_P (3 pMOS en série) = 45 kΩ
+          τ₁ = (15 + 45)/2 kΩ × 5 pF = 150 ns
+Étage 2 : R_N (B série C série D) = 22,5 kΩ ; R_P (X série un parmi B, C, D) = 30 kΩ
+          τ₂ = (22,5 + 30)/2 kΩ × 5 pF = 131 ns
+Chemin critique (entrées → X → OUT) : τ = 150 + 131 ≈ 281 ns</div>
+      <div class="why"><b class="lab">Leçon de conception</b>Les pMOS sont deux fois plus résistants que les nMOS : empiler trois pMOS en série (étage 1) coûte cher. On compense en élargissant ces transistors (W plus grand ⟹ R plus faible) ou en réorganisant la logique pour mettre les séries du côté N.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex10-4">
+    <header class="cx-hd"><span class="cx-num">Ex 10.4</span><h3>Résistance d'une liaison en polysilicium</h3><span class="cx-tag es">ES10.1-10.4</span></header>
+    <div class="cx-enonce">Métal 1 : 0,1 Ω/□ ; contact : 5 Ω ; poly : 20 Ω/□ ; maillage de 1 µm. Résistance de A à B, choix des interconnexions, effets de la température et de la tension.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Découper la piste en tronçons, compter pour chacun le nombre de carrés L/W (<b>R = R□·L/W</b>), traiter les contacts en parallèle (3 contacts ⟹ R/3), puis additionner les tronçons en série.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Somme des tronçons (décomposition du poly) :
+métal ≈ 0,07 + 0,1 ; contacts 1,7 + 5 ; poly 6,7 + 0,9 + 80 + 10 + 5 + 53,3 + 40
+R_AB ≈ 203 Ω, dont ≈ 196 Ω de polysilicium (97 %)</div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">ES10.2 — Pistes courtes, en métal</div><div class="sd">Le délai est proportionnel à R·C : le polysilicium est 200 fois plus résistif que le métal 1. On relie donc les portes en métal, et le plus court possible (moins de R et de C).</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">ES10.3 — Température</div><div class="sd">La résistance du métal augmente avec T. Celle du polysilicium dépend de son dopage (elle diminue pour un poly peu dopé, varie peu pour un poly très dopé). Le poly suppose qu'elle diminue et conclut à un délai plus court. <b>Nuance importante</b> : dans une porte CMOS, c'est surtout la <b>mobilité des porteurs</b> qui baisse quand T monte ; les transistors conduisent moins et, en pratique, les circuits sont plus lents à chaud.</div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">ES10.4 — Tension</div><div class="sd">Pour une simple résistance chargeant une capacité, le délai τ = RC ne dépend pas de l'amplitude. Pour une <b>porte</b>, augmenter V<sub>DD</sub> augmente le courant des transistors plus vite que la charge à fournir (CV) : le délai diminue, au prix d'une consommation en CV²f.</div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Remarques sur le poly</b>Le texte renvoie à « la figure 7.3 » : il s'agit de la figure 10.4. R<sub>M1</sub> = ⅔ × 0,1 = 0,07 Ω (le poly arrondit à 0,1).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex10-5">
+    <header class="cx-hd"><span class="cx-num">Ex 10.5</span><h3>Layout maladroit d'un inverseur</h3><span class="cx-tag es">ES10.5-10.8</span></header>
+    <div class="cx-enonce">Coupe transverse, étapes de fabrication d'un pMOS, nombre de couches de métal, quatre erreurs de conception.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Étapes (pMOS) : caisson N ; oxyde de grille mince ; dépôt et gravure du polysilicium ;
+  implantation P⁺ (source, drain) auto-alignée sur la grille ; oxyde isolant ; ouverture des contacts ;
+  dépôt et gravure du métal. Chaque étape utilise un masque (photolithographie).
+Couches de métal : 2 (métal 2 au-dessus du métal 1, reliés par des vias)
+Erreurs relevées par le poly :
+  • le via doit être entièrement recouvert par le métal 2 ;
+  • il manque le contact de polarisation du substrat (corps du nMOS) ;
+  • le polysilicium ne déborde pas des zones actives (canal non contrôlé) ;
+  • les prises de corps n'ont pas le bon type de dopage (P⁺ pour le substrat P, N⁺ pour le caisson N).</div>
+      <div class="why"><b class="lab">Pourquoi ces règles</b>Ce sont des <b>règles de dessin</b> (design rules) vérifiées automatiquement par le logiciel (DRC, Design Rule Check) : recouvrements minimaux, débordements, espacements. Un corps mal polarisé peut déclencher le « latch-up », un court-circuit destructeur entre V<sub>DD</sub> et la masse.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex10-6">
+    <header class="cx-hd"><span class="cx-num">Ex 10.6</span><h3>Fabrication d'un nMOS</h3><span class="cx-tag es">ES10.9-10.13</span></header>
+    <div class="cx-enonce">Type du substrat, différents siliciums, oxyde de grille mince, étapes restantes.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Substrat : dopé P (dopant accepteur, par exemple le bore) ; source et drain N⁺
+Trois « siliciums » : substrat monocristallin faiblement dopé P ;
+  polysilicium de grille très dopé (bon conducteur) ; dioxyde de silicium SiO₂ (isolant)
+Oxyde de grille mince : C_ox = ε/t_ox ; plus il est fin, plus la grille agit fortement sur le canal
+  (courant plus fort à tension égale) ; ailleurs, un oxyde épais isole et réduit les capacités parasites
+Étapes restantes : implantation N⁺ source-drain ; oxyde isolant ; ouverture des contacts ;
+  dépôt du métal ; gravure du métal</div>
+      <div class="why"><b class="lab">Erreur du poly</b>À l'ES10.10, il écrit que « le silicium du substrat est intrinsèque » alors qu'il vient de dire (ES10.9) qu'il est dopé P : c'est bien un substrat P faiblement dopé.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex10-7">
+    <header class="cx-hd"><span class="cx-num">Ex 10.7</span><h3>Ordres de grandeur, miniaturisation et coûts</h3><span class="cx-tag es">ES10.14-10.18</span></header>
+    <div class="cx-enonce">10⁸ transistors de 1 cm² et 1 g ; transistors de 10 nm sur une bactérie ; circuit à 100 MHz et 0,5 W miniaturisé de 1 µm à 0,8 µm ; coût de trois méthodologies de conception pour 2 000 circuits, puis selon la quantité.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">10⁸ × 1 cm² = 10⁸ cm² = 10 000 m² (un hectare) ; 10⁸ g = 100 tonnes
+Bactérie ~1 µm : 1 µm / 10 nm = 100 transistors alignés, soit ~10⁴ sur sa surface
+S = 1/0,8 = 1,25 (tension constante, modèle du cours) :
+  f′ = f S² = 156 MHz        P′ = P/S = 0,4 W
+Coûts pour 2 000 circuits :
+  manuel     : 200 × 100 + 5 000 = 25 000 fixe ; + 2 000 × 1  = 27 000
+  semi-auto  : 60 × 80 + 1 500   =  6 300 fixe ; + 2 000 × 3  = 12 300   ← le moins cher
+  automatisé : 10 × 60 + 900     =  1 500 fixe ; + 2 000 × 12 = 25 500
+Seuils : 1 500 + 12x = 6 300 + 3x ⟹ x = 533 ;  6 300 + 3x = 25 000 + x ⟹ x = 9 350
+  ⟹ automatisé jusqu'à ~533 circuits, semi-automatisé jusqu'à 9 350, manuel au-delà</div>
+      <div class="why"><b class="lab">Remarques</b>L'énoncé imprime « 1 5000 » : il faut lire 1 500 unités (valeur utilisée dans le calcul). Sur la miniaturisation, le poly applique la table du cours (tension constante). Culture : dans la loi de Dennard « à champ constant », la tension baisse aussi, la fréquence gagne ×S et la puissance par transistor baisse de S² ; depuis ~2005, la tension ne baisse plus, d'où le « mur de la puissance » et le passage aux processeurs multicœurs.</div>
+    </div></details>
+  </article>
+</section>
+
+<section class="cx-chap" id="td11" data-cat="td11">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 11 · Poly p. 110-126</span>
+    <h2>Révisions : BJT, FET, diodes, mémoire</h2>
+    <p>Exercices de synthèse : on enchaîne <b>polarisation</b> (sources continues, condensateurs ouverts) puis <b>dynamique</b> (sources continues à la masse, condensateurs fermés), en choisissant pour chaque transistor le bon modèle (BJT : r<sub>π</sub> = βV<sub>T</sub>/I<sub>C</sub>, g<sub>m</sub> = I<sub>C</sub>/V<sub>T</sub> ; JFET : g<sub>m</sub> = 2√(I<sub>DSS</sub>I<sub>D</sub>)/|V<sub>P</sub>|). <a href="index.html#ch5">Revoir le cours (ch. 5-6)</a></p>
+  </div>
+
+  <article class="cx" id="ex11-1">
+    <header class="cx-hd"><span class="cx-num">Ex 11.1</span><h3>JFET qui polarise un PNP</h3><span class="cx-tag td">Q11.1 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 24 V. Q1 (JFET canal N) : drain à V<sub>CC</sub>, grille à la masse par R<sub>G</sub> = 1 MΩ, source vers R<sub>S</sub> (masse) et vers la base de Q2 ; I<sub>D</sub> = 0,5 mA, V<sub>P</sub> = −8 V, I<sub>DSS</sub> = 2 mA. Q2 (PNP) : émetteur relié à V<sub>CC</sub> par R<sub>E</sub>, collecteur à la masse, I<sub>C</sub> = 2 mA, V<sub>EB</sub> = 0,7 V, β = 100. Trouver R<sub>S</sub> et R<sub>E</sub>.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Le courant du JFET impose V<sub>GS</sub>, donc le potentiel de source (V<sub>G</sub> = 0). Attention au sens du courant de base d'un <b>PNP</b> : il <b>sort</b> de la base, donc il s'ajoute au courant de source dans R<sub>S</sub>.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">0,5 = 2 (1 + V_GS/8)²  ⟹  1 + V_GS/8 = 0,5  ⟹  V_GS = −4 V  ⟹  V_S = +4 V
+I_B2 = I_C/β = 20 µA (sort de la base de Q2 vers le nœud)
+R_S = V_S / (I_D + I_B2) = 4 / 0,52 mA = 7,7 kΩ
+V_E2 = V_B2 + V_EB = 4,7 V ;  I_E2 = I_C + I_B = 2,02 mA
+R_E = (24 − 4,7) / 2,02 mA = 9,55 kΩ</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex11-2">
+    <header class="cx-hd"><span class="cx-num">Ex 11.2</span><h3>Émetteur commun suivi d'un JFET suiveur</h3><span class="cx-tag td">Q11.2-11.5 · non corrigé dans le poly</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 24 V. Q1 (NPN, β = 200, V<sub>BE</sub> = 0,7 V, V<sub>T</sub> = 25 mV, V<sub>A</sub> = ∞) : R<sub>C</sub> = 2,2 kΩ ; polarisation collecteur-base par R<sub>B2</sub> = 70 kΩ + R<sub>B1</sub> = 200 kΩ, leur point commun découplé par C<sub>B</sub> ; source v<sub>g</sub> avec R<sub>g</sub> = 100 kΩ sur la base. Liaison C vers la grille de Q2 (JFET, R<sub>F</sub> = 1 MΩ vers la masse, drain à V<sub>CC</sub>, R<sub>S</sub> = 4,7 kΩ ; V<sub>P</sub> = −8 V, I<sub>DSS</sub> = 12 mA, r<sub>0</sub> = 50 kΩ), sortie sur la source.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>En continu, R<sub>B1</sub> + R<sub>B2</sub> = 270 kΩ relient base et collecteur (contre-réaction de polarisation). En alternatif, C<sub>B</sub> met leur point commun à la masse : R<sub>B1</sub> se retrouve entre base et masse, R<sub>B2</sub> entre collecteur et masse, et la contre-réaction disparaît.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Polarisation</div><div class="sd"><div class="calc">Q1 : 24 = R_C (I_C + I_B) + 270 k I_B + 0,7  ⟹  I_B = 23,3/(270 k + 201 × 2,2 k) = 32,7 µA
+      I_C = 6,54 mA ; V_C = 9,5 V ; g_m1 = I_C/V_T = 0,262 S ; r_π = β/g_m1 = 764 Ω
+Q2 : V_G = 0, V_GS = −4,7 k I_D ⟹ I_D = 1,17 mA, V_GS = −5,5 V ; g_m2 = 0,94 mS</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q11.2 — Résistance d'entrée</div><div class="sd"><div class="calc">R_i = R_B1 ∥ r_π = 200 k ∥ 764 Ω = 761 Ω</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q11.3 — Résistance de sortie (source de Q2)</div><div class="sd"><div class="calc">R_0 = R_S ∥ r_0 ∥ 1/g_m2 = 4,7 k ∥ 50 k ∥ 1,07 k = 855 Ω</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q11.4 — Gain en tension</div><div class="sd"><div class="calc">Étage 1 : A_v1 = −g_m1 (R_C ∥ R_B2 ∥ R_F) = −0,262 × 2,13 k = −557
+Étage 2 : A_v2 = g_m2 R′/(1 + g_m2 R′), R′ = R_S ∥ r_0 = 4,3 kΩ ⟹ A_v2 = 0,80
+A_v = v_o/v_i = −557 × 0,80 = −446
+Depuis le générateur : × R_i/(R_g + R_i) = 761/100 761 ⟹ v_o/v_g ≈ −3,4</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Q11.5 — Par les modèles de quadripôles</div><div class="sd"><div class="calc">Étage 1 à vide : Z_i1 = 761 Ω, A_v1,0 = −g_m1 (R_C ∥ R_B2) = −558, Z_o1 = 2,13 kΩ
+Étage 2 : Z_i2 = R_F = 1 MΩ, A_v2 = 0,80, Z_o2 = 855 Ω
+A_v = A_v1,0 × Z_i2/(Z_i2 + Z_o1) × A_v2 = −558 × 0,998 × 0,80 = −446 ✓</div></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Ce que montre l'exercice</b>Le gain « interne » est énorme (−446) mais, vu d'un générateur de 100 kΩ, il ne reste que −3,4 : l'impédance d'entrée d'un émetteur commun (quelques centaines d'ohms) est bien trop faible. Il faudrait un étage d'entrée à forte impédance (un JFET, justement). L'énoncé écrit « V<sub>EB</sub> » pour Q1, qui est un NPN : il s'agit de V<sub>BE</sub> = 0,7 V.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex11-3">
+    <header class="cx-hd"><span class="cx-num">Ex 11.3</span><h3>Caractéristique de transfert d'un limiteur à diodes</h3><span class="cx-tag es">ES11.1</span></header>
+    <div class="cx-enonce">v<sub>i</sub> (0 à 15 V) → R = 100 Ω → sortie v<sub>0</sub>. D₁ (0,7 V, r<sub>D</sub> = 10 Ω) relie un nœud M (anode) à la sortie (cathode) ; M est relié à V<sub>S</sub> = 15 V par R<sub>S</sub> = 150 Ω et à la masse par la Zener D₂ (8,2 V, R<sub>Z</sub> = 10 Ω).</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Remplacer V<sub>S</sub>, R<sub>S</sub> et la Zener conductrice par leur Thévenin : V<sub>M</sub> = (R<sub>S</sub>V<sub>Z</sub> + R<sub>Z</sub>V<sub>S</sub>)/(R<sub>S</sub> + R<sub>Z</sub>) = 8,625 V derrière 9,4 Ω. Puis examiner les 4 combinaisons d'états des diodes et garder celles qui sont cohérentes.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">v_i &gt; 7,925 V  : D₁ bloquée (v_M − v_i &lt; 0,7), aucun courant dans R ⟹ v₀ = v_i
+2,51 &lt; v_i &lt; 7,925 V : D₁ et D₂ conduisent ; V_eq = 8,625 − 0,7 = 7,925 V, R_eq = 9,4 + 10 = 19,4 Ω
+     v₀ = (R_eq v_i + R V_eq)/(R + R_eq) = 0,162 v_i + 6,64
+v_i &lt; 2,51 V   : D₁ conduit, la Zener se bloque (V_M &lt; 8,2 V)
+     i = (15 − 0,7 − v_i)/(150 + 10 + 100) ⟹ v₀ = v_i + R i = 0,615 v_i + 5,5
+Les deux diodes bloquées : impossible (la Zener conduirait, V_S &gt; V_Z)</div>
+      <div class="answer"><b class="lab">Caractéristique</b>Trois segments continus : pente 0,615 jusqu'à 2,5 V (v₀ ≈ 7,0 V), pente 0,16 jusqu'à 7,9 V, puis v₀ = v<sub>i</sub>.</div>
+      <div class="why"><b class="lab">Erreur du poly</b>Dans le cas 2, sa formule générale se termine par « − V<sub>D0</sub> » en trop : v₀ = [(r<sub>D</sub> + R<sub>S</sub>)v<sub>i</sub> + R(V<sub>S</sub> − V<sub>D0</sub>)]/(r<sub>D</sub> + R<sub>S</sub> + R), ce qui donne bien les valeurs numériques de sa conclusion (0,615 v<sub>i</sub> + 5,5).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex11-4">
+    <header class="cx-hd"><span class="cx-num">Ex 11.4</span><h3>Montage collecteur commun - base commune (appelé « push-pull »)</h3><span class="cx-tag es">ES11.2-11.5</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 15 V ; pont R₁ = 100 kΩ, R₂ = 33,3 kΩ, R₃ = 100 kΩ ; base de Q1 (NPN, R<sub>C</sub> = 5 kΩ) au point R₁-R₂, découplée par C<sub>B</sub> ; base de Q2 (PNP, collecteur à la masse) au point R₂-R₃, attaquée par v<sub>i</sub> via R<sub>S</sub> = 500 Ω ; émetteurs reliés ; R<sub>L</sub> = 1 kΩ. β = 150, |V<sub>BE</sub>| = 0,6 V, V<sub>T</sub> = 25 mV.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">ES11.2 — Polarisation</div><div class="sd"><div class="calc">Maille base Q1 → émetteurs → base Q2 : R₂ I₂ = V_BE1 + V_EB2 = 1,2 V ⟹ I₂ = 36 µA
+Pont : 15 − 1,2 = (R₁ + R₃)(I₂ + I_C/β)  ⟹  I_C1 = I_C2 = 150/200 k × (13,8 − 7,2) = 4,95 mA</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">ES11.3 — Gain</div><div class="sd"><div class="calc">r_π1 = r_π2 = β V_T/I_C = 758 Ω
+En AC, C_B met la base de Q1 à la masse : R₁ disparaît, la base de Q2 voit R_B = R₂ ∥ R₃ = 25 kΩ
+Nœud des émetteurs : i_b1 = −i_b2, et v_b2 = (r_π1 + r_π2) i_b2
+Thévenin d'entrée : v_th = v_i R_B/(R_B + R_S), R_th = R_B ∥ R_S = 490 Ω
+v₀ = β i_b2 (R_C ∥ R_L)  ⟹  A_v = β (R_C ∥ R_L) R_B/(R_B + R_S) / (R_th + r_π1 + r_π2)
+A_v = 150 × 833 × 0,980 / 2 005 ≈ +61</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">ES11.4-11.5 — Résistances</div><div class="sd"><div class="calc">R_i = R_B ∥ (r_π1 + r_π2) = 25 k ∥ 1,52 k = 1,43 kΩ   (1,93 kΩ en comptant R_S)
+R_0 = R_C = 5 kΩ</div></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">Erreurs du poly</b>1) En ES11.3, il oublie r<sub>π1</sub> au dénominateur (il l'avait pourtant écrit dans la maille, et le réutilise en ES11.4) : d'où A<sub>v</sub> ≈ 98,8 au lieu de ≈ 61. 2) Il prend R₁∥R₃ comme résistance de polarisation vue par Q2 : avec C<sub>B</sub>, c'est R₂∥R₃ (effet numérique faible ici). 3) En ES11.4, « R<sub>i</sub> = v<sub>i</sub>/i<sub>B2</sub> » n'est pas une résistance d'entrée (elle inclut R<sub>S</sub> et ignore le courant dans R<sub>B</sub>). Enfin, ce montage n'est pas un « push-pull » (étage de sortie classe B) mais une association collecteur commun + base commune, proche d'un étage différentiel.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex11-5">
+    <header class="cx-hd"><span class="cx-num">Ex 11.5</span><h3>Impact d'un ion lourd sur une cellule SRAM (SEU)</h3><span class="cx-tag es">ES11.5-11.10</span></header>
+    <div class="cx-enonce">Inverseur dans l'état {V1, V2} = {1, 0} ; l'ion frappe le PMOS (bloqué) et injecte I<sub>ion</sub>(t) = (Q<sub>gen</sub>/τ<sub>ion</sub>) e<sup>−(t−t<sub>i</sub>)/τ<sub>ion</sub></sup> ; Q<sub>gen</sub> = 60 fC, τ<sub>ion</sub> = 10 ps, t<sub>i</sub> = 10 ps ; R<sub>ON</sub>(n) = 131 Ω, V<sub>dd</sub> = 1,2 V, C<sub>out</sub> = 21 fF.</div>
+    <details class="cx-meth"><summary>💡 Méthode</summary><div>Le PMOS bloqué est un interrupteur ouvert, le NMOS passant une résistance R<sub>ON</sub>. Le courant de l'ion se partage entre R<sub>ON</sub> et C<sub>out</sub> : équation différentielle du premier ordre avec un second membre exponentiel, résolue par variation de la constante.</div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Nœud de sortie : I_ion = V₂/R_ON + C_out dV₂/dt,  τ = R_ON C_out
+V₂(t) = [v_τ e^(−(t−t_i)/τ) + v_ion e^(−(t−t_i)/τ_ion)] H(t − t_i)
+v_τ = Q_gen R_ON/(τ − τ_ion) = −v_ion
+A.N. : τ = 131 × 21·10⁻¹⁵ = 2,75 ps (&lt; τ_ion = 10 ps)
+Maximum : t_max − t_i = ln(τ/τ_ion)/(1/τ_ion − 1/τ) = 4,9 ps  ⟹  t_max = 14,9 ps
+V_max = V₂(t_max) ≈ 0,48 V</div>
+      <p><b>Allure</b> : V₂ monte vite (constante τ, 2,75 ps) puis redescend lentement en suivant le courant de l'ion (constante τ<sub>ion</sub>, 10 ps). <b>Ion sur le NMOS</b> : même forme mais impulsion négative. <b>Condition de SEU</b> : l'impact doit toucher le PMOS bloqué (impulsion positive sur un nœud à « 0 ») et l'impulsion doit dépasser la marge de bruit statique en maintien : SNM<sub>hold</sub> &lt; 0,48 V ; l'inverseur rebouclé bascule alors et la cellule change d'état.</p>
+      <div class="why"><b class="lab">Erreur du poly</b>Il annonce τ = 27,5 ps et « τ &gt; τ<sub>ion</sub> » : 131 Ω × 21 fF = 2,75 ps, donc τ &lt; τ<sub>ion</sub>. Ses résultats t<sub>max</sub> = 14,9 ps et V<sub>max</sub> = 0,48 V correspondent bien à 2,75 ps (avec 27,5 ps on trouverait 0,16 V). Plusieurs renvois (« Q1-Q3 », « figure 11.5 » pour la cellule) sont des restes d'une ancienne version.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="ex11-6">
+    <header class="cx-hd"><span class="cx-num">Ex 11.6</span><h3>Cascode JFET sur BJT</h3><span class="cx-tag es">ES11.11</span></header>
+    <div class="cx-enonce">V<sub>CC</sub> = 16 V ; pont R<sub>B1</sub> = 82 kΩ, R<sub>B2</sub> = 24 kΩ sur la base de Q2 (β = 180, R<sub>E</sub> = 1,6 kΩ) ; grille de Q1 (JFET, V<sub>P</sub> = −6 V, I<sub>DSS</sub> = 12 mA) reliée à ce même point par R<sub>G</sub> = 1 MΩ ; source de Q1 sur le collecteur de Q2, drain vers V<sub>CC</sub> par R<sub>D</sub> = 2,7 kΩ. Calculer V<sub>D</sub> et V<sub>C</sub>.</div>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="calc">Thévenin du pont : E_th = 16 × 24/106 = 3,62 V ; R_th = 82 k ∥ 24 k = 18,6 kΩ
+(V_BE = 0,7 V, non précisé dans l'énoncé)
+I_E = (3,62 − 0,7)/(R_E + R_th/(β + 1)) = 2,92/(1 600 + 103) = 1,72 mA ≈ I_C = I_D
+V_D = 16 − 2,7 k × 1,72 mA = 11,4 V
+V_B = V_G = E_th − R_th I_E/(β + 1) = 3,44 V   (I_G = 0 : aucune chute dans R_G)
+V_GS = V_P (1 − √(I_D/I_DSS)) = −6 (1 − √(1,72/12)) = −3,73 V
+V_C = V_S = V_G − V_GS = 3,44 + 3,73 = 7,2 V
+Contrôles : V_DS = 4,2 V &gt; V_GS − V_P = 2,3 V (JFET saturé) ; V_CE = 7,2 − 2,75 = 4,4 V (BJT actif)</div>
+      <div class="why"><b class="lab">Intérêt du cascode</b>Le JFET fixe le potentiel du collecteur de Q2 : le BJT ne « voit » pas les variations de la sortie, ce qui supprime l'effet Miller et élargit la bande passante. Coquille du poly : « V<sub>GS</sub> = V<sub>G</sub> + V<sub>C</sub> » doit se lire V<sub>G</sub> − V<sub>C</sub>.</div>
+    </div></details>
+  </article>
+</section>
+
+</div>
+</main>
+
+<div class="foot">
+  <div class="wrap">
+    <span>De l'Atome à la Puce · Corrigés du poly de TD 2026-2027</span>
+    <span><a href="index.html">← Retour au cours</a></span>
+  </div>
+</div>
+<a class="cx-top" href="#" aria-label="Revenir en haut de la page">↑</a>
+
+<script src="js/corriges.js"></script>
+</body>
+</html>

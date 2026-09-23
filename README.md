@@ -1,109 +1,82 @@
 # ⚡ De l'Atome à la Puce
 
-Site de révision pour le cours d'**Électronique fondamentale — ING2, Semestre 1**.
-Statique, sans dépendance, hébergeable tel quel sur GitHub Pages.
+Site de révision pour le cours d'**Électronique « De l'atome à la puce » — ING2, Semestre 1 (ECE)**.
+Statique, sans dépendance, hébergé tel quel sur GitHub Pages :
+<https://lazzrio.github.io/atome-a-la-puce/>
 
-> 📅 Partiel : **14 décembre** (1h30)
+> 📅 Évaluation : **samedi 7 novembre, 8h45-10h15** · partiels la semaine du **14 décembre**
+> (dates de l'emploi du temps au 23/09/2026, à vérifier sur l'EDT officiel)
 
 ## Contenu
 
 | Section | Description |
 |---|---|
-| 📚 **Cours complet** | Les 8 chapitres expliqués pas à pas, dédoublonnés, avec 119 schémas |
-| 💡 **Notions clés** | Une fiche de synthèse par chapitre — l'essentiel pour l'examen |
-| 📘 **Formules détaillées** | Toutes les formules + constantes, variables, unités et conditions |
-| ⚡ **Formules express** | Aide-mémoire brut, format anti-sèche |
-| 🧭 **Déroulés** | Table de décision + 14 exercices types résolus pas à pas avec valeurs numériques (Thévenin, diode, Zener, point Q, gain AC, JFET, MOSFET, CMOS, délai) |
-| 🎯 **Exos types** | Les exercices qui tombent et leur méthode, chapitre par chapitre |
-| 🧰 **À côté** | Kit de calcul (parallèles, dB, constantes Si, unités, datasheet), pièges par chapitre, rédaction |
-| 🧠 **Quiz & Flashcards** | 68 QCM + 32 flashcards, chapitres au choix, ordre ou aléatoire |
-| 📅 **Planning** | Planning de révision du semestre, rythme équilibré |
+| 📚 **Cours complet** | Les 8 chapitres expliqués pas à pas, avec 119 schémas et, pour chaque chapitre, les compléments utiles aux TD |
+| ✅ **TD corrigés** (`corriges.html`) | Les 11 TD du livret d'exercices : 87 fiches (23 exercices de TD que le poly ne corrige pas, 31 applications directes dont le corrigé a été revu, 33 exercices supplémentaires). Méthode, correction pas à pas, pièges, **erreurs du poly signalées**. Recherche, filtres par TD et par type, suivi « fait » |
+| 🧭 **Déroulés** | Table de décision + 14 exercices types résolus pas à pas avec valeurs numériques |
+| 💡 **Notions clés** | Une fiche de synthèse par chapitre |
+| 📘 **Formules détaillées** / ⚡ **Express** | Toutes les formules avec variables, unités et conditions, et l'aide-mémoire brut |
+| 🎯 **Exos types** | Les exercices qui tombent et leur méthode |
+| 🧰 **À côté** | Kit de calcul, séries E12/E24, simulation (LTspice, Falstad, KiCad), PCB et mémoires en bref, mesures en TP, pièges par chapitre, rédaction |
+| 🧠 **Quiz & Flashcards** | 68 QCM + 32 flashcards |
+| 📅 **Planning** | Planning du semestre calé sur les dates d'évaluation |
 
-**Fonctionnalités** : thème clair/sombre, suivi de progression (localStorage),
-compte à rebours du Partiel, visionneuse plein écran, responsive mobile.
+Toutes les valeurs des corrigés ont été recalculées (plus de 240 contrôles
+numériques) et les schémas relus sur le PDF du poly.
+
+**Fonctionnalités** : thème clair/sombre, adresses directes vers chaque vue
+(`index.html#cours`, `index.html#ch5`, `corriges.html#ex6-4`), bouton « retour »
+du navigateur, compte à rebours jusqu'à la prochaine évaluation, suivi de
+progression (localStorage), utilisable hors ligne et installable sur téléphone
+(service worker + manifest), mise en page testée à 375, 768, 1024 et 1280 px.
 
 ## Structure
 
 ```
 atome-a-la-puce/
-├── index.html          # page unique (SPA, ~160 Ko)
-├── css/
-│   └── style.css       # design system, thèmes clair/sombre
+├── index.html            # page unique (vues : cours, déroulés, notions…)
+├── corriges.html         # le poly de TD corrigé
+├── 404.html              # page d'erreur GitHub Pages
+├── manifest.webmanifest  # installation sur téléphone
+├── sw.js                 # hors ligne (réseau d'abord, cache ensuite)
+├── css/style.css         # design system, thèmes clair/sombre, responsive
 ├── js/
-│   ├── app.js          # navigation, thème, progression, filtres
-│   ├── quiz.js         # moteur de quiz + banque de questions
-│   └── lightbox.js     # visionneuse plein écran
+│   ├── app.js            # navigation, adresses, thème, progression, compte à rebours
+│   ├── corriges.js       # recherche, filtres, suivi « fait » des corrigés
+│   ├── quiz.js           # moteur de quiz + banque de questions
+│   └── lightbox.js       # visionneuse plein écran
 ├── assets/
-│   ├── favicon.svg
-│   └── img/            # 119 schémas (.jpg)
-├── .nojekyll           # désactive Jekyll sur GitHub Pages
+│   ├── favicon.svg, icon-192.png, icon-512.png
+│   └── img/              # 119 schémas (.jpg)
+├── .nojekyll
 └── README.md
 ```
 
-## Publier sur GitHub Pages
+## Mettre en ligne
 
-### 1. Créer le dépôt
-
-Sur [github.com/new](https://github.com/new), créez un dépôt **public**
-(ex. `atome-a-la-puce`). Ne cochez rien (pas de README, pas de .gitignore).
-
-### 2. Pousser le code
-
-> ⚠️ **N'utilisez pas le bouton « Upload files » du site GitHub** : il est limité à
-> **100 fichiers par envoi**, or ce projet en contient 128. Git en ligne de commande
-> n'a pas cette limite.
-
-Le dépôt local est **déjà initialisé et commité** (branche `main`).
-Il ne reste qu'à le relier à GitHub et à l'envoyer, depuis ce dossier :
+Le dépôt est relié à `https://github.com/lazzrio/atome-a-la-puce.git`
+et GitHub Pages publie la branche **main** (dossier racine). Après un commit :
 
 ```bash
-git remote add origin https://github.com/VOTRE-PSEUDO/atome-a-la-puce.git
-git push -u origin main
-```
-
-Git demandera votre identifiant GitHub et un **jeton d'accès personnel**
-(pas votre mot de passe) : créez-le sur
-<https://github.com/settings/tokens> → *Generate new token (classic)* →
-cochez la portée **repo**.
-
-### 3. Activer Pages
-
-Dans le dépôt : **Settings** → **Pages** → *Build and deployment* →
-**Source : Deploy from a branch** → Branche **main**, dossier **/ (root)** → **Save**.
-
-Le site sera en ligne sous 1–2 minutes à l'adresse :
-
-```
-https://VOTRE-PSEUDO.github.io/atome-a-la-puce/
-```
-
-### 4. Mettre à jour plus tard
-
-```bash
-git add .
-git commit -m "Mise à jour"
 git push
 ```
 
-## Lancer en local
+Le site est à jour sous 1-2 minutes. Si le téléphone affiche une ancienne
+version, recharger une fois la page.
 
-Les fichiers étant séparés, ouvrir `index.html` directement en `file://`
-empêche le chargement du CSS/JS sur certains navigateurs.
-Lancez plutôt un petit serveur :
+## Lancer en local
 
 ```bash
 python -m http.server 8765
 ```
 
-Puis ouvrez <http://localhost:8765>.
+Puis <http://localhost:8765>.
 
 ## Notes
 
-- **Aucune dépendance à installer** : HTML/CSS/JS natifs. Seules les polices
-  (Google Fonts) sont chargées depuis le réseau — le site reste lisible sans elles.
-- Les schémas proviennent des supports de cours du module et sont inclus
-  à des fins de **révision personnelle**. Si vous rendez le dépôt public,
-  vérifiez que cette réutilisation vous convient (ou passez le dépôt en privé —
-  GitHub Pages reste disponible sur les comptes Pro/Éducation).
-- La progression de lecture est stockée dans le `localStorage` du navigateur :
-  elle est propre à chaque appareil.
+- Aucune dépendance : HTML/CSS/JS natifs ; seules les polices viennent de
+  Google Fonts (le site reste lisible sans elles).
+- Les schémas proviennent des supports du module et sont inclus à des fins
+  de révision personnelle.
+- La progression est stockée dans le `localStorage` du navigateur (propre à
+  chaque appareil).
