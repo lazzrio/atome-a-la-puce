@@ -12,7 +12,7 @@ Statique, sans dépendance, hébergé tel quel sur GitHub Pages :
 | Section | Description |
 |---|---|
 | 📚 **Cours complet** | Les 8 chapitres expliqués pas à pas, avec 119 schémas et, pour chaque chapitre, les compléments utiles aux TD |
-| ✅ **TD corrigés** (`corriges.html`) | Les 11 TD du livret d'exercices : 87 fiches (23 exercices de TD que le poly ne corrige pas, 31 applications directes dont le corrigé a été revu, 33 exercices supplémentaires). Pour chaque question, tout le raisonnement : données et inconnues, loi utilisée et pourquoi, formule encadrée avec ses symboles, calcul complet avec unités, vérification du résultat, pièges, **erreurs du poly signalées**. Recherche, filtres par TD et par type, suivi « fait » |
+| ✅ **TD corrigés** (`corriges.html`) | Les 11 TD du livret d'exercices : 87 fiches (23 exercices de TD que le poly ne corrige pas, 31 applications directes dont le corrigé a été revu, 33 exercices supplémentaires). Pour chaque question, tout le raisonnement : données et inconnues, loi utilisée et pourquoi, formule encadrée avec ses symboles, calcul complet avec unités, vérification du résultat, pièges, **erreurs du poly signalées**. Formules écrites comme sur une copie (rendu KaTeX). Recherche, filtres par TD et par type, suivi « fait » |
 | 🧭 **Déroulés** | Table de décision + 14 exercices types résolus pas à pas avec valeurs numériques |
 | 💡 **Notions clés** | Une fiche de synthèse par chapitre |
 | 📘 **Formules détaillées** / ⚡ **Express** | Toutes les formules avec variables, unités et conditions, et l'aide-mémoire brut |
@@ -43,6 +43,7 @@ atome-a-la-puce/
 ├── js/
 │   ├── app.js            # navigation, adresses, thème, progression, compte à rebours
 │   ├── corriges.js       # recherche, filtres, suivi « fait » des corrigés
+│   ├── maths.js          # rendu des formules (KaTeX) et ajustement à la largeur de l'écran
 │   ├── quiz.js           # moteur de quiz + banque de questions
 │   └── lightbox.js       # visionneuse plein écran
 ├── assets/
