@@ -654,3 +654,87 @@ a.card:hover{text-decoration:none}
   .cx-page .cx .step .st{min-height:26px;display:flex;align-items:center}
   .mq{padding:2px 8px;margin-left:-2px;margin-right:-2px}
 }
+
+/* ===================== INTERRO SEMAINE 40 ===================== */
+.s4-prog{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.s4-prog span{font-family:var(--f-mono);font-size:12.5px;border:1px solid var(--line);background:var(--surface);padding:4px 10px;border-radius:6px}
+.s40{max-width:860px}
+.s4-toc{position:sticky;top:56px;z-index:20;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:10px 20px;
+  background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.s4-toc::-webkit-scrollbar{display:none}
+.s4-toc a{flex:none;font-family:var(--f-mono);font-size:12.5px;color:var(--muted);padding:5px 10px;border-radius:7px;white-space:nowrap}
+.s4-toc a:hover{color:var(--ink);background:var(--surface);text-decoration:none}
+.s4-toc a.on{color:var(--accent);background:var(--accent-soft)}
+.s40 section{padding-top:36px;scroll-margin-top:110px}
+.s40 section>h2{font-size:clamp(25px,3.4vw,34px);letter-spacing:-.02em;margin:0 0 6px;padding-bottom:10px;border-bottom:2px solid var(--accent)}
+.s4-tag{font-family:var(--f-mono);font-size:12px;font-weight:500;color:var(--accent2);letter-spacing:.04em;margin-left:6px;vertical-align:middle;white-space:nowrap}
+.s40 h3{font-size:20px;font-style:italic;margin:28px 0 6px}
+.s40 h4{font-size:15.5px;margin:18px 0 4px}
+.s40 p{margin:8px 0}
+.s40 ul,.s40 ol{padding-left:22px;margin:8px 0}
+.s40 li{margin:4px 0}
+.s4-sub{color:var(--muted);margin-top:4px!important}
+.s4-small{font-size:13.8px;color:var(--muted)}
+.s4-lbl{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:3px}
+.s4-key{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:12px;padding:12px 16px;margin:14px 0}
+.s4-key>.s4-lbl{color:var(--accent)}
+.s4-key .mq{background:var(--surface)}
+.s4-trap{background:var(--bad-soft);border-left:3px solid var(--bad);border-radius:0 10px 10px 0;padding:10px 14px;margin:14px 0;font-size:15px}
+.s4-trap>.s4-lbl{color:var(--bad)}
+.s4-tip{background:var(--amber-soft);border-left:3px solid var(--accent2);border-radius:0 10px 10px 0;padding:10px 14px;margin:14px 0;font-size:15px}
+.s4-tip>.s4-lbl{color:var(--warn)}
+.s4-must{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 18px;box-shadow:var(--shadow)}
+.s4-must ol{counter-reset:m;list-style:none;padding:0!important;margin:0}
+.s4-must li{counter-increment:m;position:relative;padding:10px 0 10px 38px;border-bottom:1px solid var(--line2);margin:0}
+.s4-must li:last-child{border-bottom:0}
+.s4-must li::before{content:counter(m);position:absolute;left:0;top:10px;font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);border-radius:50%;width:26px;height:26px;display:grid;place-items:center}
+.s4-plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:12px;margin-top:10px}
+.s4-plan>div{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.s4-plan b{font-family:var(--f-disp);font-size:16px;display:block;color:var(--accent2)}
+.s4-plan ul{padding-left:18px;font-size:14.5px}
+.s4-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:12px;margin:12px 0}
+.s4-card{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.s4-card h4{margin-top:4px;font-size:16px;color:var(--accent)}
+.s4-card ol{font-size:14.5px}
+.s4-fig{margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+.s4-fig svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto}
+.s4-fig figcaption{font-size:13.5px;color:var(--muted);margin-top:6px}
+.s4-fig .w{stroke:var(--ink);stroke-width:2;fill:none}
+.s4-fig .res,.s4-fig .src{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.s4-fig .t{fill:var(--ink);font-family:var(--f-mono);font-size:16px}
+.s4-fig .tn{fill:var(--accent2);font-family:var(--f-disp);font-weight:800;font-size:22px}
+.s4-fig .cur{stroke:var(--accent);stroke-width:2;fill:none}
+.s4-fig .curh{fill:var(--accent)}
+.s4-fig .ti{fill:var(--accent);font-family:var(--f-mono);font-size:17px;font-weight:600}
+.s4-fig .dot{fill:var(--ink)}
+.s40 .tbl-wrap{background:var(--surface)}
+.s40 td{vertical-align:top}
+.s4-r{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.s40 details{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:10px 0;padding:0 14px}
+.s40 details[open]{padding-bottom:10px}
+.s40 summary{cursor:pointer;padding:11px 0;font-weight:500}
+.s4-ans{border-top:1px dashed var(--line);padding-top:6px}
+.s4-q{font-family:var(--f-mono);font-size:12px;color:var(--accent2);margin-right:6px;white-space:nowrap}
+.s4-src{margin-top:36px!important;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.s40 .katex{font-size:1.07em}
+.s40 .katex-display{overflow-x:auto;overflow-y:hidden;padding:2px 0;max-width:100%;margin:.5em 0}
+.s40 .katex-display>.katex{white-space:nowrap}
+.s40 .mq{margin:10px 0}
+@media(max-width:640px){
+  .s4-toc{top:54px;margin:0 -12px;padding:8px 12px}
+  .s40 section{scroll-margin-top:100px}
+  .s4-must{padding:2px 12px}
+  .s4-must li{padding-left:34px}
+  .s4-key{padding:10px 10px}
+  .s4-key .mq{margin-left:-4px;margin-right:-4px}
+  .s40 details{padding:0 10px}
+  .s40 ul,.s40 ol{padding-left:18px}
+  /* tableaux de 3 colonnes et plus : une carte par ligne */
+  .s4-stack{border:0;background:none!important;overflow:visible}
+  .s4-stack table,.s4-stack tbody,.s4-stack tr,.s4-stack td{display:block;width:100%}
+  .s4-stack tr:first-child{display:none}
+  .s4-stack tr{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:8px;padding:4px 0}
+  .s4-stack td{border:0;padding:4px 12px}
+  .s4-stack td::before{content:attr(data-l);display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+}

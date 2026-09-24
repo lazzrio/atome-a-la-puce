@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interro semaine 40 — De l'Atome à la Puce</title>
+<meta name="description" content="Tout ce qu'il faut savoir pour l'interro surprise de la semaine 40 : révisions ING1 (Ch0, TD0), conducteurs et composants (Ch1), résistivité et capacité (TD1), avec entraînement corrigé.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0d8073" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1113" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:title" content="De l'atome à la puce — Interro semaine 40">
+<meta property="og:description" content="Ch0, TD0, Ch1 et TD1 : formules, méthodes, pièges, exemples résolus et entraînement corrigé.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body class="cx-page s40-page">
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html" aria-label="Accueil du site">
+      <span class="chip-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"/></svg></span>
+      De l'Atome à la Puce
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="interro-s40.html" class="active" aria-current="page"><span class="ni">🚨</span> Interro S40</a>
+      <a href="index.html#cours"><span class="ni">📚</span> Cours</a>
+      <a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
+      <a href="corriges.html"><span class="ni">✅</span> Corrigés</a>
+      <a href="index.html#notions"><span class="ni">💡</span> Notions</a>
+      <a href="index.html#formules"><span class="ni">📘</span> Formules</a>
+      <a href="index.html#express"><span class="ni">⚡</span> Express</a>
+      <a href="index.html#exos"><span class="ni">🎯</span> Exos</a>
+      <a href="index.html#boite"><span class="ni">🧰</span> À côté</a>
+      <a href="index.html#quiz"><span class="ni">🧠</span> Quiz</a>
+      <a href="index.html#planning"><span class="ni">📅</span> Planning</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</div>
+
+<main>
+<div class="hero hero-sm">
+  <div class="hero-grid"></div>
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">🚨 Interro surprise · semaine 40 · en séance de TD</span>
+      <h1>Interro <em>semaine 40</em> : tout ce qu'il faut savoir.</h1>
+      <p class="lead">Le programme annoncé : tout ce qui a été vu en amphi et en TD depuis la rentrée. Ch0, TD0, Ch1 et TD1. Ici : les formules, les méthodes, les ordres de grandeur, les pièges, les exemples du cours résolus, puis de l'entraînement corrigé.</p>
+      <div class="s4-prog"><span>Ch0 Révisions ING1</span><span>TD0 exemples du Cours 0</span><span>Ch1 Conducteurs et composants</span><span>TD1 Résistivité et capacité</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap s40">
+<nav class="s4-toc" aria-label="Sections de la fiche">
+  <a href="#essentiel">L'essentiel</a>
+  <a href="#ch0">Ch0</a>
+  <a href="#td0">TD0</a>
+  <a href="#ch1">Ch1</a>
+  <a href="#td1">TD1</a>
+  <a href="#pieges">Pièges et unités</a>
+  <a href="#entrainement">Entraînement</a>
+  <a href="#formulaire">Formulaire</a>
+</nav>
+
+<!-- ================= ESSENTIEL ================= -->
+<section id="essentiel">
+  <h2>L'essentiel</h2>
+  <p class="s4-sub">Si tu ne retiens que ça, tu as déjà la moyenne. Chaque point est détaillé plus bas.</p>
+  <div class="s4-must"><ol>
+    <li><b>Loi d'Ohm, deuxième formulation</b> : \(i=\dfrac{V_{\text{d'où vient } i}-V_{\text{où va } i}}{R}\). C'est elle qui sert dans la méthode des nœuds.</li>
+    <li><b>Diviseur de tension</b> \(V_2=\dfrac{R_2}{R_1+R_2}V_s\) (résistances en série, rien ne sort du point milieu). <b>Diviseur de courant</b> \(i_2=\dfrac{R_1}{R_1+R_2}i_0\) : c'est l'<em>autre</em> résistance au numérateur.</li>
+    <li><b>Neutraliser une source</b> : source de tension → un fil ; source de courant → un trou (circuit ouvert).</li>
+    <li><b>Thévenin</b> : \(R_{Th}\) = résistance vue avec les sources neutralisées ; \(V_{Th}\) = tension à vide. <b>Norton</b> : \(R_N=R_{Th}\), \(i_N=\dfrac{V_{Th}}{R_{Th}}\) = courant de court-circuit.</li>
+    <li><b>Millman</b> : \(V_A=\dfrac{\sum V_k/R_k+\sum i_k}{\sum 1/R_k}\).</li>
+    <li><b>AO idéal</b> : \(i_+=i_-=0\) ; avec contre-réaction \(V_+=V_-\) ; sinon \(V_{out}=\pm V_{sat}\). Connaître les 5 montages.</li>
+    <li><b>Chaîne de la conduction</b> : \(\vec v=-\dfrac{e\tau}{m}\vec E=-\mu\vec E\) → \(\vec j=-ne\vec v\) → \(\vec j=\gamma\vec E\) avec \(\gamma=\dfrac{ne^2\tau}{m}\) → \(R=\dfrac{\ell}{\gamma S}=\rho\dfrac{\ell}{S}\).</li>
+    <li><b>Température</b> : \(\rho(T)=\rho_0\left[1+\alpha(T-T_0)\right]\) ; un conducteur chauffé devient plus résistant, un isolant ou un semi-conducteur moins.</li>
+    <li><b>Condensateur</b> : \(q=Cu\), \(i=C\dfrac{du}{dt}\), \(C=\dfrac{\varepsilon_0\varepsilon_r S}{d}\), \(\varepsilon_0=8{,}85\times10^{-12}\ \text{F/m}\).</li>
+    <li><b>Unités</b> : \(1\ \mu\Omega\cdot\text{cm}=10^{-8}\ \Omega\cdot\text{m}\) ; section d'un fil \(S=\pi r^2=\dfrac{\pi d^2}{4}\) (attention diamètre ou rayon).</li>
+  </ol></div>
+
+  <h3>Plan sur 3 jours</h3>
+  <div class="s4-plan">
+    <div><b>J-3 · Ch0 + TD0</b><ul><li>Relire les méthodes (nœuds, mailles, superposition, Millman, Thévenin, Norton).</li><li>Refaire le circuit fil rouge <em>sans regarder</em> avec au moins 3 méthodes : tu dois retrouver \(V_B=37{,}5\) V.</li><li>Les 5 montages AO : savoir retrouver chaque formule.</li></ul></div>
+    <div><b>J-2 · Ch1 + TD1</b><ul><li>Refaire la démonstration de Drude jusqu'à \(\gamma=ne^2\tau/m\).</li><li>Refaire les exercices 1.1 à 1.6 du TD1 en cachant la correction.</li><li>Condensateur : formules, applications, modèle réel.</li></ul></div>
+    <div><b>J-1 · entraînement</b><ul><li>Faire la section Entraînement ci-dessous en temps limité.</li><li>Relire Pièges et unités et le Formulaire.</li><li>Vérifier la calculatrice : notation scientifique, résolution de systèmes 2×2.</li></ul></div>
+  </div>
+  <div class="s4-tip"><span class="s4-lbl">Sur le programme</span>« Ch1 Partie A » : le Cours 1 se découpe en A (convention récepteur), B (fondamentaux de la conduction) et C (composants). Le TD1 porte sur la résistivité <em>et la capacité</em>, donc cette fiche couvre tout le chapitre par sécurité. Les diapos marquées « Pour information » dans l'amphi (boîtiers, codes CMS, technologies) sont résumées en fin de Ch1, avec moins de priorité.</div>
+</section>
+
+<!-- ================= CH0 ================= -->
+<section id="ch0">
+  <h2>Ch0 · Révisions ING1 <span class="s4-tag">amphi Cours 0</span></h2>
+  <p class="s4-sub">Pas d'exercice dédié dans le poly : le TD0, ce sont les exemples du cours. Il faut surtout savoir <em>appliquer</em> chaque méthode.</p>
+
+  <h3>I. Les sources</h3>
+  <ul>
+    <li><b>Source de tension idéale</b> : impose une tension \(E\) quel que soit le courant. <b>Source de courant idéale</b> : impose un courant \(I\) quelle que soit la tension.</li>
+    <li><b>Transformation Thévenin ↔ Norton</b> : une source \(E\) en série avec \(R\) équivaut à une source \(I=\dfrac{E}{R}\) en parallèle avec la même \(R\).</li>
+  </ul>
+  <div class="s4-key"><span class="s4-lbl">À savoir</span><div class="mq">\[V_{Th}=R_N\,I_N\qquad R_{Th}=R_N\qquad I_N=\frac{V_{Th}}{R_{Th}}\]</div></div>
+  <div class="s4-trap"><span class="s4-lbl">Piège</span>Sens de la flèche : la flèche de la source de courant pointe vers la borne + de la source de tension équivalente.</div>
+
+  <h3>II. Lois fondamentales</h3>
+  <h4>Loi d'Ohm : deux formulations</h4>
+  <ul>
+    <li><b>1<sup>re</sup> formulation</b> (avec les flèches) : \(u=+Ri\) si \(i\) entre par la borne + (convention récepteur), \(u=-Ri\) si \(i\) entre par la borne −.</li>
+    <li><b>2<sup>de</sup> formulation</b> (avec les potentiels) : on ne se préoccupe plus du sens de la tension.</li>
+  </ul>
+  <div class="s4-key"><span class="s4-lbl">Loi d'Ohm en potentiels</span><div class="mq">\[\begin{gathered}i=\frac{V_{\text{d'où vient } i}-V_{\text{où va } i}}{R}\\[4pt] \text{ex. : } i=\frac{V_A-V_B}{R}\ \text{ pour } i \text{ de A vers B}\end{gathered}\]</div></div>
+  <h4>Lois de Kirchhoff</h4>
+  <ul>
+    <li><b>Loi des nœuds</b> : somme des courants entrants = somme des courants sortants (ex. \(i_1+i_2+i_4=i_3+i_5\)).</li>
+    <li><b>Loi des mailles</b> : la somme algébrique des tensions le long d'une maille est nulle (on compte + les flèches dans le sens du parcours, − les autres).</li>
+  </ul>
+
+  <h3>III. Les diviseurs</h3>
+  <div class="s4-grid">
+    <div class="s4-card"><h4>Diviseur de tension</h4><div class="mq">\[V_2=\frac{R_2}{R_1+R_2}\,V_s\]</div><p class="s4-small">Condition : \(R_1\) et \(R_2\) vraiment en série, c'est-à-dire aucun courant ne part du point milieu (branche de sortie à vide).</p></div>
+    <div class="s4-card"><h4>Diviseur de courant</h4><div class="mq">\[i_2=\frac{R_1}{R_1+R_2}\,i_0\]</div><p class="s4-small">Condition : \(R_1\) et \(R_2\) en parallèle. Le courant dans \(R_2\) fait apparaître \(R_1\) au numérateur : la plus petite résistance prend le plus de courant.</p></div>
+  </div>
+  <div class="s4-trap"><span class="s4-lbl">Piège classique</span>Appliquer le diviseur de tension alors qu'une charge est branchée au point milieu. Il faut d'abord regrouper la charge avec \(R_2\) : \(R_2\parallel R_{ch}=\dfrac{R_2R_{ch}}{R_2+R_{ch}}\). C'est exactement l'exemple du suiveur dans le Cours 1 (2,5 V à vide, 0,42 V avec une charge de 1 kΩ).</div>
+
+  <h3>IV. Les méthodes d'analyse</h3>
+  <div class="s4-grid">
+    <div class="s4-card"><h4>Méthode des nœuds</h4><p class="s4-small">Quand on cherche des <b>potentiels</b>.</p><ol class="s4-small"><li>Compter les potentiels inconnus.</li><li>Écrire la loi des nœuds en chaque nœud inconnu (autant d'équations que d'inconnues).</li><li>Remplacer chaque courant par la loi d'Ohm en potentiels.</li><li>Résoudre le système.</li></ol><p class="s4-small">Source de tension entre deux nœuds inconnus → <b>macro-nœud</b>.</p></div>
+    <div class="s4-card"><h4>Méthode des mailles</h4><p class="s4-small">Quand on cherche des <b>courants</b>.</p><ol class="s4-small"><li>Compter les courants inconnus.</li><li>Loi des mailles sur chaque maille indépendante (au moins une branche qui n'est dans aucune autre), directement en \(Ri\).</li><li>Compléter avec la loi des nœuds.</li><li>Résoudre.</li></ol><p class="s4-small">Source de courant commune à deux mailles → <b>super-maille</b>.</p></div>
+  </div>
+
+  <h3>V. Les grands théorèmes</h3>
+  <h4>Superposition</h4>
+  <p>Dans un circuit linéaire, une tension (ou un courant) est la somme des contributions de chaque source indépendante agissant <b>seule</b>.</p>
+  <ol><li>Garder une seule source, neutraliser les autres (tension → fil, courant → trou).</li><li>Calculer la grandeur partielle (souvent un simple diviseur).</li><li>Recommencer pour chaque source, puis additionner <b>algébriquement</b>.</li></ol>
+  <h4>Millman</h4>
+  <div class="s4-key"><span class="s4-lbl">Théorème de Millman au nœud A</span><div class="mq">\[V_A=\frac{\displaystyle\sum_{k=1}^{N}\frac{V_k}{R_k}+\sum_{k=1}^{P}i_k}{\displaystyle\sum_{k=1}^{N}\frac{1}{R_k}}\]</div><p class="s4-small">\(V_k\) : potentiel à l'autre bout de la branche \(k\) ; \(i_k\) : sources de courant qui <b>arrivent</b> en A (comptées − si elles en partent).</p></div>
+  <div class="s4-trap"><span class="s4-lbl">Piège</span>Une résistance reliée à la masse ajoute 0 au numérateur mais \(\dfrac1R\) au dénominateur : ne pas l'oublier. Une résistance en série avec une source de courant ne compte pas (le courant est imposé).</div>
+  <h4>Thévenin</h4>
+  <p>Tout circuit linéaire (vu de deux bornes, <b>sans la charge</b>) équivaut à une source \(V_{Th}\) en série avec \(R_{Th}\).</p>
+  <ol><li>Débrancher la charge.</li><li>\(R_{Th}\) : neutraliser toutes les sources indépendantes et calculer la résistance vue des bornes.</li><li>\(V_{Th}\) : tension à vide entre les bornes (nœuds, diviseur, etc.).</li><li>Rebrancher la charge : diviseur de tension \(V_{ch}=\dfrac{R_{ch}}{R_{ch}+R_{Th}}V_{Th}\).</li></ol>
+  <h4>Norton</h4>
+  <p>Même circuit équivalent sous forme source de courant \(i_N\) en parallèle avec \(R_N\) : \(R_N=R_{Th}\), \(i_N\) = courant de court-circuit entre les bornes (ou directement \(i_N=V_{Th}/R_{Th}\)). Puis diviseur de courant : \(i_{ch}=\dfrac{R_N}{R_N+R_{ch}}i_N\).</p>
+  <div class="s4-tip"><span class="s4-lbl">Quelle méthode choisir ?</span><ul style="margin:4px 0"><li>Plusieurs potentiels inconnus → nœuds (ou Millman en chaque nœud, c'est le même système).</li><li>Plusieurs courants inconnus → mailles.</li><li>Une seule grandeur, plusieurs sources → superposition.</li><li>Tension ou courant dans une seule charge, ou « vu depuis les bornes » → Thévenin ou Norton.</li></ul></div>
+
+  <h3>VI. L'amplificateur opérationnel idéal</h3>
+  <ul>
+    <li>AO réel : \(\varepsilon\) très petit mais non nul, \(i_+\) et \(i_-\) très petits. Modèle : \(R_i\to\infty\), \(R_o\to0\), gain en boucle ouverte \(A_{v,ol}\to\infty\).</li>
+    <li>AO idéal : \(\varepsilon=0\), \(i_+=i_-=0\).</li>
+    <li><b>Contre-réaction</b> (sortie reliée à l'entrée −) → régime linéaire → \(V_d=V_+-V_-=0\).</li>
+    <li><b>Pas de contre-réaction</b> → régime saturé : \(V_{out}=+V_{sat}\) si \(V_d&gt;0\), \(-V_{sat}\) si \(V_d&lt;0\).</li>
+  </ul>
+  <div class="tbl-wrap s4-stack"><table>
+    <tr><th>Montage</th><th>Relation</th><th>Intérêt</th></tr>
+    <tr><td data-l="Montage">Suiveur</td><td data-l="Relation">\(V_{out}=V_{in}\)</td><td data-l="Intérêt">Résistance d'entrée infinie : prélève une tension sans la perturber (capteur, sortie de potentiomètre)</td></tr>
+    <tr><td data-l="Montage">Inverseur</td><td data-l="Relation">\(V_{out}=-\dfrac{R_f}{R_1}V_{in}\)</td><td data-l="Intérêt">Gain réglable, sortie inversée</td></tr>
+    <tr><td data-l="Montage">Non-inverseur</td><td data-l="Relation">\(V_{out}=\left(1+\dfrac{R_f}{R_1}\right)V_{in}\)</td><td data-l="Intérêt">Amplifie sans inverser (audio, filtres actifs)</td></tr>
+    <tr><td data-l="Montage">Additionneur</td><td data-l="Relation">\(V_{out}=-R_f\left(\dfrac{V_1}{R_1}+\dfrac{V_2}{R_2}\right)\)</td><td data-l="Intérêt">Somme pondérée (inversée)</td></tr>
+    <tr><td data-l="Montage">Soustracteur</td><td data-l="Relation">\(V_{out}=\dfrac{R_2}{R_1}(V_2-V_1)\)</td><td data-l="Intérêt">Différence (résistances égales deux à deux)</td></tr>
+  </table></div>
+  <details><summary>Retrouver l'inverseur et le non-inverseur en 3 lignes</summary><div class="s4-ans">
+    <p><b>Inverseur</b> : \(V_+=0\) et contre-réaction donc \(V_-=0\) (masse virtuelle). Comme \(i_-=0\), le même courant traverse \(R_1\) puis \(R_f\) :</p>
+    <div class="mq">\[\begin{gathered}\frac{V_{in}-0}{R_1}=\frac{0-V_{out}}{R_f}\\[4pt] \Longrightarrow\  V_{out}=-\frac{R_f}{R_1}V_{in}\end{gathered}\]</div>
+    <p><b>Non-inverseur</b> : \(V_+=V_{in}\). Comme \(i_-=0\), \(R_1\) et \(R_f\) forment un diviseur de tension sur \(V_{out}\) :</p>
+    <div class="mq">\[\begin{gathered}V_-=\frac{R_1}{R_1+R_f}V_{out}=V_{in}\\[4pt] \Longrightarrow\  V_{out}=\left(1+\frac{R_f}{R_1}\right)V_{in}\end{gathered}\]</div>
+  </div></details>
+  <div class="s4-trap"><span class="s4-lbl">Piège</span>Le Cours 1 écrit le non-inverseur \(\left(1+\frac{R_1}{R_2}\right)\) avec d'autres noms. Ne pas apprendre les indices : le rapport est toujours <b>résistance de contre-réaction / résistance vers la masse</b>. Et toujours vérifier que \(|V_{out}|&lt;V_{sat}\), sinon la sortie sature.</div>
+</section>
+
+<!-- ================= TD0 ================= -->
+<section id="td0">
+  <h2>TD0 · Le circuit fil rouge <span class="s4-tag">exemples du Cours 0</span></h2>
+  <p class="s4-sub">Tout le Cours 0 résout le même circuit avec chaque méthode. Le trouver dans l'interro est très probable : il faut savoir le refaire.</p>
+  <figure class="s4-fig">
+    <svg viewBox="0 0 470 250" role="img" aria-label="Circuit : source de courant 1 A vers A, 100 ohms de A à la masse, 200 ohms de A à B, 300 ohms de B à la masse, 400 ohms de B vers une source de 4 V.">
+      <path class="w" d="M70 60 H410 M70 215 H410 M70 60 V215 M150 60 V215 M290 60 V215 M410 60 V215"/>
+      <circle class="src" cx="70" cy="138" r="18"/>
+      <path class="w" d="M70 150 V127"/><path class="dot" d="M70 120 l-6 10 h12z"/>
+      <text class="t" x="6" y="144">1 A</text>
+      <rect class="res" x="142" y="113" width="16" height="50"/><text class="t" x="165" y="144">100 Ω</text>
+      <rect class="res" x="195" y="52" width="50" height="16"/><text class="t" x="193" y="43">200 Ω</text>
+      <rect class="res" x="282" y="113" width="16" height="50"/><text class="t" x="305" y="144">300 Ω</text>
+      <rect class="res" x="325" y="52" width="50" height="16"/><text class="t" x="323" y="43">400 Ω</text>
+      <circle class="src" cx="410" cy="138" r="18"/>
+      <text class="t" x="404" y="132">+</text><text class="t" x="405" y="155">−</text>
+      <text class="t" x="434" y="144">4 V</text>
+      <circle class="dot" cx="150" cy="60" r="4"/><circle class="dot" cx="290" cy="60" r="4"/>
+      <text class="tn" x="120" y="45">A</text><text class="tn" x="262" y="45">B</text>
+      <path class="cur" d="M135 205 V182"/><path class="curh" d="M135 176 l-5 9 h10z"/><text class="ti" x="108" y="202">i₁</text>
+      <path class="cur" d="M252 80 H270"/><path class="curh" d="M276 80 l-9 -5 v10z"/><text class="ti" x="250" y="101">i₂</text>
+      <path class="cur" d="M275 176 V198"/><path class="curh" d="M275 204 l-5 -9 h10z"/><text class="ti" x="250" y="196">i₃</text>
+      <path class="cur" d="M372 80 H390"/><path class="curh" d="M396 80 l-9 -5 v10z"/><text class="ti" x="370" y="101">i₄</text>
+      <text class="t" x="185" y="242">masse (0 V)</text>
+    </svg>
+    <figcaption>Circuit reconstitué d'après les équations du cours : \(i_1=\frac{0-V_A}{100}\) remonte de la masse vers A, \(i_2\) va de A vers B, \(i_3\) descend dans 300 Ω, \(i_4=\frac{V_B-4}{400}\) va de B vers la source de 4 V.</figcaption>
+  </figure>
+
+  <h3>1. Méthode des nœuds</h3>
+  <p>2 inconnues \(V_A\), \(V_B\), donc 2 équations. Nœud A : \(1+i_1=i_2\). Nœud B : \(i_2=i_3+i_4\). Avec Ohm en potentiels :</p>
+  <div class="mq">\[\begin{gathered}1+\frac{0-V_A}{100}=\frac{V_A-V_B}{200}\\[4pt] \frac{V_A-V_B}{200}=\frac{V_B-0}{300}+\frac{V_B-4}{400}\end{gathered}\]</div>
+  <div class="mq">\[\begin{gathered}\begin{cases}3V_A-V_B=200\\6V_A-13V_B=-12\end{cases}\\[4pt] \Longrightarrow\  V_A=79{,}2\ \text{V},\quad V_B=37{,}5\ \text{V}\end{gathered}\]</div>
+  <details><summary>Détail de la simplification</summary><div class="s4-ans">
+    <p>Première équation × 200 : \(200-2V_A=V_A-V_B\), soit \(3V_A-V_B=200\).</p>
+    <p>Deuxième équation × 1200 : \(6(V_A-V_B)=4V_B+3(V_B-4)\), soit \(6V_A-13V_B=-12\).</p>
+    <p>Résolution : \(V_B=3V_A-200\) puis \(6V_A-39V_A+2600=-12\), donc \(V_A=\dfrac{2612}{33}=79{,}15\) V et \(V_B=37{,}45\) V.</p>
+  </div></details>
+
+  <h3>2. Méthode des mailles</h3>
+  <p>4 inconnues \(i_1,i_2,i_3,i_4\) : 2 mailles + 2 nœuds.</p>
+  <div class="mq">\[\begin{aligned}\text{Maille I : }&-100i_1-200i_2-300i_3=0\\ \text{Maille II : }&300i_3-400i_4-4=0\\ \text{Nœud A : }&1+i_1=i_2\\ \text{Nœud B : }&i_2=i_3+i_4\end{aligned}\]</div>
+  <p>Résultats : \(i_1=-792\) mA, \(i_2=208\) mA, \(i_3=125\) mA, \(i_4=83{,}7\) mA.</p>
+  <div class="s4-tip"><span class="s4-lbl">Interpréter un signe −</span>\(i_1<0\) : le courant circule en réalité dans le sens opposé à la flèche (il descend de A vers la masse). Ce n'est pas une erreur. Vérification : \(V_B=300\,i_3=37{,}5\) V.</div>
+
+  <h3>3. Superposition</h3>
+  <ul>
+    <li><b>Source de 4 V seule</b> (source de courant → trou) : 100 + 200 = 300 Ω en parallèle avec 300 Ω donne 150 Ω, en série avec 400 Ω :
+      <div class="mq">\[V_{B1}=\frac{150}{150+400}\times4=1{,}09\ \text{V}\]</div></li>
+    <li><b>Source de 1 A seule</b> (source de tension → fil) : 1 A ∥ 100 Ω ⇔ 100 V en série avec 100 Ω ; puis 100 + 200 = 300 Ω en série ; charge 300 ∥ 400 = 171,4 Ω :
+      <div class="mq">\[V_{B2}=\frac{171{,}4}{171{,}4+300}\times100=36{,}36\ \text{V}\]</div></li>
+    <li>Total : \(V_B=V_{B1}+V_{B2}=37{,}5\) V.</li>
+  </ul>
+
+  <h3>4. Millman</h3>
+  <div class="mq">\[\begin{gathered}V_A=\frac{1+\frac{0}{100}+\frac{V_B}{200}}{\frac{1}{100}+\frac{1}{200}}=\frac{200+V_B}{3}\\[4pt] V_B=\frac{\frac{V_A}{200}+\frac{0}{300}+\frac{4}{400}}{\frac1{200}+\frac1{300}+\frac1{400}}=\frac{6V_A+12}{13}\end{gathered}\]</div>
+  <p>On retombe sur le même système que la méthode des nœuds.</p>
+
+  <h3>5. Thévenin vu de B (charge = 300 Ω)</h3>
+  <ul>
+    <li>\(R_{Th}\) : sources neutralisées, (100 + 200) ∥ 400 :
+      <div class="mq">\[R_{Th}=\frac{(100+200)\times400}{100+200+400}=171{,}4\ \Omega\]</div></li>
+    <li>\(V_{Th}\) à vide (300 Ω retirée) : nœud A, \(1+\dfrac{0-V_A}{100}=\dfrac{V_A-4}{200+400}\) donne \(V_A=86{,}3\) V, puis \(i_1=-0{,}863\) A, \(i_2=0{,}137\) A et
+      <div class="mq">\[V_{Th}=V_A-200\,i_2=86{,}3-200\times0{,}137=58{,}9\ \text{V}\]</div></li>
+    <li>Charge rebranchée : \(V_B=\dfrac{300}{300+171{,}4}\times58{,}9=37{,}5\) V.</li>
+  </ul>
+
+  <h3>6. Norton vu de B</h3>
+  <ul>
+    <li>\(R_N=R_{Th}=171{,}4\ \Omega\).</li>
+    <li>\(i_N\) : B relié à la masse. \(i_4=\dfrac{0-4}{400}=-0{,}01\) A ; nœud A \(1+i_1=i_2\) ; maille \(-100i_1-200i_2=0\) ; nœud B \(i_2=i_4+i_N\). On trouve \(i_N=0{,}343\) A (et on vérifie \(V_{Th}/R_{Th}=58{,}9/171{,}4=0{,}343\) A).</li>
+    <li>Diviseur de courant : \(i_B=\dfrac{171{,}4}{171{,}4+300}\times0{,}343=0{,}125\) A, puis \(V_B=300\,i_B=37{,}4\) V (arrondis).</li>
+  </ul>
+  <div class="tbl-wrap s4-res"><table>
+    <tr><th>Grandeur</th><th>Valeur</th></tr>
+    <tr><td>\(V_A\)</td><td class="s4-r">79,2 V</td></tr>
+    <tr><td>\(V_B\)</td><td class="s4-r">37,5 V</td></tr>
+    <tr><td>\(i_1,\ i_2\)</td><td class="s4-r">−792 mA ; 208 mA</td></tr>
+    <tr><td>\(i_3,\ i_4\)</td><td class="s4-r">125 mA ; 83,7 mA</td></tr>
+    <tr><td>\(V_{B1},\ V_{B2}\) (superposition)</td><td class="s4-r">1,09 V ; 36,36 V</td></tr>
+    <tr><td>\(R_{Th}=R_N\)</td><td class="s4-r">171,4 Ω</td></tr>
+    <tr><td>\(V_{Th}\)</td><td class="s4-r">58,9 V</td></tr>
+    <tr><td>\(i_N\)</td><td class="s4-r">0,343 A</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= CH1 ================= -->
+<section id="ch1">
+  <h2>Ch1 · Conducteurs et composants <span class="s4-tag">amphi Cours 1</span></h2>
+
+  <h3>A. La convention récepteur</h3>
+  <ul>
+    <li>Un composant passif <b>reçoit</b> l'énergie fournie par le(s) générateur(s) ; la polarité + est donnée par le générateur.</li>
+    <li>Les électrons partent de la borne − et vont vers la borne + : dans un récepteur, la flèche de tension et la flèche de courant sont de <b>sens opposés</b>.</li>
+    <li>Loi d'Ohm en convention récepteur : \(u_R=+Ri\). La puissance \(P=ui\) est alors la puissance reçue (\(P>0\)).</li>
+  </ul>
+
+  <h3>B. Fondamentaux sur la conduction</h3>
+  <h4>Le champ et la force</h4>
+  <p>Une différence de potentiel \(u\) sur un conducteur de longueur \(\ell\) crée un champ \(E=\dfrac{u}{\ell}\), orienté vers les potentiels décroissants. Force de Coulomb sur un électron : \(\vec F=-e\vec E\) (opposée au champ), \(e=1{,}6\times10^{-19}\) C. Tant que le circuit est fermé, un courant \(i=\dfrac{dq}{dt}\) s'établit.</p>
+  <h4>Ordres de grandeur (métal, 20 °C)</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>Grandeur</th><th>Valeur</th></tr>
+    <tr><td>Vitesse d'agitation thermique (sans champ, \(\vec v_{moy}=\vec 0\))</td><td class="s4-r">≈ 10⁶ m/s</td></tr>
+    <tr><td>Temps moyen entre deux collisions \(\tau\)</td><td class="s4-r">≈ 3 × 10⁻¹⁴ s</td></tr>
+    <tr><td>Électrons libres par m³ \(n\)</td><td class="s4-r">≈ 10²⁹ m⁻³</td></tr>
+    <tr><td>Vitesse de dérive (Cu, 10 m, 10 V)</td><td class="s4-r">5 mm/s</td></tr>
+    <tr><td>Masse de l'électron \(m_e\)</td><td class="s4-r">9,1 × 10⁻³¹ kg</td></tr>
+    <tr><td>\(\gamma_{Cu}\) / \(\gamma_{KCl\ 1\,mol/L}\)</td><td class="s4-r">59,6 × 10⁶ / 10,2 S/m</td></tr>
+  </table></div>
+
+  <h4>1. Vitesse de dérive : le modèle de Drude (démonstration à savoir)</h4>
+  <p>Électron = particule ponctuelle soumise à la force électrique \(q\vec E\) et à un frottement fluide \(-h\vec v\) (collisions avec les ions du réseau). Deuxième loi de Newton dans un référentiel galiléen :</p>
+  <div class="mq">\[\begin{gathered}m\frac{d\vec v}{dt}=q\vec E-h\vec v\\[4pt] \Longleftrightarrow\ \frac{d\vec v}{dt}+\frac{h}{m}\vec v=\frac{q}{m}\vec E\end{gathered}\]</div>
+  <p>Équation différentielle du 1<sup>er</sup> ordre. Solution homogène \(\vec K e^{-t/\tau}\) avec \(\tau=\dfrac{m}{h}\) ; solution particulière (régime permanent, \(\frac{d\vec v}{dt}=\vec 0\)) : \(\vec v=\dfrac{q\tau}{m}\vec E\). Donc :</p>
+  <div class="mq">\[\vec v(t)=\vec K e^{-t/\tau}+\frac{q\tau}{m}\vec E\]</div>
+  <p>Le terme exponentiel est négligeable après \(5\tau\) : régime permanent. Avec \(q=-e\) :</p>
+  <div class="s4-key"><span class="s4-lbl">Vitesse de dérive et mobilité</span><div class="mq">\[\begin{gathered}\vec v=-\frac{e\tau}{m}\vec E=-\mu\vec E\\[4pt] \mu=\frac{e\tau}{m}\ \ (\text{m}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1})\end{gathered}\]</div><p class="s4-small">La vitesse des électrons est opposée à \(\vec E\). La mobilité traduit leur aptitude à se déplacer dans le matériau. En norme : \(v=\dfrac{e\tau}{m}\dfrac{u}{\ell}\).</p></div>
+  <p>Exemple du cours (cuivre, \(\ell=10\) m, \(u=10\) V) :</p>
+  <div class="mq">\[\begin{aligned}v&=\frac{1{,}6\times10^{-19}\times3\times10^{-14}}{9{,}1\times10^{-31}}\times\frac{10}{10}\\&\approx5\times10^{-3}\ \text{m/s}=5\ \text{mm/s}\end{aligned}\]</div>
+  <p>Pour parcourir 1 m : \(\Delta t=\dfrac{1}{5\times10^{-3}}\approx2000\) s ≈ 33 min. Les électrons sont lents ; c'est le champ qui s'établit quasi instantanément.</p>
+
+  <h4>2. Vecteur densité de courant</h4>
+  <p>Densité volumique de charges mobiles : \(\rho_m=-ne\). Pendant \(dt\), les charges qui traversent \(dS\) sont dans un cylindre de volume \(v\,dt\,dS\) :</p>
+  <div class="mq">\[\begin{gathered}d^2q=-ne\,\vec v\,dt\cdot\vec n\,dS\\[4pt] \Longrightarrow\  i=\iint_S\vec j\cdot\vec n\,dS\\[4pt] \text{avec }\boxed{\vec j=-ne\,\vec v=\rho_m\vec v}\end{gathered}\]</div>
+  <p>Unité : A/m². Pour un courant uniforme : \(j=\dfrac{i}{S}\).</p>
+
+  <h4>3. Loi d'Ohm locale</h4>
+  <div class="mq">\[\begin{gathered}\vec j=-ne\times\left(-\frac{e\tau}{m}\vec E\right)=\frac{ne^2\tau}{m}\vec E\\[4pt] \Longrightarrow\ \boxed{\vec j=\gamma\vec E}\\[4pt] \gamma=\frac{ne^2\tau}{m}\ \ (\text{S/m})\end{gathered}\]</div>
+  <p>\(\gamma\) (aussi noté \(\sigma\)) est la conductivité. Un métal conduit beaucoup mieux qu'une solution ionique (facteur ~10⁷ entre Cu et KCl).</p>
+
+  <h4>4. Loi d'Ohm (macroscopique)</h4>
+  <div class="mq">\[\begin{gathered}i=\iint_S\gamma\vec E\cdot\vec n\,dS=\gamma ES=\gamma\frac{u}{\ell}S\\[4pt] \Longrightarrow\  u=\frac{\ell}{\gamma S}\,i=Ri\end{gathered}\]</div>
+  <p>(\(\vec E\) et \(\vec n\) colinéaires.) Si \(u\) augmente, \(E\) augmente donc \(j\) augmente ; si \(R\) augmente à \(u\) constant, \(j\) diminue.</p>
+
+  <h4>5. Conductivité et résistivité</h4>
+  <div class="s4-key"><span class="s4-lbl">Résistance d'un conducteur</span><div class="mq">\[\begin{gathered}R=\frac{1}{\gamma}\frac{\ell}{S}=\rho\frac{\ell}{S}\\[4pt] \rho=\frac1\gamma\text{ en }\Omega\cdot\text{m},\quad\gamma\text{ en S/m}\end{gathered}\]</div><p class="s4-small">\(\ell\) en m, \(S\) en m². \(R\) dépend du matériau (\(\rho\)) et de la géométrie (\(\ell/S\)).</p></div>
+  <p>Exemple du cours : fil de carbone, \(\ell=10\) cm, \(r=0{,}2\) mm, \(\gamma=2{,}5\times10^4\) S/m, sous 10 V :</p>
+  <div class="mq">\[\begin{gathered}R=\frac{0{,}1}{2{,}5\times10^4\times\pi\times(2\times10^{-4})^2}=31{,}8\ \Omega\\[4pt] i=\frac{10}{31{,}8}=0{,}314\ \text{A}\end{gathered}\]</div>
+
+  <h3>C. Les composants</h3>
+  <h4>Généralités</h4>
+  <ul>
+    <li><b>Passif</b> : ne peut pas augmenter la puissance d'un signal (souvent la réduit par effet Joule) : résistance, bobine, condensateur.</li>
+    <li><b>Actif</b> : peut augmenter la puissance d'un signal grâce à une alimentation externe : AO, transistor (semi-conducteurs).</li>
+    <li>Domaines : électrotechnique (fusible, relais, transformateur), capteurs (CMOS, pression, effet Hall), analogique (R, C, L, diode, transistor, régulateur), numérique (portes, bascules, microcontrôleurs, FPGA), interface humaine (LED, potentiomètre, afficheur, bouton).</li>
+  </ul>
+
+  <h4>La résistance</h4>
+  <div class="s4-key"><span class="s4-lbl">Effet de la température</span><div class="mq">\[\rho(T)=\rho_0\left[1+\alpha\,(T-T_0)\right]\]</div><p class="s4-small">\(\rho_0\) : résistivité à la température de référence \(T_0\) ; \(\alpha\) : coefficient de température (empirique, en K⁻¹). Le cours l'appelle loi de Matthiessen.</p></div>
+  <ul>
+    <li><b>Conducteur chauffé</b> : il a des électrons libres même à 0 K ; l'agitation thermique désorganise le réseau, les électrons se déplacent plus difficilement : \(\rho\) augmente.</li>
+    <li><b>Isolant ou semi-conducteur chauffé</b> : à 0 K il n'a aucun électron libre ; l'agitation thermique en arrache : plus de porteurs, \(\rho\) diminue.</li>
+    <li><b>Rôles</b> : abaisser une tension (diviseur), augmenter une tension (AO non-inverseur), limiter un courant, résistances de tirage pull-up et pull-down (niveau logique bien défini sur l'entrée d'un microcontrôleur quand le bouton est relâché).</li>
+    <li><b>Rhéostat</b> : \(R=\dfrac{\ell}{\ell_{max}}R_{max}\) (car \(R\propto\ell\)). <b>Potentiomètre</b> : diviseur réglable, \(v_{out}=\dfrac{R_2}{R_1+R_2}V_{CC}\) ; en résistance variable si on n'utilise que 2 bornes successives.</li>
+    <li><b>Suiveur après un diviseur</b> : exemple du cours, \(R_1=R_2=10\) kΩ, \(u_e=5\) V : 2,5 V à vide, mais seulement 0,42 V avec une charge \(R=1\) kΩ. Avec un suiveur intercalé, on garde 2,5 V quelle que soit la charge.</li>
+    <li><b>Modèle réel</b> : inductance série parasite \(L_s\) (connexions) et capacité parallèle parasite \(C_p\) (électrodes), actives aux très hautes fréquences ; résistance de fuite \(R_L\) en parallèle (importante si \(R\) grande ou haute tension). En basse fréquence \(Z_R=R\).</li>
+  </ul>
+
+  <h4>Le condensateur</h4>
+  <p>Deux armatures conductrices séparées par un isolant (le diélectrique). Il stocke des charges et les restitue au circuit.</p>
+  <div class="s4-key"><span class="s4-lbl">Formules du condensateur</span><div class="mq">\[\begin{gathered}q=Cu\\[4pt] i=C\frac{du}{dt}\\[4pt] C=\frac{\varepsilon S}{d}=\frac{\varepsilon_0\varepsilon_r S}{d}\\[4pt] Z_C=\frac{1}{jC\omega}\ \ \Rightarrow\ \ |Z_C|=\frac{1}{2\pi fC}\end{gathered}\]</div><p class="s4-small">\(\varepsilon_0=8{,}85\times10^{-12}\) F/m. \(C\) en farads (F). Utile en plus : énergie stockée \(W=\frac12CU^2=\frac12QU\) ; densité surfacique de charge \(\sigma=\frac{Q}{S}\).</p></div>
+  <ul>
+    <li><b>Découplage</b> : C en parallèle entre l'alimentation et la masse pour supprimer le bruit. \(f_c=\dfrac{1}{2\pi RC}\) : basse fréquence à supprimer → \(C\) grand (électrolytique, ~10 µF) ; haute fréquence → \(C\) petit (céramique, ~100 nF à 100 pF). On met les deux.</li>
+    <li><b>Couplage ou liaison</b> : C en série pour bloquer la composante continue (offset) d'un signal.</li>
+    <li><b>Filtrage</b> : ne laisser passer qu'une gamme de fréquences.</li>
+    <li><b>Échantillonneur-bloqueur</b> : interrupteur fermé, C se charge à \(V_{in}\) (acquisition) ; ouvert, C garde sa tension car l'AO a une impédance d'entrée infinie (mémorisation), le temps que l'ADC convertisse.</li>
+    <li><b>Anti-rebond</b> : un RC lisse les impulsions parasites d'un bouton.</li>
+    <li><b>Non polarisés</b> (céramique) : petites valeurs (≤ 1 µF), grandes tensions (50 à 250 V). Code « 104 » = \(10\times10^4\) pF = 100 nF.</li>
+    <li><b>Polarisés</b> (électrolytique, tantale) : grandes valeurs (≥ 1 µF) ; respecter la polarité (surchauffe sinon) et vérifier la tension de service.</li>
+    <li><b>Modèle réel</b> : résistance de fuite \(R_L\) en parallèle (importante pour les électrolytiques, 5 à 20 nA par µF), résistance série \(R_{ESR}\) (connexions, indique le vieillissement), inductance série \(L_{ESL}\) (connexions et armatures).</li>
+  </ul>
+
+  <details><summary>Pour information : boîtiers, codes CMS, circuits intégrés</summary><div class="s4-ans">
+    <ul>
+      <li><b>Traversant (THD)</b> : connexions solides, prototypage sur breadboard, facile à remplacer ; mais encombrant, soudure manuelle. <b>CMS (SMD)</b> : petit, moins cher, assemblage automatisable, meilleur face au bruit ; mais difficile à souder, peu adapté aux fortes puissances.</li>
+      <li>Technologies de résistances : carbone aggloméré (ancienne, tolérance 10 à 20 %), couche de carbone (la plus utilisée, 1 à 10 %), bobinée (fortes puissances mais inductance, pas en HF), couche métallique (précise, stable, bleue, plus chère).</li>
+      <li>Codes CMS : 3 caractères « 472 » = \(47\times10^2\) = 4,7 kΩ ; « 4R7 » = 4,7 Ω ; 4 caractères « 4702 » = \(470\times10^2\) = 47,0 kΩ ; EIA-96 : 2 chiffres (code de 3 chiffres significatifs) + une lettre multiplicatrice.</li>
+      <li>Circuits intégrés : die de silicium relié aux pattes par des fils d'or ; pin 1 repérée par un point ou une encoche, numérotation dans le sens antihoraire ; DIP au pas de 2,54 mm (0,1″), SOP 1,27 mm, QFP, BGA.</li>
+    </ul>
+  </div></details>
+</section>
+
+<!-- ================= TD1 ================= -->
+<section id="td1">
+  <h2>TD1 · Résistivité et capacité <span class="s4-tag">poly p. 5 à 9</span></h2>
+  <p class="s4-sub">Pour chaque exercice : la démarche à reproduire et le résultat pour te vérifier. Les corrigés complets sont sur ton site, page Corrigés.</p>
+
+  <h3>Ex 1.1 · Cuivre ou aluminium ?</h3>
+  <p>Même masse \(m\) et même longueur \(\ell\) : \(m=m_0S\ell\) donc \(S=\dfrac{m}{m_0\ell}\) et</p>
+  <div class="mq">\[R=\rho\frac{\ell}{S}=\frac{\rho\,m_0\,\ell^2}{m}\]</div>
+  <p>À masse égale, le meilleur est celui qui a le plus petit produit \(\rho\,m_0\) : Al \(2{,}85\times2{,}7=7{,}7\) contre Cu \(1{,}73\times8{,}96=15{,}5\) (µΩ·g/cm²). <b>L'aluminium</b> gagne (2 fois moins de pertes Joule \(P=RI^2\)), même s'il est moins bon conducteur.</p>
+
+  <h3>Ex 1.2 · Cuivre avec impuretés</h3>
+  <p>Les contributions s'ajoutent : \(\rho_{com}=\rho_0+\Delta\rho_{Fe}+\Delta\rho_{Cr}+\Delta\rho_{Ag}\), avec \(\rho_0=\dfrac{1}{\sigma_0}=\dfrac{1}{5{,}97\times10^5}=1{,}675\ \mu\Omega\cdot\text{cm}\) et, lus sur la courbe, 0,10 + 0,05 + 0,02 = 0,17 µΩ·cm.</p>
+  <div class="mq">\[\begin{gathered}\rho_{com}=1{,}845\ \mu\Omega\cdot\text{cm}\ (+10\ \%)\\[4pt] R=\rho\frac{\ell}{\pi d^2/4}=\frac{1{,}845\times10^{-8}\times100}{\pi\times(1{,}5\times10^{-3})^2}=0{,}26\ \Omega\end{gathered}\]</div>
+  <div class="s4-trap"><span class="s4-lbl">Piège</span>Diamètre 3 mm donc rayon 1,5 mm. Et µΩ·cm → Ω·m : × 10⁻⁸.</div>
+
+  <h3>Ex 1.3 · Vitesse de dérive dans un thermistor</h3>
+  <div class="mq">\[\begin{gathered}E=\frac{U}{e}=\frac{1}{0{,}004}=250\ \text{V/m}\\[4pt] \bar v=\mu E=0{,}14\times250=35\ \text{m/s}\\[4pt] t=\frac{e}{\bar v}=\frac{0{,}004}{35}=0{,}114\ \text{ms}\end{gathered}\]</div>
+  <p class="s4-small">Ici \(e\) désigne l'épaisseur du disque, pas la charge élémentaire.</p>
+
+  <h3>Ex 1.4 · Électrons par seconde</h3>
+  <p>Nombre d'électrons par seconde \(x=\dfrac{I}{e}\) avec \(I=\dfrac{U}{R}=\dfrac{US}{\rho\ell}\) :</p>
+  <div class="mq">\[\begin{aligned}x_0&=\frac{US}{\rho_0\,\ell\,e}\\&=\frac{0{,}1\times\frac{\pi(0{,}56)^2}{4}}{600\times1{,}54\times10^{-6}\times1{,}6\times10^{-19}}\\&=1{,}66\times10^{20}\ \text{s}^{-1}\end{aligned}\]</div>
+  <p class="s4-small">Calcul fait en cm : \(S=0{,}246\) cm², \(\ell=600\) cm, \(\rho\) en Ω·cm. On trouve aussi \(R=3{,}75\) mΩ et \(I=26{,}7\) A.</p>
+  <p>À 100 °C, \(\rho\) augmente donc \(x\) diminue : \(x_{100}=\dfrac{\rho_0}{\rho_{100}}x_0=\dfrac{1{,}54}{2{,}22}\times1{,}66\times10^{20}=1{,}15\times10^{20}\ \text{s}^{-1}\). On en déduit \(\alpha=\dfrac{\rho_{100}/\rho_0-1}{100}\approx4{,}4\times10^{-3}\ \text{K}^{-1}\).</p>
+
+  <h3>Ex 1.5 · Conducteur cylindrique</h3>
+  <p>Données : \(r=5\) mm, \(\ell=50\) cm, \(U=12\) V, \(i=0{,}1\) A, \(N=10^{24}\) électrons.</p>
+  <div class="tbl-wrap s4-stack"><table>
+    <tr><th>Question</th><th>Formule</th><th>Résultat</th></tr>
+    <tr><td data-l="Question">Conductivité</td><td data-l="Formule">\(R=\frac{U}{i}\), \(\sigma=\frac{\ell}{RS}\), \(S=\pi r^2\)</td><td data-l="Résultat" class="s4-r">R = 120 Ω, S = 7,85×10⁻⁵ m², σ = 53 S/m</td></tr>
+    <tr><td data-l="Question">Densité de courant</td><td data-l="Formule">\(j=\frac{i}{S}\)</td><td data-l="Résultat" class="s4-r">1,27×10³ A/m²</td></tr>
+    <tr><td data-l="Question">Champ</td><td data-l="Formule">\(E=\frac{U}{\ell}\) (ou \(\frac{j}{\sigma}\))</td><td data-l="Résultat" class="s4-r">24 V/m</td></tr>
+    <tr><td data-l="Question">Vitesse de dérive</td><td data-l="Formule">\(n=\frac{N}{S\ell}\), \(v=\frac{j}{ne}\)</td><td data-l="Résultat" class="s4-r">n = 2,55×10²⁸ m⁻³, v = 3,1×10⁻⁷ m/s</td></tr>
+  </table></div>
+
+  <h3>Ex 1.6 · Condensateur plan</h3>
+  <p>Données : \(Q=3\times10^{-10}\) C, \(S=900\ \text{mm}^2=9\times10^{-4}\ \text{m}^2\), \(e=2\) mm.</p>
+  <div class="mq">\[\begin{gathered}C_1=\frac{\varepsilon_0S}{e}=\frac{8{,}85\times10^{-12}\times9\times10^{-4}}{2\times10^{-3}}=3{,}98\ \text{pF}\\[4pt] U_1=\frac{Q}{C_1}=75{,}3\ \text{V}\end{gathered}\]</div>
+  <div class="mq">\[\begin{gathered}C_2=\varepsilon_rC_1=15{,}9\ \text{pF}\\[4pt] U_2=\frac{Q}{C_2}=\frac{U_1}{4}=18{,}8\ \text{V}\\[4pt] \sigma=\frac{Q}{S}=0{,}33\ \mu\text{C/m}^2\end{gathered}\]</div>
+  <div class="s4-tip"><span class="s4-lbl">Raisonnement attendu</span>À charge \(Q\) fixée, le diélectrique multiplie \(C\) par \(\varepsilon_r\) et divise donc la tension nécessaire par \(\varepsilon_r\). Énergie : 11 nJ dans le vide, 2,8 nJ avec le diélectrique.</div>
+</section>
+
+<!-- ================= PIEGES ================= -->
+<section id="pieges">
+  <h2>Pièges et unités</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Conversion</th><th>Valeur</th></tr>
+    <tr><td>1 µΩ·cm</td><td class="s4-r">10⁻⁸ Ω·m</td></tr>
+    <tr><td>1 Ω·cm</td><td class="s4-r">10⁻² Ω·m</td></tr>
+    <tr><td>1 Ω⁻¹·cm⁻¹</td><td class="s4-r">100 S/m</td></tr>
+    <tr><td>1 cm² / 1 mm²</td><td class="s4-r">10⁻⁴ m² / 10⁻⁶ m²</td></tr>
+    <tr><td>1 g/cm³</td><td class="s4-r">1000 kg/m³</td></tr>
+    <tr><td>1 pF / 1 nF / 1 µF</td><td class="s4-r">10⁻¹² / 10⁻⁹ / 10⁻⁶ F</td></tr>
+    <tr><td>Section d'un fil de diamètre d</td><td class="s4-r">πd²/4</td></tr>
+  </table></div>
+  <ul>
+    <li><b>Rayon ou diamètre</b> : le piège le plus fréquent du TD1. Un diamètre double divise \(R\) par 4.</li>
+    <li><b>Tout mettre dans la même unité</b> avant \(R=\rho\ell/S\) : tout en m, ou tout en cm (comme le poly), jamais un mélange.</li>
+    <li><b>\(e\)</b> : charge élémentaire ou épaisseur selon l'exercice ; <b>\(\rho\)</b> : résistivité ou densité de charge ; <b>\(\sigma\)</b> : conductivité ou densité surfacique de charge. Lire l'énoncé.</li>
+    <li><b>Signe de \(\vec v\)</b> : les électrons vont dans le sens opposé à \(\vec E\) et au courant conventionnel. En norme, on écrit \(v=\mu E\).</li>
+    <li><b>Diviseur de courant</b> : l'autre résistance au numérateur.</li>
+    <li><b>Neutralisation</b> : seulement les sources indépendantes ; tension → fil, courant → trou.</li>
+    <li><b>Thévenin</b> : \(V_{Th}\) se calcule charge <em>retirée</em> ; ne pas réutiliser les potentiels du circuit chargé.</li>
+    <li><b>Résultat négatif</b> d'un courant : sens réel opposé à la flèche, on le garde tel quel.</li>
+    <li><b>AO</b> : vérifier la présence de la contre-réaction avant d'écrire \(V_+=V_-\), et vérifier que \(|V_{out}|&lt;V_{sat}\).</li>
+    <li><b>Chiffres significatifs</b> : 3 suffisent ; toujours écrire l'unité.</li>
+  </ul>
+</section>
+
+<!-- ================= ENTRAINEMENT ================= -->
+<section id="entrainement">
+  <h2>Entraînement</h2>
+  <p class="s4-sub">Questions de type interro, nouvelles valeurs. Cherche d'abord, puis ouvre la correction.</p>
+
+  <details><summary><span class="s4-q">Q1 · cours</span>Pourquoi la vitesse de dérive des électrons est-elle opposée au champ électrique ?</summary><div class="s4-ans">
+    <p>En régime permanent, \(\vec v=\dfrac{q\tau}{m}\vec E\). Pour un électron \(q=-e<0\), donc \(\vec v=-\dfrac{e\tau}{m}\vec E\) : même direction que \(\vec E\), sens opposé. Physiquement, la force \(-e\vec E\) pousse les électrons vers les potentiels croissants (vers la borne +).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q2 · cours</span>Établir la loi d'Ohm locale et l'expression de la conductivité.</summary><div class="s4-ans">
+    <p>\(\vec j=-ne\vec v\) et \(\vec v=-\dfrac{e\tau}{m}\vec E\), donc \(\vec j=\dfrac{ne^2\tau}{m}\vec E=\gamma\vec E\) avec \(\gamma=\dfrac{ne^2\tau}{m}\). Ordre de grandeur : \(\dfrac{10^{29}\times(1{,}6\times10^{-19})^2\times3\times10^{-14}}{9{,}1\times10^{-31}}\approx8\times10^7\) S/m, cohérent avec \(\gamma_{Cu}=6\times10^7\) S/m.</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q3 · résistance</span>Fil d'aluminium de 50 m, diamètre 2 mm, \(\rho=2{,}85\ \mu\Omega\cdot\text{cm}\) à 20 °C. Calculer \(R\), puis \(R\) à 70 °C avec \(\alpha=4\times10^{-3}\ \text{K}^{-1}\).</summary><div class="s4-ans">
+    <div class="mq">\[\begin{gathered}S=\pi(10^{-3})^2=3{,}14\times10^{-6}\ \text{m}^2\\[4pt] R=\frac{2{,}85\times10^{-8}\times50}{3{,}14\times10^{-6}}=0{,}454\ \Omega\end{gathered}\]</div>
+    <div class="mq">\[\begin{aligned}R_{70}&=R_{20}\left[1+\alpha(70-20)\right]\\&=0{,}454\times1{,}2=0{,}544\ \Omega\end{aligned}\]</div>
+    <p class="s4-small">\(R\) suit \(\rho\) puisque la géométrie ne change pas (dilatation négligée).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q4 · dérive</span>Fil de cuivre de section 1 mm² parcouru par 2 A, \(n=8{,}5\times10^{28}\ \text{m}^{-3}\). Vitesse de dérive ?</summary><div class="s4-ans">
+    <div class="mq">\[\begin{gathered}j=\frac{I}{S}=\frac{2}{10^{-6}}=2\times10^6\ \text{A/m}^2\\[4pt] v=\frac{j}{ne}=\frac{2\times10^6}{8{,}5\times10^{28}\times1{,}6\times10^{-19}}\\[4pt] v=1{,}47\times10^{-4}\ \text{m/s}\end{gathered}\]</div>
+    <p class="s4-small">Soit 0,15 mm/s : très lent, comme dans le cours.</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q5 · capacité</span>Condensateur plan : \(S=2\ \text{cm}^2\), \(d=0{,}1\) mm, \(\varepsilon_r=2{,}5\). Capacité ? Charge sous 10 V ? Que devient \(C\) si on double \(d\) ?</summary><div class="s4-ans">
+    <div class="mq">\[\begin{gathered}C=\frac{8{,}85\times10^{-12}\times2{,}5\times2\times10^{-4}}{10^{-4}}=44{,}3\ \text{pF}\\[4pt] Q=CU=0{,}443\ \text{nC}\end{gathered}\]</div>
+    <p>\(C\propto\dfrac{1}{d}\) : doubler \(d\) divise \(C\) par 2 (22,1 pF).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q6 · Thévenin</span>Source \(E=12\) V, \(R_1=1\) kΩ en série, puis \(R_2=2\) kΩ vers la masse. Charge \(R_3=2\) kΩ en parallèle sur \(R_2\). Thévenin vu de \(R_3\), tension sur \(R_3\), puis Norton.</summary><div class="s4-ans">
+    <div class="mq">\[\begin{gathered}V_{Th}=\frac{R_2}{R_1+R_2}E=\frac{2}{3}\times12=8\ \text{V}\\[4pt] R_{Th}=R_1\parallel R_2=\frac{1\times2}{1+2}=0{,}667\ \text{k}\Omega\end{gathered}\]</div>
+    <div class="mq">\[\begin{gathered}V_3=\frac{R_3}{R_3+R_{Th}}V_{Th}=\frac{2}{2{,}667}\times8=6\ \text{V}\\[4pt] i_N=\frac{V_{Th}}{R_{Th}}=12\ \text{mA}\end{gathered}\]</div>
+    <p class="s4-small">Vérification directe : \(R_2\parallel R_3=1\) kΩ, diviseur \(\frac{1}{1+1}\times12=6\) V. Et \(i_N=E/R_1=12\) mA (court-circuit aux bornes de la charge).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q7 · Millman et superposition</span>Nœud A relié à \(E_1=10\) V par 1 kΩ, à \(E_2=5\) V par 2 kΩ, et à la masse par 2 kΩ. Calculer \(V_A\) par Millman, puis vérifier par superposition.</summary><div class="s4-ans">
+    <div class="mq">\[V_A=\frac{\frac{10}{1}+\frac{5}{2}+\frac{0}{2}}{\frac11+\frac12+\frac12}=\frac{12{,}5}{2}=6{,}25\ \text{V}\]</div>
+    <p>Superposition : \(E_1\) seule, 1 kΩ face à 2 ∥ 2 = 1 kΩ : \(V_{A1}=5\) V. \(E_2\) seule, 2 kΩ face à 1 ∥ 2 = 0,667 kΩ : \(V_{A2}=\frac{0{,}667}{2{,}667}\times5=1{,}25\) V. Total 6,25 V.</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q8 · AO</span>Inverseur, \(R_1=10\) kΩ, \(R_f=47\) kΩ, \(V_{sat}=\pm15\) V. \(V_{out}\) pour \(V_{in}=0{,}5\) V, puis pour \(V_{in}=4\) V ?</summary><div class="s4-ans">
+    <p>\(V_{out}=-\frac{47}{10}\times0{,}5=-2{,}35\) V. Pour 4 V, la formule donne −18,8 V, impossible : la sortie sature à <b>−15 V</b>.</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q9 · conversions</span>\(\rho=1{,}7\ \mu\Omega\cdot\text{cm}\). Donner \(\rho\) en Ω·m et la conductivité en S/m.</summary><div class="s4-ans">
+    <p>\(\rho=1{,}7\times10^{-8}\ \Omega\cdot\text{m}\), \(\gamma=\frac1\rho=5{,}9\times10^7\) S/m.</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q10 · cours</span>Citer trois utilisations d'un condensateur et le rôle de chacune.</summary><div class="s4-ans">
+    <p>Découplage (en parallèle sur l'alimentation, supprime le bruit ; électrolytique pour les basses fréquences, céramique pour les hautes), couplage ou liaison (en série, bloque la composante continue), filtrage (sélection d'une bande de fréquences), échantillonneur-bloqueur (maintient la tension pendant la conversion), anti-rebond (RC qui lisse les rebonds d'un bouton).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q11 · cours</span>Pourquoi la résistance d'un métal augmente-t-elle avec la température, alors que celle d'un semi-conducteur diminue ?</summary><div class="s4-ans">
+    <p>Métal : le nombre d'électrons libres est fixe ; l'agitation thermique multiplie les collisions (τ diminue), donc \(\gamma=ne^2\tau/m\) diminue et \(\rho\) augmente. Semi-conducteur ou isolant : presque pas de porteurs libres à basse température ; la chaleur en libère, \(n\) augmente beaucoup plus vite que τ ne diminue, donc \(\rho\) diminue.</p>
+  </div></details>
+</section>
+
+<!-- ================= FORMULAIRE ================= -->
+<section id="formulaire">
+  <h2>Formulaire de la veille</h2>
+  <div class="s4-grid">
+    <div class="s4-card"><h4>Circuits</h4>
+      <div class="mq">\[\begin{gathered}i=\frac{V_A-V_B}{R}\\[4pt] V_2=\frac{R_2}{R_1+R_2}V_s\\[4pt] i_2=\frac{R_1}{R_1+R_2}i_0\end{gathered}\]</div>
+      <div class="mq">\[\begin{gathered}V_A=\frac{\sum V_k/R_k+\sum i_k}{\sum1/R_k}\\[4pt] i_N=\frac{V_{Th}}{R_{Th}}\end{gathered}\]</div>
+    </div>
+    <div class="s4-card"><h4>AO idéal</h4>
+      <div class="mq">\[\begin{gathered}V_{out}=-\frac{R_f}{R_1}V_{in}\\[4pt] V_{out}=\Bigl(1+\frac{R_f}{R_1}\Bigr)V_{in}\end{gathered}\]</div>
+      <div class="mq">\[\begin{gathered}V_{out}=-R_f\Bigl(\frac{V_1}{R_1}+\frac{V_2}{R_2}\Bigr)\\[4pt] V_{out}=\frac{R_2}{R_1}(V_2-V_1)\end{gathered}\]</div>
+    </div>
+    <div class="s4-card"><h4>Conduction</h4>
+      <div class="mq">\[\begin{gathered}E=\frac{u}{\ell}\\[4pt] \vec v=-\mu\vec E\\[4pt] \mu=\frac{e\tau}{m}\\[4pt] \vec j=-ne\vec v\end{gathered}\]</div>
+      <div class="mq">\[\begin{gathered}\vec j=\gamma\vec E\\[4pt] \gamma=\frac{ne^2\tau}{m}\\[4pt] R=\rho\frac{\ell}{S}\\[4pt] \rho(T)=\rho_0[1+\alpha(T-T_0)]\end{gathered}\]</div>
+    </div>
+    <div class="s4-card"><h4>Condensateur</h4>
+      <div class="mq">\[\begin{gathered}q=Cu\\[4pt] i=C\frac{du}{dt}\\[4pt] C=\frac{\varepsilon_0\varepsilon_rS}{d}\end{gathered}\]</div>
+      <div class="mq">\[\begin{gathered}|Z_C|=\frac{1}{2\pi fC}\\[4pt] f_c=\frac{1}{2\pi RC}\\[4pt] W=\tfrac12CU^2\end{gathered}\]</div>
+    </div>
+  </div>
+  <p class="s4-small">Constantes : \(e=1{,}6\times10^{-19}\) C · \(m_e=9{,}1\times10^{-31}\) kg · \(\varepsilon_0=8{,}85\times10^{-12}\) F/m · \(\tau\approx3\times10^{-14}\) s · \(n\approx10^{29}\ \text{m}^{-3}\).</p>
+</section>
+
+<p class="s4-src">Sources : amphi Cours 0 « Révisions ING1 » et Cours 1 « Conducteurs et composants », poly ING2 TD1 (AD 1.1 à 1.7, TD 1.5 et 1.6). Le circuit du Cours 0 est reconstitué à partir des équations du cours : compare-le au schéma de l'amphi. Corrigés complets du TD1 : <a href="corriges.html#td1">page Corrigés</a>.</p>
+</div>
+</main>
+
+<div class="foot">
+  <div class="wrap">
+    <span>De l'Atome à la Puce · Interro semaine 40 · 2026-2027</span>
+    <span><a href="index.html">← Retour au cours</a></span>
+  </div>
+</div>
+<a class="cx-top" href="#" aria-label="Revenir en haut de la page">↑</a>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="js/maths.js"></script>
+<script src="js/interro.js"></script>
+</body>
+</html>
