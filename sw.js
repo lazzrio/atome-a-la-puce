@@ -1,5 +1,5 @@
 /* Hors ligne : le réseau d'abord (contenu toujours à jour), la copie locale si pas de connexion. */
-const CACHE = "atome-puce-v1";
+const CACHE = "atome-puce-v2";
 const CORE = ["./", "index.html", "corriges.html", "css/style.css", "js/app.js", "js/quiz.js", "js/lightbox.js",
   "js/corriges.js", "assets/favicon.svg", "assets/icon-192.png", "manifest.webmanifest"];
 

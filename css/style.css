@@ -615,3 +615,22 @@ a.card:hover{text-decoration:none}
 @media(max-width:640px){
   .cx-tag{order:3;white-space:normal}
 }
+
+/* ===================== CORRIGÉS DÉVELOPPÉS ===================== */
+.cx-page .cx .step .sd{color:var(--ink);font-size:14.3px;line-height:1.65}
+.cx-page .cx .step .sd p{margin:6px 0}
+.cx-page .cx .step .st{font-size:15px}
+.cx-data{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:10px;margin:4px 0 12px}
+.cx-data>div{min-width:0;background:var(--surface2);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;font-size:14px}
+.cx-data b.lab{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.fml{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:8px 0;padding:9px 12px;border-radius:9px;
+  background:var(--accent-soft);border-left:3px solid var(--accent)}
+.fml .f{font-family:var(--f-mono);font-weight:600;font-size:14.5px;color:var(--ink)}
+.fml .leg{font-size:12.8px;color:var(--muted)}
+.cx-meth>div p{margin:6px 0}
+.cx-meth>div ol,.cx-meth>div ul{margin:6px 0;padding-left:20px}
+.cx-meth>div li{margin:4px 0}
+.retenir{margin-top:10px;font-size:13.8px;border-left:3px solid var(--good);padding:8px 12px;background:var(--good-soft);border-radius:0 8px 8px 0}
+.retenir b.lab{color:var(--good);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:2px}
+.qsub{font-family:var(--f-disp);font-weight:700;font-size:15.5px;margin:18px 0 4px;padding-top:10px;border-top:1px dashed var(--line2);color:var(--accent)}
+.qsub:first-child{border-top:0;padding-top:0;margin-top:4px}
