@@ -30,7 +30,7 @@
     </a>
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
-      <a href="interro-s40.html"><span class="ni">🚨</span> Interro S40</a>
+      <a href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
       <a href="index.html#cours"><span class="ni">📚</span> Cours</a>
       <a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
       <a href="corriges.html" class="active" aria-current="page"><span class="ni">✅</span> Corrigés</a>
@@ -155,10 +155,10 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Application numérique</div><div class="sd">
           <p>Pas besoin de convertir : on compare deux nombres exprimés dans les mêmes unités (µΩ·cm × g/cm³).</p>
-          <div class="mq">\[\begin{aligned}(\rho\,m_0)_{\text{Al}}&amp;=2{,}85\times2{,}7=7{,}7\\(\rho\,m_0)_{\text{Cu}}&amp;=1{,}73\times8{,}96=15{,}5\\\frac{R_{\text{Cu}}}{R_{\text{Al}}}&amp;=\frac{15{,}5}{7{,}7}\approx2{,}0\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}(\rho\,m_0)_{\text{Al}}&amp;=\rho_{\text{Al}}\,m_{0,\text{Al}}=2{,}85\times2{,}7=7{,}7\\(\rho\,m_0)_{\text{Cu}}&amp;=\rho_{\text{Cu}}\,m_{0,\text{Cu}}=1{,}73\times8{,}96=15{,}5\\\frac{R_{\text{Cu}}}{R_{\text{Al}}}&amp;=\frac{(\rho\,m_0)_{\text{Cu}}}{(\rho\,m_0)_{\text{Al}}}=\frac{15{,}5}{7{,}7}\approx2{,}0\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Interpréter</div><div class="sd">
-          <p>L'aluminium conduit moins bien (\(\rho\) 1,65 fois plus grand), mais il est 3,3 fois plus léger : avec la même masse on lui donne une section 3,3 fois plus grande. Le gain de section l'emporte : \(\tfrac{3{,}3}{1{,}65}=2\). La ligne en aluminium a une résistance deux fois plus faible, donc <b>deux fois moins de pertes</b>.</p>
+          <p>L'aluminium conduit moins bien (\(\rho\) 1,65 fois plus grand), mais il est 3,3 fois plus léger : avec la même masse on lui donne une section 3,3 fois plus grande. Le gain de section l'emporte : \(\tfrac{S_{\text{Al}}/S_{\text{Cu}}}{\rho_{\text{Al}}/\rho_{\text{Cu}}}=\tfrac{3{,}3}{1{,}65}=2\). La ligne en aluminium a une résistance deux fois plus faible, donc <b>deux fois moins de pertes</b>.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>L'aluminium : à masse égale, sa résistance (et ses pertes Joule) est environ deux fois plus faible que celle du cuivre.</div>
@@ -181,7 +181,7 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Lire les contributions sur la figure</div><div class="sd">
           <p>Chaque courbe est une droite passant par l'origine : \(\Delta\rho\) est <b>proportionnel</b> à la concentration (tant qu'elle reste faible). On lit la valeur à 500 ppm et on applique une règle de trois (valeurs en µΩ·cm).</p>
-          <div class="mq">\[\begin{aligned}\text{Fe} :&amp;\ \ 0{,}50\times\frac{100}{500}=0{,}10\\\text{Cr} :&amp;\ \ 0{,}25\times\frac{100}{500}=0{,}05\\\text{Ag} :&amp;\ \ 0{,}02\times\frac{400}{500}=0{,}016\approx0{,}02\\\Delta\rho&amp;=0{,}10+0{,}05+0{,}02\approx0{,}17\ \mu\Omega\cdot\text{cm}\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}\Delta\rho_i&amp;=\Delta\rho_i(500\ \text{ppm})\times\frac{c_i}{500\ \text{ppm}}\\\text{Fe} :&amp;\ \ 0{,}50\times\frac{100}{500}=0{,}10\\\text{Cr} :&amp;\ \ 0{,}25\times\frac{100}{500}=0{,}05\\\text{Ag} :&amp;\ \ 0{,}02\times\frac{400}{500}=0{,}016\approx0{,}02\\\Delta\rho&amp;=\Delta\rho_{\text{Fe}}+\Delta\rho_{\text{Cr}}+\Delta\rho_{\text{Ag}}\\&amp;=0{,}10+0{,}05+0{,}02\approx0{,}17\ \mu\Omega\cdot\text{cm}\end{aligned}\]</div>
           <p>(Le poly arrondit la contribution de l'argent à 0,02.) À concentration égale, le fer perturbe 25 fois plus que l'argent. L'argent a la même structure électronique externe que le cuivre (même colonne) : il déforme peu le cristal.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Résistivité du cuivre pur</div><div class="sd">
@@ -189,7 +189,7 @@
           <div class="mq">\[\begin{aligned}\rho_0 &= \frac1{\sigma_0}\\ &= \frac{1}{5{,}97\cdot10^5}\\ &= 1{,}675\cdot10^{-6}\ \Omega\cdot\text{cm}\\ &= 1{,}675\ \mu\Omega\cdot\text{cm}\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Appliquer Matthiessen</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\rho_{\text{com}}=\rho_0+\Delta\rho=1{,}675+0{,}17=1{,}845\ \mu\Omega\cdot\text{cm}\\[4pt] \frac{1{,}845}{1{,}675}=1{,}10\ \Rightarrow\ +10\,\%\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\rho_{\text{com}}&amp;=\rho_0+\Delta\rho\\ &amp;=1{,}675+0{,}17\\ &amp;=1{,}845\ \mu\Omega\cdot\text{cm}\end{aligned}\\[4pt] \frac{\rho_{\text{com}}}{\rho_0}=\frac{1{,}845}{1{,}675}=1{,}10\ \Rightarrow\ +10\,\%\end{gathered}\]</div>
           <p>Quelques centaines de ppm (0,06 % des atomes) suffisent à augmenter la résistivité de 10 % : c'est pourquoi le cuivre des câbles électriques est affiné par électrolyse (cuivre « OFHC » à 99,99 %).</p>
         </div></div></li>
       </ol>
@@ -201,7 +201,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Calculer \(R\)</div><div class="sd">
           <div class="fml"><span class="f">\(R=\dfrac{\rho\,\ell}{S}\)</span><span class="leg">Ω·cm × cm / cm² = Ω ✓</span></div>
-          <div class="mq">\[\begin{aligned}R &= \frac{1{,}845\cdot10^{-6}\times10^4}{7{,}07\cdot10^{-2}}\\ &= 0{,}26\ \Omega\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}R &= \frac{\rho_{\text{com}}\,\ell}{S}\\ &= \frac{1{,}845\cdot10^{-6}\times10^4}{7{,}07\cdot10^{-2}}\\ &= 0{,}26\ \Omega\end{aligned}\]</div>
           <p>Ordre de grandeur : un fil de cuivre de 7 mm² fait environ 2,6 mΩ par mètre, donc 0,26 Ω pour 100 m. Cohérent.</p>
         </div></div></li>
       </ol>
@@ -225,7 +225,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">AD1.4 — Vitesse de dérive</div><div class="sd">
           <div class="fml"><span class="f">\(\bar v=\mu\,E\)</span><span class="leg">m²/(V·s) × V/m ⟹ m/s ✓</span></div>
-          <div class="mq">\[\bar v=0{,}14\times250=35\ \text{m/s}\]</div>
+          <div class="mq">\[\bar v=\mu\,E=0{,}14\times250=35\ \text{m/s}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">AD1.5 — Temps de traversée</div><div class="sd">
           <p>Mouvement moyen à vitesse constante : distance = vitesse × temps.</p>
@@ -252,7 +252,7 @@
           <div class="mq">\[\begin{gathered}S=\frac{\pi d^2}{4}=\frac{\pi\times0{,}56^2}{4}=0{,}246\ \text{cm}^2\\[4pt] \ell=600\ \text{cm}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Résistance puis courant</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R=\frac{\rho_0\,\ell}{S}=\frac{1{,}54\cdot10^{-6}\times600}{0{,}246}=3{,}75\cdot10^{-3}\ \Omega\\[4pt] I=\frac UR=\frac{0{,}1}{3{,}75\cdot10^{-3}}=26{,}7\ \text{A}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}R&amp;=\frac{\rho_0\,\ell}{S}\\ &amp;=\frac{1{,}54\cdot10^{-6}\times600}{0{,}246}\\ &amp;=3{,}75\cdot10^{-3}\ \Omega\end{aligned}\\[4pt] I=\frac UR=\frac{0{,}1}{3{,}75\cdot10^{-3}}=26{,}7\ \text{A}\end{gathered}\]</div>
           <p>Un fil épais et court a une résistance de quelques milliohms : 0,1 V suffit à faire passer 27 A.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Nombre d'électrons par seconde</div><div class="sd">
@@ -266,7 +266,7 @@
           <div class="mq">\[\begin{aligned}N_{100} &= N_0\times\frac{\rho_0}{\rho_{100}}\\ &= 1{,}66\cdot10^{20}\times\frac{1{,}54}{2{,}22}\\ &= 1{,}15\cdot10^{20}\ \text{électrons/s}\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Contrôle avec le coefficient de température</div><div class="sd">
-          <p>Pour un métal, \(\rho(T)\approx\rho_0(1+\alpha\,\Delta T)\). Ici \(\tfrac{\rho_{100}}{\rho_0}=1{,}44\), donc \(\alpha=\tfrac{0{,}44}{100}=4{,}4\cdot10^{-3}\ \text{K}^{-1}\), proche de la valeur tabulée du cuivre (≈ \(4\cdot10^{-3}\ \text{K}^{-1}\)). Les données sont cohérentes.</p>
+          <p>Pour un métal, \(\rho(T)\approx\rho_0(1+\alpha\,\Delta T)\). Ici \(\tfrac{\rho_{100}}{\rho_0}=1{,}44\), donc \(\alpha=\tfrac{\rho_{100}/\rho_0-1}{\Delta T}=\tfrac{0{,}44}{100}=4{,}4\cdot10^{-3}\ \text{K}^{-1}\), proche de la valeur tabulée du cuivre (≈ \(4\cdot10^{-3}\ \text{K}^{-1}\)). Les données sont cohérentes.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(1{,}66\cdot10^{20}\) électrons/s à 0 °C ; \(1{,}15\cdot10^{20}\) électrons/s à 100 °C (−31 %).</div>
@@ -290,12 +290,12 @@
       <div class="qsub">Q1.1 — Conductivité</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Résistance mesurée et section</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R=\frac Ui=\frac{12}{0{,}1}=120\ \Omega\\[4pt] S=\pi r^2=\pi\times(5\cdot10^{-3})^2=7{,}85\cdot10^{-5}\ \text{m}^2\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R=\frac Ui=\frac{12}{0{,}1}=120\ \Omega\\[4pt]\begin{aligned}S&amp;=\pi r^2\\ &amp;=\pi\times(5\cdot10^{-3})^2\\ &amp;=7{,}85\cdot10^{-5}\ \text{m}^2\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Conductivité</div><div class="sd">
           <p>\(R=\dfrac{\rho\ell}{S}=\dfrac{\ell}{\sigma S}\) : on isole \(\sigma\).</p>
           <div class="fml"><span class="f">\(\sigma=\dfrac{\ell}{R\,S}\)</span><span class="leg">m / (Ω·m²) = S/m ✓</span></div>
-          <div class="mq">\[\begin{gathered}\sigma=\frac{0{,}5}{120\times7{,}85\cdot10^{-5}}=53\ \text{S/m}\\[4pt] \rho=\frac1\sigma=1{,}9\cdot10^{-2}\ \Omega\cdot\text{m}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\sigma=\frac{\ell}{R\,S}=\frac{0{,}5}{120\times7{,}85\cdot10^{-5}}=53\ \text{S/m}\\[4pt] \rho=\frac1\sigma=1{,}9\cdot10^{-2}\ \Omega\cdot\text{m}\end{gathered}\]</div>
           <p>C'est un million de fois moins conducteur que le cuivre (\(\sigma\approx6\cdot10^7\) S/m) : un mauvais conducteur, du type semi-conducteur dopé ou graphite.</p>
         </div></div></li>
       </ol>
@@ -310,7 +310,7 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Champ uniforme le long du conducteur</div><div class="sd">
           <div class="mq">\[E=\frac U\ell=\frac{12}{0{,}5}=24\ \text{V/m}\]</div>
-          <p>Contrôle par la loi d'Ohm locale : \(\sigma E=53\times24=1{,}27\cdot10^3\ \text{A/m}^2=j\) ✓. C'est la même loi d'Ohm, écrite à deux échelles.</p>
+          <p>Contrôle par la loi d'Ohm locale : \(j=\sigma E=53\times24=1{,}27\cdot10^3\ \text{A/m}^2\), on retrouve bien \(j\) ✓. C'est la même loi d'Ohm, écrite à deux échelles.</p>
         </div></div></li>
       </ol>
       <div class="qsub">Q1.4 — Vitesse de dérive</div>
@@ -319,7 +319,7 @@
           <p>Pendant \(dt\), les électrons avancent de \(v\,dt\). Tous ceux contenus dans le cylindre de base \(S\) et de longueur \(v\,dt\) traversent la section : il y en a \(n\,S\,v\,dt\), qui portent la charge \(dQ=n\,e\,S\,v\,dt\). Donc \(i=\dfrac{dQ}{dt}=n\,e\,S\,v\), soit \(j=n\,e\,v\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Densité volumique d'électrons</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V=S\,\ell=3{,}93\cdot10^{-5}\ \text{m}^3\\[4pt] n=\frac NV=\frac{10^{24}}{3{,}93\cdot10^{-5}}=2{,}55\cdot10^{28}\ \text{m}^{-3}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V=S\,\ell=3{,}93\cdot10^{-5}\ \text{m}^3\\[4pt]\begin{aligned}n&amp;=\frac NV\\ &amp;=\frac{10^{24}}{3{,}93\cdot10^{-5}}\\ &amp;=2{,}55\cdot10^{28}\ \text{m}^{-3}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Vitesse</div><div class="sd">
           <div class="mq">\[\begin{aligned}v &= \frac{j}{n\,e}\\ &= \frac{1{,}27\cdot10^3}{2{,}55\cdot10^{28}\times1{,}6\cdot10^{-19}}\\ &= 3{,}1\cdot10^{-7}\ \text{m/s}\end{aligned}\]</div>
@@ -345,7 +345,7 @@
       <div class="qsub">Q1.7 d'abord — Capacités</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Dans le vide, puis avec le diélectrique</div><div class="sd">
-          <div class="mq">\[\begin{gathered}C_1=\frac{8{,}85\cdot10^{-12}\times9\cdot10^{-4}}{2\cdot10^{-3}}=3{,}98\cdot10^{-12}\ \text{F}=3{,}98\ \text{pF}\\[4pt] C_2=\varepsilon_r\,C_1=15{,}9\ \text{pF}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}C_1&amp;=\frac{\varepsilon_0\,S}{e}\\ &amp;=\frac{8{,}85\cdot10^{-12}\times9\cdot10^{-4}}{2\cdot10^{-3}}\\ &amp;=3{,}98\ \text{pF}\end{aligned}\\[4pt] C_2=\varepsilon_r\,C_1=4\times3{,}98=15{,}9\ \text{pF}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q1.5 et Q1.6 — Tensions</div>
@@ -444,15 +444,15 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Convertir le gap en joules</div><div class="sd">
           <p>1 eV est l'énergie gagnée par un électron sous 1 V : \(1\ \text{eV}=1{,}6\cdot10^{-19}\ \text{J}\).</p>
-          <div class="mq">\[E_g=1{,}12\times1{,}6\cdot10^{-19}=1{,}79\cdot10^{-19}\ \text{J}\]</div>
+          <div class="mq">\[\begin{aligned}E_g[\text{J}] &= E_g[\text{eV}]\times e\\ &= 1{,}12\times1{,}6\cdot10^{-19}\\ &= 1{,}79\cdot10^{-19}\ \text{J}\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Longueur d'onde maximale</div><div class="sd">
           <p>Avec \(h=6{,}63\cdot10^{-34}\ \text{J}\cdot\text{s}\) et \(c=3\cdot10^8\ \text{m/s}\) :</p>
           <div class="mq">\[\begin{aligned}\lambda_{\max} &= \frac{hc}{E_g}\\ &= \frac{6{,}63\cdot10^{-34}\times3\cdot10^8}{1{,}79\cdot10^{-19}}\\ &= 1{,}11\cdot10^{-6}\ \text{m}\\ &= 1{,}11\ \mu\text{m}\end{aligned}\]</div>
-          <p>Contrôle : \(\dfrac{1{,}24}{1{,}12}=1{,}11\ \mu\text{m}\) ✓.</p>
+          <p>Contrôle : \(\lambda_s[\mu\text{m}]=\dfrac{1{,}24}{E_g[\text{eV}]}=\dfrac{1{,}24}{1{,}12}=1{,}11\ \mu\text{m}\) ✓.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Comparer au visible</div><div class="sd">
-          <p>Le visible s'étend de 0,4 à 0,8 µm : toutes ces longueurs d'onde sont inférieures à 1,11 µm. Dans l'autre sens : un photon à 0,8 µm apporte \(\tfrac{1{,}24}{0{,}8}=1{,}55\ \text{eV}&gt;1{,}12\ \text{eV}\). <b>Oui, tout photon visible peut créer une paire électron-trou.</b></p>
+          <p>Le visible s'étend de 0,4 à 0,8 µm : toutes ces longueurs d'onde sont inférieures à 1,11 µm. Dans l'autre sens : un photon à 0,8 µm apporte \(E[\text{eV}]=\tfrac{1{,}24}{\lambda[\mu\text{m}]}=\tfrac{1{,}24}{0{,}8}=1{,}55\ \text{eV}&gt;1{,}12\ \text{eV}\). <b>Oui, tout photon visible peut créer une paire électron-trou.</b></p>
         </div></div></li>
       </ol>
       <div class="qsub">AD2.6 — Pourquoi la résistance baisse</div>
@@ -514,8 +514,8 @@
       <div class="qsub">AD2.13 — Résistivité et conclusion</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Application numérique</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\gamma=4{,}4\cdot10^{22}\times1{,}6\cdot10^{-19}\times0{,}40=2{,}8\cdot10^3\ \text{S/m}\\[4pt] \rho=\frac1\gamma=3{,}6\cdot10^{-4}\ \Omega\cdot\text{m}\end{gathered}\]</div>
-          <p>Rapport avec le germanium pur : \(\dfrac{0{,}44}{3{,}6\cdot10^{-4}}\approx1200\).</p>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\gamma&amp;=N_D\,e\,\mu_n\\ &amp;=4{,}4\cdot10^{22}\times1{,}6\cdot10^{-19}\times0{,}40\\ &amp;=2{,}8\cdot10^3\ \text{S/m}\end{aligned}\\[4pt] \rho=\frac1\gamma=3{,}6\cdot10^{-4}\ \Omega\cdot\text{m}\end{gathered}\]</div>
+          <p>Rapport avec le germanium pur : \(\dfrac{\rho_{\text{pur}}}{\rho}=\dfrac{0{,}44}{3{,}6\cdot10^{-4}}\approx1200\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Contrôle de l'énoncé</div><div class="sd">
           <p>Pour le germanium pur, \(n=p=n_i\) :</p>
@@ -544,7 +544,7 @@
         <li class="step"><span class="sn"></span><div><div class="st">Les deux types de porteurs conduisent</div><div class="sd">
           <p>Dans le silicium pur, chaque électron passé dans la BC laisse un trou : \(n=p=n_i\). Les deux participent au courant (en sens opposés, mais leurs charges sont opposées, donc leurs courants s'additionnent).</p>
           <div class="fml"><span class="f">\(\sigma_i=n_i\,e\,(\mu_n+\mu_p)\)</span><span class="leg">cm⁻³ × C × cm²/(V·s) = S/cm</span></div>
-          <div class="mq">\[\begin{aligned}\sigma_i &= 10^{10}\times1{,}6\cdot10^{-19}\times(1450+450)\\ &= 3{,}0\cdot10^{-6}\ \text{S/cm}\\ &= 3{,}0\cdot10^{-4}\ \text{S/m}\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}\sigma_i &= n_i\,e\,(\mu_n+\mu_p)\\ &= 10^{10}\times1{,}6\cdot10^{-19}\times(1450+450)\\ &= 3{,}0\cdot10^{-6}\ \text{S/cm}\\ &= 3{,}0\cdot10^{-4}\ \text{S/m}\end{aligned}\]</div>
           <div class="mq">\[\begin{aligned}\rho_i &= \frac1{\sigma_i}\\ &= 3{,}3\cdot10^5\ \Omega\cdot\text{cm}\\ &= 3{,}3\cdot10^3\ \Omega\cdot\text{m}\end{aligned}\]</div>
           <p>C'est presque un isolant : un cube de 1 cm de côté aurait une résistance de 330 kΩ.</p>
         </div></div></li>
@@ -559,10 +559,10 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Nombre d'atomes de silicium par cm³</div><div class="sd">
           <p>1 cm³ pèse 2,42 g, soit \(\tfrac{2{,}42}{28{,}1}\) mol ; chaque mole contient \(6{,}02\cdot10^{23}\) atomes.</p>
-          <div class="mq">\[\begin{aligned}N_{\text{Si}} &= \frac{2{,}42\times6{,}02\cdot10^{23}}{28{,}1}\\ &= 5{,}18\cdot10^{22}\ \text{atomes/cm}^3\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}N_{\text{Si}} &= \frac{m_v\,\mathcal N_A}{M}\\ &= \frac{2{,}42\times6{,}02\cdot10^{23}}{28{,}1}\\ &= 5{,}18\cdot10^{22}\ \text{atomes/cm}^3\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Concentration en accepteurs, puis porteurs</div><div class="sd">
-          <div class="mq">\[\begin{gathered}N_A=\frac{5{,}18\cdot10^{22}}{10^7}=5{,}2\cdot10^{15}\ \text{cm}^{-3}\ \gg\ n_i\\[3pt] \Longrightarrow\ p\approx N_A=5{,}2\cdot10^{15}\ \text{cm}^{-3}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}N_A&amp;=\frac{N_{\text{Si}}}{10^7}\\ &amp;=\frac{5{,}18\cdot10^{22}}{10^7}\\ &amp;=5{,}2\cdot10^{15}\ \text{cm}^{-3}\\ &amp;\gg\ n_i\end{aligned}\\[3pt] \Longrightarrow\ p\approx N_A=5{,}2\cdot10^{15}\ \text{cm}^{-3}\end{gathered}\]</div>
           <div class="mq">\[\begin{aligned}n &= \frac{n_i^2}{p}\\ &= \frac{10^{20}}{5{,}2\cdot10^{15}}\\ &= 1{,}9\cdot10^4\ \text{cm}^{-3}\end{aligned}\]</div>
         </div></div></li>
       </ol>
@@ -595,7 +595,7 @@
       <div class="qsub">Q2.6 — Nombre d'atomes par cm³</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Moles par cm³ × atomes par mole</div><div class="sd">
-          <div class="mq">\[\begin{aligned}N_{\text{Ge}} &= \frac{5{,}36\times6{,}02\cdot10^{23}}{72{,}6}\\ &= 4{,}44\cdot10^{22}\ \text{atomes/cm}^3\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}N_{\text{Ge}} &= \frac{m_v\,\mathcal N_A}{M}\\ &= \frac{5{,}36\times6{,}02\cdot10^{23}}{72{,}6}\\ &= 4{,}44\cdot10^{22}\ \text{atomes/cm}^3\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q2.7 — Unité de \(A\)</div>
@@ -607,10 +607,10 @@
       <div class="qsub">Q2.8 — \(n_i\) à 300 K</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Exposant</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\frac{E_g}{2kT_0}=\frac{0{,}67\times1{,}6\cdot10^{-19}}{2\times1{,}38\cdot10^{-23}\times300}=\frac{1{,}072\cdot10^{-19}}{8{,}28\cdot10^{-21}}=12{,}95\\[4pt] e^{-12{,}95}=2{,}38\cdot10^{-6}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\frac{E_g}{2kT_0}&amp;=\frac{0{,}67\times1{,}6\cdot10^{-19}}{2\times1{,}38\cdot10^{-23}\times300}\\ &amp;=\frac{1{,}072\cdot10^{-19}}{8{,}28\cdot10^{-21}}\\ &amp;=12{,}95\end{aligned}\\[4pt] e^{-12{,}95}=2{,}38\cdot10^{-6}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Concentration intrinsèque</div><div class="sd">
-          <div class="mq">\[\begin{aligned}n_i &= 1{,}44\cdot10^{21}\times300^{3/2}\times2{,}38\cdot10^{-6}\\ &= 1{,}44\cdot10^{21}\times5196\times2{,}38\cdot10^{-6}\\ &= 1{,}79\cdot10^{19}\ \text{m}^{-3}\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}n_i &= A\,T_0^{3/2}\,e^{-E_g/2kT_0}\\ &= 1{,}44\cdot10^{21}\times300^{3/2}\times2{,}38\cdot10^{-6}\\ &= 1{,}44\cdot10^{21}\times5196\times2{,}38\cdot10^{-6}\\ &= 1{,}79\cdot10^{19}\ \text{m}^{-3}\end{aligned}\]</div>
           <p>Soit \(1{,}8\cdot10^{13}\ \text{cm}^{-3}\) : trois ordres de grandeur au-dessus du silicium (\(10^{10}\)). Le gap du germanium est plus petit (0,67 contre 1,12 eV), et l'écart est amplifié par l'exponentielle.</p>
         </div></div></li>
       </ol>
@@ -633,22 +633,22 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Les mobilités baissent</div><div class="sd">
           <p>\(\dfrac{T_1}{T_0}=\dfrac{473}{300}=1{,}577\) :</p>
-          <div class="mq">\[\begin{gathered}\mu_n=3800\times1{,}577^{-1{,}66}=1780\\[4pt] \mu_p=1500\times1{,}577^{-2{,}33}=520\\[4pt] \mu_n+\mu_p=2300\ \text{cm}^2/(\text{V}\cdot\text{s})\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\mu_n&amp;=\mu_n(T_0)\left(\tfrac{T_1}{T_0}\right)^{-1{,}66}\\ &amp;=3800\times1{,}577^{-1{,}66}\\ &amp;=1780\end{aligned}\\[4pt]\begin{aligned}\mu_p&amp;=\mu_p(T_0)\left(\tfrac{T_1}{T_0}\right)^{-2{,}33}\\ &amp;=1500\times1{,}577^{-2{,}33}\\ &amp;=520\end{aligned}\\[4pt] \mu_n+\mu_p=2300\ \text{cm}^2/(\text{V}\cdot\text{s})\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(n_i\) explose</div><div class="sd">
           <div class="mq">\[\begin{gathered}\frac{E_g}{2kT_1}=12{,}95\times\frac{300}{473}=8{,}21\\[4pt] e^{-8{,}21}=2{,}72\cdot10^{-4}\end{gathered}\]</div>
-          <div class="mq">\[\begin{aligned}n_i &= 1{,}44\cdot10^{21}\times473^{3/2}\times2{,}72\cdot10^{-4}\\ &= 4{,}0\cdot10^{21}\ \text{m}^{-3}\\ &= 4{,}0\cdot10^{15}\ \text{cm}^{-3}\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}n_i &= A\,T_1^{3/2}\,e^{-E_g/2kT_1}\\ &= 1{,}44\cdot10^{21}\times473^{3/2}\times2{,}72\cdot10^{-4}\\ &= 4{,}0\cdot10^{21}\ \text{m}^{-3}\\ &= 4{,}0\cdot10^{15}\ \text{cm}^{-3}\end{aligned}\]</div>
           <p>\(n_i\) est multiplié par 225. \(N_{\text{Ge}}\) ne change pas (on néglige la dilatation) ; la proportion d'atomes ionisés passe à \(9\cdot10^{-8}\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Résistivité</div><div class="sd">
-          <div class="mq">\[\begin{aligned}\rho &= \frac{1}{4{,}0\cdot10^{15}\times1{,}6\cdot10^{-19}\times2300}\\ &= 0{,}67\ \Omega\cdot\text{cm}\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}\rho &= \frac{1}{n_i\,e\,(\mu_n+\mu_p)}\\ &= \frac{1}{4{,}0\cdot10^{15}\times1{,}6\cdot10^{-19}\times2300}\\ &= 0{,}67\ \Omega\cdot\text{cm}\end{aligned}\]</div>
           <p>La mobilité est divisée par 2,3, mais le nombre de porteurs est multiplié par 225 : la résistivité est divisée par 100. C'est le comportement d'une thermistance CTN (coefficient de température négatif).</p>
         </div></div></li>
       </ol>
       <div class="qsub">Q2.12 — Lecture sur la figure 2.2</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Repérer les abscisses</div><div class="sd">
-          <p>La figure trace \(\log n_i\) en fonction de \(\dfrac{1000}{T}\) : une exponentielle en \(\tfrac1T\) y devient une droite. Abscisses : \(\tfrac{1000}{300}=3{,}33\) et \(\tfrac{1000}{473}=2{,}11\).</p>
+          <p>La figure trace \(\log n_i\) en fonction de \(\dfrac{1000}{T}\) : une exponentielle en \(\tfrac1T\) y devient une droite. Abscisses : \(\tfrac{1000}{T_0}=\tfrac{1000}{300}=3{,}33\) et \(\tfrac{1000}{T_1}=\tfrac{1000}{473}=2{,}11\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Lire les ordonnées</div><div class="sd">
           <p>La droite du Ge perd environ 2 décades par unité d'abscisse (≈ \(10^{17}\ \text{cm}^{-3}\) à 1,5 ; ≈ \(10^{15}\) à 2,5). On lit <b>\(n_i\approx2\cdot10^{13}\ \text{cm}^{-3}\) à 300 K</b> et <b>≈ \(6\cdot10^{15}\ \text{cm}^{-3}\) à 473 K</b>.</p>
@@ -675,8 +675,8 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Conductivité</div><div class="sd">
           <p>Type N : \(n\approx N_D\), les trous sont négligeables.</p>
-          <div class="mq">\[\begin{gathered}\gamma=N_D\,e\,\mu_n=5\cdot10^{20}\times1{,}6\cdot10^{-19}\times0{,}13=10{,}4\ \text{S/m}\\[4pt] \rho=\frac1\gamma=96\ \text{m}\Omega\cdot\text{m}\end{gathered}\]</div>
-          <p>Rapport avec le silicium pur : \(\dfrac{10{,}4}{4{,}3\cdot10^{-4}}\approx24\,000\).</p>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\gamma&amp;=N_D\,e\,\mu_n\\ &amp;=5\cdot10^{20}\times1{,}6\cdot10^{-19}\times0{,}13\\ &amp;=10{,}4\ \text{S/m}\end{aligned}\\[4pt] \rho=\frac1\gamma=96\ \text{m}\Omega\cdot\text{m}\end{gathered}\]</div>
+          <p>Rapport avec le silicium pur : \(\dfrac{\gamma}{\gamma_{\text{pur}}}=\dfrac{10{,}4}{4{,}3\cdot10^{-4}}\approx24\,000\).</p>
         </div></div></li>
       </ol>
       <div class="qsub">ES2.2 — Concentrations sous éclairement</div>
@@ -713,10 +713,10 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Atomes, puis électrons libres par cm³</div><div class="sd">
-          <div class="mq">\[\begin{gathered}N_{\text{Al}}=\frac{2{,}7\times6{,}02\cdot10^{23}}{26{,}98}=6{,}0\cdot10^{22}\ \text{atomes/cm}^3\\[4pt] n=3\,N_{\text{Al}}=1{,}8\cdot10^{23}\ \text{cm}^{-3}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}N_{\text{Al}}&amp;=\frac{m_v\,\mathcal N_A}{M}\\ &amp;=\frac{2{,}7\times6{,}02\cdot10^{23}}{26{,}98}\\ &amp;=6{,}0\cdot10^{22}\ \text{atomes/cm}^3\end{aligned}\\[4pt]\begin{aligned}n&amp;=3\,N_{\text{Al}}\\ &amp;=3\times6{,}0\cdot10^{22}\\ &amp;=1{,}8\cdot10^{23}\ \text{cm}^{-3}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Mobilité</div><div class="sd">
-          <div class="mq">\[\begin{aligned}\mu &= \frac{1}{1{,}8\cdot10^{23}\times1{,}6\cdot10^{-19}\times2{,}65\cdot10^{-6}}\\ &= \frac1{0{,}0763}\\ &= 13\ \text{cm}^2/(\text{V}\cdot\text{s})\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}\mu &= \frac{1}{n\,e\,\rho}\\ &= \frac{1}{1{,}8\cdot10^{23}\times1{,}6\cdot10^{-19}\times2{,}65\cdot10^{-6}}\\ &= \frac1{0{,}0763}\\ &= 13\ \text{cm}^2/(\text{V}\cdot\text{s})\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(\mu_n\approx13\ \text{cm}^2/(\text{V}\cdot\text{s})=1{,}3\cdot10^{-3}\ \text{m}^2/(\text{V}\cdot\text{s})\).</div>
@@ -772,11 +772,11 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Nombre d'atomes</div><div class="sd">
-          <div class="mq">\[\begin{gathered}N=\frac{2{,}33\times6{,}02\cdot10^{23}}{28{,}086}=5{,}0\cdot10^{22}\ \text{atomes/cm}^3\\[3pt] \Longrightarrow\ n=5{,}0\cdot10^{22}\ \text{cm}^{-3}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}N&amp;=\frac{m_v\,\mathcal N_A}{M}\\ &amp;=\frac{2{,}33\times6{,}02\cdot10^{23}}{28{,}086}\\ &amp;=5{,}0\cdot10^{22}\ \text{atomes/cm}^3\end{aligned}\\[3pt] \Longrightarrow\ n=5{,}0\cdot10^{22}\ \text{cm}^{-3}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Comparaison avec la réalité</div><div class="sd">
           <div class="mq">\[\frac{n}{n_i}=\frac{5\cdot10^{22}}{10^{10}}=5\cdot10^{12}\]</div>
-          <p>Le vrai silicium a 5 000 milliards de fois moins d'électrons libres que ce « silicium métallique ». Avec une mobilité de 1 400 cm²/(V·s), sa résistivité serait de \(\dfrac{1}{5\cdot10^{22}\times1{,}6\cdot10^{-19}\times1400}\approx0{,}09\ \mu\Omega\cdot\text{cm}\), vingt fois meilleure que le cuivre.</p>
+          <p>Le vrai silicium a 5 000 milliards de fois moins d'électrons libres que ce « silicium métallique ». Avec une mobilité de 1 400 cm²/(V·s), sa résistivité serait de \(\rho=\dfrac{1}{n\,e\,\mu}=\dfrac{1}{5\cdot10^{22}\times1{,}6\cdot10^{-19}\times1400}\approx0{,}09\ \mu\Omega\cdot\text{cm}\), vingt fois meilleure que le cuivre.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(n=5\cdot10^{22}\) électrons/cm³, soit \(5\cdot10^{12}\) fois plus que \(n_i\).</div>
@@ -845,14 +845,14 @@
       <div class="qsub">AD3.14 — Courant dans la diode</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Générateur de Thévenin vu par la diode</div><div class="sd">
-          <div class="mq">\[\begin{gathered}E_{th}=2{,}86\ \text{V}\\[4pt] R_{th}=\frac{100\times40}{140}=28{,}6\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}E_{th}=2{,}86\ \text{V}\\[4pt]\begin{aligned}R_{th}&amp;=R_1\parallel R_2\\ &amp;=\frac{R_1R_2}{R_1+R_2}\\ &amp;=\frac{100\times40}{140}\\ &amp;=28{,}6\ \Omega\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Maille équivalente</div><div class="sd">
           <div class="mq">\[\begin{aligned}i &= \frac{E_{th}-V_S}{R_{th}}\\ &= \frac{2{,}86-0{,}7}{28{,}6}\\ &= 75{,}5\ \text{mA}\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Vérification par la loi des nœuds</div><div class="sd">
           <p>La diode impose \(V_A=0{,}7\ \text{V}\). Le courant de \(R_1\) se partage entre \(R_2\) et la diode :</p>
-          <div class="mq">\[i=\frac{10-0{,}7}{100}-\frac{0{,}7}{40}=93-17{,}5=75{,}5\ \text{mA}\ ✓\]</div>
+          <div class="mq">\[\begin{aligned}i&=\frac{E-V_A}{R_1}-\frac{V_A}{R_2}\\&=\frac{10-0{,}7}{100}-\frac{0{,}7}{40}=93-17{,}5=75{,}5\ \text{mA}\ ✓\end{aligned}\]</div>
           <p>\(i&gt;0\) : l'hypothèse « passante » est confirmée.</p>
         </div></div></li>
       </ol>
@@ -873,16 +873,16 @@
           <div class="fml"><span class="f">\(E=R\,I+V_S+r_d\,I\)</span><span class="leg">la tension de la source se répartit entre \(R\), le seuil et \(r_d\)</span></div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Isoler \(R\)</div><div class="sd">
-          <div class="mq">\[R=\frac{E-V_S}{I}-r_d=\frac{5-0{,}7}{0{,}020}-10=215-10=205\ \Omega\]</div>
+          <div class="mq">\[\begin{aligned}R&amp;=\frac{E-V_S}{I}-r_d\\ &amp;=\frac{5-0{,}7}{0{,}020}-10\\ &amp;=215-10\\ &amp;=205\ \Omega\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Choisir une valeur normalisée</div><div class="sd">
           <p>205 Ω n'existe pas en série E24. On prend 200 Ω et on vérifie le courant réel :</p>
-          <div class="mq">\[\begin{gathered}I=\frac{5-0{,}7}{200+10}=20{,}5\ \text{mA}\ \ (+2{,}5\,\%)\\[4pt] P_R=R\,I^2=200\times0{,}0205^2\approx84\ \text{mW}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}I&amp;=\frac{E-V_S}{R+r_d}\\ &amp;=\frac{5-0{,}7}{200+10}\\ &amp;=20{,}5\ \text{mA}\ \ (+2{,}5\,\%)\end{aligned}\\[4pt] P_R=R\,I^2=200\times0{,}0205^2\approx84\ \text{mW}\end{gathered}\]</div>
           <p>Une résistance ¼ W suffit.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(R=205\ \Omega\), soit 200 Ω en valeur normalisée.</div>
-      <div class="why"><b class="lab">Réalité des LED</b>Une vraie LED a un seuil bien plus élevé (≈ 1,8-2 V en rouge, ≈ 3 V en bleu ou blanc) : avec \(V_S=2\ \text{V}\), il faudrait \(R=\tfrac{3}{0{,}02}-10=140\ \Omega\). La datasheet donne \(V_F\) au courant nominal.</div>
+      <div class="why"><b class="lab">Réalité des LED</b>Une vraie LED a un seuil bien plus élevé (≈ 1,8-2 V en rouge, ≈ 3 V en bleu ou blanc) : avec \(V_S=2\ \text{V}\), il faudrait \(R=\tfrac{E-V_S}{I}-r_d=\tfrac{5-2}{0{,}02}-10=140\ \Omega\). La datasheet donne \(V_F\) au courant nominal.</div>
     </div></details>
   </article>
 
@@ -899,7 +899,7 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Seuils de conduction</div><div class="sd">
-          <div class="mq">\[\begin{gathered}D_1\ \text{conduit si}\ u_e-E_1&gt;0\iff u_e&gt;10\ \text{V}\\[4pt] D_2\ \text{conduit si}\ -E_2-u_e&gt;0\iff u_e&lt;-5\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}D_1\ \text{conduit si}\ u_e-E_1&gt;0\iff u_e&gt;10\ \text{V}\\[4pt]\begin{aligned}D_2\ \text{conduit si}\ -E_2-u_e&amp;&gt;\ 0\\ &amp;\iff\ u_e\\ &amp;&lt;\ -5\ \text{V}\end{aligned}\end{gathered}\]</div>
           <p>Les deux ne peuvent pas conduire en même temps.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Trois régimes</div><div class="sd">
@@ -907,7 +907,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Instants de basculement (pour le tracé)</div><div class="sd">
           <p>Période \(T=20\ \text{ms}\).</p>
-          <div class="mq">\[\begin{gathered}u_e=10 :\ \cos\omega t=\tfrac23\Rightarrow\omega t=48{,}2^\circ,\ t=2{,}7\ \text{ms}\\[4pt] u_e=-5 :\ \cos\omega t=-\tfrac13\Rightarrow\omega t=109{,}5^\circ,\ t=6{,}1\ \text{ms}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{gathered}u_e=10 :\ \cos\omega t=\tfrac23\\[2pt] \Rightarrow\ \omega t=48{,}2^\circ,\ t=2{,}7\ \text{ms}\end{gathered}\\[4pt]\begin{gathered}u_e=-5 :\ \cos\omega t=-\tfrac13\\[2pt] \Rightarrow\ \omega t=109{,}5^\circ,\ t=6{,}1\ \text{ms}\end{gathered}\end{gathered}\]</div>
           <p>Le plateau haut dure de −2,7 à +2,7 ms autour de chaque maximum, le plateau bas de 6,1 à 13,9 ms.</p>
         </div></div></li>
       </ol>
@@ -970,31 +970,31 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Maille</div><div class="sd">
           <p>\(E=5\ \text{V}\) est largement supérieur aux deux seuils cumulés (1,4 V) : les deux diodes conduisent.</p>
-          <div class="mq">\[\begin{gathered}E=0{,}7+0{,}7+R\,i\ \Longrightarrow\ i=\frac{5-1{,}4}{1\ \text{k}\Omega}=3{,}6\ \text{mA}\\[4pt] S=R\,i=3{,}6\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}E&amp;=2V_S+R\,i\\ &amp;\Longrightarrow\ i=\frac{E-2V_S}{R}=\frac{5-1{,}4}{1\ \text{k}\Omega}=3{,}6\ \text{mA}\end{aligned}\\[4pt] S=R\,i=3{,}6\ \text{V}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">(b) Maille entre +10 V et −5 V</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Tension totale disponible</div><div class="sd">
-          <p>Le courant circule du +10 V vers le −5 V : la tension totale dans la maille est \(10-(-5)=15\ \text{V}\), dont 0,7 V pour la diode.</p>
-          <div class="mq">\[\begin{gathered}i=\frac{10-(-5)-0{,}7}{R_1+R_2}=\frac{14{,}3}{7\ \text{k}\Omega}=2{,}04\ \text{mA}\\[4pt] S=R_2\,i=6{,}13\ \text{V}\end{gathered}\]</div>
-          <p>\(i&gt;0\) : diode passante ✓. Potentiel du nœud entre D et \(R_2\) : \(-5+6{,}13=+1{,}13\ \text{V}\).</p>
+          <p>Le courant circule du +10 V vers le −5 V : la tension totale dans la maille est \(E_1-E_2=10-(-5)=15\ \text{V}\), dont 0,7 V pour la diode.</p>
+          <div class="mq">\[\begin{gathered}i=\frac{E_1-E_2-V_S}{R_1+R_2}=\frac{14{,}3}{7\ \text{k}\Omega}=2{,}04\ \text{mA}\\[4pt] S=R_2\,i=6{,}13\ \text{V}\end{gathered}\]</div>
+          <p>\(i&gt;0\) : diode passante ✓. Potentiel du nœud entre D et \(R_2\) : \(V=E_2+R_2\,i=-5+6{,}13=+1{,}13\ \text{V}\).</p>
         </div></div></li>
       </ol>
       <div class="qsub">(c) Deux diodes en parallèle</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">La tension est fixée par les diodes</div><div class="sd">
-          <div class="mq">\[\begin{gathered}S=V_S=0{,}7\ \text{V}\\[4pt] i=\frac{10-0{,}7}{1\ \text{k}\Omega}=9{,}3\ \text{mA}\\[4pt] i_1=i_2=4{,}65\ \text{mA}\ \text{(diodes identiques)}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}S=V_S=0{,}7\ \text{V}\\[4pt] i=\frac{E-V_S}{R}=\frac{10-0{,}7}{1\ \text{k}\Omega}=9{,}3\ \text{mA}\\[4pt]\begin{aligned}i_1&amp;=i_2\\ &amp;=4{,}65\ \text{mA}\ \text{(diodes identiques)}\end{aligned}\end{gathered}\]</div>
           <p>Avec des modèles parfaits, la répartition est indéterminée. En réalité, la diode la plus chaude a un seuil plus bas, prend plus de courant, chauffe encore plus (emballement) : on met une petite résistance en série avec chaque diode (« ballast ») pour équilibrer.</p>
         </div></div></li>
       </ol>
       <div class="qsub">(d) OU à diodes</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Hypothèse « les deux passantes » : impossible</div><div class="sd">
-          <p>\(D_1\) passante imposerait \(V_A=2-0{,}7=1{,}3\ \text{V}\) ; \(D_2\) passante imposerait \(V_A=4-0{,}7=3{,}3\ \text{V}\). Un nœud ne peut pas avoir deux potentiels.</p>
+          <p>\(D_1\) passante imposerait \(V_A=E_1-V_S=2-0{,}7=1{,}3\ \text{V}\) ; \(D_2\) passante imposerait \(V_A=E_2-V_S=4-0{,}7=3{,}3\ \text{V}\). Un nœud ne peut pas avoir deux potentiels.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Hypothèse « \(D_2\) passante, \(D_1\) bloquée »</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_A=4-0{,}7=3{,}3\ \text{V}\\[4pt] V_{D1}=2-3{,}3=-1{,}3\ \text{V}&lt;0{,}7\ \text{V}\ \Rightarrow\ D_1\ \text{bloquée}\ ✓\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_A=E_2-V_S=4-0{,}7=3{,}3\ \text{V}\\[4pt]\begin{aligned}V_{D1}&amp;=E_1-V_A\\ &amp;=2-3{,}3\\ &amp;=-1{,}3\ \text{V}\\ &amp;&lt;\ 0{,}7\ \text{V}\\ &amp;\Rightarrow\ D_1\ \text{bloquée}\ ✓\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Courant et sortie</div><div class="sd">
           <div class="mq">\[\begin{gathered}i=\frac{V_A-(-1)}{R}=\frac{4{,}3}{1\ \text{k}\Omega}=4{,}3\ \text{mA}\\[4pt] S=4{,}3\ \text{V}\\[4pt] i_1=0,\ i_2=4{,}3\ \text{mA}\end{gathered}\]</div>
@@ -1051,13 +1051,13 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Pentes des segments (mA/V)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}[0\,;1] :\ \frac{1-0}{1}=1\\[4pt] [1\,;2] :\ \frac{4-1}{1}=3\\[4pt] [2\,;3] :\ \frac{9-4}{1}=5\\[4pt] [3\,;4] :\ \frac{25-9}{1}=16\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\text{pente}=\frac{\Delta I}{\Delta V}\\[4pt] [0\,;1] :\ \frac{1-0}{1}=1\\[4pt] [1\,;2] :\ \frac{4-1}{1}=3\\[4pt] [2\,;3] :\ \frac{9-4}{1}=5\\[4pt] [3\,;4] :\ \frac{25-9}{1}=16\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Branches</div><div class="sd">
           <div class="mq">\[\begin{aligned}\text{branche 1} :&amp;\ \ E_1=0,&amp;\ \frac1{R_1}&amp;=1\ \text{mA/V}&amp;\Rightarrow R_1&amp;=1\ \text{k}\Omega\\\text{branche 2} :&amp;\ \ E_2=1\ \text{V},&amp;\ \frac1{R_2}&amp;=3-1=2\ \text{mA/V}&amp;\Rightarrow R_2&amp;=500\ \Omega\\\text{branche 3} :&amp;\ \ E_3=2\ \text{V},&amp;\ \frac1{R_3}&amp;=5-3=2\ \text{mA/V}&amp;\Rightarrow R_3&amp;=500\ \Omega\\\text{branche 4} :&amp;\ \ E_4=3\ \text{V},&amp;\ \frac1{R_4}&amp;=16-5=11\ \text{mA/V}&amp;\Rightarrow R_4&amp;=91\ \Omega\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Vérification en un point</div><div class="sd">
-          <div class="mq">\[\begin{aligned}E &= 4\ \text{V} :\ \ \frac41+\frac{4-1}{0{,}5}+\frac{4-2}{0{,}5}+\frac{4-3}{0{,}091}\\ &= 4+6+4+11\\ &= 25\ \text{mA}\ ✓\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}I(E=4\ \text{V}) &= \frac{E}{R_1}+\frac{E-E_2}{R_2}+\frac{E-E_3}{R_3}+\frac{E-E_4}{R_4}\\ &= \frac41+\frac{4-1}{0{,}5}+\frac{4-2}{0{,}5}+\frac{4-3}{0{,}091}\\ &= 4+6+4+11\\ &= 25\ \text{mA}\ ✓\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(E_1=0\), \(R_1=1\ \text{k}\Omega\) ; \(E_2=1\ \text{V}\), \(R_2=500\ \Omega\) ; \(E_3=2\ \text{V}\), \(R_3=500\ \Omega\) ; \(E_4=3\ \text{V}\), \(R_4=91\ \Omega\).</div>
@@ -1075,7 +1075,7 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">\(u_e&lt;-30\ \text{V}\) : \(D_1\) bloquée</div><div class="sd">
-          <p>Si \(D_1\) est bloquée, B n'est relié qu'à −30 V (via \(R_1\)) et à C. Si \(D_2\) est aussi bloquée, aucun courant ne circule : \(V_B=V_C=-30\ \text{V}\). Vérifications : \(D_1\) a \(u_e-(-30)&lt;0\), bloquée ✓ ; \(D_2\) a \(-30-20=-50\ \text{V}\), bloquée ✓. Donc \(u_s=-30\ \text{V}\).</p>
+          <p>Si \(D_1\) est bloquée, B n'est relié qu'à −30 V (via \(R_1\)) et à C. Si \(D_2\) est aussi bloquée, aucun courant ne circule : \(V_B=V_C=-30\ \text{V}\). Vérifications : \(D_1\) a \(u_e-(-30)&lt;0\), bloquée ✓ ; \(D_2\) a \(V_B-20=-30-20=-50\ \text{V}\), bloquée ✓. Donc \(u_s=-30\ \text{V}\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(-30\ \text{V}&lt;u_e&lt;20\ \text{V}\) : \(D_1\) passante, \(D_2\) bloquée</div><div class="sd">
           <p>\(D_1\) idéale passante : \(V_B=u_e\) (un courant \(\tfrac{u_e+30}{R_1}&gt;0\) circule dans \(R_1\) ✓). \(D_2\) bloquée : pas de courant dans \(R_2\), donc \(V_C=V_B\). Vérification \(D_2\) : \(u_e-20&lt;0\) ✓. Donc \(u_s=u_e\).</p>
@@ -1147,26 +1147,26 @@
           <p>Ce courant ne dépend pas de la charge : la Zener « absorbe » ce que la charge ne prend pas.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Plage du courant de charge</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i_L=i-i_Z :\\[4pt] i_{L,\min}=178-100=78\ \text{mA}\\[4pt] i_{L,\max}=178-0=178\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}i_L=i-i_Z :\\[4pt] i_{L,\min}=i-i_{Z,\max}=178-100=78\ \text{mA}\\[4pt] i_{L,\max}=i-i_{Z,\min}=178-0=178\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Plage de \(R_L\)</div><div class="sd">
           <p>La charge est sous \(V_Z\) : \(R_L=\dfrac{V_Z}{i_L}\). Un grand courant correspond à une petite résistance.</p>
-          <div class="mq">\[\begin{gathered}R_{L,\min}=\frac{6{,}2}{0{,}178}=34{,}8\ \Omega\\[4pt] R_{L,\max}=\frac{6{,}2}{0{,}078}=79{,}5\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_{L,\min}=\frac{V_Z}{i_{L,\max}}=\frac{6{,}2}{0{,}178}=34{,}8\ \Omega\\[4pt] R_{L,\max}=\frac{V_Z}{i_{L,\min}}=\frac{6{,}2}{0{,}078}=79{,}5\ \Omega\end{gathered}\]</div>
           <p>Si \(R_L&gt;79{,}5\ \Omega\), la charge prend moins de 78 mA et la Zener devrait absorber plus de 100 mA : elle serait détruite. Si \(R_L&lt;34{,}8\ \Omega\), la charge demande plus que les 178 mA disponibles : la Zener se bloque et \(u_L\) chute sous 6,2 V.</p>
         </div></div></li>
       </ol>
       <div class="qsub">Partie 2 — \(R_L=220\ \Omega\) fixe, \(E\) variable</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant de charge (constant) et plage de \(i\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i_L=\frac{V_Z}{R_L}=\frac{6{,}2}{220}=28{,}2\ \text{mA}\\[4pt] i_{\min}=0+28{,}2=28{,}2\ \text{mA}\\[4pt] i_{\max}=100+28{,}2=128{,}2\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}i_L=\frac{V_Z}{R_L}=\frac{6{,}2}{220}=28{,}2\ \text{mA}\\[4pt] i_{\min}=i_{Z,\min}+i_L=0+28{,}2=28{,}2\ \text{mA}\\[4pt] i_{\max}=i_{Z,\max}+i_L=100+28{,}2=128{,}2\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Plage de \(E\)</div><div class="sd">
           <div class="fml"><span class="f">\(E=R\,i+V_Z\)</span><span class="leg">maille source → \(R\) → Zener</span></div>
-          <div class="mq">\[\begin{gathered}E_{\min}=100\times0{,}0282+6{,}2=9{,}0\ \text{V}\\[4pt] E_{\max}=100\times0{,}1282+6{,}2=19{,}0\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}E_{\min}&amp;=R\,i_{\min}+V_Z\\ &amp;=100\times0{,}0282+6{,}2\\ &amp;=9{,}0\ \text{V}\end{aligned}\\[4pt]\begin{aligned}E_{\max}&amp;=R\,i_{\max}+V_Z\\ &amp;=100\times0{,}1282+6{,}2\\ &amp;=19{,}0\ \text{V}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Charge déconnectée à \(E_{\max}\)</div><div class="sd">
           <p>Si la charge est débranchée, tout le courant passe dans la Zener :</p>
-          <div class="mq">\[\begin{gathered}i_Z=\frac{19-6{,}2}{100}=128\ \text{mA}&gt;100\ \text{mA}\\[3pt] \Longrightarrow\ \text{destruction de la Zener}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}i_Z&amp;=\frac{E_{\max}-V_Z}{R}\\ &amp;=\frac{19-6{,}2}{100}\\ &amp;=128\ \text{mA}\\ &amp;&gt;\ 100\ \text{mA}\end{aligned}\\[3pt] \Longrightarrow\ \text{destruction de la Zener}\end{gathered}\]</div>
           <p>Pour que le montage survive à une déconnexion, il faut limiter \(E\) à la valeur qui donne \(I_{Z,\max}\) à vide :</p>
           <div class="mq">\[E_{\max}=V_Z+R\,I_{Z,\max}=6{,}2+100\times0{,}1=16{,}2\ \text{V}\]</div>
         </div></div></li>
@@ -1206,17 +1206,17 @@
       <div class="qsub">AD4.15 — Zener idéale</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Maille \(E\) → \(R\) → Zener</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i=\frac{E-V_Z}{R} :\\[4pt] i_{\min}=\frac{20-10}{820}=12{,}2\ \text{mA}\\[4pt] i_{\max}=\frac{40-10}{820}=36{,}6\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}i=\frac{E-V_Z}{R} :\\[4pt] i_{\min}=\frac{E_{\min}-V_Z}{R}=\frac{20-10}{820}=12{,}2\ \text{mA}\\[4pt] i_{\max}=\frac{E_{\max}-V_Z}{R}=\frac{40-10}{820}=36{,}6\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">AD4.16 — Avec \(r_Z=7\ \Omega\)</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">\(r_Z\) s'ajoute à \(R\) dans la maille</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i=\frac{E-V_Z}{R+r_Z} :\\[4pt] i_{\min}=\frac{10}{827}=12{,}1\ \text{mA}\\[4pt] i_{\max}=\frac{30}{827}=36{,}3\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}i=\frac{E-V_Z}{R+r_Z} :\\[4pt] i_{\min}=\frac{E_{\min}-V_Z}{R+r_Z}=\frac{10}{827}=12{,}1\ \text{mA}\\[4pt] i_{\max}=\frac{E_{\max}-V_Z}{R+r_Z}=\frac{30}{827}=36{,}3\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Conséquence sur la sortie</div><div class="sd">
           <div class="mq">\[\begin{aligned}u_s &= V_Z+r_Z\,i :\quad10+7\times0{,}0121\\ &= 10{,}08\ \text{V}\ \ \longrightarrow\ \ 10+7\times0{,}0363\\ &= 10{,}25\ \text{V}\end{aligned}\]</div>
-          <p>Quand \(E\) varie de 20 V, la sortie ne varie que de 0,17 V : le coefficient de régulation vaut \(\tfrac{0{,}17}{20}\approx\tfrac{r_Z}{R+r_Z}\approx0{,}85\,\%\).</p>
+          <p>Quand \(E\) varie de 20 V, la sortie ne varie que de 0,17 V : le coefficient de régulation vaut \(\tfrac{\Delta V_s}{\Delta E}=\tfrac{0{,}17}{20}\approx\tfrac{r_Z}{R+r_Z}\approx0{,}85\,\%\).</p>
         </div></div></li>
       </ol>
       <div class="why"><b class="lab">Erreur du poly</b>L'A.N. de l'AD4.16 utilise 820 + 8 au lieu de 820 + 7 (\(i_{\max}=36{,}2\) au lieu de 36,3 mA).</div>
@@ -1239,7 +1239,7 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">États des diodes et maille</div><div class="sd">
           <p>Le courant sort de la source vers N : \(D_1\) est en direct (0,6 V). N est à un potentiel positif, donc \(D_2\) est bloquée. Le courant traverse \(R_1\) puis \(R_2\).</p>
-          <div class="mq">\[\begin{gathered}10=0{,}6+(R_1+R_2)\times0{,}01\\[3pt] \Longrightarrow\ R_1+R_2=\frac{9{,}4}{0{,}01}=940\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}u_e&amp;=V_S+(R_1+R_2)\,i\ :\ \ 10\\ &amp;=0{,}6+(R_1+R_2)\times0{,}01\end{aligned}\\[3pt] \Longrightarrow\ R_1+R_2=\frac{u_e-V_S}{i}=\frac{9{,}4}{0{,}01}=940\ \Omega\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Cas \(u_e=-10\ \text{V}\)</div>
@@ -1248,7 +1248,7 @@
           <p>Le courant circule de la masse vers la source. \(D_2\) est alors en direct : elle conduit et fixe \(V_N=-0{,}6\ \text{V}\). \(D_1\) est traversée à l'envers : c'est une Zener, elle fonctionne en régime Zener avec 3,2 V à ses bornes. \(R_2\), en parallèle sur \(D_2\), ne voit que 0,6 V.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Maille N → \(R_1\) → \(D_1\) → source</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_N-u_e=R_1\,|i|+V_Z\ \Longrightarrow\ -0{,}6+10=0{,}01\,R_1+3{,}2\ \Longrightarrow\ R_1=620\ \Omega\\[4pt] R_2=940-620=320\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_N-u_e&amp;=R_1\,|i|+V_Z\\ &amp;\Longrightarrow\ -0{,}6+10=0{,}01\,R_1+3{,}2\\ &amp;\Longrightarrow\ R_1=620\ \Omega\end{aligned}\\[4pt] R_2=(R_1+R_2)-R_1=940-620=320\ \Omega\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Vérification des hypothèses</div>
@@ -1272,7 +1272,7 @@
       <div class="qsub">Q4.2 — Valeur de \(R\)</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Zener bloquée à 40 V</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R+R_L=\frac Ei=\frac{40}{0{,}02}=2\ \text{k}\Omega\\[3pt] \Longrightarrow\ R=2000-1800=200\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R+R_L=\frac Ei=\frac{40}{0{,}02}=2\ \text{k}\Omega\\[3pt]\begin{aligned}\Longrightarrow\ \ R&amp;=(R+R_L)-R_L\\ &amp;=2000-1800\\ &amp;=200\ \Omega\end{aligned}\end{gathered}\]</div>
           <p>Contrôle : \(u_s=R_L\,i=1{,}8\ \text{k}\Omega\times20\ \text{mA}=36\ \text{V}&lt;45\ \text{V}\), Zener bien bloquée ✓.</p>
         </div></div></li>
       </ol>
@@ -1286,8 +1286,8 @@
       <div class="qsub">Q4.5 — Courant Zener à 60 V</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Loi d'Ohm sur \(R\), puis loi des nœuds</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i=\frac{60-45}{200}=75\ \text{mA}\\[4pt] i_L=\frac{45}{1800}=25\ \text{mA}\\[4pt] i_Z=i-i_L=50\ \text{mA}\end{gathered}\]</div>
-          <p>Puissance dissipée par la Zener : \(45\times0{,}05=2{,}25\ \text{W}\), il faut un composant de puissance (boîtier ≥ 3 W).</p>
+          <div class="mq">\[\begin{gathered}i=\frac{E-V_Z}{R}=\frac{60-45}{200}=75\ \text{mA}\\[4pt] i_L=\frac{V_Z}{R_L}=\frac{45}{1800}=25\ \text{mA}\\[4pt] i_Z=i-i_L=50\ \text{mA}\end{gathered}\]</div>
+          <p>Puissance dissipée par la Zener : \(P_Z=V_Z\,i_Z=45\times0{,}05=2{,}25\ \text{W}\), il faut un composant de puissance (boîtier ≥ 3 W).</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(R=200\ \Omega\) ; régulation pour \(E\geq50\ \text{V}\) ; \(i_Z=50\ \text{mA}\) à 60 V.</div>
@@ -1304,14 +1304,14 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">ES4.1 — Tension régulée</div><div class="sd">
-          <div class="mq">\[u_L=15+15=30\ \text{V}\qquad i_L=\frac{30}{100}=0{,}3\ \text{A}\]</div>
+          <div class="mq">\[\begin{gathered}u_L=V_{Z1}+V_{Z2}=15+15=30\ \text{V}\\[4pt] i_L=\frac{u_L}{R_L}=\frac{30}{100}=0{,}3\ \text{A}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(R\) minimale : la Zener au maximum</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i_{\max}=I_{Z,\max}+i_L=0{,}5\ \text{A}\\[3pt] \Longrightarrow\ R_{\min}=\frac{45-30}{0{,}5}=30\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}i_{\max}=I_{Z,\max}+i_L=0{,}5\ \text{A}\\[3pt] \Longrightarrow\ R_{\min}=\frac{E-u_L}{i_{\max}}=\frac{45-30}{0{,}5}=30\ \Omega\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(R\) maximale : la Zener à la limite de conduction</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i_{\min}=0+i_L=0{,}3\ \text{A}\\[3pt] \Longrightarrow\ R_{\max}=\frac{15}{0{,}3}=50\ \Omega\end{gathered}\]</div>
-          <p>Contrôle par le pont diviseur : \(45\times\tfrac{100}{100+50}=30\ \text{V}\) ✓.</p>
+          <div class="mq">\[\begin{gathered}i_{\min}=0+i_L=0{,}3\ \text{A}\\[3pt] \Longrightarrow\ R_{\max}=\frac{E-u_L}{i_{\min}}=\frac{15}{0{,}3}=50\ \Omega\end{gathered}\]</div>
+          <p>Contrôle par le pont diviseur : \(u_L=E\,\tfrac{R_L}{R_L+R_{\max}}=45\times\tfrac{100}{100+50}=30\ \text{V}\) ✓.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(u_L=30\ \text{V}\) ; \(30\ \Omega\leq R\leq50\ \Omega\).</div>
@@ -1327,11 +1327,11 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant de charge et pires cas</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i_L=\frac{18}{18}=1\ \text{A}\\[4pt] R_{\max}=\frac{22-18}{0{,}2+1}=3{,}33\ \Omega\\[4pt] R_{\min}=\frac{28-18}{2+1}=3{,}33\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}i_L=\frac{V_Z}{R_L}=\frac{18}{18}=1\ \text{A}\\[4pt] R_{\max}=\frac{E_{\min}-V_Z}{I_{Z,\min}+i_L}=\frac{22-18}{0{,}2+1}=3{,}33\ \Omega\\[4pt] R_{\min}=\frac{E_{\max}-V_Z}{I_{Z,\max}+i_L}=\frac{28-18}{2+1}=3{,}33\ \Omega\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>La « plage » se réduit à une seule valeur : \(R=\tfrac{10}{3}\approx3{,}33\ \Omega\), sans aucune marge.</div>
-      <div class="why"><b class="lab">Regard d'ingénieur</b>Le résultat montre que ce cahier des charges est à la limite : la moindre tolérance sur \(R\) (±5 %) fait sortir de la zone de régulation ou détruit la Zener. En plus, la Zener dissiperait jusqu'à \(18\times2=36\ \text{W}\) et \(R\) jusqu'à 30 W : on utilise plutôt un régulateur à transistor (Ex 5.9) ou un régulateur intégré (7818).</div>
+      <div class="why"><b class="lab">Regard d'ingénieur</b>Le résultat montre que ce cahier des charges est à la limite : la moindre tolérance sur \(R\) (±5 %) fait sortir de la zone de régulation ou détruit la Zener. En plus, la Zener dissiperait jusqu'à \(P_{Z,\max}=V_Z\,I_{Z,\max}=18\times2=36\ \text{W}\) et \(R\) jusqu'à 30 W : on utilise plutôt un régulateur à transistor (Ex 5.9) ou un régulateur intégré (7818).</div>
     </div></details>
   </article>
 
@@ -1344,10 +1344,10 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Test de conduction</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\text{tension à vide}=120\times\frac{10}{5+10}=80\ \text{V}&gt;50\ \text{V}\\[3pt] \Longrightarrow\ \text{la Zener conduit},\ u_L=V_Z=50\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\text{tension à vide}&amp;=E\,\frac{R_L}{R+R_L}\\ &amp;=120\times\frac{10}{5+10}\\ &amp;=80\ \text{V}\\ &amp;&gt;\ 50\ \text{V}\end{aligned}\\[3pt] \Longrightarrow\ \text{la Zener conduit},\ u_L=V_Z=50\ \text{V}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">ES4.5 — Courant Zener</div><div class="sd">
-          <div class="mq">\[\begin{gathered}i=\frac{120-50}{5\ \text{k}\Omega}=14\ \text{mA}\\[4pt] i_L=\frac{50}{10\ \text{k}\Omega}=5\ \text{mA}\\[4pt] i_Z=14-5=9\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}i=\frac{E-V_Z}{R}=\frac{120-50}{5\ \text{k}\Omega}=14\ \text{mA}\\[4pt] i_L=\frac{V_Z}{R_L}=\frac{50}{10\ \text{k}\Omega}=5\ \text{mA}\\[4pt] i_Z=i-i_L=14-5=9\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(u_L=50\ \text{V}\) ; \(i_Z=9\ \text{mA}\).</div>
@@ -1379,22 +1379,22 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Maille d'entrée : \(V_{CC}\) → \(R_B\) → jonction B-E → masse</div><div class="sd">
           <div class="fml"><span class="f">\(V_{CC}=R_B\,I_B+V_{BE}\)</span><span class="leg">la jonction B-E passante se comporte comme une diode (0,7 V)</span></div>
-          <div class="mq">\[I_B=\frac{10-0{,}7}{10\ \text{k}\Omega}=0{,}93\ \text{mA}\]</div>
+          <div class="mq">\[\begin{aligned}I_B &= \frac{V_{CC}-V_{BE}}{R_B}\\ &= \frac{10-0{,}7}{10\ \text{k}\Omega}\\ &= 0{,}93\ \text{mA}\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Hypothèse linéaire, maille de sortie et vérification</div><div class="sd">
           <div class="fml"><span class="f">\(V_{CC}=R_C\,I_C+V_{CE}\)</span><span class="leg">maille \(V_{CC}\) → \(R_C\) → C-E → masse</span></div>
-          <div class="mq">\[\begin{gathered}I_C=\beta I_B=93\ \text{mA}\\[4pt] V_{CE}=10-50\times0{,}093=5{,}35\ \text{V}&gt;0{,}2\ \text{V}\ \Rightarrow\ \text{linéaire confirmé}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_C=\beta I_B=100\times0{,}93=93\ \text{mA}\\[4pt]\begin{aligned}V_{CE}&amp;=V_{CC}-R_C\,I_C\\ &amp;=10-50\times0{,}093\\ &amp;=5{,}35\ \text{V}\\ &amp;&gt;\ 0{,}2\ \text{V}\\ &amp;\Rightarrow\ \text{linéaire confirmé}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">AD5.2 — \(R_C=1\ \text{k}\Omega\)</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Même \(I_B\), nouvelle vérification</div><div class="sd">
           <p>La maille d'entrée ne change pas : \(I_B=0{,}93\ \text{mA}\). En supposant le régime linéaire :</p>
-          <div class="mq">\[V_{CE}=10-1000\times0{,}093=-83\ \text{V}\quad\text{impossible !}\]</div>
+          <div class="mq">\[\begin{aligned}V_{CE} &= V_{CC}-R_C\,I_C\\ &= 10-1000\times0{,}093\\ &= -83\ \text{V}\quad\text{impossible !}\end{aligned}\]</div>
           <p>Il faudrait 93 V aux bornes de \(R_C\) alors que l'alimentation n'en fournit que 10. Le transistor est <b>saturé</b>.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Courant réel</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{CE}=V_{CE,\text{sat}}=0{,}2\ \text{V}\\[3pt] \Longrightarrow\ I_C=\frac{10-0{,}2}{1\ \text{k}\Omega}=9{,}8\ \text{mA}\ \ \ll\ \beta I_B=93\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_{CE}=V_{CE,\text{sat}}=0{,}2\ \text{V}\\[3pt]\begin{aligned}\Longrightarrow\ \ I_C&amp;=\frac{V_{CC}-V_{CE,\text{sat}}}{R_C}\\ &amp;=\frac{10-0{,}2}{1\ \text{k}\Omega}\\ &amp;=9{,}8\ \text{mA}\\ &amp;\ll\ \beta I_B=93\ \text{mA}\end{aligned}\end{gathered}\]</div>
           <p>Lecture graphique : la droite de charge va de \((0\,;\,V_{CC}/R_C)\) à \((V_{CC}\,;\,0)\). Avec 50 Ω, elle part de 200 mA et coupe la courbe \(I_B=0{,}93\ \text{mA}\) au milieu (5,35 V ; 93 mA). Avec 1 kΩ, elle ne monte qu'à 10 mA : elle coupe la même courbe dans la zone de saturation, en (0,2 V ; 9,8 mA).</p>
         </div></div></li>
       </ol>
@@ -1426,7 +1426,7 @@
       <div class="qsub">AD5.4 — Courants et potentiels</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant de base</div><div class="sd">
-          <div class="mq">\[\begin{gathered}(\beta+1)R_E=201\times70=14{,}07\ \text{k}\Omega\\[4pt] I_B=\frac{15-0{,}7}{14\ \text{k}+14{,}07\ \text{k}}=\frac{14{,}3}{28{,}07\ \text{k}\Omega}=509\ \mu\text{A}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}(\beta+1)R_E=201\times70=14{,}07\ \text{k}\Omega\\[4pt]\begin{aligned}I_B&amp;=\frac{V_{CC}-V_{BE}}{R_B+(\beta+1)R_E}\\ &amp;=\frac{15-0{,}7}{14\ \text{k}+14{,}07\ \text{k}}\\ &amp;=\frac{14{,}3}{28{,}07\ \text{k}\Omega}\\ &amp;=509\ \mu\text{A}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Courants collecteur et émetteur</div><div class="sd">
           <div class="mq">\[\begin{gathered}I_C=\beta I_B=102\ \text{mA}\\[4pt] I_E=(\beta+1)I_B=102{,}4\ \text{mA}\end{gathered}\]</div>
@@ -1438,7 +1438,7 @@
       <div class="qsub">AD5.5 — État des jonctions</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Signes de \(V_{BE}\) et \(V_{BC}\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{BE}=+0{,}7\ \text{V}\ \Rightarrow\ \text{B-E en direct}\\[4pt] V_{BC}=V_B-V_C=7{,}87-9{,}9=-2{,}0\ \text{V}\ \Rightarrow\ \text{B-C en inverse}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_{BE}=+0{,}7\ \text{V}\ \Rightarrow\ \text{B-E en direct}\\[4pt]\begin{aligned}V_{BC}&amp;=V_B-V_C\\ &amp;=7{,}87-9{,}9\\ &amp;=-2{,}0\ \text{V}\\ &amp;\Rightarrow\ \text{B-C en inverse}\end{aligned}\end{gathered}\]</div>
           <p>B-E en direct et B-C en inverse : c'est la définition du <b>régime actif</b>, celui où le transistor amplifie. (Les deux en direct = saturation ; les deux en inverse = blocage.)</p>
         </div></div></li>
       </ol>
@@ -1464,14 +1464,14 @@
           <div class="mq">\[\begin{gathered}I_C=\beta I_B=150\times100\ \mu\text{A}=15\ \text{mA}\\[4pt] I_E=(\beta+1)I_B=15{,}1\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(R_C\) et \(R_E\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_C=\frac{V_{CC}-V_C}{I_C}=\frac{10-6}{15\ \text{mA}}=267\ \Omega\to270\ \Omega\ (\text{E12})\\[4pt] R_E=\frac{V_E}{I_E}=\frac{2}{15{,}1\ \text{mA}}=132\ \Omega\to130\ \Omega\ (\text{E24})\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}R_C&amp;=\frac{V_{CC}-V_C}{I_C}\\ &amp;=\frac{10-6}{15\ \text{mA}}\\ &amp;=267\ \Omega\to270\ \Omega\ (\text{E12})\end{aligned}\\[4pt]\begin{aligned}R_E&amp;=\frac{V_E}{I_E}\\ &amp;=\frac{2}{15{,}1\ \text{mA}}\\ &amp;=132\ \Omega\to130\ \Omega\ (\text{E24})\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Potentiel de base</div><div class="sd">
           <div class="mq">\[V_B=V_E+V_{BE}=2+0{,}7=2{,}7\ \text{V}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(R_1\) par la loi des nœuds à la base</div><div class="sd">
           <div class="fml"><span class="f">\(I_1=I_2+I_B\iff\dfrac{V_{CC}-V_B}{R_1}=\dfrac{V_B}{R_2}+I_B\)</span><span class="leg">\(I_1\) : courant dans \(R_1\) ; \(I_2\) : courant dans \(R_2\)</span></div>
-          <div class="mq">\[\begin{gathered}I_2=\frac{2{,}7}{10\ \text{k}\Omega}=270\ \mu\text{A}\\[4pt] I_1=270+100=370\ \mu\text{A}\\[4pt] R_1=\frac{10-2{,}7}{370\ \mu\text{A}}=19{,}7\ \text{k}\Omega\to20\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_2=\frac{V_B}{R_2}=\frac{2{,}7}{10\ \text{k}\Omega}=270\ \mu\text{A}\\[4pt] I_1=I_2+I_B=270+100=370\ \mu\text{A}\\[4pt]\begin{aligned}R_1&amp;=\frac{V_{CC}-V_B}{I_1}\\ &amp;=\frac{10-2{,}7}{370\ \mu\text{A}}\\ &amp;=19{,}7\ \text{k}\Omega\to20\ \text{k}\Omega\end{aligned}\end{gathered}\]</div>
           <p>Si on avait oublié \(I_B\) (pont « à vide »), on aurait trouvé \(R_1=27\ \text{k}\Omega\) : ici \(I_B\) n'est pas négligeable devant \(I_2\).</p>
         </div></div></li>
       </ol>
@@ -1493,20 +1493,20 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Remonter à la base</div><div class="sd">
           <div class="mq">\[\begin{gathered}I_B=\frac{I_C}{\beta}=1\ \text{mA}\\[4pt] R_B=\frac{V_{CC}-V_{BE}}{I_B}=\frac{12-0{,}7}{1\ \text{mA}}=11{,}3\ \text{k}\Omega\end{gathered}\]</div>
-          <p>Vérification : \(V_{CE}=12-60\times0{,}1=6\ \text{V}&gt;V_{CE,\text{sat}}\) ✓.</p>
+          <p>Vérification : \(V_{CE}=V_{CC}-R_L\,I_C=12-60\times0{,}1=6\ \text{V}&gt;V_{CE,\text{sat}}\) ✓.</p>
         </div></div></li>
       </ol>
       <div class="qsub">Q5.2 et Q5.3 — Courant maximal et \(R_B\) limite</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Transistor saturé</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_{C,\max}=\frac{V_{CC}-V_{CE,\text{sat}}}{R_L}\approx\frac{12}{60}=200\ \text{mA}\\[4pt] I_B=\frac{200\ \text{mA}}{100}=2\ \text{mA}\ \Rightarrow\ R_B=\frac{11{,}3}{2\ \text{mA}}=5{,}65\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_{C,\max}=\frac{V_{CC}-V_{CE,\text{sat}}}{R_L}\approx\frac{12}{60}=200\ \text{mA}\\[4pt]\begin{aligned}I_B&amp;=\frac{I_{C,\max}}{\beta}\\ &amp;=\frac{200\ \text{mA}}{100}\\ &amp;=2\ \text{mA}\\ &amp;\Rightarrow\ R_B=\frac{V_{CC}-V_{BE}}{I_B}=\frac{11{,}3}{2\ \text{mA}}=5{,}65\ \text{k}\Omega\end{aligned}\end{gathered}\]</div>
           <p>\(R_B&gt;5{,}65\ \text{k}\Omega\) : régime linéaire ; \(R_B&lt;5{,}65\ \text{k}\Omega\) : saturation. Au-delà de 200 mA, augmenter \(I_B\) ne sert plus à rien.</p>
         </div></div></li>
       </ol>
       <div class="qsub">Q5.4 — Point \(V_{CE}=6\ \text{V}\), \(I_C=3{,}6\ \text{mA}\)</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Résistances</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_C=\frac{12-6}{3{,}6\ \text{mA}}=1{,}67\ \text{k}\Omega\\[4pt] I_B=36\ \mu\text{A}\ \Rightarrow\ R_B=\frac{11{,}3}{36\ \mu\text{A}}=314\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_C=\frac{V_{CC}-V_{CE}}{I_C}=\frac{12-6}{3{,}6\ \text{mA}}=1{,}67\ \text{k}\Omega\\[4pt]\begin{aligned}I_B&amp;=\frac{I_C}{\beta}\\ &amp;=36\ \mu\text{A}\\ &amp;\Rightarrow\ R_B=\frac{V_{CC}-V_{BE}}{I_B}=\frac{11{,}3}{36\ \mu\text{A}}=314\ \text{k}\Omega\end{aligned}\end{gathered}\]</div>
           <p>Ce point est au milieu de la droite de charge (\(V_{CE}=\tfrac{V_{CC}}2\)) : c'est le choix qui permet la plus grande excursion symétrique du signal en amplification.</p>
         </div></div></li>
       </ol>
@@ -1533,7 +1533,7 @@
       <div class="qsub">Q5.6 — Équivalence à deux sources</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Thévenin du pont</div><div class="sd">
-          <div class="mq">\[\begin{gathered}E_{th}=12\times\frac{1}{17}=0{,}706\ \text{V}\\[4pt] R_{th}=\frac{16\ \text{k}\times1\ \text{k}}{17\ \text{k}}=941\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}E_{th}=V_{CC}\,\frac{R_2}{R_1+R_2}=12\times\frac{1}{17}=0{,}706\ \text{V}\\[4pt] R_{th}=\frac{R_1R_2}{R_1+R_2}=\frac{16\ \text{k}\times1\ \text{k}}{17\ \text{k}}=941\ \Omega\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q5.7 — Droites statiques</div>
@@ -1546,10 +1546,10 @@
       <div class="qsub">Q5.8 — Point de fonctionnement</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Sur les deux droites</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{BE}=0{,}706-941\times100\ \mu\text{A}=0{,}61\ \text{V}\\[4pt] I_C=\frac{12-6}{240}=25\ \text{mA}\\[4pt] I_E=I_C+I_B=25{,}1\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_{BE}&amp;=E_{th}-R_{th}\,I_B\\ &amp;=0{,}706-941\times100\ \mu\text{A}\\ &amp;=0{,}61\ \text{V}\end{aligned}\\[4pt] I_C=\frac{V_{CC}-V_{CE}}{R_C}=\frac{12-6}{240}=25\ \text{mA}\\[4pt] I_E=I_C+I_B=25{,}1\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Contrôle sur le pont réel</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_1=\frac{12-0{,}61}{16\ \text{k}}=0{,}712\ \text{mA}\\[4pt] I_2=\frac{0{,}61}{1\ \text{k}}=0{,}612\ \text{mA}\\[4pt] I_1-I_2=100\ \mu\text{A}=I_B\ ✓\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_1=\frac{V_{CC}-V_{BE}}{R_1}=\frac{12-0{,}61}{16\ \text{k}}=0{,}712\ \text{mA}\\[4pt] I_2=\frac{V_{BE}}{R_2}=\frac{0{,}61}{1\ \text{k}}=0{,}612\ \text{mA}\\[4pt] I_1-I_2=100\ \mu\text{A}=I_B\ ✓\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Jonction base-collecteur</div><div class="sd">
           <div class="mq">\[V_{BC}=V_{BE}-V_{CE}=0{,}61-6=-5{,}4\ \text{V}&lt;0\]</div>
@@ -1580,7 +1580,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">ES5.2 — \(R_C\) : maille du collecteur, transistor saturé</div><div class="sd">
           <div class="fml"><span class="f">\(V_{CC}=R_C\,I+V_{LED}+V_{CE,\text{sat}}\)</span><span class="leg">la tension restante tombe dans \(R_C\)</span></div>
-          <div class="mq">\[R_C=\frac{5-1{,}6-0{,}2}{20\ \text{mA}}=160\ \Omega\]</div>
+          <div class="mq">\[\begin{aligned}R_C &= \frac{V_{CC}-V_{LED}-V_{CE,\text{sat}}}{I}\\ &= \frac{5-1{,}6-0{,}2}{20\ \text{mA}}\\ &= 160\ \Omega\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(R_B\) : maille de base (pire cas \(V_{OH,\min}\))</div><div class="sd">
           <div class="mq">\[\begin{gathered}I_B=\frac{I_C}{\beta}=200\ \mu\text{A}\ (\leq400\ \mu\text{A}\ ✓)\\[4pt] R_B=\frac{V_{OH}-V_{BE}}{I_B}=\frac{2{,}4-0{,}7}{200\ \mu\text{A}}=8{,}5\ \text{k}\Omega\end{gathered}\]</div>
@@ -1601,7 +1601,7 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant de saturation puis courant de base</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_{C,\text{sat}}=\frac{12-0{,}1}{1\ \text{k}\Omega}=11{,}9\ \text{mA}\\[4pt] I_{B,\min}=\frac{I_{C,\text{sat}}}{\beta}=119\ \mu\text{A}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_{C,\text{sat}}=\frac{V_{CC}-V_{CE,\text{sat}}}{R_C}=\frac{12-0{,}1}{1\ \text{k}\Omega}=11{,}9\ \text{mA}\\[4pt] I_{B,\min}=\frac{I_{C,\text{sat}}}{\beta}=119\ \mu\text{A}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(I_B\geq119\ \mu\text{A}\).</div>
@@ -1622,11 +1622,11 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Entrées 5 / 0 (ou 0 / 5)</div><div class="sd">
           <p>Si le transistor conduit, \(V_B=0{,}7\ \text{V}\). Loi des nœuds : le courant arrive par la résistance reliée à 5 V, une partie repart vers l'entrée à 0 V.</p>
-          <div class="mq">\[\begin{aligned}I_B &= \frac{5-0{,}7}{10\ \text{k}}+\frac{0-0{,}7}{10\ \text{k}}\\ &= 0{,}43-0{,}07\\ &= 0{,}36\ \text{mA}\end{aligned}\]</div>
-          <div class="mq">\[\begin{gathered}\text{linéaire} :\ V_{OUT}=5-1000\times0{,}036=-31\ \text{V}\ \text{impossible}\\[3pt] \Rightarrow\ \text{saturé},\ V_{OUT}\approx0\ \text{(niveau 0)}\end{gathered}\]</div>
+          <div class="mq">\[\begin{aligned}I_B &= \frac{V_{A}-V_B}{R}+\frac{V_{B'}-V_B}{R}\\ &= \frac{5-0{,}7}{10\ \text{k}}+\frac{0-0{,}7}{10\ \text{k}}\\ &= 0{,}43-0{,}07\\ &= 0{,}36\ \text{mA}\end{aligned}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\text{linéaire} :\ V_{OUT}&amp;=V_{CC}-R_C\,\beta I_B\\ &amp;=5-1000\times0{,}036\\ &amp;=-31\ \text{V}\ \text{impossible}\end{aligned}\\[3pt] \Rightarrow\ \text{saturé},\ V_{OUT}\approx0\ \text{(niveau 0)}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Entrées 5 / 5</div><div class="sd">
-          <p>\(I_B=2\times0{,}43=0{,}86\ \text{mA}\) : saturé encore plus nettement, \(V_{OUT}\approx0\).</p>
+          <p>\(I_B=2\times\frac{5-V_B}{R}=2\times0{,}43=0{,}86\ \text{mA}\) : saturé encore plus nettement, \(V_{OUT}\approx0\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Table de vérité</div><div class="sd">
           <div class="mq">\[\begin{array}{cc|c}A&amp;B&amp;S\\\hline0&amp;0&amp;1\\0&amp;1&amp;0\\1&amp;0&amp;0\\1&amp;1&amp;0\end{array}\qquad\Longrightarrow\qquad S=\overline{A+B}\ \ \text{(NOR)}\]</div>
@@ -1647,11 +1647,11 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Base, courant dans \(R_1\), sortie</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_B=V_Z=5{,}6\ \text{V}\\[4pt] I_{R1}=\frac{12-5{,}6}{180}=35{,}6\ \text{mA}\\[4pt] V_E=V_B-V_{BE}=5{,}0\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_B=V_Z=5{,}6\ \text{V}\\[4pt] I_{R1}=\frac{V_{CC}-V_Z}{R_1}=\frac{12-5{,}6}{180}=35{,}6\ \text{mA}\\[4pt] V_E=V_B-V_{BE}=5{,}0\ \text{V}\end{gathered}\]</div>
           <p>Le courant \(I_{R1}\) se partage entre la Zener et la base.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">LED témoin et tension aux bornes du transistor</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_{LED}=\frac{5-2}{220+10}=13\ \text{mA}\\[4pt] V_{CE}=V_{CC}-V_E=12-5=7\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_{LED}=\frac{V_E-V_{LED}}{R_{LED}+r_d}=\frac{5-2}{220+10}=13\ \text{mA}\\[4pt] V_{CE}=V_{CC}-V_E=12-5=7\ \text{V}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(V_B=5{,}6\ \text{V}\), \(I_{R1}=35{,}6\ \text{mA}\), \(V_E=5\ \text{V}\), \(I_{LED}=13\ \text{mA}\), \(V_{CE}=7\ \text{V}\).</div>
@@ -1675,7 +1675,7 @@
           <p>La branche de la terre est ouverte : \(E_{th}=V_{CC}=3\ \text{V}\) et \(R_{th}=R_B\). Tout le courant de \(R_B\) va dans la base : le transistor conduit, la LED s'allume.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Dimensionnement (transistor saturé)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_C=\frac{V_{CC}-V_{LED}-V_{CE,\text{sat}}}{I}=\frac{3-2-0{,}2}{20\ \text{mA}}=40\ \Omega\\[4pt] I_B=\frac{20\ \text{mA}}{100}=200\ \mu\text{A}\ \Rightarrow\ R_B=\frac{3-0{,}6}{200\ \mu\text{A}}=12\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}R_C&amp;=\frac{V_{CC}-V_{LED}-V_{CE,\text{sat}}}{I}\\ &amp;=\frac{3-2-0{,}2}{20\ \text{mA}}\\ &amp;=40\ \Omega\end{aligned}\\[4pt]\begin{aligned}I_B&amp;=\frac{I}{\beta}\\ &amp;=\frac{20\ \text{mA}}{100}\\ &amp;=200\ \mu\text{A}\\ &amp;\Rightarrow\ R_B=\frac{V_{CC}-V_{BE}}{I_B}=\frac{3-0{,}6}{200\ \mu\text{A}}=12\ \text{k}\Omega\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(R_B=12\ \text{k}\Omega\), \(R_C=40\ \Omega\).</div>
@@ -1705,13 +1705,13 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant de repos</div><div class="sd">
           <p>En continu, les condensateurs sont des circuits ouverts : il reste \(V_{CC}\) → \(R_1\) → base → émetteur → masse.</p>
-          <div class="mq">\[\begin{gathered}I_B=\frac{12-0{,}7}{270\ \text{k}\Omega}=41{,}9\ \mu\text{A}\\[4pt] I_E=(\beta+1)\,I_B=61\times41{,}9\ \mu\text{A}=2{,}55\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_B=\frac{V_{CC}-V_{BE}}{R_1}=\frac{12-0{,}7}{270\ \text{k}\Omega}=41{,}9\ \mu\text{A}\\[4pt] I_E=(\beta+1)\,I_B=61\times41{,}9\ \mu\text{A}=2{,}55\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">AD6.2 — Résistance dynamique d'émetteur</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">\(r_e\)</div><div class="sd">
-          <div class="mq">\[r_e=\frac{26\ \text{mV}}{2{,}55\ \text{mA}}=10{,}2\ \Omega\]</div>
+          <div class="mq">\[\begin{aligned}r_e &= \frac{V_T}{I_E}\\ &= \frac{26\ \text{mV}}{2{,}55\ \text{mA}}\\ &= 10{,}2\ \Omega\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">AD6.1 — Schéma équivalent</div>
@@ -1727,12 +1727,12 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Impédance d'entrée</div><div class="sd">
           <p>C'est ce que « voit » la source : \(R_1\) en parallèle avec \((\beta+1)r_e\).</p>
-          <div class="mq">\[\begin{gathered}(\beta+1)\,r_e=61\times10{,}2=621\ \Omega\\[4pt] Z_i=270\ \text{k}\parallel621=620\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}(\beta+1)\,r_e=61\times10{,}2=621\ \Omega\\[4pt]\begin{aligned}Z_i&amp;=R_1\parallel(\beta+1)\,r_e\\ &amp;=270\ \text{k}\parallel621\\ &amp;=620\ \Omega\end{aligned}\end{gathered}\]</div>
           <p>\(R_1\) ne compte presque pas.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Impédance de sortie</div><div class="sd">
           <p>On éteint la source d'entrée : \(i_b=0\), donc la source \(\beta i_b\) est éteinte (circuit ouvert). Il reste \(r_o\parallel R_2\).</p>
-          <div class="mq">\[Z_o=40\ \text{k}\parallel2{,}2\ \text{k}=2{,}09\ \text{k}\Omega\]</div>
+          <div class="mq">\[Z_o=r_o\parallel R_2=40\ \text{k}\parallel2{,}2\ \text{k}=2{,}09\ \text{k}\Omega\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">AD6.4 — Gain en tension</div>
@@ -1760,7 +1760,7 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Fréquence de coupure visée et valeur de \(C\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}f_c=\frac{100\ \text{kHz}}{10}=10\ \text{kHz}\\[4pt] C\geq\frac{1}{2\pi\times10^4\times4000}=3{,}98\ \text{nF}\ \to\ 4{,}7\ \text{nF}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}f_c=\frac{f_{\min}}{10}=\frac{100\ \text{kHz}}{10}=10\ \text{kHz}\\[4pt] C\geq\frac{1}{2\pi f_c\,R}=\frac{1}{2\pi\times10^4\times4000}=3{,}98\ \text{nF}\ \to\ 4{,}7\ \text{nF}\end{gathered}\]</div>
           <p>Plus \(C\) est grand, plus la coupure est basse : toute valeur supérieure convient aussi.</p>
         </div></div></li>
       </ol>
@@ -1779,7 +1779,7 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Résistance vue par \(C\) et capacité</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_{th}=R_1\parallel R_2=\frac{500\times3000}{3500}=429\ \Omega\\[4pt] f_c=\frac{20}{10}=2\ \text{Hz}\\[4pt] C=\frac{1}{2\pi\times2\times429}=186\ \mu\text{F}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}R_{th}&amp;=R_1\parallel R_2\\ &amp;=\frac{R_1R_2}{R_1+R_2}\\ &amp;=\frac{500\times3000}{3500}\\ &amp;=429\ \Omega\end{aligned}\\[4pt] f_c=\frac{f_{\min}}{10}=\frac{20}{10}=2\ \text{Hz}\\[4pt] C=\frac{1}{2\pi f_c\,R_{th}}=\frac{1}{2\pi\times2\times429}=186\ \mu\text{F}\end{gathered}\]</div>
           <p>Valeur normalisée : 220 µF. Les condensateurs de découplage sont gros (chimiques) : à basse fréquence, il faut beaucoup de capacité pour avoir une petite impédance.</p>
         </div></div></li>
       </ol>
@@ -1800,17 +1800,17 @@
       <div class="qsub">Polarisation (préalable)</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Thévenin de la base et courants</div><div class="sd">
-          <div class="mq">\[\begin{gathered}E_{th}=20\times\frac{15}{195}=1{,}54\ \text{V}\\[4pt] R_{th}=180\ \text{k}\parallel15\ \text{k}=13{,}8\ \text{k}\Omega\end{gathered}\]</div>
-          <div class="mq">\[\begin{gathered}I_B=\frac{1{,}54-0{,}7}{13{,}8\ \text{k}+61\times1\ \text{k}}=\frac{0{,}84}{74{,}8\ \text{k}\Omega}=11{,}2\ \mu\text{A}\\[4pt] I_E=0{,}683\ \text{mA}\\[4pt] r_e=\frac{26\ \text{mV}}{0{,}683\ \text{mA}}=38\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}E_{th}=V_{CC}\,\frac{R_2}{R_1+R_2}=20\times\frac{15}{195}=1{,}54\ \text{V}\\[4pt] R_{th}=R_1\parallel R_2=180\ \text{k}\parallel15\ \text{k}=13{,}8\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}I_B&amp;=\frac{E_{th}-V_{BE}}{R_{th}+(\beta+1)R_E}\\ &amp;=\frac{1{,}54-0{,}7}{13{,}8\ \text{k}+61\times1\ \text{k}}\\ &amp;=\frac{0{,}84}{74{,}8\ \text{k}\Omega}\\ &amp;=11{,}2\ \mu\text{A}\end{aligned}\\[4pt] I_E=(\beta+1)\,I_B=0{,}683\ \text{mA}\\[4pt] r_e=\frac{V_T}{I_E}=\frac{26\ \text{mV}}{0{,}683\ \text{mA}}=38\ \Omega\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Vérification du régime linéaire</div><div class="sd">
-          <div class="mq">\[\begin{aligned}V_{CE} &= 20-4{,}7\ \text{k}\times0{,}672\ \text{mA}-1\ \text{k}\times0{,}683\ \text{mA}\\ &= 16{,}2\ \text{V}&gt;V_{CE,\text{sat}}\ ✓\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}V_{CE} &= V_{CC}-R_C\,I_C-R_E\,I_E\\ &= 20-4{,}7\ \text{k}\times0{,}672\ \text{mA}-1\ \text{k}\times0{,}683\ \text{mA}\\ &= 16{,}2\ \text{V}&gt;V_{CE,\text{sat}}\ ✓\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q6.1 — Impédances des condensateurs à 1 kHz</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">\(|Z_C|=\dfrac{1}{2\pi fC}\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}|Z_{C_1}|=|Z_{C_2}|=\frac{1}{2\pi\times10^3\times100\cdot10^{-6}}=1{,}6\ \Omega\\[4pt] |Z_{C_E}|=0{,}72\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}|Z_{C_1}|&amp;=|Z_{C_2}|\\ &amp;=\frac{1}{2\pi\times10^3\times100\cdot10^{-6}}\\ &amp;=1{,}6\ \Omega\end{aligned}\\[4pt] |Z_{C_E}|=0{,}72\ \Omega\end{gathered}\]</div>
           <p>Négligeables devant les résistances du montage (kΩ) et devant \(r_e=38\ \Omega\) : on remplace les condensateurs par des fils en AC.</p>
         </div></div></li>
       </ol>
@@ -1818,18 +1818,18 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Schéma, impédances et gain</div><div class="sd">
           <p>Entrée : \(R_{th}\) entre base et masse, en parallèle avec \((\beta+1)r_e\). Sortie : source \(\beta i_b\) en parallèle avec \(R_C\).</p>
-          <div class="mq">\[\begin{gathered}(\beta+1)\,r_e=61\times38=2{,}32\ \text{k}\Omega\\[4pt] Z_i=13{,}8\ \text{k}\parallel2{,}32\ \text{k}=1{,}99\ \text{k}\Omega\\[4pt] Z_o=R_C=4{,}7\ \text{k}\Omega\end{gathered}\]</div>
-          <div class="mq">\[\begin{gathered}A_v=-\frac{\beta\,R_C}{(\beta+1)\,r_e}=-\frac{60\times4700}{2321}=-122\\[4pt] \left(\approx-\frac{R_C}{r_e}=-124\right)\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}(\beta+1)\,r_e=61\times38=2{,}32\ \text{k}\Omega\\[4pt]\begin{aligned}Z_i&amp;=R_{th}\parallel(\beta+1)\,r_e\\ &amp;=13{,}8\ \text{k}\parallel2{,}32\ \text{k}\\ &amp;=1{,}99\ \text{k}\Omega\end{aligned}\\[4pt] Z_o=R_C=4{,}7\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}A_v&amp;=-\frac{\beta\,R_C}{(\beta+1)\,r_e}\\ &amp;=-\frac{60\times4700}{2321}\\ &amp;=-122\end{aligned}\\[4pt] \left(\approx-\frac{R_C}{r_e}=-124\right)\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q6.5 à Q6.7 — \(R_{E1}=1{,}2\ \text{k}\Omega\) non découplée</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Équations des deux mailles</div><div class="sd">
           <p>Entre la base et la masse, on trouve maintenant \(r_e\) puis \(R_{E1}\), tous deux traversés par \(i_e=(\beta+1)i_b\) :</p>
-          <div class="mq">\[u_e=(\beta+1)\,(r_e+R_{E1})\,i_b\qquad u_s=-\beta\,i_b\,R_C\]</div>
+          <div class="mq">\[\begin{aligned}u_e&amp;=(\beta+1)\,(r_e+R_{E1})\,i_b\qquad u_s\\ &amp;=-\beta\,i_b\,R_C\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Impédances et gain</div><div class="sd">
-          <div class="mq">\[\begin{gathered}(\beta+1)(r_e+R_{E1})=61\times1238=75{,}5\ \text{k}\Omega\\[4pt] Z_i=13{,}8\ \text{k}\parallel75{,}5\ \text{k}=11{,}7\ \text{k}\Omega\\[4pt] Z_o=4{,}7\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}(\beta+1)(r_e+R_{E1})=61\times1238=75{,}5\ \text{k}\Omega\\[4pt]\begin{aligned}Z_i&amp;=R_{th}\parallel(\beta+1)(r_e+R_{E1})\\ &amp;=13{,}8\ \text{k}\parallel75{,}5\ \text{k}\\ &amp;=11{,}7\ \text{k}\Omega\end{aligned}\\[4pt] Z_o=4{,}7\ \text{k}\Omega\end{gathered}\]</div>
           <div class="mq">\[\begin{aligned}A_v &= -\frac{\beta\,R_C}{(\beta+1)(r_e+R_{E1})}\\ &= -\frac{282\,000}{75\,500}\\ &= -3{,}7\end{aligned}\]</div>
           <p>Modèle de l'amplificateur : entrée = résistance \(Z_i\) ; sortie = source \(A_v\,u_e\) en série avec \(Z_o\).</p>
           <p>Le gain a chuté, mais il vaut pratiquement \(-\dfrac{R_C}{R_{E1}}\) : il ne dépend plus ni de \(\beta\) ni de \(r_e\) (donc ni du transistor ni de la température). C'est une <b>contre-réaction</b> : on échange du gain contre de la stabilité.</p>
@@ -1838,7 +1838,7 @@
       <div class="qsub">Q6.8 — \(R_{E1}\) pour \(A_v=-10\)</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Isoler \(R_{E1}\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}(\beta+1)(r_e+R_{E1})=\frac{\beta R_C}{10}\\[3pt] \Longrightarrow\ R_{E1}=\frac{60\times4700}{61\times10}-38=462-38=424\ \Omega\ \to\ 430\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}(\beta+1)(r_e+R_{E1})=\frac{\beta R_C}{10}\\[3pt]\begin{aligned}\Longrightarrow\ \ R_{E1}&amp;=\frac{\beta R_C}{10\,(\beta+1)}-r_e\\ &amp;=\frac{60\times4700}{61\times10}-38\\ &amp;=462-38\\ &amp;=424\ \Omega\ \to\ 430\ \Omega\end{aligned}\end{gathered}\]</div>
           <p>Avec l'approximation \(-\dfrac{R_C}{r_e+R_{E1}}=-10\) : \(R_{E1}=432\ \Omega\). Compatible avec \(R_E=1\ \text{k}\Omega\) : \(R_{E2}\approx570\ \Omega\) reste découplée et sert seulement à la polarisation.</p>
         </div></div></li>
       </ol>
@@ -1869,7 +1869,7 @@
           <div class="mq">\[\begin{aligned}A_{vT} &= A_{v1}\times\frac{Z_{i2}}{Z_{i2}+Z_{o1}}\times A_{v2}\\ &= 1\times\frac{1200}{1220}\times(-640)\\ &= -630\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Interface étage 2 → charge</div><div class="sd">
-          <div class="mq">\[\begin{aligned}A_{vT,L} &= -630\times\frac{R_L}{R_L+Z_{o2}}\\ &= -630\times\frac{2200}{6800}\\ &= -204\end{aligned}\]</div>
+          <div class="mq">\[\begin{aligned}A_{vT,L} &= A_{vT}\,\frac{R_L}{R_L+Z_{o2}}\\ &= -630\times\frac{2200}{6800}\\ &= -204\end{aligned}\]</div>
           <p>Depuis la source, il faut encore multiplier par \(\tfrac{Z_{i1}}{Z_{i1}+R_{\text{source}}}=\tfrac{50}{51}\), soit ≈ −200. L'interface de sortie coûte les deux tiers du gain : \(Z_{o2}=4{,}6\ \text{k}\Omega\) est grande devant \(R_L=2{,}2\ \text{k}\Omega\).</p>
         </div></div></li>
       </ol>
@@ -1879,8 +1879,8 @@
           <div class="mq">\[\begin{aligned}A_{iT,L} &= A_{vT,L}\,\frac{Z_{i1}}{R_L}\\ &= -204\times\frac{50\,000}{2200}\approx-4{,}6\cdot10^3\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Gain de chaque étage (chargé)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}A_{i1}=\frac{u_{e2}/Z_{i2}}{u_e/Z_{i1}}=0{,}984\times\frac{50\,000}{1200}=41{,}0\\[4pt] A_{i2}=\frac{u_s/R_L}{u_{e2}/Z_{i2}}=(-640\times0{,}324)\times\frac{1200}{2200}=-112{,}9\end{gathered}\]</div>
-          <div class="mq">\[A_{i1}\times A_{i2}=41{,}0\times(-112{,}9)=-4{,}6\cdot10^3=A_{iT,L}\ ✓\]</div>
+          <div class="mq">\[\begin{gathered}A_{i1}=\frac{u_{e2}/Z_{i2}}{u_e/Z_{i1}}=0{,}984\times\frac{50\,000}{1200}=41{,}0\\[4pt]\begin{aligned}A_{i2}&amp;=\frac{u_s/R_L}{u_{e2}/Z_{i2}}\\ &amp;=(-640\times0{,}324)\times\frac{1200}{2200}\\ &amp;=-112{,}9\end{aligned}\end{gathered}\]</div>
+          <div class="mq">\[\begin{aligned}A_{i1}\times A_{i2}&amp;=41{,}0\times(-112{,}9)\\ &amp;=-4{,}6\cdot10^3\\ &amp;=A_{iT,L}\ ✓\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse à Q6.13</b>Oui : le courant de sortie de l'étage 1 est exactement le courant d'entrée de l'étage 2, donc les gains en courant <b>chargés</b> se multiplient. Attention : ce n'est pas vrai des gains « à vide ».</div>
@@ -1906,33 +1906,33 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">\(\beta\), \(r_e\) et \(R_C\)</div><div class="sd">
           <p>Datasheet 2N2222 : \(h_{FE,\min}=50\) à 1 mA, 75 à 10 mA ⟹ \(\beta=50\) (cas défavorable).</p>
-          <div class="mq">\[\begin{gathered}I_E=\left(1+\frac1\beta\right)I_C=4{,}08\ \text{mA}\\[4pt] r_e=\frac{26\ \text{mV}}{4{,}08\ \text{mA}}\approx6{,}34\ \Omega\\[4pt] R_C=|A_v|\,r_e\approx634\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}I_E&amp;=\left(1+\frac1\beta\right)I_C\\ &amp;=\left(1+\frac1{50}\right)\times4\\ &amp;=4{,}08\ \text{mA}\end{aligned}\\[4pt] r_e=\frac{V_T}{I_E}=\frac{26\ \text{mV}}{4{,}08\ \text{mA}}\approx6{,}34\ \Omega\\[4pt] R_C=|A_v|\,r_e=100\times6{,}34\approx634\ \Omega\end{gathered}\]</div>
           <p>(\(r_e=6{,}34\ \Omega\) avec \(V_T=25{,}9\ \text{mV}\).) Valeurs normalisées proches : 620 ou 680 Ω.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(R_E\) par la droite de charge</div><div class="sd">
-          <p>Repos au milieu de la droite : \(I_{C,\text{sat}}=2\times4=8\ \text{mA}\). À la saturation, \(V_{CC}=R_C I+V_{CE,\text{sat}}+R_E I\) (avec \(I_E\approx I_C\)) :</p>
-          <div class="mq">\[\begin{aligned}R_E &= \frac{24-634\times8\cdot10^{-3}-0{,}3}{8\cdot10^{-3}}\\ &= 2{,}3\ \text{k}\Omega\end{aligned}\]</div>
+          <p>Repos au milieu de la droite : \(I_{C,\text{sat}}=2\,I_{C0}=2\times4=8\ \text{mA}\). À la saturation, \(V_{CC}=R_C I+V_{CE,\text{sat}}+R_E I\) (avec \(I_E\approx I_C\)) :</p>
+          <div class="mq">\[\begin{aligned}R_E &= \frac{V_{CC}-R_C\,I_{C,\text{sat}}-V_{CE,\text{sat}}}{I_{C,\text{sat}}}\\ &= \frac{24-634\times8\cdot10^{-3}-0{,}3}{8\cdot10^{-3}}\\ &= 2{,}3\ \text{k}\Omega\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Pont de base</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_{B2}\leq\frac{\beta R_E}{10}=11{,}5\ \text{k}\Omega\\[4pt] V_B=V_{BE}+R_E I_E=0{,}7+2{,}3\ \text{k}\times4{,}1\ \text{mA}=10{,}1\ \text{V}\\[4pt] R_{B1}=R_{B2}\,\frac{V_{CC}-V_B}{V_B}\approx15{,}7\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_{B2}\leq\frac{\beta R_E}{10}=11{,}5\ \text{k}\Omega\\[4pt]\begin{aligned}V_B&amp;=V_{BE}+R_E I_E\\ &amp;=0{,}7+2{,}3\ \text{k}\times4{,}1\ \text{mA}\\ &amp;=10{,}1\ \text{V}\end{aligned}\\[4pt] R_{B1}=R_{B2}\,\frac{V_{CC}-V_B}{V_B}\approx15{,}7\ \text{k}\Omega\end{gathered}\]</div>
           <p>La règle \(R_{B2}\leq\tfrac{\beta R_E}{10}\) garantit que le courant de pont est grand devant \(I_B\) : \(V_B\) ne dépend presque pas de \(\beta\).</p>
         </div></div></li>
       </ol>
       <div class="qsub">ES6.6 — Impédances</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Entrée et sortie</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_B=15{,}7\ \text{k}\parallel11{,}5\ \text{k}=6{,}64\ \text{k}\Omega\\[4pt] Z_i=6{,}64\ \text{k}\parallel(51\times6{,}34)=308\ \Omega\end{gathered}\]</div>
-          <div class="mq">\[\begin{gathered}r_o=\frac{1}{h_{oe}}=\frac{1}{5\cdot10^{-6}\ \text{S}}=200\ \text{k}\Omega\\[4pt] Z_o=634\parallel200\ \text{k}\approx632\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}R_B&amp;=R_{B1}\parallel R_{B2}\\ &amp;=15{,}7\ \text{k}\parallel11{,}5\ \text{k}\\ &amp;=6{,}64\ \text{k}\Omega\end{aligned}\\[4pt]\begin{aligned}Z_i&amp;=R_B\parallel(\beta+1)\,r_e\\ &amp;=6{,}64\ \text{k}\parallel(51\times6{,}34)\\ &amp;=308\ \Omega\end{aligned}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}r_o=\frac{1}{h_{oe}}=\frac{1}{5\cdot10^{-6}\ \text{S}}=200\ \text{k}\Omega\\[4pt] Z_o=R_C\parallel r_o=634\parallel200\ \text{k}\approx632\ \Omega\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">ES6.7 — Tension de sortie</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Deux ponts diviseurs</div><div class="sd">
-          <div class="mq">\[\begin{gathered}u_e=10\ \text{mV}\times\frac{308}{308+50}=8{,}6\ \text{mV}\\[4pt] u_s=-100\times\frac{1000}{1000+632}\times8{,}6\ \text{mV}\approx-527\ \text{mV}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}u_e&amp;=e_g\,\frac{Z_i}{Z_i+R_g}\\ &amp;=10\ \text{mV}\times\frac{308}{308+50}\\ &amp;=8{,}6\ \text{mV}\end{aligned}\\[4pt]\begin{aligned}u_s&amp;=A_{v0}\,\frac{R_L}{R_L+Z_o}\,u_e\\ &amp;=-100\times\frac{1000}{1000+632}\times8{,}6\ \text{mV}\approx-527\ \text{mV}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(R_C\approx634\ \Omega\), \(R_E\approx2{,}3\ \text{k}\Omega\), \(R_{B2}=11{,}5\ \text{k}\Omega\), \(R_{B1}\approx15{,}7\ \text{k}\Omega\) ; \(Z_i\approx308\ \Omega\), \(Z_o\approx632\ \Omega\) ; \(u_s\approx0{,}53\ \text{V}\) d'amplitude.</div>
-      <div class="why"><b class="lab">Erreurs du poly</b>ES6.6 : \(r_o=\tfrac{1}{5\cdot10^{-6}}\) vaut <b>200 kΩ</b>, pas 5 MΩ (conclusion inchangée : \(r_o\gg R_C\)). ES6.5 : le dénominateur de l'A.N. de \(R_{B1}\) oublie \(R_E\) (« \(0{,}7+4{,}1\cdot10^{-3}\) » au lieu de \(0{,}7+2{,}3\ \text{k}\times4{,}1\ \text{mA}\)) ; le résultat 15,7 kΩ est juste. La numérotation passe de ES5.17 à ES6.5.</div>
+      <div class="why"><b class="lab">Erreurs du poly</b>ES6.6 : \(r_o=\tfrac{1}{h_{oe}}=\tfrac{1}{5\cdot10^{-6}}\) vaut <b>200 kΩ</b>, pas 5 MΩ (conclusion inchangée : \(r_o\gg R_C\)). ES6.5 : le dénominateur de l'A.N. de \(R_{B1}\) oublie \(R_E\) (« \(0{,}7+4{,}1\cdot10^{-3}\) » au lieu de \(0{,}7+2{,}3\ \text{k}\times4{,}1\ \text{mA}\)) ; le résultat 15,7 kΩ est juste. La numérotation passe de ES5.17 à ES6.5.</div>
       <div class="why"><b class="lab">Regard critique</b>Le gain chargé n'est plus que −61 (et −53 vu de la source) : un émetteur commun seul a une impédance de sortie trop forte pour une charge de 1 kΩ. Solution classique : ajouter un étage collecteur commun en sortie (voir Ex 6.5).</div>
     </div></details>
   </article>
@@ -1955,17 +1955,17 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Maille de grille</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_G=0\ \Rightarrow\ V_G=0\ \Rightarrow\ V_{GS}=V_G-V_S=-R_S\,I_D=-I_D\\[4pt] (\text{V, avec }I_D\text{ en mA})\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}I_G&amp;=0\\ &amp;\Rightarrow\ V_G=0\\ &amp;\Rightarrow\ V_{GS}=V_G-V_S=-R_S\,I_D=-I_D\end{aligned}\\[4pt] (\text{V, avec }I_D\text{ en mA})\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Loi du transistor</div><div class="sd">
           <div class="mq">\[\begin{aligned}I_D&amp;=8\left(1-\frac{I_D}{6}\right)^2=8\left(1-\frac{I_D}{3}+\frac{I_D^2}{36}\right)\\9\,I_D&amp;=72-24\,I_D+2\,I_D^2\\0&amp;=2\,I_D^2-33\,I_D+72\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Résolution et tri des racines</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\Delta=33^2-4\times2\times72=513\\[4pt] I_D=\frac{33\pm\sqrt{513}}{4}=\frac{33\pm22{,}65}{4}=13{,}9\ \text{mA}\ \text{ou}\ 2{,}59\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\Delta=b^2-4ac=33^2-4\times2\times72=513\\[4pt]\begin{aligned}I_D&amp;=\frac{-b\pm\sqrt\Delta}{2a}\\ &amp;=\frac{33\pm\sqrt{513}}{4}\\ &amp;=\frac{33\pm22{,}65}{4}\\ &amp;=13{,}9\ \text{mA}\\ &amp;\text{ou}\ 2{,}59\ \text{mA}\end{aligned}\end{gathered}\]</div>
           <p>\(I_D=13{,}9\ \text{mA}\) donnerait \(V_{GS}=-13{,}9\ \text{V}\), au-delà du pincement (\(V_P=-6\ \text{V}\)) : le canal serait fermé et le courant nul. Contradiction : on rejette. D'ailleurs 13,9 mA dépasse \(I_{DSS}\), le maximum possible. Donc \(I_D=2{,}59\ \text{mA}\) et \(V_{GS}=-2{,}59\ \text{V}\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Maille de sortie et vérification</div><div class="sd">
-          <div class="mq">\[V_{DS}=V_{DD}-I_D\,(R_D+R_S)=20-2{,}59\times4{,}3=8{,}9\ \text{V}\ &gt;\ V_{GS}-V_P = 3{,}4\ \text{V}\ ✓\]</div>
+          <div class="mq">\[\begin{aligned}V_{DS}&amp;=V_{DD}-I_D\,(R_D+R_S)\\ &amp;=20-2{,}59\times4{,}3\\ &amp;=8{,}9\ \text{V}\\ &amp;&gt;\ V_{GS}-V_P=3{,}4\ \text{V}\ ✓\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(I_D\approx2{,}6\ \text{mA}\), \(V_{GS}\approx-2{,}6\ \text{V}\), \(V_{DS}\approx8{,}9\ \text{V}\).</div>
@@ -1989,7 +1989,7 @@
           <p>Plus \(V_{GS}\) est négatif, plus le canal est étroit et résistant.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">AD7.3 — Pont diviseur</div><div class="sd">
-          <div class="mq">\[\begin{gathered}u_s=50\times\frac{125}{1125}=5{,}6\ \text{mV}\\[4pt] u_s=50\times\frac{250}{1250}=10\ \text{mV}\\[4pt] u_s=50\times\frac{1000}{2000}=25\ \text{mV}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}u_s=u_e\,\frac{r_{DS}}{R+r_{DS}}\\[4pt] u_s=50\times\frac{125}{1125}=5{,}6\ \text{mV}\\[4pt] u_s=50\times\frac{250}{1250}=10\ \text{mV}\\[4pt] u_s=50\times\frac{1000}{2000}=25\ \text{mV}\end{gathered}\]</div>
           <p>Atténuations respectives : 0,11 ; 0,2 ; 0,5.</p>
         </div></div></li>
       </ol>
@@ -2007,10 +2007,10 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">\(V_{GS}\) imposé, courant de drain</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{GS}=-3\ \text{V}\\[4pt] I_D=10\left(1-\frac{-3}{-4{,}5}\right)^2=10\times(0{,}333)^2=1{,}11\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_{GS}=-3\ \text{V}\\[4pt]\begin{aligned}I_D&amp;=I_{DSS}\left(1-\frac{V_{GS}}{V_P}\right)^2\\ &amp;=10\left(1-\frac{-3}{-4{,}5}\right)^2\\ &amp;=10\times(0{,}333)^2\\ &amp;=1{,}11\ \text{mA}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Tension drain-source</div><div class="sd">
-          <div class="mq">\[V_{DS}=16-2{,}2\ \text{k}\Omega\times1{,}11\ \text{mA}=13{,}6\ \text{V}\ &gt;\ V_{GS}-V_P = 1{,}5\ \text{V}\ ✓\]</div>
+          <div class="mq">\[\begin{aligned}V_{DS}&amp;=V_{DD}-R_D\,I_D\\ &amp;=16-2{,}2\ \text{k}\Omega\times1{,}11\ \text{mA}\\ &amp;=13{,}6\ \text{V}\\ &amp;&gt;\ V_{GS}-V_P=1{,}5\ \text{V}\ ✓\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(I_D\approx1{,}11\ \text{mA}\), \(V_{DS}\approx13{,}6\ \text{V}\).</div>
@@ -2028,7 +2028,7 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant, tension minimale, maille de sortie</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_D=I_{DSS}=12\ \text{mA}\\[4pt] V_{DS,\min}=0-(-4)=4\ \text{V}\\[4pt] V_{DD,\min}=V_{DS,\min}+R_D\,I_D=4+560\times0{,}012=10{,}7\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_D=I_{DSS}=12\ \text{mA}\\[4pt] V_{DS,\min}=V_{GS}-V_P=0-(-4)=4\ \text{V}\\[4pt]\begin{aligned}V_{DD,\min}&amp;=V_{DS,\min}+R_D\,I_D\\ &amp;=4+560\times0{,}012\\ &amp;=10{,}7\ \text{V}\end{aligned}\end{gathered}\]</div>
           <p>En dessous, \(V_{DS}&lt;4\ \text{V}\) : le JFET passe en région ohmique et le courant devient inférieur à 12 mA.</p>
         </div></div></li>
       </ol>
@@ -2045,14 +2045,14 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Équation</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\frac{V_{GS}}{V_P}=\frac{-0{,}3\,I_D}{-2{,}5}=0{,}12\,I_D\\[4pt] I_D=5\,(1-0{,}12\,I_D)^2\ \Longrightarrow\ 0{,}072\,I_D^2-2{,}2\,I_D+5=0\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\frac{V_{GS}}{V_P}=\frac{-0{,}3\,I_D}{-2{,}5}=0{,}12\,I_D\\[4pt]\begin{aligned}I_D&amp;=5\,(1-0{,}12\,I_D)^2\\ &amp;\Longrightarrow\ 0{,}072\,I_D^2-2{,}2\,I_D+5=0\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Racines</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\Delta=2{,}2^2-4\times0{,}072\times5=3{,}40\\[4pt] I_D=\frac{2{,}2\pm1{,}844}{0{,}144}=28{,}1\ \text{mA}\ \text{ou}\ 2{,}47\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\Delta=b^2-4ac=2{,}2^2-4\times0{,}072\times5=3{,}40\\[4pt]\begin{aligned}I_D&amp;=\frac{-b\pm\sqrt\Delta}{2a}\\ &amp;=\frac{2{,}2\pm1{,}844}{0{,}144}\\ &amp;=28{,}1\ \text{mA}\\ &amp;\text{ou}\ 2{,}47\ \text{mA}\end{aligned}\end{gathered}\]</div>
           <p>28,1 mA donne \(V_{GS}=-8{,}4\ \text{V}&lt;V_P\) : rejeté. Donc \(I_D=2{,}47\ \text{mA}\), \(V_{GS}=-0{,}74\ \text{V}\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Tension drain-source</div><div class="sd">
-          <div class="mq">\[V_{DS}=20-2{,}47\times(2+0{,}3)=14{,}3\ \text{V}\ &gt;\ V_{GS}-V_P = 1{,}76\ \text{V}\ ✓\]</div>
+          <div class="mq">\[\begin{aligned}V_{DS}&amp;=V_{DD}-I_D\,(R_D+R_S)\\ &amp;=20-2{,}47\times(2+0{,}3)\\ &amp;=14{,}3\ \text{V}\\ &amp;&gt;\ V_{GS}-V_P=1{,}76\ \text{V}\ ✓\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>(\(V_{DS}\) ; \(I_D\)) ≈ (14,3 V ; 2,47 mA), \(V_{GS}\approx-0{,}74\ \text{V}\).</div>
@@ -2073,12 +2073,12 @@
           <p>Les deux grilles sont au même potentiel (0 V) et les deux sources au même nœud S : \(V_{GS1}=V_{GS2}=0-V_S\). Les transistors sont identiques et en saturation : même loi \(I_D(V_{GS})\), donc \(I_{D1}=I_{D2}\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Q7.4 — \(V_{GS}\) pour 0,5 mA, puis \(R\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}0{,}5=2\left(1+\frac{V_{GS}}{2}\right)^2\\[3pt] \Rightarrow\ 1+\frac{V_{GS}}{2}=0{,}5\\[3pt] \Rightarrow\ V_{GS}=-1\ \text{V}\\[3pt] \Rightarrow\ V_S=+1\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_D=I_{DSS}\left(1-\frac{V_{GS}}{V_P}\right)^2\\[3pt] 0{,}5=2\left(1+\frac{V_{GS}}{2}\right)^2\\[3pt] \Rightarrow\ 1+\frac{V_{GS}}{2}=0{,}5\\[3pt] \Rightarrow\ V_{GS}=-1\ \text{V}\\[3pt] \Rightarrow\ V_S=+1\ \text{V}\end{gathered}\]</div>
           <p>(L'autre racine, \(1+\tfrac{V_{GS}}2=-0{,}5\), donnerait \(V_{GS}=-3\ \text{V}&lt;V_P\).) Loi d'Ohm sur \(R\), traversée par \(I_{D1}+I_{D2}=1\ \text{mA}\) :</p>
           <div class="mq">\[\begin{aligned}R &= \frac{V_S-V_{EE}}{1\ \text{mA}}\\ &= \frac{1-(-15)}{1\ \text{mA}}\\ &= 16\ \text{k}\Omega\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Q7.5 — Potentiels</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_M=0\\[4pt] V_S=+1\ \text{V}\\[4pt] V_{D1}=V_{D2}=15-10\ \text{k}\Omega\times0{,}5\ \text{mA}=10\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_M=0\\[4pt] V_S=+1\ \text{V}\\[4pt]\begin{aligned}V_{D1}&amp;=V_{D2}\\ &amp;=V_{DD}-R_D\,I_D\\ &amp;=15-10\ \text{k}\Omega\times0{,}5\ \text{mA}\\ &amp;=10\ \text{V}\end{aligned}\end{gathered}\]</div>
           <p>Vérification : \(V_{DS}=9\ \text{V}&gt;V_{GS}-V_P=1\ \text{V}\) : saturation ✓.</p>
         </div></div></li>
       </ol>
@@ -2096,14 +2096,14 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Équation</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\frac{V_{GS}}{V_P}=\frac{2{,}2\,I_D}{4}=0{,}55\,I_D\\[4pt] I_D=12\,(1-0{,}55\,I_D)^2\ \Longrightarrow\ 3{,}63\,I_D^2-14{,}2\,I_D+12=0\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\frac{V_{GS}}{V_P}=\frac{2{,}2\,I_D}{4}=0{,}55\,I_D\\[4pt]\begin{aligned}I_D&amp;=12\,(1-0{,}55\,I_D)^2\\ &amp;\Longrightarrow\ 3{,}63\,I_D^2-14{,}2\,I_D+12=0\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Racines</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\Delta=14{,}2^2-4\times3{,}63\times12=27{,}4\\[4pt] I_D=\frac{14{,}2\pm5{,}23}{7{,}26}=2{,}68\ \text{mA}\ \text{ou}\ 1{,}23\ \text{mA}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\Delta&amp;=b^2-4ac\\ &amp;=14{,}2^2-4\times3{,}63\times12\\ &amp;=27{,}4\end{aligned}\\[4pt]\begin{aligned}I_D&amp;=\frac{-b\pm\sqrt\Delta}{2a}\\ &amp;=\frac{14{,}2\pm5{,}23}{7{,}26}\\ &amp;=2{,}68\ \text{mA}\\ &amp;\text{ou}\ 1{,}23\ \text{mA}\end{aligned}\end{gathered}\]</div>
           <p>2,68 mA donne \(V_{GS}=-5{,}9\ \text{V}&lt;V_P\) : rejeté.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Point de repos</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_D=1{,}23\ \text{mA}\\[4pt] V_{GS}=-2{,}2\times1{,}23=-2{,}72\ \text{V}\\[4pt] V_{DS}=18-1{,}23\times(1{,}5+2{,}2)=13{,}4\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_D=1{,}23\ \text{mA}\\[4pt] V_{GS}=-R_S\,I_D=-2{,}2\times1{,}23=-2{,}72\ \text{V}\\[4pt]\begin{aligned}V_{DS}&amp;=V_{DD}-I_D\,(R_D+R_S)\\ &amp;=18-1{,}23\times(1{,}5+2{,}2)\\ &amp;=13{,}4\ \text{V}\end{aligned}\end{gathered}\]</div>
           <p>\(V_{DS}&gt;V_{GS}-V_P=1{,}28\ \text{V}\) ✓.</p>
         </div></div></li>
       </ol>
@@ -2121,15 +2121,15 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Potentiel de grille</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_G=16\times\frac{270}{2100+270}=1{,}82\ \text{V}\\[4pt] V_{GS}=V_G-R_S\,I_D=1{,}82-1{,}5\,I_D\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_G&amp;=V_{DD}\,\frac{R_2}{R_1+R_2}\\ &amp;=16\times\frac{270}{2100+270}\\ &amp;=1{,}82\ \text{V}\end{aligned}\\[4pt] V_{GS}=V_G-R_S\,I_D=1{,}82-1{,}5\,I_D\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Équation</div><div class="sd">
-          <div class="mq">\[\begin{gathered}1-\frac{V_{GS}}{V_P}=1+\frac{1{,}82-1{,}5\,I_D}{4}=1{,}456-0{,}375\,I_D\\[4pt] I_D=8\,(1{,}456-0{,}375\,I_D)^2\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}1-\frac{V_{GS}}{V_P}&amp;=1+\frac{1{,}82-1{,}5\,I_D}{4}\\ &amp;=1{,}456-0{,}375\,I_D\end{aligned}\\[4pt] I_D=8\,(1{,}456-0{,}375\,I_D)^2\end{gathered}\]</div>
           <div class="mq">\[\Longrightarrow\ 1{,}125\,I_D^2-9{,}74\,I_D+16{,}96=0\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Racines et point de repos</div><div class="sd">
-          <div class="mq">\[I_D=\frac{9{,}74\pm4{,}30}{2{,}25}=6{,}24\ \text{mA}\ (V_{GS}=-7{,}5\ \text{V}&lt;V_P,\ \text{rejeté})\ \text{ou}\ 2{,}42\ \text{mA}\]</div>
-          <div class="mq">\[\begin{gathered}V_{GS}=1{,}82-1{,}5\times2{,}42=-1{,}80\ \text{V}\\[4pt] V_{DS}=16-2{,}42\times(2{,}4+1{,}5)=6{,}6\ \text{V}\ &gt;\ 2{,}2\ \text{V}\ ✓\end{gathered}\]</div>
+          <div class="mq">\[\begin{aligned}I_D&amp;=\frac{-b\pm\sqrt\Delta}{2a}\\ &amp;=\frac{9{,}74\pm4{,}30}{2{,}25}\\ &amp;=6{,}24\ \text{mA}\ (V_{GS}=-7{,}5\ \text{V}&lt;V_P,\ \text{rejeté})\\ &amp;\text{ou}\ 2{,}42\ \text{mA}\end{aligned}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_{GS}&amp;=V_G-R_S\,I_D\\ &amp;=1{,}82-1{,}5\times2{,}42\\ &amp;=-1{,}80\ \text{V}\end{aligned}\\[4pt]\begin{aligned}V_{DS}&amp;=V_{DD}-I_D\,(R_D+R_S)\\ &amp;=16-2{,}42\times(2{,}4+1{,}5)\\ &amp;=6{,}6\ \text{V}\\ &amp;&gt;\ 2{,}2\ \text{V}\ ✓\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(I_D\approx2{,}42\ \text{mA}\), \(V_{GS}\approx-1{,}80\ \text{V}\), \(V_{DS}\approx6{,}6\ \text{V}\).</div>
@@ -2148,10 +2148,10 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">ES7.3 et ES7.4 — \(V_{GS0}\) et \(R_S\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{GS0}\approx-2{,}25\ \text{V}\\[4pt] \left(\text{contrôle} :\ 8\left(1-\frac{2{,}25}{4{,}5}\right)^2=2\ \text{mA}\ ✓\right)\\[4pt] R_S=\frac{2{,}25}{2\ \text{mA}}=1{,}125\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_{GS0}\approx-2{,}25\ \text{V}\\[4pt] \left(\text{contrôle} :\ I_{DSS}\left(1-\frac{V_{GS0}}{V_P}\right)^2=8\left(1-\frac{2{,}25}{4{,}5}\right)^2=2\ \text{mA}\ ✓\right)\\[4pt] R_S=\frac{-V_{GS0}}{I_{D0}}=\frac{2{,}25}{2\ \text{mA}}=1{,}125\ \text{k}\Omega\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">ES7.5 — Pente au point de repos</div><div class="sd">
-          <div class="mq">\[\begin{gathered}g_0=\frac{16}{4{,}5}\times(1-0{,}5)=1{,}78\ \text{mS}\\[4pt] \text{autre forme} :\ \frac{2\sqrt{8\times2}}{4{,}5}=\frac{8}{4{,}5}=1{,}78\ \text{mS}\ ✓\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}g_0&amp;=\frac{2I_{DSS}}{|V_P|}\left(1-\frac{V_{GS0}}{V_P}\right)\\ &amp;=\frac{16}{4{,}5}\times(1-0{,}5)\\ &amp;=1{,}78\ \text{mS}\end{aligned}\\[4pt]\begin{aligned}\text{autre forme} :\ \frac{2\sqrt{I_{DSS}\,I_{D0}}}{|V_P|}&amp;=\frac{2\sqrt{8\times2}}{4{,}5}\\ &amp;=\frac{8}{4{,}5}\\ &amp;=1{,}78\ \text{mS}\ ✓\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(V_{GS0}\approx-2{,}25\ \text{V}\) ; \(R_S\approx1{,}1\ \text{k}\Omega\) ; \(g_0\approx1{,}78\ \text{mS}\).</div>
@@ -2170,7 +2170,7 @@
       <div class="qsub">ES7.6 — Dimensionnement</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant puis résistances</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_D=30\left(1-\frac{-4}{-10}\right)^2=30\times0{,}6^2=10{,}8\ \text{mA}\\[4pt] R_S=\frac{4}{10{,}8\ \text{mA}}=370\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}I_D&amp;=I_{DSS}\left(1-\frac{V_{GS}}{V_P}\right)^2\\ &amp;=30\left(1-\frac{-4}{-10}\right)^2\\ &amp;=30\times0{,}6^2\\ &amp;=10{,}8\ \text{mA}\end{aligned}\\[4pt] R_S=\frac{-V_{GS}}{I_D}=\frac{4}{10{,}8\ \text{mA}}=370\ \Omega\end{gathered}\]</div>
           <div class="mq">\[\begin{gathered}R_D+R_S=\frac{V_{DD}-V_{DS}}{I_D}=\frac{15}{10{,}8\ \text{mA}}=1{,}39\ \text{k}\Omega\\[3pt] \Longrightarrow\ R_D=1{,}02\ \text{k}\Omega\end{gathered}\]</div>
         </div></div></li>
       </ol>
@@ -2184,7 +2184,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">ES7.9-7.10 — Conditions</div><div class="sd">
           <div class="mq">\[\begin{gathered}\text{ohmique} :\ V_{DS}&lt;V_{GS}-V_P\\[4pt] \text{saturation} :\ V_{DS}&gt;V_{GS}-V_P,\ \ V_P&lt;V_{GS}\leq0\end{gathered}\]</div>
-          <p>Ici \(V_{DS}=15\ \text{V}&gt;-4+10=6\ \text{V}\) : saturation ✓.</p>
+          <p>Ici \(V_{DS}=15\ \text{V}&gt;V_{GS}-V_P=-4+10=6\ \text{V}\) : saturation ✓.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(R_S\approx370\ \Omega\), \(R_D\approx1{,}02\ \text{k}\Omega\) ; saturation si \(V_{DS}&gt;V_{GS}-V_P\).</div>
@@ -2206,11 +2206,11 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">\(V_{GS}\), puis potentiels de source et de grille</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{GS}=-3{,}5\left(1-\sqrt{\frac{5}{12}}\right)=-3{,}5\times(1-0{,}645)=-1{,}24\ \text{V}\\[4pt] V_S=500\times5\ \text{mA}=2{,}5\ \text{V}\\[4pt] V_G=1{,}26\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_{GS}&amp;=V_P\left(1-\sqrt{\frac{I_D}{I_{DSS}}}\right)\\ &amp;=-3{,}5\left(1-\sqrt{\frac{5}{12}}\right)\\ &amp;=-3{,}5\times(1-0{,}645)\\ &amp;=-1{,}24\ \text{V}\end{aligned}\\[4pt] V_S=R_S\,I_D=500\times5\ \text{mA}=2{,}5\ \text{V}\\[4pt] V_G=V_S+V_{GS}=2{,}5-1{,}24=1{,}26\ \text{V}\end{gathered}\]</div>
           <p>La grille est positive par rapport à la masse, mais négative par rapport à la source : c'est \(V_{GS}\) qui compte.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Pont de grille et résistance de drain</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_2=\frac{1{,}26\times100\ \text{k}}{10}=12{,}6\ \text{k}\Omega\\[4pt] R_1=87{,}4\ \text{k}\Omega\\[4pt] R_D=\frac{V_{DD}-V_{DS}-V_S}{I_D}=\frac{10-5-2{,}5}{5\ \text{mA}}=500\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}R_2&amp;=\frac{V_G\,(R_1+R_2)}{V_{DD}}\\ &amp;=\frac{1{,}26\times100\ \text{k}}{10}\\ &amp;=12{,}6\ \text{k}\Omega\end{aligned}\\[4pt]\begin{aligned}R_1&amp;=(R_1+R_2)-R_2\\ &amp;=100-12{,}6\\ &amp;=87{,}4\ \text{k}\Omega\end{aligned}\\[4pt]\begin{aligned}R_D&amp;=\frac{V_{DD}-V_{DS}-V_S}{I_D}\\ &amp;=\frac{10-5-2{,}5}{5\ \text{mA}}\\ &amp;=500\ \Omega\end{aligned}\end{gathered}\]</div>
           <p>Contrôle : \(V_{DS}=5\ \text{V}&gt;V_{GS}-V_P=2{,}26\ \text{V}\) ✓.</p>
         </div></div></li>
       </ol>
@@ -2243,12 +2243,12 @@
           <div class="mq">\[\begin{aligned}30\,(V_{GS}^2-2V_{GS}+1)&amp;=5-V_{GS}\\30\,V_{GS}^2-59\,V_{GS}+25&amp;=0\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Racines</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\Delta=59^2-4\times30\times25=481\\[4pt] V_{GS}=\frac{59\pm21{,}9}{60}=1{,}35\ \text{V}\ \text{ou}\ 0{,}62\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\Delta=b^2-4ac=59^2-4\times30\times25=481\\[4pt]\begin{aligned}V_{GS}&amp;=\frac{-b\pm\sqrt\Delta}{2a}\\ &amp;=\frac{59\pm21{,}9}{60}\\ &amp;=1{,}35\ \text{V}\\ &amp;\text{ou}\ 0{,}62\ \text{V}\end{aligned}\end{gathered}\]</div>
           <p>0,62 V &lt; \(V_{Th}\) : transistor bloqué, incompatible avec \(I_D\neq0\) ⟹ rejeté.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Point de repos</div><div class="sd">
-          <div class="mq">\[\begin{gathered}I_D=\frac{5-1{,}35}{10\ \text{k}\Omega}=0{,}365\ \text{mA}\\[4pt] V_D=5-5\ \text{k}\Omega\times0{,}365\ \text{mA}=3{,}17\ \text{V}\\[4pt] V_S=-1{,}35\ \text{V}\end{gathered}\]</div>
-          <div class="mq">\[V_{DS}=3{,}17-(-1{,}35)=4{,}5\ \text{V}\ &gt;\ V_{GS}-V_{Th}=0{,}35\ \text{V}\ :\ \text{saturation}\ ✓\]</div>
+          <div class="mq">\[\begin{gathered}I_D=\frac{5-V_{GS}}{R_S}=\frac{5-1{,}35}{10\ \text{k}\Omega}=0{,}365\ \text{mA}\\[4pt]\begin{aligned}V_D&amp;=V_{DD}-R_D\,I_D\\ &amp;=5-5\ \text{k}\Omega\times0{,}365\ \text{mA}\\ &amp;=3{,}17\ \text{V}\end{aligned}\\[4pt] V_S=-1{,}35\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{aligned}V_{DS}&amp;=V_D-V_S\\ &amp;=3{,}17-(-1{,}35)\\ &amp;=4{,}5\ \text{V}\\ &amp;&gt;\ V_{GS}-V_{Th}=0{,}35\ \text{V}\ :\ \text{saturation}\ ✓\end{aligned}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">AD8.2 — Gain en tension</div>
@@ -2256,12 +2256,12 @@
         <li class="step"><span class="sn"></span><div><div class="st">Transconductance</div><div class="sd">
           <p>Avec la convention \(I_D=K_n(V_{GS}-V_{Th})^2\), la dérivée est :</p>
           <div class="fml"><span class="f">\(g_m=\dfrac{dI_D}{dV_{GS}}=2K_n\,(V_{GS}-V_{Th})\)</span><span class="leg">mA/V = mS</span></div>
-          <div class="mq">\[g_m=2\times3\times0{,}35=2{,}1\ \text{mS}\]</div>
+          <div class="mq">\[\begin{aligned}g_m&amp;=2K_n\,(V_{GS}-V_{Th})\\ &amp;=2\times3\times0{,}35\\ &amp;=2{,}1\ \text{mS}\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Schéma petits signaux</div><div class="sd">
           <p>La grille est à la masse et l'entrée est sur la source : \(v_{gs}=0-v_i=-v_i\). Le courant \(g_m v_{gs}\) circule du drain vers la source ; côté drain, il traverse \(R_D\parallel R_L\) :</p>
-          <div class="mq">\[\begin{gathered}v_o=-g_m\,v_{gs}\,(R_D\parallel R_L)=+g_m\,v_i\,(R_D\parallel R_L)\\[4pt] R_D\parallel R_L=\frac{5\times4}{9}=2{,}22\ \text{k}\Omega\end{gathered}\]</div>
-          <div class="mq">\[A_v=+2{,}1\ \text{mS}\times2{,}22\ \text{k}\Omega=+4{,}65\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}v_o&amp;=-g_m\,v_{gs}\,(R_D\parallel R_L)\\ &amp;=+g_m\,v_i\,(R_D\parallel R_L)\end{aligned}\\[4pt] R_D\parallel R_L=\frac{R_DR_L}{R_D+R_L}=\frac{5\times4}{9}=2{,}22\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{aligned}A_v &= g_m\,(R_D\parallel R_L)\\ &= 2{,}1\ \text{mS}\times2{,}22\ \text{k}\Omega\\ &= +4{,}65\end{aligned}\]</div>
           <p>Les deux signes « − » se compensent : le grille commune est <b>non inverseur</b>.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Résistance d'entrée</div><div class="sd">
@@ -2288,18 +2288,18 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">\(R_S\) et \(V_{GS}\)</div><div class="sd">
           <p>Le drain est à 5 V : la tension aux bornes de \(R_S\) est \(V_{DD}-V_{DS}\).</p>
-          <div class="mq">\[\begin{gathered}R_S=\frac{5-3}{1{,}7\ \text{mA}}=1{,}18\ \text{k}\Omega\\[4pt] V_{GS}=V_{Th}+\sqrt{\frac{I_D}{K_n}}=1+\sqrt{1{,}7}=2{,}30\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_S=\frac{V_{DD}-V_{DS}}{I_D}=\frac{5-3}{1{,}7\ \text{mA}}=1{,}18\ \text{k}\Omega\\[4pt] V_{GS}=V_{Th}+\sqrt{\frac{I_D}{K_n}}=1+\sqrt{1{,}7}=2{,}30\ \text{V}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Potentiel de grille et pont</div><div class="sd">
           <div class="mq">\[\begin{gathered}V_G=V_{GS}+V_S=2{,}30+2=4{,}30\ \text{V}\\[4pt] \frac{R_2}{R_1+R_2}=\frac{V_G}{V_{DD}}=0{,}861\end{gathered}\]</div>
           <p>Comme \(R_1\parallel R_2=\dfrac{R_1R_2}{R_1+R_2}=0{,}861\,R_1=0{,}139\,R_2\) :</p>
-          <div class="mq">\[\begin{gathered}R_1=\frac{300\ \text{k}}{0{,}861}=348\ \text{k}\Omega\\[4pt] R_2=\frac{300\ \text{k}}{0{,}139}=2{,}16\ \text{M}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_1=\frac{R_1\parallel R_2}{0{,}861}=\frac{300\ \text{k}}{0{,}861}=348\ \text{k}\Omega\\[4pt] R_2=\frac{R_1\parallel R_2}{0{,}139}=\frac{300\ \text{k}}{0{,}139}=2{,}16\ \text{M}\Omega\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">AD8.4 — Gain du suiveur</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Transconductance et gain</div><div class="sd">
-          <div class="mq">\[\begin{gathered}g_m=2K_n\,(V_{GS}-V_{Th})=2\times1\times1{,}30=2{,}6\ \text{mS}\\[4pt] A_v=\frac{g_mR_S}{1+g_mR_S}=\frac{3{,}07}{4{,}07}=0{,}75\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}g_m&amp;=2K_n\,(V_{GS}-V_{Th})\\ &amp;=2\times1\times1{,}30\\ &amp;=2{,}6\ \text{mS}\end{aligned}\\[4pt] A_v=\frac{g_mR_S}{1+g_mR_S}=\frac{3{,}07}{4{,}07}=0{,}75\end{gathered}\]</div>
           <p>Le gain est toujours inférieur à 1 : une partie de \(v_i\) reste aux bornes grille-source pour faire circuler le courant.</p>
         </div></div></li>
       </ol>
@@ -2320,22 +2320,22 @@
       <div class="qsub">Polarisation (préalable)</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Autopolarisation avec 350 Ω</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{GS}=-0{,}35\,I_D\\[4pt] I_D=2\,(1-0{,}175\,I_D)^2\ \Longrightarrow\ 0{,}0613\,I_D^2-1{,}7\,I_D+2=0\end{gathered}\]</div>
-          <div class="mq">\[I_D=\frac{1{,}7\pm1{,}549}{0{,}1225}=26{,}5\ \text{mA}\ (&gt;I_{DSS},\ \text{rejeté})\ \text{ou}\ 1{,}23\ \text{mA}\]</div>
-          <div class="mq">\[\begin{gathered}V_{GS}=-0{,}43\ \text{V}\\[4pt] V_{DS}=20-1{,}23\times8{,}35=9{,}7\ \text{V}\ &gt;\ V_{GS}-V_P=1{,}57\ \text{V}\ ✓\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_{GS}=-0{,}35\,I_D\\[4pt]\begin{aligned}I_D&amp;=2\,(1-0{,}175\,I_D)^2\\ &amp;\Longrightarrow\ 0{,}0613\,I_D^2-1{,}7\,I_D+2=0\end{aligned}\end{gathered}\]</div>
+          <div class="mq">\[\begin{aligned}I_D&amp;=\frac{-b\pm\sqrt\Delta}{2a}\\ &amp;=\frac{1{,}7\pm1{,}549}{0{,}1225}\\ &amp;=26{,}5\ \text{mA}\ (&gt;I_{DSS},\ \text{rejeté})\\ &amp;\text{ou}\ 1{,}23\ \text{mA}\end{aligned}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_{GS}&amp;=-(R_{S1}+R_{S2})\,I_D\\ &amp;=-0{,}35\times1{,}23\\ &amp;=-0{,}43\ \text{V}\end{aligned}\\[4pt]\begin{aligned}V_{DS}&amp;=V_{DD}-I_D\,(R_D+R_{S1}+R_{S2})\\ &amp;=20-1{,}23\times8{,}35\\ &amp;=9{,}7\ \text{V}\\ &amp;&gt;\ V_{GS}-V_P=1{,}57\ \text{V}\ ✓\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q8.1 — Transconductance</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Dérivée de la loi quadratique</div><div class="sd">
-          <div class="mq">\[\begin{gathered}g_m=\frac{2I_{DSS}}{|V_P|}\left(1-\frac{V_{GS}}{V_P}\right)=2\ \text{mS}\times(1-0{,}215)=1{,}57\ \text{mS}\\[4pt] \left(\text{contrôle} :\ \frac{2\sqrt{2\times1{,}23}}{2}=1{,}57\ ✓\right)\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}g_m&amp;=\frac{2I_{DSS}}{|V_P|}\left(1-\frac{V_{GS}}{V_P}\right)\\ &amp;=2\ \text{mS}\times(1-0{,}215)\\ &amp;=1{,}57\ \text{mS}\end{aligned}\\[4pt] \left(\text{contrôle} :\ \frac{2\sqrt{I_{DSS}\,I_D}}{|V_P|}=\frac{2\sqrt{2\times1{,}23}}{2}=1{,}57\ ✓\right)\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q8.2 — Gain en tension</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Mailles petits signaux</div><div class="sd">
           <div class="mq">\[\begin{gathered}v_i=v_{gs}\,(1+g_mR_{S1})\\[4pt] v_o=-g_m\,v_{gs}\,(R_D\parallel R_L)\\[4pt] A_v=-\frac{g_m\,(R_D\parallel R_L)}{1+g_mR_{S1}}\end{gathered}\]</div>
-          <div class="mq">\[\begin{gathered}R_D\parallel R_L=\frac{8\times4}{12}=2{,}67\ \text{k}\Omega\\[4pt] A_v=-\frac{1{,}57\times2{,}67}{1{,}157}=-3{,}6\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_D\parallel R_L=\frac{R_DR_L}{R_D+R_L}=\frac{8\times4}{12}=2{,}67\ \text{k}\Omega\\[4pt]\begin{aligned}A_v&amp;=-\frac{g_m\,(R_D\parallel R_L)}{1+g_mR_{S1}}\\ &amp;=-\frac{1{,}57\times2{,}67}{1{,}157}\\ &amp;=-3{,}6\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q8.3 à Q8.5 — Gain en courant et résistances</div>
@@ -2366,12 +2366,12 @@
       <div class="qsub">ES8.1 — Polarisation</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Mise en équation</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{GS}=V_D=15-15\,I_D\\[4pt] I_D=\frac12\times0{,}25\times(V_{GS}-1{,}5)^2=\frac18\,(13{,}5-15\,I_D)^2\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_{GS}=V_D=15-15\,I_D\\[4pt]\begin{aligned}I_D&amp;=\frac12K_n\,(V_{GS}-V_{Th})^2\\ &amp;=\frac12\times0{,}25\times(V_{GS}-1{,}5)^2\\ &amp;=\frac18\,(13{,}5-15\,I_D)^2\end{aligned}\end{gathered}\]</div>
           <div class="mq">\[\begin{aligned}8\,I_D&amp;=182{,}25-405\,I_D+225\,I_D^2\\0&amp;=225\,I_D^2-413\,I_D+182{,}25\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Racines</div><div class="sd">
-          <div class="mq">\[\begin{aligned}I_D &= \frac{413\pm\sqrt{6544}}{450}\\ &= \frac{413\pm80{,}9}{450}\\ &= 1{,}10\ \text{mA}\ \text{ou}\ 0{,}74\ \text{mA}\end{aligned}\]</div>
-          <p>1,10 mA donnerait \(V_{GS}=15-16{,}5=-1{,}5\ \text{V}&lt;V_{Th}\) : transistor bloqué ⟹ rejeté.</p>
+          <div class="mq">\[\begin{aligned}I_D &= \frac{-b\pm\sqrt\Delta}{2a}\\ &= \frac{413\pm\sqrt{6544}}{450}\\ &= \frac{413\pm80{,}9}{450}\\ &= 1{,}10\ \text{mA}\ \text{ou}\ 0{,}74\ \text{mA}\end{aligned}\]</div>
+          <p>1,10 mA donnerait \(V_{GS}=15-15\,I_D=15-16{,}5=-1{,}5\ \text{V}&lt;V_{Th}\) : transistor bloqué ⟹ rejeté.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Point de repos</div><div class="sd">
           <div class="mq">\[\begin{gathered}I_D=0{,}74\ \text{mA}\\[4pt] V_{GS}=V_{DS}=15-15\times0{,}738=3{,}93\ \text{V}\\[4pt] V_{ov}=V_{GS}-V_{Th}=2{,}43\ \text{V}\end{gathered}\]</div>
@@ -2384,7 +2384,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Gain</div><div class="sd">
           <p>Au drain, trois résistances en parallèle : \(r_0\), \(R_D\), \(R_L\). Le courant dans \(R_G\) (10 MΩ) est négligeable devant \(g_mv_{gs}\).</p>
-          <div class="mq">\[\begin{gathered}R_L'=r_0\parallel R_D\parallel R_L=67{,}8\ \text{k}\parallel15\ \text{k}\parallel5\ \text{k}=3{,}55\ \text{k}\Omega\\[4pt] A_v\approx-g_m\,R_L'=-0{,}607\times3{,}55=-2{,}16\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}R_L'&amp;=r_0\parallel R_D\parallel R_L\\ &amp;=67{,}8\ \text{k}\parallel15\ \text{k}\parallel5\ \text{k}\\ &amp;=3{,}55\ \text{k}\Omega\end{aligned}\\[4pt] A_v\approx-g_m\,R_L'=-0{,}607\times3{,}55=-2{,}16\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Résistance d'entrée (effet Miller)</div><div class="sd">
           <div class="mq">\[\begin{aligned}R_i &= \frac{R_G}{1-A_v}\\ &= \frac{10\ \text{M}\Omega}{3{,}16}\\ &= 3{,}17\ \text{M}\Omega\end{aligned}\]</div>
@@ -2455,7 +2455,7 @@
           <p>Réseau P : pMOS A, B, C en série, l'ensemble en parallèle avec pMOS D. Réseau N : nMOS A, B, C en parallèle, l'ensemble en série avec nMOS D. Les deux réseaux sont bien duaux.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">AD9.4 — Équation depuis chaque réseau</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\text{réseau P} :\ Y=\overline A\,\overline B\,\overline C+\overline D\\[4pt] \text{réseau N} :\ \overline Y=D\,(A+B+C)\ \Longrightarrow\ Y=\overline{D\,(A+B+C)}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\text{réseau P} :\ Y=\overline A\,\overline B\,\overline C+\overline D\\[4pt]\begin{gathered}\text{réseau N} :\ \overline Y=D\,(A+B+C)\\\[2pt] \Longrightarrow\ \ Y=\overline{D\,(A+B+C)}\end{gathered}\end{gathered}\]</div>
           <p>Vérification par De Morgan : \(\overline{D(A+B+C)}=\overline D+\overline{A+B+C}=\overline D+\overline A\,\overline B\,\overline C\) ✓. C'est une porte OAI31 (OR-AND-Invert) à 8 transistors.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">AD9.5 — Circuit minimal en portes</div><div class="sd">
@@ -2557,7 +2557,7 @@
       <div class="qsub">Q9.3 — Structure</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Deux réseaux duaux</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\overline e=a+b\,c+d\ \Rightarrow\ \text{N} :\ a\parallel(b\ \text{série}\ c)\parallel d\\[4pt] e=\overline a\,(\overline b+\overline c)\,\overline d\ \Rightarrow\ \text{P} :\ a\ \text{série}\ (b\parallel c)\ \text{série}\ d\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}\overline e&amp;=a+b\,c+d\\ &amp;\Rightarrow\ \text{N} :\ a\parallel(b\ \text{série}\ c)\parallel d\end{aligned}\\[4pt]\begin{aligned}e&amp;=\overline a\,(\overline b+\overline c)\,\overline d\\ &amp;\Rightarrow\ \text{P} :\ a\ \text{série}\ (b\parallel c)\ \text{série}\ d\end{aligned}\end{gathered}\]</div>
           <p>8 transistors.</p>
         </div></div></li>
       </ol>
@@ -2638,7 +2638,7 @@
           <p>Porte complexe avec réseau N : \(y\) série \((\overline x\parallel\overline z)\), ce qui demande deux inverseurs pour \(\overline x\) et \(\overline z\) : 6 + 4 = 10 transistors.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Mieux : NAND-NAND</div><div class="sd">
-          <div class="mq">\[\begin{gathered}\text{NAND}(x,z)=\overline x+\overline z\\[4pt] \text{NAND}\big(y,\ \overline x+\overline z\big)=\overline y+\overline{\overline x+\overline z}=\overline y+x\,z=f\ ✓\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\text{NAND}(x,z)=\overline x+\overline z\\[4pt]\begin{aligned}\text{NAND}\big(y,\ \overline x+\overline z\big)&amp;=\overline y+\overline{\overline x+\overline z}\\ &amp;=\overline y+x\,z\\ &amp;=f\ ✓\end{aligned}\end{gathered}\]</div>
           <p>2 portes NAND2 = 8 transistors, sans inverseur.</p>
         </div></div></li>
       </ol>
@@ -2656,7 +2656,7 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">ES9.8 — Factorisation et réseaux</div><div class="sd">
-          <div class="mq">\[\begin{gathered}y\,z+z\,w=z\,(y+w)\ \Longrightarrow\ \overline m=x\,z\,(y+w)\\[4pt] m=\overline x+\overline z+\overline y\,\overline w\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{gathered}y\,z+z\,w=z\,(y+w)\\\[2pt] \Longrightarrow\ \ \overline m=x\,z\,(y+w)\end{gathered}\\[4pt] m=\overline x+\overline z+\overline y\,\overline w\end{gathered}\]</div>
           <p>Réseau N : x série z série (y ∥ w). Réseau P : x ∥ z ∥ (y série w). 8 transistors (au lieu de 10 sans factoriser).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">ES9.9 — Chemin d'Euler commun : ordre x, z, w, y</div><div class="sd">
@@ -2696,7 +2696,7 @@
           <div class="mq">\[\begin{aligned}\text{métal} :&amp;\ \ 32\ \text{carreaux}=128\lambda^2\ \Rightarrow\ 128\times0{,}01=1{,}28\ \text{pF}\\\text{contacts} :&amp;\ \ 2\times4\lambda^2\times0{,}5=4{,}0\ \text{pF}\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Total</div><div class="sd">
-          <div class="mq">\[C_{OUT}\approx3{,}52+3{,}36+1{,}28+4{,}0\approx12{,}2\ \text{pF}\]</div>
+          <div class="mq">\[C_{OUT}=\sum_i C_i\approx3{,}52+3{,}36+1{,}28+4{,}0\approx12{,}2\ \text{pF}\]</div>
           <p>Si l'on prend, comme dans l'exemple de l'amphi, des contacts de \(\lambda\times\lambda\), la part des contacts tombe à 1 pF et \(C_{OUT}\approx9{,}2\ \text{pF}\). Le via vers le métal 2 n'est pas compté (aucune valeur donnée).</p>
         </div></div></li>
       </ol>
@@ -2707,7 +2707,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Résistances du pire cas et délai</div><div class="sd">
           <p>Descente : les deux nMOS doivent conduire, ils sont en série. Montée : le cas le plus lent est celui où un seul pMOS conduit.</p>
-          <div class="mq">\[\begin{gathered}R_N=2\times7{,}5=15\ \text{k}\Omega\\[4pt] R_P=15\ \text{k}\Omega\\[4pt] \tau=\frac{(R_N+R_P)\,C_{OUT}}{2}=15\ \text{k}\Omega\times12{,}2\ \text{pF}\approx0{,}18\ \mu\text{s}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_N=2\,R_n=2\times7{,}5=15\ \text{k}\Omega\\[4pt] R_P=R_p=15\ \text{k}\Omega\\[4pt]\begin{aligned}\tau&amp;=\frac{(R_N+R_P)\,C_{OUT}}{2}\\ &amp;=15\ \text{k}\Omega\times12{,}2\ \text{pF}\approx0{,}18\ \mu\text{s}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(C_{OUT}\approx12{,}2\ \text{pF}\) (convention : contacts d'un carreau) ; \(\tau\approx0{,}18\ \mu\text{s}\).</div>
@@ -2740,7 +2740,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Choisir deux NOR bien placés</div><div class="sd">
           <p>Deux NOR du chemin critique font gagner 3 unités, mais il faut aussi que les chemins vers \(A_4\) et \(A_5\) (12 unités) passent sous 10. Ces chemins passent par \(N_2\) (ou \(N_1\)) et \(N_4\), mais pas par \(N_5\). Avec \(N_2\) et \(N_4\) accélérés (1,5 chacun) :</p>
-          <div class="mq">\[N_2=4{,}5,\ N_4=6,\ I_3=7,\ N_3=7{,}5,\ A_3=6{,}5\ \Rightarrow\ A_4=9{,}5,\ \ N_5=\max(5,7)+3=10,\ \ A_5=9\ \Rightarrow\ \text{délai }10\ ✓\]</div>
+          <div class="mq">\[\begin{gathered}N_2=4{,}5,\ N_4=6,\ I_3=7,\ N_3=7{,}5,\ A_3=6{,}5\\\[2pt] \Rightarrow\ \ A_4=9{,}5,\ \ N_5=\max(5,7)+3=10,\ \ A_5=9\\\[2pt] \Rightarrow\ \ \text{délai }10\ ✓\end{gathered}\]</div>
           <p>\(N_1\) et \(N_4\) conviennent aussi. Toutes les combinaisons de deux portes ont été vérifiées : aucune autre ne descend à 10.</p>
         </div></div></li>
       </ol>
@@ -2762,11 +2762,11 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Étage 1</div><div class="sd">
           <p>Réseau N : le pire cas est le chemin C série D (deux nMOS). Réseau P : toujours trois pMOS en série (A, B, et C ou D).</p>
-          <div class="mq">\[\begin{gathered}R_N=2\times7{,}5=15\ \text{k}\Omega\\[4pt] R_P=3\times15=45\ \text{k}\Omega\\[4pt] \tau_1=\frac{15+45}{2}\ \text{k}\Omega\times5\ \text{pF}=150\ \text{ns}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_N=2\,R_n=2\times7{,}5=15\ \text{k}\Omega\\[4pt] R_P=3\,R_p=3\times15=45\ \text{k}\Omega\\[4pt]\begin{aligned}\tau_1&amp;=\frac{R_N+R_P}{2}\,C\\ &amp;=\frac{15+45}{2}\ \text{k}\Omega\times5\ \text{pF}\\ &amp;=150\ \text{ns}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Étage 2</div><div class="sd">
           <p>Réseau N : pire cas B série C série D (trois nMOS). Réseau P : X en série avec un seul des pMOS B, C, D.</p>
-          <div class="mq">\[\begin{gathered}R_N=3\times7{,}5=22{,}5\ \text{k}\Omega\\[4pt] R_P=2\times15=30\ \text{k}\Omega\\[4pt] \tau_2=\frac{22{,}5+30}{2}\ \text{k}\Omega\times5\ \text{pF}=131\ \text{ns}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_N=3\,R_n=3\times7{,}5=22{,}5\ \text{k}\Omega\\[4pt] R_P=2\,R_p=2\times15=30\ \text{k}\Omega\\[4pt]\begin{aligned}\tau_2&amp;=\frac{R_N+R_P}{2}\,C\\ &amp;=\frac{22{,}5+30}{2}\ \text{k}\Omega\times5\ \text{pF}\\ &amp;=131\ \text{ns}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Délai total</div><div class="sd">
           <p>Le chemin le plus long traverse les deux étages (entrées → X → OUT) :</p>
@@ -2813,7 +2813,7 @@
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponse</b>\(R_{AB}\approx203\ \Omega\), presque entièrement dans le polysilicium.</div>
-      <div class="why"><b class="lab">Remarques sur le poly</b>Le texte renvoie à « la figure 7.3 » : il s'agit de la figure 10.4. \(R_{M1}=\tfrac23\times0{,}1=0{,}07\ \Omega\) (le poly arrondit à 0,1).</div>
+      <div class="why"><b class="lab">Remarques sur le poly</b>Le texte renvoie à « la figure 7.3 » : il s'agit de la figure 10.4. \(R_{M1}=\tfrac{L}{W}\,R_\square=\tfrac23\times0{,}1=0{,}07\ \Omega\) (le poly arrondit à 0,1).</div>
     </div></details>
   </article>
 
@@ -2886,12 +2886,12 @@
       <div class="qsub">ES10.14 à ES10.16 — Ordres de grandeur et miniaturisation</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Transistors « à l'ancienne » et bactérie</div><div class="sd">
-          <div class="mq">\[\begin{gathered}10^8\times1\ \text{cm}^2=10^8\ \text{cm}^2=10^4\ \text{m}^2\ \text{(un hectare)}\\[4pt] 10^8\times1\ \text{g}=100\ \text{tonnes}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}N\,S_1&amp;=10^8\times1\ \text{cm}^2\\ &amp;=10^8\ \text{cm}^2\\ &amp;=10^4\ \text{m}^2\ \text{(un hectare)}\end{aligned}\\[4pt] N\,m_1=10^8\times1\ \text{g}=100\ \text{tonnes}\end{gathered}\]</div>
           <div class="mq">\[\begin{gathered}\frac{1\ \mu\text{m}}{10\ \text{nm}}=100\ \text{transistors alignés}\\[3pt] \Rightarrow\ 100\times100=10^4\ \text{sur la surface d'une bactérie}\end{gathered}\]</div>
           <p>Un processeur actuel contient \(10^{10}\) transistors sur quelques cm² : sans l'intégration, il serait impossible à construire.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Miniaturisation</div><div class="sd">
-          <div class="mq">\[\begin{gathered}S=\frac{1}{0{,}8}=1{,}25\\[4pt] f'=f\,S^2=100\times1{,}5625=156\ \text{MHz}\\[4pt] P'=\frac PS=\frac{0{,}5}{1{,}25}=0{,}4\ \text{W}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}S=\frac{L}{L'}=\frac{1}{0{,}8}=1{,}25\\[4pt] f'=f\,S^2=100\times1{,}5625=156\ \text{MHz}\\[4pt] P'=\frac PS=\frac{0{,}5}{1{,}25}=0{,}4\ \text{W}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">ES10.17-10.18 — Coûts</div>
@@ -2940,8 +2940,8 @@
           <p>Si on avait oublié \(I_{B2}\) (ou pris le mauvais sens), on aurait 8 kΩ ou 8,3 kΩ.</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(R_E\)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{E2}=V_{B2}+V_{EB}=4{,}7\ \text{V}\\[4pt] I_{E2}=I_C+I_B=2{,}02\ \text{mA}\\[4pt] R_E=\frac{24-4{,}7}{2{,}02\ \text{mA}}=9{,}55\ \text{k}\Omega\end{gathered}\]</div>
-          <p>Contrôle : \(V_{EC}=4{,}7-0=4{,}7\ \text{V}&gt;V_{EC,\text{sat}}\), le PNP est bien en régime actif.</p>
+          <div class="mq">\[\begin{gathered}V_{E2}=V_{B2}+V_{EB}=4{,}7\ \text{V}\\[4pt] I_{E2}=I_C+I_B=2{,}02\ \text{mA}\\[4pt] R_E=\frac{V_{CC}-V_{E2}}{I_{E2}}=\frac{24-4{,}7}{2{,}02\ \text{mA}}=9{,}55\ \text{k}\Omega\end{gathered}\]</div>
+          <p>Contrôle : \(V_{EC}=V_E-V_C=4{,}7-0=4{,}7\ \text{V}&gt;V_{EC,\text{sat}}\), le PNP est bien en régime actif.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(R_S\approx7{,}7\ \text{k}\Omega\) ; \(R_E\approx9{,}55\ \text{k}\Omega\).</div>
@@ -2964,12 +2964,12 @@
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Q1 : maille \(V_{CC}\) → \(R_C\) → 270 kΩ → base → émetteur</div><div class="sd">
           <p>\(R_C\) est traversée par \(I_C+I_B=(\beta+1)I_B\) (le courant de base passe aussi par \(R_C\)) :</p>
-          <div class="mq">\[\begin{gathered}24=R_C\,(\beta+1)\,I_B+270\ \text{k}\,I_B+0{,}7\\[3pt] \Rightarrow\ I_B=\frac{23{,}3}{270\ \text{k}+201\times2{,}2\ \text{k}}=32{,}7\ \mu\text{A}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}24=R_C\,(\beta+1)\,I_B+270\ \text{k}\,I_B+0{,}7\\[3pt]\begin{aligned}\Rightarrow\ \ I_B&amp;=\frac{V_{CC}-V_{BE}}{R_B+(\beta+1)R_C}\\ &amp;=\frac{23{,}3}{270\ \text{k}+201\times2{,}2\ \text{k}}\\ &amp;=32{,}7\ \mu\text{A}\end{aligned}\end{gathered}\]</div>
           <div class="mq">\[\begin{gathered}I_C=6{,}54\ \text{mA}\\[4pt] V_C=9{,}5\ \text{V}\\[4pt] g_{m1}=\frac{I_C}{V_T}=0{,}262\ \text{S}\\[4pt] r_\pi=\frac{\beta}{g_{m1}}=764\ \Omega\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Q2 : autopolarisation (\(V_G=0\))</div><div class="sd">
           <div class="mq">\[\begin{gathered}V_{GS}=-4{,}7\,I_D\\[3pt] \Rightarrow\ I_D=12\,(1-0{,}5875\,I_D)^2\\[3pt] \Rightarrow\ 4{,}14\,I_D^2-15{,}1\,I_D+12=0\end{gathered}\]</div>
-          <div class="mq">\[\begin{gathered}I_D=1{,}17\ \text{mA}\ \ (\text{l'autre racine, }2{,}48\ \text{mA, donne }V_{GS}&lt;V_P)\\[4pt] V_{GS}=-5{,}5\ \text{V}\\[4pt] g_{m2}=\frac{2\sqrt{12\times1{,}17}}{8}=0{,}94\ \text{mS}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}I_D=1{,}17\ \text{mA}\ \ (\text{l'autre racine, }2{,}48\ \text{mA, donne }V_{GS}&lt;V_P)\\[4pt] V_{GS}=-4{,}7\,I_D=-4{,}7\times1{,}17=-5{,}5\ \text{V}\\[4pt]\begin{aligned}g_{m2}&amp;=\frac{2\sqrt{I_{DSS}\,I_D}}{|V_P|}\\ &amp;=\frac{2\sqrt{12\times1{,}17}}{8}\\ &amp;=0{,}94\ \text{mS}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q11.2 et Q11.3 — Résistances d'entrée et de sortie</div>
@@ -2980,17 +2980,17 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Sortie (source de Q2)</div><div class="sd">
           <p>Sur la source d'un suiveur, le transistor présente \(\tfrac1{g_m}\), en parallèle avec \(R_S\) et \(r_0\).</p>
-          <div class="mq">\[\begin{gathered}\frac1{g_{m2}}=1{,}07\ \text{k}\Omega\\[4pt] R_0=R_S\parallel r_0\parallel\frac1{g_{m2}}=4{,}7\ \text{k}\parallel50\ \text{k}\parallel1{,}07\ \text{k}=855\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\frac1{g_{m2}}=1{,}07\ \text{k}\Omega\\[4pt]\begin{aligned}R_0&amp;=R_S\parallel r_0\parallel\frac1{g_{m2}}\\ &amp;=4{,}7\ \text{k}\parallel50\ \text{k}\parallel1{,}07\ \text{k}\\ &amp;=855\ \Omega\end{aligned}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">Q11.4 — Gain en tension</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Étage 1 (émetteur commun)</div><div class="sd">
           <p>Au collecteur, le courant \(g_{m1}v_{be}\) traverse \(R_C\), \(R_{B2}\) et l'entrée de l'étage 2 (\(R_F\)), en parallèle :</p>
-          <div class="mq">\[\begin{gathered}R_C\parallel R_{B2}\parallel R_F=2{,}13\ \text{k}\Omega\\[4pt] A_{v1}=-g_{m1}\times2{,}13\ \text{k}\Omega=-557\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_C\parallel R_{B2}\parallel R_F=2{,}13\ \text{k}\Omega\\[4pt]\begin{aligned}A_{v1}&amp;=-g_{m1}\,(R_C\parallel R_{B2}\parallel R_F)\\ &amp;=-g_{m1}\times2{,}13\ \text{k}\Omega\\ &amp;=-557\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Étage 2 (drain commun) et total</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R'=R_S\parallel r_0=4{,}3\ \text{k}\Omega\\[4pt] A_{v2}=\frac{g_{m2}R'}{1+g_{m2}R'}=\frac{4{,}03}{5{,}03}=0{,}80\\[4pt] A_v=-557\times0{,}80=-446\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R'=R_S\parallel r_0=4{,}3\ \text{k}\Omega\\[4pt] A_{v2}=\frac{g_{m2}R'}{1+g_{m2}R'}=\frac{4{,}03}{5{,}03}=0{,}80\\[4pt] A_v=A_{v1}\,A_{v2}=-557\times0{,}80=-446\end{gathered}\]</div>
           <div class="mq">\[\begin{aligned}\text{depuis le générateur} :\ \ \frac{v_o}{v_g} &= A_v\,\frac{R_i}{R_g+R_i}\\ &= -446\times\frac{761}{100\,761}\approx-3{,}4\end{aligned}\]</div>
         </div></div></li>
       </ol>
@@ -3017,7 +3017,7 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Thévenin vu depuis M (Zener conductrice)</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_M=\frac{R_S\,V_Z+R_Z\,V_S}{R_S+R_Z}=\frac{150\times8{,}2+10\times15}{160}=8{,}625\ \text{V}\\[4pt] R_M=R_S\parallel R_Z=9{,}4\ \Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_M&amp;=\frac{R_S\,V_Z+R_Z\,V_S}{R_S+R_Z}\\ &amp;=\frac{150\times8{,}2+10\times15}{160}\\ &amp;=8{,}625\ \text{V}\end{aligned}\\[4pt] R_M=R_S\parallel R_Z=9{,}4\ \Omega\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Les deux diodes bloquées : impossible</div><div class="sd">
           <p>Sans courant, M serait à \(V_S=15\ \text{V}&gt;8{,}2\ \text{V}\) : la Zener conduirait. Cette combinaison n'existe pas.</p>
@@ -3026,7 +3026,7 @@
           <p>Aucun courant dans \(R\) : \(v_0=v_i\). \(D_1\) reste bloquée tant que \(V_M-v_i&lt;0{,}7\ \text{V}\), soit \(v_i&gt;8{,}625-0{,}7=7{,}925\ \text{V}\).</p>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(D_1\) et Zener conductrices (valeurs moyennes)</div><div class="sd">
-          <p>Côté M : une source \(V_{eq}=8{,}625-0{,}7=7{,}925\ \text{V}\) derrière \(R_{eq}=9{,}4+10=19{,}4\ \Omega\). Côté entrée : \(v_i\) derrière \(R=100\ \Omega\). Par Millman :</p>
+          <p>Côté M : une source \(V_{eq}=V_M-V_{D1}=8{,}625-0{,}7=7{,}925\ \text{V}\) derrière \(R_{eq}=R_M+r_{D1}=9{,}4+10=19{,}4\ \Omega\). Côté entrée : \(v_i\) derrière \(R=100\ \Omega\). Par Millman :</p>
           <div class="mq">\[\begin{aligned}v_0 &= \frac{R_{eq}\,v_i+R\,V_{eq}}{R+R_{eq}}\\ &= \frac{19{,}4\,v_i+792{,}5}{119{,}4}\\ &= 0{,}162\,v_i+6{,}64\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(D_1\) conductrice, Zener bloquée (petits \(v_i\))</div><div class="sd">
@@ -3036,7 +3036,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Synthèse</div><div class="sd">
           <div class="mq">\[v_0=\begin{cases}0{,}615\,v_i+5{,}5&amp;\text{si }v_i&lt;2{,}51\ \text{V}\\0{,}162\,v_i+6{,}64&amp;\text{si }2{,}51\ \text{V}\leq v_i\leq7{,}925\ \text{V}\\v_i&amp;\text{si }v_i&gt;7{,}925\ \text{V}\end{cases}\]</div>
-          <p>Contrôle de continuité à 2,51 V : \(0{,}615\times2{,}51+5{,}5=7{,}04\ \text{V}\) et \(0{,}162\times2{,}51+6{,}64=7{,}05\ \text{V}\) ✓.</p>
+          <p>Contrôle de continuité à 2,51 V : \(v_0(2{,}51)=0{,}615\times2{,}51+5{,}5=7{,}04\ \text{V}\) et \(v_0(2{,}51)=0{,}162\times2{,}51+6{,}64=7{,}05\ \text{V}\) ✓.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Caractéristique</b>Trois segments continus : pente 0,615 jusqu'à \(v_i=2{,}5\ \text{V}\) (\(v_0\approx7{,}0\ \text{V}\)), pente 0,16 jusqu'à 7,9 V, puis \(v_0=v_i\).</div>
@@ -3055,9 +3055,9 @@
       <div class="qsub">ES11.2 — Polarisation</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant dans \(R_2\), puis courants des transistors</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_2\,I_2=V_{BE1}+V_{EB2}=1{,}2\ \text{V}\\[3pt] \Rightarrow\ I_2=\frac{1{,}2}{33{,}3\ \text{k}}=36\ \mu\text{A}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}R_2\,I_2=V_{BE1}+V_{EB2}=1{,}2\ \text{V}\\[3pt] \Rightarrow\ I_2=\frac{V_{BE1}+V_{EB2}}{R_2}=\frac{1{,}2}{33{,}3\ \text{k}}=36\ \mu\text{A}\end{gathered}\]</div>
           <p>Le courant de base de Q1 sort du pont au-dessus de \(R_2\), celui de Q2 y rentre en dessous ; avec des courants égaux, \(R_1\) et \(R_3\) sont traversées par \(I_2+I_B\) :</p>
-          <div class="mq">\[V_{CC}-1{,}2=(R_1+R_3)(I_2+I_B)\ \Rightarrow\ I_2+I_B=\frac{13{,}8}{200\ \text{k}}=69\ \mu\text{A}\ \Rightarrow\ I_B=33\ \mu\text{A},\ \ I_C=4{,}95\ \text{mA}\]</div>
+          <div class="mq">\[\begin{gathered}V_{CC}-1{,}2=(R_1+R_3)(I_2+I_B)\\\[2pt] \Rightarrow\ \ I_2+I_B=\frac{13{,}8}{200\ \text{k}}=69\ \mu\text{A}\\\[2pt] \Rightarrow\ \ I_B=33\ \mu\text{A},\ \ I_C=4{,}95\ \text{mA}\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="qsub">ES11.3 — Gain en tension</div>
@@ -3068,14 +3068,14 @@
           <div class="mq">\[\begin{gathered}v_{th}=v_i\,\frac{R_B}{R_B+R_S}=0{,}980\,v_i\\[4pt] R_{th}=R_B\parallel R_S=490\ \Omega\\[4pt] i_{b2}=\frac{0{,}980\,v_i}{R_{th}+r_{\pi1}+r_{\pi2}}=\frac{0{,}980\,v_i}{2005}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Sortie</div><div class="sd">
-          <div class="mq">\[\begin{gathered}v_0=\beta\,i_{b2}\,(R_C\parallel R_L)\\[4pt] A_v=\frac{150\times833\times0{,}980}{2005}\approx+61\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}v_0=\beta\,i_{b2}\,(R_C\parallel R_L)\\[4pt]\begin{aligned}A_v&amp;=\frac{\beta\,(R_C\parallel R_L)\times0{,}980}{R_{th}+r_{\pi1}+r_{\pi2}}\\ &amp;=\frac{150\times833\times0{,}980}{2005}\approx+61\end{aligned}\end{gathered}\]</div>
           <p>Gain positif : une hausse de \(v_i\) réduit le courant du PNP, donc celui du NPN, et le collecteur de Q1 monte.</p>
         </div></div></li>
       </ol>
       <div class="qsub">ES11.4-11.5 — Résistances</div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Entrée et sortie</div><div class="sd">
-          <div class="mq">\[\begin{gathered}R_i=R_B\parallel(r_{\pi1}+r_{\pi2})=25\ \text{k}\parallel1{,}52\ \text{k}=1{,}43\ \text{k}\Omega\ \ (1{,}93\ \text{k}\Omega\text{ avec }R_S)\\[4pt] R_0=R_C=5\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}R_i&amp;=R_B\parallel(r_{\pi1}+r_{\pi2})\\ &amp;=25\ \text{k}\parallel1{,}52\ \text{k}\\ &amp;=1{,}43\ \text{k}\Omega\ \ (1{,}93\ \text{k}\Omega\text{ avec }R_S)\end{aligned}\\[4pt] R_0=R_C=5\ \text{k}\Omega\end{gathered}\]</div>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(I_C\approx4{,}95\ \text{mA}\) ; \(A_v\approx+61\) ; \(R_i\approx1{,}43\ \text{k}\Omega\) ; \(R_0=5\ \text{k}\Omega\).</div>
@@ -3098,7 +3098,7 @@
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Solution de l'équation</div><div class="sd">
           <p>On pose \(u=t-t_i\). On cherche une solution particulière de la forme \(A\,e^{-u/\tau_{\text{ion}}}\), puis on ajoute la solution homogène \(B\,e^{-u/\tau}\). La condition \(V_2(t_i)=0\) (condensateur déchargé) impose \(B=-A\) :</p>
-          <div class="mq">\[\begin{gathered}V_2(u)=A\left(e^{-u/\tau_{\text{ion}}}-e^{-u/\tau}\right)\\[4pt] A=\frac{Q_{\text{gen}}\,R_{ON}}{\tau_{\text{ion}}-\tau}=\frac{60\cdot10^{-15}\times131}{7{,}25\cdot10^{-12}}=1{,}08\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}V_2(u)=A\left(e^{-u/\tau_{\text{ion}}}-e^{-u/\tau}\right)\\[4pt]\begin{aligned}A&amp;=\frac{Q_{\text{gen}}\,R_{ON}}{\tau_{\text{ion}}-\tau}\\ &amp;=\frac{60\cdot10^{-15}\times131}{7{,}25\cdot10^{-12}}\\ &amp;=1{,}08\ \text{V}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Maximum</div><div class="sd">
           <p>On annule la dérivée : \(\dfrac{e^{-u/\tau_{\text{ion}}}}{\tau_{\text{ion}}}=\dfrac{e^{-u/\tau}}{\tau}\).</p>
@@ -3114,7 +3114,7 @@
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(\tau=2{,}75\ \text{ps}\) ; \(t_{\max}\approx14{,}9\ \text{ps}\) ; \(V_{\max}\approx0{,}48\ \text{V}\) ; basculement si \(\text{SNM}_{\text{hold}}&lt;0{,}48\ \text{V}\).</div>
-      <div class="why"><b class="lab">Erreur du poly</b>Il annonce \(\tau=27{,}5\ \text{ps}\) et « \(\tau&gt;\tau_{\text{ion}}\) » : \(131\ \Omega\times21\ \text{fF}=2{,}75\ \text{ps}\), donc \(\tau&lt;\tau_{\text{ion}}\). Ses résultats \(t_{\max}=14{,}9\ \text{ps}\) et \(V_{\max}=0{,}48\ \text{V}\) correspondent bien à 2,75 ps (avec 27,5 ps on trouverait 0,16 V). Plusieurs renvois (« Q1-Q3 », « figure 11.5 » pour la cellule) sont des restes d'une ancienne version.</div>
+      <div class="why"><b class="lab">Erreur du poly</b>Il annonce \(\tau=27{,}5\ \text{ps}\) et « \(\tau&gt;\tau_{\text{ion}}\) » : \(\tau=RC=131\ \Omega\times21\ \text{fF}=2{,}75\ \text{ps}\), donc \(\tau&lt;\tau_{\text{ion}}\). Ses résultats \(t_{\max}=14{,}9\ \text{ps}\) et \(V_{\max}=0{,}48\ \text{V}\) correspondent bien à 2,75 ps (avec 27,5 ps on trouverait 0,16 V). Plusieurs renvois (« Q1-Q3 », « figure 11.5 » pour la cellule) sont des restes d'une ancienne version.</div>
       <div class="retenir"><b class="lab">Culture</b>Les SEU (Single Event Upsets) sont un vrai problème pour l'électronique spatiale, aéronautique et même au sol (neutrons atmosphériques). Parades : mémoires avec codes correcteurs (ECC), cellules durcies à plus de transistors, triplication avec vote majoritaire.</div>
     </div></details>
   </article>
@@ -3132,18 +3132,18 @@
     <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
       <ol class="steps">
         <li class="step"><span class="sn"></span><div><div class="st">Courant fixé par le BJT</div><div class="sd">
-          <div class="mq">\[\begin{gathered}E_{th}=16\times\frac{24}{106}=3{,}62\ \text{V}\\[4pt] R_{th}=82\ \text{k}\parallel24\ \text{k}=18{,}6\ \text{k}\Omega\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}E_{th}=V_{DD}\,\frac{R_2}{R_1+R_2}=16\times\frac{24}{106}=3{,}62\ \text{V}\\[4pt] R_{th}=R_1\parallel R_2=82\ \text{k}\parallel24\ \text{k}=18{,}6\ \text{k}\Omega\end{gathered}\]</div>
           <p>(\(V_{BE}=0{,}7\ \text{V}\), non précisé dans l'énoncé.)</p>
           <div class="mq">\[\begin{aligned}I_E &= \frac{E_{th}-V_{BE}}{R_E+\dfrac{R_{th}}{\beta+1}}\\ &= \frac{2{,}92}{1600+103}\\ &= 1{,}72\ \text{mA}\approx I_C =I_D\end{aligned}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Potentiels de drain et de grille</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_D=16-2{,}7\ \text{k}\times1{,}72\ \text{mA}=11{,}4\ \text{V}\\[4pt] V_B=V_G=E_{th}-\frac{R_{th}\,I_E}{\beta+1}=3{,}62-0{,}18=3{,}44\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_D&amp;=V_{DD}-R_D\,I_D\\ &amp;=16-2{,}7\ \text{k}\times1{,}72\ \text{mA}\\ &amp;=11{,}4\ \text{V}\end{aligned}\\[4pt]\begin{aligned}V_B&amp;=V_G\\ &amp;=E_{th}-\frac{R_{th}\,I_E}{\beta+1}\\ &amp;=3{,}62-0{,}18\\ &amp;=3{,}44\ \text{V}\end{aligned}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">\(V_{GS}\) du JFET et potentiel du collecteur</div><div class="sd">
-          <div class="mq">\[\begin{gathered}V_{GS}=V_P\left(1-\sqrt{\frac{I_D}{I_{DSS}}}\right)=-6\left(1-\sqrt{\frac{1{,}72}{12}}\right)=-3{,}73\ \text{V}\\[4pt] V_C=V_S=V_G-V_{GS}=3{,}44+3{,}73=7{,}2\ \text{V}\end{gathered}\]</div>
+          <div class="mq">\[\begin{gathered}\begin{aligned}V_{GS}&amp;=V_P\left(1-\sqrt{\frac{I_D}{I_{DSS}}}\right)\\ &amp;=-6\left(1-\sqrt{\frac{1{,}72}{12}}\right)\\ &amp;=-3{,}73\ \text{V}\end{aligned}\\[4pt] V_C=V_S=V_G-V_{GS}=3{,}44+3{,}73=7{,}2\ \text{V}\end{gathered}\]</div>
         </div></div></li>
         <li class="step"><span class="sn"></span><div><div class="st">Vérifications</div><div class="sd">
-          <p>JFET : \(V_{DS}=11{,}4-7{,}2=4{,}2\ \text{V}&gt;V_{GS}-V_P=2{,}3\ \text{V}\) ⟹ saturé ✓. BJT : \(V_E=1{,}6\ \text{k}\times1{,}72\ \text{mA}=2{,}75\ \text{V}\), \(V_{CE}=7{,}2-2{,}75=4{,}4\ \text{V}\) ⟹ actif ✓.</p>
+          <p>JFET : \(V_{DS}=V_D-V_S=11{,}4-7{,}2=4{,}2\ \text{V}&gt;V_{GS}-V_P=2{,}3\ \text{V}\) ⟹ saturé ✓. BJT : \(V_E=R_E\,I_E=1{,}6\ \text{k}\times1{,}72\ \text{mA}=2{,}75\ \text{V}\), \(V_{CE}=V_C-V_E=7{,}2-2{,}75=4{,}4\ \text{V}\) ⟹ actif ✓.</p>
         </div></div></li>
       </ol>
       <div class="answer"><b class="lab">Réponses</b>\(V_D\approx11{,}4\ \text{V}\) ; \(V_C\approx7{,}2\ \text{V}\).</div>

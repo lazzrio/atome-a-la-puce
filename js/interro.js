@@ -1,4 +1,4 @@
-/* Page Interro semaine 40 : thème, menu, section courante dans le sommaire */
+/* Page Fiche Ch0-Ch1 : thème, menu, section courante dans le sommaire */
 (function () {
   "use strict";
   var LS_THEME = "atp_theme";

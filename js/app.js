@@ -61,7 +61,6 @@
   /* ---------- COUNTDOWN ---------- */
   (function(){
     var evals=[
-      {d:new Date(2026,8,28,8,0,0), t:"jours avant l'interro surprise de la semaine 40 (en TD)"},
       {d:new Date(2026,10,7,8,45,0), t:"jours avant l'évaluation du samedi 7 novembre (8h45)"},
       {d:new Date(2026,11,14,8,0,0), t:"jours avant la semaine des partiels (14 décembre)"}
     ];
