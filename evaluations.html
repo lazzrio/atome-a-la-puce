@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Évaluations — De l'Atome à la Puce</title>
+<meta content="Révision des deux évaluations de novembre : DS de la semaine 45 (CM1 à CM3, TD1 à TD4, exercices rédigés) et interrogation de la semaine 46 (CM4, CM5, TD5, TD6, QCM mélangé) : fiches, sujet blanc corrigé, simulateur d'interro." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#0d8073" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#0a1113" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="De l'atome à la puce — Évaluations" property="og:title"/>
+<meta content="DS semaine 45 (exercices rédigés) et interro semaine 46 (QCM mélangé) : programme, fiches, sujet blanc corrigé et simulateur." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet"/>
+</head>
+<body class="cx-page s40-page" data-page="evaluations">
+<div class="topbar">
+<div class="topbar-in">
+<a aria-label="Accueil du site" class="brand" href="index.html">
+<span class="chip-logo"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="10" rx="1" width="10" x="7" y="7"></rect><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"></path></svg></span>
+      De l'Atome à la Puce
+    </a>
+<nav aria-label="Navigation principale" class="nav" id="nav">
+<a href="index.html">Accueil</a>
+<a href="index.html#cours"><span class="ni">📚</span> Cours</a>
+<a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
+<a href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
+<a href="corriges.html"><span class="ni">✅</span> Corrigés</a>
+<a aria-current="page" class="active nav-corr" href="evaluations.html"><span class="ni">🗓️</span> Évaluations</a>
+<a class="nav-corr" href="partiel.html"><span class="ni">📝</span> Partiel</a>
+<a href="index.html#notions"><span class="ni">💡</span> Notions</a>
+<a href="index.html#formules"><span class="ni">📘</span> Formules</a>
+<a href="index.html#express"><span class="ni">⚡</span> Express</a>
+<a href="index.html#exos"><span class="ni">🎯</span> Exos</a>
+<a href="index.html#boite"><span class="ni">🧰</span> À côté</a>
+<a href="index.html#quiz"><span class="ni">🧠</span> Quiz</a>
+<a href="index.html#planning"><span class="ni">📅</span> Planning</a>
+</nav>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
+<svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</button>
+<button aria-expanded="false" aria-label="Menu" class="burger" id="burger"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</div>
+</div>
+<main>
+<div class="hero hero-sm">
+<div class="hero-grid"></div>
+<div class="hero-in">
+<div>
+<span class="eyebrow">🗓️ Évaluations · novembre 2026</span>
+<h1>Le <em>DS</em> de la semaine 45, l'<em>interro</em> de la semaine 46.</h1>
+<p class="lead">Deux évaluations, deux formats. Le DS demande des exercices à rédiger sur les cours 1 à 3 (diode Zener comprise) ; l'interro est un QCM intégral sur les transistors bipolaires, avec questions et réponses mélangées. Programme exact, fiches, sujet blanc corrigé et simulateur d'interro.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="#ds">Préparer le DS →</a>
+<a class="btn btn-ghost" href="#interro">Préparer l'interro →</a>
+<a class="btn btn-ghost" href="partiel.html">📝 Annales et partiel</a>
+</div>
+<div class="s4-prog"><span>DS : sam. 7 nov., 8h45-10h15 (d'après l'EDT du 23/09, à confirmer) · J-<b data-countdown="2026-11-07T08:45">—</b></span><span>Interro : semaine du 9 au 15 nov. · 1 h</span></div>
+</div>
+</div>
+</div>
+<div class="wrap s40">
+<nav aria-label="Sections de la page" class="s4-toc">
+<a href="#programme">Programme</a>
+<a href="#plan">Plan de révision</a>
+<a href="#ds">DS S45</a>
+<a href="#ds-fiche">Fiche DS</a>
+<a href="#ds-blanc">Sujet blanc</a>
+<a href="#interro">Interro S46</a>
+<a href="#int-fiche">Fiche interro</a>
+<a href="#int-simu">Simulateur</a>
+</nav>
+
+<!-- ================= PROGRAMME ================= -->
+<section id="programme">
+<h2>Le programme exact</h2>
+<p class="s4-sub">D'après l'annonce de l'enseignant.</p>
+<div class="s4-grid">
+<div class="s4-card"><h4>DS de la semaine 45 · 1h30</h4>
+<ul class="s4-small">
+<li><b>Cours :</b> CM1, CM2, CM3 (parties 1 et 2).</li>
+<li><b>TD :</b> TD1, TD2, TD3, TD4 (diode Zener) inclus.</li>
+<li><b>Format :</b> <b>exercices à rédiger</b>, pas de QCM.</li>
+<li><b>Calculatrice :</b> type lycée autorisée.</li>
+</ul></div>
+<div class="s4-card"><h4>Interrogation de la semaine 46 · 1 h</h4>
+<ul class="s4-small">
+<li><b>Cours :</b> CM4 (parties 1 et 2) et CM5.</li>
+<li><b>TD :</b> TD5 et TD6 inclus.</li>
+<li><b>Format :</b> <b>QCM intégral</b>, questions mélangées <em>et</em> réponses mélangées (contre la triche).</li>
+<li><b>Calculatrice :</b> type lycée autorisée.</li>
+</ul></div>
+</div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Épreuve</th><th>Cours</th><th>Chapitre du site</th><th>TD</th><th>Corrigés détaillés</th></tr>
+<tr><td data-l="Épreuve"><b>DS</b></td><td data-l="Cours">CM1 · Conducteurs et composants</td><td data-l="Chapitre"><a href="index.html#ch1">Ch1</a></td><td data-l="TD">TD1 · Résistivité et capacité</td><td data-l="Corrigés"><a href="corriges.html#td1">TD1 (6 exercices)</a></td></tr>
+<tr><td data-l="Épreuve"><b>DS</b></td><td data-l="Cours">CM2 · Semi-conducteurs et jonction PN</td><td data-l="Chapitre"><a href="index.html#ch2">Ch2</a></td><td data-l="TD">TD2 · Les semi-conducteurs</td><td data-l="Corrigés"><a href="corriges.html#td2">TD2 (9 exercices)</a></td></tr>
+<tr><td data-l="Épreuve"><b>DS</b></td><td data-l="Cours">CM3 · La diode (parties 1 et 2)</td><td data-l="Chapitre"><a href="index.html#ch3">Ch3</a></td><td data-l="TD">TD3 · Diode à jonction PN<br/>TD4 · Diode Zener</td><td data-l="Corrigés"><a href="corriges.html#td3">TD3 (9)</a> · <a href="corriges.html#td4">TD4 (9)</a></td></tr>
+<tr><td data-l="Épreuve"><b>Interro</b></td><td data-l="Cours">CM4 · BJT en statique (parties 1 et 2)</td><td data-l="Chapitre"><a href="index.html#ch4">Ch4</a></td><td data-l="TD">TD5 · Polarisation du BJT</td><td data-l="Corrigés"><a href="corriges.html#td5">TD5 (10)</a></td></tr>
+<tr><td data-l="Épreuve"><b>Interro</b></td><td data-l="Cours">CM5 · BJT en dynamique</td><td data-l="Chapitre"><a href="index.html#ch5">Ch5</a></td><td data-l="TD">TD6 · BJT en dynamique</td><td data-l="Corrigés"><a href="corriges.html#td6">TD6 (6)</a></td></tr>
+</table></div>
+<div class="s4-tip"><span class="s4-lbl">Les « parties » des cours</span>Les PDF d'amphi ne portent pas de numéro de partie : je ne peux pas savoir si une portion du CM3 ou du CM4 est exclue. Par prudence, tout le cours est traité ci-dessous. Si une partie te semble hors programme, demande à l'enseignant. À simple lecture : varicap, LED et relais/optocoupleur (CM3) ; modèle d'Ebers-Moll et simulations Proteus (CM4) ; structure interne de l'AOP (CM5). À savoir : Schottky et Zener (CM3), commutation et portes à transistors (CM4), classes, Darlington, miroir de courant (CM5).</div>
+</section>
+
+<!-- ================= PLAN ================= -->
+<section id="plan">
+<h2>Plan de révision</h2>
+<p class="s4-sub">Le DS tombe le samedi 7 novembre et l'interro la semaine suivante : le cours 4 doit être commencé <b>avant</b> le DS. Dates à adapter à ton emploi du temps.</p>
+<div class="s4-plan">
+<div><b>Jusqu'au 1<sup>er</sup> nov. · Fond du DS</b><ul><li>CM1 + TD1, CM2 + TD2 : cours puis <a href="#ds-fiche">fiche</a>, puis exercices du TD à refaire cachés.</li><li>CM3 + TD3 + TD4 : état d'une diode, droite de charge, Zener.</li><li>Cocher la liste de contrôle du DS.</li></ul></div>
+<div><b>2 → 6 nov. · Sujet blanc et début du CM4</b><ul><li>Le <a href="#ds-blanc">sujet blanc</a> en 1h30, calculatrice en main, puis correction.</li><li>Refaire DS19 Ex.2 et 3 : <a href="partiel.html#exos">exercices corrigés</a>.</li><li>Lire le CM4 (effet transistor, polarisations) pour ne pas arriver à zéro.</li></ul></div>
+<div><b>8 → 13 nov. · Interro</b><ul><li>CM4 + TD5, CM5 + TD6.</li><li><a href="#int-simu">Simulateur</a> : thème par thème, puis interro blanche chronométrée.</li><li>Veille : <a href="#int-fiche">fiche</a> + pièges, pas de nouveau chapitre.</li></ul></div>
+</div>
+</section>
+
+<!-- ================= DS ================= -->
+<section id="ds">
+<h2>DS semaine 45 <span class="s4-tag">CM1 · CM2 · CM3 · TD1 à TD4</span></h2>
+<p class="s4-sub">Des exercices à rédiger : on ne coche rien, on écrit une démarche. Chaque ligne du corrigé est notée.</p>
+<h3>Ce qu'on te demandera, d'après les annales rédigées</h3>
+<ul>
+<li><b>Le barème récompense la démarche.</b> Dans le seul DS rédigé des annales (DS 2019-20), la formule littérale vaut \(0{,}25\) point et l'application numérique \(0{,}25\) point, séparément. Une formule juste avec un calcul faux rapporte la moitié ; un nombre seul, souvent rien.</li>
+<li><b>Les trois exercices types</b> : (1) conducteur : \(R\), \(i\), \(j\), \(E\), vitesse de dérive, effet de la température, condensateur plan ; (2) semi-conducteur dopé : type de dopant, \(n\), \(p\), conductivité, comparaison au silicium pur ; (3) diode : état, Thévenin, droite de charge, point de fonctionnement, puis Zener : régulation, limites, expression de la sortie.</li>
+<li><b>Les questions de cours</b> du style vrai/faux (dérive, résistivité et température, condensateurs, PCB, Bohr, Schottky) peuvent apparaître en début de sujet : voir la <a href="partiel.html#banque">banque d'annales</a>, thèmes « Conduction », « Condensateur », « Semi-conducteurs », « Diode ».</li>
+</ul>
+</section>
+
+<section id="ds-fiche">
+<h2>Fiche du DS : à savoir écrire de mémoire</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>CM1 · Conducteurs et composants</h4>
+<div class="mq">\[\vec v=-\mu\vec E\quad\mu=\frac{e\tau}{m}\quad\vec j=-ne\vec v=\gamma\vec E\quad\gamma=\frac{ne^2\tau}{m}\]</div>
+<div class="mq">\[R=\frac{\rho\ell}{S}\quad\rho=\frac1\gamma\quad\rho(T)=\rho_0[1+\alpha(T-T_0)]\]</div>
+<div class="mq">\[C=\frac{\varepsilon_0\varepsilon_rS}{d}\quad i=C\frac{du}{dt}\quad Z_C=\frac{1}{2\pi fC}\quad f_c=\frac{1}{2\pi RC}\]</div>
+<p class="s4-small">Électrons opposés au champ ; conducteur chaud : \(R\uparrow\). Découplage (débruiter), couplage (bloquer le continu). Céramique : petit \(C\), non polarisé ; électrolytique : grand \(C\), polarisé. \(\varepsilon_0=8{,}85\cdot10^{-12}\) F/m.</p></div>
+<div class="s4-card"><h4>CM2 · Semi-conducteurs et jonction PN</h4>
+<div class="mq">\[np=n_i^2\quad n_i\propto T^{3/2}e^{-E_g/2k_BT}\quad \gamma=e(n\mu_n+p\mu_p)\]</div>
+<div class="mq">\[N:\ n\approx N_D,\ p=\frac{n_i^2}{N_D}\qquad P:\ p\approx N_A,\ n=\frac{n_i^2}{N_A}\]</div>
+<div class="mq">\[V_0=\frac{k_BT}{e}\ln\frac{N_AN_D}{n_i^2}\quad I_D=I_S\left(e^{eU/\eta k_BT}-1\right)\quad\mathcal N_{at}=\frac{\rho\,\mathcal N_A}{M}\]</div>
+<p class="s4-small">Groupe V (phosphore, antimoine) : donneur, type N, ion \(+\) fixe. Groupe III (bore, indium) : accepteur, type P. \(E_g\) : Si \(1{,}12\) eV, Ge \(0{,}67\) eV. Courant = dérive + diffusion. \(\gamma_{sc}\uparrow\) avec \(T\), contrairement au métal.</p></div>
+<div class="s4-card"><h4>CM3 · La diode</h4>
+<div class="mq">\[V_S=0{,}7\ \mathrm V\ (\mathrm{Si})\qquad0{,}3\ \mathrm V\ (\mathrm{Ge})\qquad V_D=V_S+r\,I_D\]</div>
+<div class="mq">\[I_D=\frac{E_{Th}-V_D}{R_{Th}}\ \text{(droite de charge)}\qquad I_D=\frac{E_{Th}-V_S}{R_{Th}+r}\]</div>
+<p class="s4-small">État d'une diode : retirer la diode, calculer la tension à vide ; si elle dépasse le seuil, passante. Pont de Graëtz : \(V_{out}=V_{in}-2V_S\). Schottky : seuil \(0{,}15\) à \(0{,}45\) V, rapide. Roue libre : protège contre la surtension d'une charge inductive. Capteur de température : \(V_D\) baisse de \(\approx2\) mV/°C.</p></div>
+<div class="s4-card"><h4>TD4 · Diode Zener</h4>
+<div class="mq">\[E\,\frac{R_L}{R+R_L}\ge V_Z\ \Longleftrightarrow\ E\ge E_{min}=V_Z\frac{R+R_L}{R_L}\]</div>
+<div class="mq">\[I_Z=\frac{E-V_Z}{R}-\frac{V_Z}{R_L}\qquad0\le I_Z\le I_{Z,max}\]</div>
+<div class="mq">\[R_{L,min}=\frac{V_Z\,R}{E-V_Z}\qquad u=\frac{\frac{r_Z}{R}E+V_Z}{1+r_Z\frac{R+R_L}{R\,R_L}}\]</div>
+<p class="s4-small">Zener en inverse : \(V_D=-V_Z\) ; en direct : seuil comme une diode. Toujours une résistance \(R\) en série. Trois problèmes types : charge variable, source variable, dimensionnement de \(R\).</p></div>
+</div>
+<h3>Le modèle de copie</h3>
+<div class="s4-must"><ol>
+<li><b>Ce que je cherche</b> et le schéma équivalent (Thévenin, modèle de la diode choisi).</li>
+<li><b>La loi</b> (mailles, nœuds, \(R=\rho\ell/S\)…) écrite en une phrase.</li>
+<li><b>La formule littérale</b>, simplifiée, avant tout chiffre.</li>
+<li><b>L'application numérique</b> avec toutes les unités et un résultat encadré.</li>
+<li><b>Une vérification</b> : ordre de grandeur, signe, hypothèse (diode passante : \(I_D>0\) ; Zener : \(I_Z>0\) ; transistor : mode).</li>
+</ol></div>
+<div class="s4-tip"><span class="s4-lbl">Exemple de rédaction</span>« On cherche le courant dans la diode. À vide, le potentiel du nœud A vaut \(E/2=5\) V \(>V_S=0{,}7\) V : la diode est passante. Thévenin vu de la diode : \(E_{Th}=E/2\), \(R_{Th}=2R\). Loi des mailles : \(E_{Th}-R_{Th}i_d=V_S+r\,i_d\), donc \(i_d=\dfrac{E/2-V_S}{r+2R}=\dfrac{5-0{,}7}{2+100}=\boxed{42\ \mathrm{mA}}\). Vérification : \(i_d>0\) et \(u_d=0{,}78\) V \(>V_S\) : hypothèse cohérente. »</div>
+<h3>Liste de contrôle · je sais le faire sans regarder</h3>
+<p class="s4-small">Cases mémorisées sur cet appareil. <b data-ckcount="ds">0 / 0</b></p>
+<div class="ck-list">
+<label><input type="checkbox" data-ck="ds1" data-grp="ds"/><span>Retrouver \(\vec v=-\mu\vec E\), \(\gamma=ne^2\tau/m\) et \(R=\rho\ell/S\) (TD1 ex. 1.5).</span></label>
+<label><input type="checkbox" data-ck="ds2" data-grp="ds"/><span>Calculer une vitesse de dérive à partir de \(j=nev\) (TD1 ex. 1.3).</span></label>
+<label><input type="checkbox" data-ck="ds3" data-grp="ds"/><span>Condensateur plan, avec et sans diélectrique ; \(f_c=\frac{1}{2\pi RC}\) (TD1 ex. 1.6).</span></label>
+<label><input type="checkbox" data-ck="ds4" data-grp="ds"/><span>Dire comment \(\rho\) évolue avec \(T\) pour un métal, un semi-conducteur, un isolant.</span></label>
+<label><input type="checkbox" data-ck="ds5" data-grp="ds"/><span>Compter les atomes par cm³ : \(\rho\mathcal N_A/M\) (TD2).</span></label>
+<label><input type="checkbox" data-ck="ds6" data-grp="ds"/><span>Dopage : type du dopant, \(n\), \(p\), \(\gamma\), \(\rho\) en gardant le même système d'unités (TD2 ex. 2.3 et 2.4).</span></label>
+<label><input type="checkbox" data-ck="ds7" data-grp="ds"/><span>Barrière \(V_0\) d'une jonction PN et effet de la polarisation sur la zone désertée.</span></label>
+<label><input type="checkbox" data-ck="ds8" data-grp="ds"/><span>Trois modèles de diode (idéale, parfaite, réelle) et leurs seuils Si et Ge.</span></label>
+<label><input type="checkbox" data-ck="ds9" data-grp="ds"/><span>Déterminer l'état d'une diode par la tension à vide (Thévenin) (TD3 ex. 3.2).</span></label>
+<label><input type="checkbox" data-ck="ds10" data-grp="ds"/><span>Tracer droite de charge et caractéristique, lire \(Q\) (TD3 ex. 3.5, 3.8).</span></label>
+<label><input type="checkbox" data-ck="ds11" data-grp="ds"/><span>Redresseur simple et double alternance, écrêteur : tracer \(V_{out}(t)\).</span></label>
+<label><input type="checkbox" data-ck="ds12" data-grp="ds"/><span>Zener : \(E_{min}\), \(I_Z\), \(R_{L,min}\), \(I_{Z,max}\) (TD4 ex. 4.2, 4.6, 4.8).</span></label>
+<label><input type="checkbox" data-ck="ds13" data-grp="ds"/><span>Établir \(u=\frac{(r_Z/R)E+V_Z}{1+r_Z(R+R_L)/(RR_L)}\) et conclure sur les conditions de régulation.</span></label>
+<label><input type="checkbox" data-ck="ds14" data-grp="ds"/><span>Avoir fait le sujet blanc en 1h30 sans regarder la correction.</span></label>
+</div>
+<div class="box corr-link"><div class="bt">✅ Exercices du poly à refaire en priorité</div><p>TD1 : <a href="corriges.html#ex1-2">1.2</a>, <a href="corriges.html#ex1-3">1.3</a>, <a href="corriges.html#ex1-5">1.5</a>, <a href="corriges.html#ex1-6">1.6</a> · TD2 : <a href="corriges.html#ex2-3">2.3</a>, <a href="corriges.html#ex2-4">2.4</a>, <a href="corriges.html#ex2-5">2.5</a>, <a href="corriges.html#ex2-6">2.6</a> · TD3 : <a href="corriges.html#ex3-2">3.2</a>, <a href="corriges.html#ex3-4">3.4</a>, <a href="corriges.html#ex3-5">3.5</a>, <a href="corriges.html#ex3-8">3.8</a> · TD4 : <a href="corriges.html#ex4-2">4.2</a>, <a href="corriges.html#ex4-4">4.4</a>, <a href="corriges.html#ex4-6">4.6</a>, <a href="corriges.html#ex4-8">4.8</a>, <a href="corriges.html#ex4-9">4.9</a>. Les annales corrigées (DS 2019-20 en particulier) sont sur la page <a href="partiel.html#exos">Partiel</a>.</p></div>
+</section>
+
+<!-- ================= SUJET BLANC ================= -->
+<section id="ds-blanc">
+<h2>Sujet blanc du DS · 1h30 · /20</h2>
+<p class="s4-sub">Sujet original, construit sur le modèle des annales rédigées. Chrono, calculatrice, pas de cours. Corrections dépliables, formule littérale avant chaque calcul.</p>
+
+<h3>Exercice 1 · Conduction dans un fil de cuivre et condensateur (6 pts)</h3>
+<p><b>Données.</b> Fil de cuivre de longueur \(\ell=10\) m et de section \(S=1\ \mathrm{mm^2}\), sous \(U=1\) V. Conductivité \(\gamma=5{,}8\cdot10^{7}\ \mathrm{S/m}\), densité d'électrons libres \(n=8{,}5\cdot10^{28}\ \mathrm{m^{-3}}\), \(e=1{,}6\cdot10^{-19}\) C, \(\alpha=3{,}9\cdot10^{-3}\ \mathrm{K^{-1}}\) (référence \(T_0=20^{\circ}\)C).</p>
+<ol>
+<li>Calculer la résistance \(R\) du fil et le courant \(i\). <i>(1,5)</i></li>
+<li>Calculer la densité de courant \(j\), le champ électrique \(E\), puis la vitesse de dérive \(v\) des électrons et la mobilité \(\mu\). Dans quel sens se déplacent les électrons ? <i>(2)</i></li>
+<li>Combien de temps met un électron pour parcourir \(1\) m ? Conclusion. <i>(0,5)</i></li>
+<li>Le fil s'échauffe jusqu'à \(70^{\circ}\)C. Que deviennent \(R\) et \(i\) (à \(U\) constante) ? <i>(0,5)</i></li>
+<li>Un condensateur plan a pour armatures \(S'=1\ \mathrm{cm^2}\), séparées de \(d=0{,}1\) mm. Calculer sa capacité dans le vide (\(\varepsilon_0=8{,}85\cdot10^{-12}\) F/m), puis avec un diélectrique \(\varepsilon_r=4\). <i>(1)</i></li>
+<li>Placé en parallèle d'une alimentation avec \(R=100\ \Omega\) en série, un condensateur de \(100\) nF forme un filtre RC. Donner la fréquence de coupure. <i>(0,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice 1</summary>
+<div class="s4-ans">
+<p><b>1.</b> \(R=\dfrac{\rho\ell}{S}=\dfrac{\ell}{\gamma S}=\dfrac{10}{5{,}8\cdot10^{7}\times10^{-6}}=0{,}172\ \Omega\) ; \(i=\dfrac{U}{R}=\dfrac{1}{0{,}172}=5{,}8\) A.</p>
+<p><b>2.</b> \(j=\dfrac{i}{S}=\dfrac{5{,}8}{10^{-6}}=5{,}8\cdot10^{6}\ \mathrm{A/m^2}\) ; \(E=\dfrac{U}{\ell}=0{,}1\) V/m. De \(j=nev\) : \(v=\dfrac{j}{ne}=\dfrac{5{,}8\cdot10^{6}}{8{,}5\cdot10^{28}\times1{,}6\cdot10^{-19}}=4{,}3\cdot10^{-4}\ \mathrm{m/s}=0{,}43\ \mathrm{mm/s}\). Mobilité \(\mu=\dfrac{v}{E}=4{,}3\cdot10^{-3}\ \mathrm{m^2/(V\cdot s)}\) (on retrouve aussi \(\mu=\dfrac{\gamma}{ne}\)). \(\vec v=-\mu\vec E\) : les électrons se déplacent en sens inverse du champ, donc vers la borne \(+\) ; le courant conventionnel va de \(+\) vers \(-\).</p>
+<p><b>3.</b> \(t=\dfrac{1}{v}=\dfrac{1}{4{,}3\cdot10^{-4}}\approx2\,350\) s \(\approx39\) min. La dérive est lentissime, alors que la lampe s'allume tout de suite : c'est le champ qui se propage, pas les électrons.</p>
+<p><b>4.</b> \(\rho\) croît avec \(T\) : \(R'=R\,[1+\alpha(T-T_0)]=0{,}172\times(1+3{,}9\cdot10^{-3}\times50)=0{,}206\ \Omega\) ; \(i'=\dfrac{1}{0{,}206}=4{,}9\) A. Le conducteur chaud conduit moins bien.</p>
+<p><b>5.</b> \(C=\dfrac{\varepsilon_0\varepsilon_rS'}{d}\). Vide : \(C=\dfrac{8{,}85\cdot10^{-12}\times10^{-4}}{10^{-4}}=8{,}85\) pF. Avec \(\varepsilon_r=4\) : \(C=35{,}4\) pF (le diélectrique multiplie \(C\) par \(\varepsilon_r\)).</p>
+<p><b>6.</b> \(f_c=\dfrac{1}{2\pi RC}=\dfrac{1}{2\pi\times100\times100\cdot10^{-9}}=15{,}9\ \mathrm{kHz}\).</p>
+</div>
+</details>
+
+<h3>Exercice 2 · Silicium dopé au phosphore (6 pts)</h3>
+<p><b>Données.</b> Silicium à \(300\) K : \(n_i=1{,}5\cdot10^{10}\ \mathrm{cm^{-3}}\), \(\mu_n=1\,350\) et \(\mu_p=480\ \mathrm{cm^2/(V\cdot s)}\), \(e=1{,}6\cdot10^{-19}\) C, \(k_BT/e=25{,}9\) mV. On dope avec du phosphore (colonne 15 du tableau périodique) à \(N_D=2\cdot10^{16}\ \mathrm{cm^{-3}}\).</p>
+<ol>
+<li>Le phosphore est-il donneur ou accepteur ? Quel type de semi-conducteur obtient-on ? Justifier. <i>(1)</i></li>
+<li>Calculer les densités \(n\) et \(p\). Vérifier \(np=n_i^2\). <i>(1,5)</i></li>
+<li>Calculer la conductivité \(\gamma\) puis la résistivité \(\rho\) (en S/cm et \(\Omega\cdot\)cm, puis en unités SI). <i>(1,5)</i></li>
+<li>Calculer la conductivité du silicium pur. Par quel facteur le dopage l'a-t-il multipliée ? <i>(1)</i></li>
+<li>On accole à cette zone N une zone P dopée à \(N_A=10^{17}\ \mathrm{cm^{-3}}\). Calculer la barrière de potentiel \(V_0\) de la jonction. <i>(1)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice 2</summary>
+<div class="s4-ans">
+<p><b>1.</b> Le phosphore a \(5\) électrons de valence : il en utilise 4 pour les liaisons covalentes et cède le cinquième, devenu libre : <b>donneur</b>, d'où un semi-conducteur de <b>type N</b> (porteurs majoritaires : les électrons).</p>
+<p><b>2.</b> \(n\approx N_D=2\cdot10^{16}\ \mathrm{cm^{-3}}\) ; \(p=\dfrac{n_i^2}{n}=\dfrac{(1{,}5\cdot10^{10})^2}{2\cdot10^{16}}=1{,}1\cdot10^{4}\ \mathrm{cm^{-3}}\). Vérification : \(np=2\cdot10^{16}\times1{,}1\cdot10^{4}=2{,}25\cdot10^{20}=n_i^2\ \checkmark\)</p>
+<p><b>3.</b> \(\gamma=e(n\mu_n+p\mu_p)\approx e\,n\,\mu_n=1{,}6\cdot10^{-19}\times2\cdot10^{16}\times1\,350=4{,}3\ \mathrm{S/cm}=4{,}3\cdot10^{2}\ \mathrm{S/m}\) (le terme des trous est négligeable : \(10^{-12}\) S/cm). \(\rho=\dfrac{1}{\gamma}=0{,}23\ \Omega\cdot\mathrm{cm}=2{,}3\cdot10^{-3}\ \Omega\cdot\mathrm m\).</p>
+<p><b>4.</b> Silicium pur : \(\gamma_i=e\,n_i(\mu_n+\mu_p)=1{,}6\cdot10^{-19}\times1{,}5\cdot10^{10}\times1\,830=4{,}4\cdot10^{-6}\ \mathrm{S/cm}\). Facteur : \(\dfrac{4{,}3}{4{,}4\cdot10^{-6}}\approx10^{6}\). Un atome de phosphore pour \(2{,}5\cdot10^{6}\) atomes de silicium multiplie la conductivité par un million.</p>
+<p><b>5.</b> \(V_0=\dfrac{k_BT}{e}\ln\dfrac{N_AN_D}{n_i^2}=0{,}0259\times\ln\dfrac{10^{17}\times2\cdot10^{16}}{2{,}25\cdot10^{20}}=0{,}0259\times\ln\left(8{,}9\cdot10^{12}\right)=0{,}0259\times29{,}8=0{,}77\ \mathrm V\). Ordre de grandeur attendu : \(0{,}6\) à \(0{,}8\) V pour le silicium.</p>
+</div>
+</details>
+
+<h3>Exercice 3 · Diode : état, droite de charge, puissance (4 pts)</h3>
+<p><b>Circuit.</b> Une source \(E=12\) V alimente deux résistances \(R_1=R_2=100\ \Omega\) en série ; \(R_2\) va à la masse. Une diode au silicium (\(V_S=0{,}7\) V, résistance interne \(r_d=5\ \Omega\)) est branchée entre le point milieu A et la masse, passante dans le sens A \(\to\) masse.</p>
+<ol>
+<li>Déterminer l'état de la diode (justifier sans la résoudre). <i>(0,5)</i></li>
+<li>Donner le générateur de Thévenin vu par la diode. <i>(1)</i></li>
+<li>Écrire l'équation de la droite de charge \(i_d=f(u_d)\) et ses deux points particuliers. <i>(1)</i></li>
+<li>Calculer le courant \(i_d\) et la tension \(u_d\) dans le modèle de la diode réelle. <i>(1)</i></li>
+<li>Calculer la puissance dissipée dans la diode. <i>(0,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice 3</summary>
+<div class="s4-ans">
+<p><b>1.</b> On retire la diode : le point A est au milieu d'un pont diviseur, \(V_A=\dfrac{R_2}{R_1+R_2}E=6\) V \(>V_S=0{,}7\) V. La diode est <b>passante</b> (à vérifier à la fin : \(i_d>0\)).</p>
+<p><b>2.</b> \(E_{Th}=V_A(\text{à vide})=6\) V ; \(R_{Th}=R_1\parallel R_2=50\ \Omega\) (source de tension neutralisée = fil).</p>
+<p><b>3.</b> Loi des mailles : \(E_{Th}-R_{Th}\,i_d=u_d\), soit \(i_d=-\dfrac{u_d}{R_{Th}}+\dfrac{E_{Th}}{R_{Th}}=-\dfrac{u_d}{50}+0{,}12\) (A). Points : \(u_d=0\Rightarrow i_d=\dfrac{E_{Th}}{R_{Th}}=120\) mA ; \(i_d=0\Rightarrow u_d=E_{Th}=6\) V.</p>
+<p><b>4.</b> Modèle réel \(u_d=V_S+r_d\,i_d\) : \(E_{Th}-R_{Th}i_d=V_S+r_di_d\Rightarrow i_d=\dfrac{E_{Th}-V_S}{R_{Th}+r_d}=\dfrac{6-0{,}7}{50+5}=96{,}4\ \mathrm{mA}\). \(u_d=0{,}7+5\times0{,}0964=1{,}18\) V. Vérification : \(i_d>0\) : hypothèse « passante » cohérente.</p>
+<p><b>5.</b> \(P=u_d\,i_d=1{,}18\times0{,}0964=0{,}114\) W (soit \(V_Si_d+r_di_d^2=0{,}0675+0{,}0465\)). Un boîtier de petite diode supporte rarement plus de \(0{,}5\) W : cohérent.</p>
+</div>
+</details>
+
+<h3>Exercice 4 · Régulateur à diode Zener (4 pts)</h3>
+<p><b>Circuit.</b> \(E=12\) V, résistance série \(R=100\ \Omega\), Zener idéale (\(V_Z=5{,}6\) V, \(r_Z=0\)) en parallèle avec une charge \(R_L=200\ \Omega\).</p>
+<ol>
+<li>La Zener conduit-elle ? Justifier. <i>(0,5)</i></li>
+<li>Calculer \(I_R\), \(I_L\), \(I_Z\) et la tension de sortie. <i>(1,5)</i></li>
+<li>Pour \(E=12\) V, quelle est la plus petite charge \(R_{L,min}\) pour laquelle la Zener conduit encore ? <i>(1)</i></li>
+<li>Pour \(R_L=200\ \Omega\), quelle est la tension minimale \(E_{min}\) pour que la régulation existe ? <i>(0,5)</i></li>
+<li>La Zener supporte \(I_{Z,max}=100\) mA : quelle est la tension maximale \(E_{max}\) admissible pour \(R_L=200\ \Omega\) ? <i>(0,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice 4</summary>
+<div class="s4-ans">
+<p><b>1.</b> Tension à vide aux bornes de la Zener (diviseur \(R\), \(R_L\)) : \(E\dfrac{R_L}{R+R_L}=12\times\dfrac{200}{300}=8\) V \(>V_Z=5{,}6\) V : elle conduit et fixe \(u=V_Z\).</p>
+<p><b>2.</b> \(I_R=\dfrac{E-V_Z}{R}=\dfrac{12-5{,}6}{100}=64\) mA ; \(I_L=\dfrac{V_Z}{R_L}=\dfrac{5{,}6}{200}=28\) mA ; \(I_Z=I_R-I_L=36\) mA \(>0\) ; \(u_{out}=V_Z=5{,}6\) V.</p>
+<p><b>3.</b> Limite : tension à vide \(=V_Z\), soit \(E\dfrac{R_L}{R+R_L}=V_Z\Rightarrow R_{L,min}=\dfrac{V_ZR}{E-V_Z}=\dfrac{5{,}6\times100}{6{,}4}=87{,}5\ \Omega\). En dessous, la charge « court-circuite » trop la Zener qui se bloque.</p>
+<p><b>4.</b> \(E_{min}=V_Z\dfrac{R+R_L}{R_L}=5{,}6\times\dfrac{300}{200}=8{,}4\) V.</p>
+<p><b>5.</b> Le courant dans \(R\) vaut \(I_Z+I_L\) : \(E_{max}=V_Z+R\,(I_{Z,max}+I_L)=5{,}6+100\times(0{,}100+0{,}028)=18{,}4\) V. Entre \(8{,}4\) et \(18{,}4\) V la sortie reste à \(5{,}6\) V.</p>
+</div>
+</details>
+<div class="s4-tip"><span class="s4-lbl">Barème et temps</span>Ex. 1 : 6 pts (~25 min) · Ex. 2 : 6 pts (~25 min) · Ex. 3 : 4 pts (~15 min) · Ex. 4 : 4 pts (~15 min) · relecture 10 min. Un exercice bloqué : passer au suivant, revenir à la fin.</div>
+</section>
+
+<!-- ================= INTERRO ================= -->
+<section id="interro">
+<h2>Interro semaine 46 <span class="s4-tag">CM4 · CM5 · TD5 · TD6</span></h2>
+<p class="s4-sub">Un QCM intégral d'une heure : questions mélangées, réponses mélangées.</p>
+<h3>Ce que ça change</h3>
+<ul>
+<li><b>Réponses mélangées</b> : impossible de retenir « c'était la B ». Il faut connaître le contenu de la bonne réponse. Dans le simulateur ci-dessous, l'ordre des propositions change à chaque tirage.</li>
+<li><b>Calculs à faire à la main</b> : la plupart des questions de BJT demandent un courant, une tension ou un gain ; les mauvaises réponses sont les résultats d'erreurs classiques (oublier le \((\beta+1)\), mélanger \(\mu\)A et mA). Garde le temps : \(\approx2\) min par question.</li>
+<li><b>Plusieurs bonnes réponses sont possibles</b> dans certaines annales : si c'est annoncé, tout est juste ou rien n'est compté.</li>
+</ul>
+</section>
+
+<section id="int-fiche">
+<h2>Fiche de l'interro : BJT statique et dynamique</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>CM4 · Effet transistor et modes</h4>
+<div class="mq">\[i_E=i_B+i_C\quad i_C=\beta i_B\quad\alpha=\frac{i_C}{i_E}=\frac{\beta}{\beta+1}\quad\beta=\frac{\alpha}{1-\alpha}\]</div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Mode</th><th>BE</th><th>BC</th><th>Repère (Si)</th></tr>
+<tr><td data-l="Mode">Bloqué</td><td data-l="BE">inverse</td><td data-l="BC">inverse</td><td data-l="Repère">\(V_{BE}<0{,}7\) V, \(i_B\approx0\)</td></tr>
+<tr><td data-l="Mode">Actif</td><td data-l="BE">direct</td><td data-l="BC">inverse</td><td data-l="Repère">\(V_{BE}=0{,}7\) V, \(V_{CE}>V_{BE}\)</td></tr>
+<tr><td data-l="Mode">Saturé</td><td data-l="BE">direct</td><td data-l="BC">direct</td><td data-l="Repère">\(V_{CE}\le0{,}2\) V</td></tr>
+</table></div>
+<p class="s4-small">Base fine <em>et</em> peu dopée : effet transistor. Base fine : effet Early (pente de \(I_C(V_{CE})\)). \(\beta\) augmente avec \(T\).</p></div>
+<div class="s4-card"><h4>CM4 · TD5 · Polarisation</h4>
+<div class="mq">\[V_{CE}=V_{CC}-R_Ci_C\ (-R_Ei_E)\qquad i_{C,sat}=\frac{V_{CC}}{R_C}\]</div>
+<div class="mq">\[i_B=\frac{E_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\qquad E_{Th}=V_{CC}\frac{R_2}{R_1+R_2}\]</div>
+<p class="s4-small">Par la base : dépend de \(\beta\) (commutation). Par pont avec \(R_E\) : indépendante de \(\beta\) si \((\beta+1)R_E\ge10R_{Th}\) ; alors \(V_E\approx E_{Th}-0{,}7\) et \(i_E\approx V_E/R_E\) (amplification). Droite d'attaque sur l'entrée, droite de charge sur la sortie.</p></div>
+<div class="s4-card"><h4>CM4 · TD5 · Commutation et applications</h4>
+<div class="mq">\[\beta\,i_B>i_{C,sat}=\frac{V_{CC}-V_{CE,sat}}{R_C}\ \Rightarrow\ \text{saturé}\]</div>
+<div class="mq">\[V_{out}=V_{CC}\ (\text{bloqué})\qquad V_{out}=V_{CE,sat}\ (\text{saturé})\]</div>
+<p class="s4-small">Pour garantir la saturation : \(i_B=2\) à \(5\times\dfrac{i_{C,sat}}{\beta}\). Porte NON : \(0\to1\), \(1\to0\). Ballast : \(V_{sortie}=V_Z-V_{BE}\). Générateur de courant : \(i_L\approx\dfrac{V_Z-V_{BE}}{R_E}\).</p></div>
+<div class="s4-card"><h4>CM5 · TD6 · Petits signaux</h4>
+<div class="mq">\[r_e=\frac{26\ \mathrm{mV}}{I_E}\qquad Z_i=R_1\parallel R_2\parallel(\beta+1)r_e\qquad Z_o=R_C\ (\parallel r_o)\]</div>
+<div class="mq">\[A_v\approx-\frac{R_C}{r_e}\ (\text{avec }C_3)\qquad A_v\approx-\frac{R_C}{R_E+r_e}\ (\text{sans})\qquad A_{v,chargé}=A_v\frac{R_L}{Z_o+R_L}\]</div>
+<p class="s4-small">\(C_1,C_2\) : liaison ; \(C_3\) : découplage de \(R_E\). Schéma AC : condensateurs = fils, sources DC = masse. Cascade : gains chargés multipliés. dB : \(20\log|A_v|\), \(10\log A_P\). \(C=\dfrac{1}{2\pi f_cR_{vue}}\). Giacoletto : \(g_m=\dfrac{I_C}{V_T}\), \(r_\pi=\dfrac{\beta}{g_m}\).</p></div>
+<div class="s4-card"><h4>CM5 · Classes et montages</h4>
+<p class="s4-small"><b>A</b> : \(360^\circ\), \(\eta\le50\ \%\). <b>B</b> : \(180^\circ\), \(\eta\le78{,}5\ \%\), distorsion de croisement. <b>AB</b> : push-pull à diodes. <b>D</b> : PWM + filtre, très haut rendement. <b>Darlington</b> : \(\beta\approx\beta_1\beta_2\). <b>Miroir de courant</b> : \(i_{out}\approx i_{in}\). <b>Pont en H</b> : sens d'un moteur. <b>Paire différentielle</b> : cœur de l'AOP. <b>Émetteur commun</b> : inverse le signal.</p></div>
+</div>
+<h3>Les pièges des QCM de BJT</h3>
+<div class="s4-must"><ol>
+<li><b>Oublier le \((\beta+1)\)</b> devant \(R_E\) dans \(i_B\), ou utiliser \(\beta\) au lieu de \((\beta+1)\) pour \(i_E\).</li>
+<li><b>µA contre mA</b> : \(i_B=40\ \mu\)A et \(i_C=6\) mA ; une réponse en µA pour un collecteur est presque toujours un piège.</li>
+<li><b>Gain sans le signe</b> : l'émetteur commun a un \(A_v\) négatif ; « \(+200\) » est le piège.</li>
+<li><b>\(r_e\) avec \(I_C\) ou \(I_E\)</b> : \(\dfrac{26\ \mathrm{mV}}{I_E}\), l'écart est de \(1\ \%\) pour \(\beta=100\) mais l'énoncé peut donner l'un ou l'autre.</li>
+<li><b>Impédance d'entrée</b> : la plus petite des résistances en parallèle domine ; ne pas oublier \(R_1\parallel R_2\).</li>
+<li><b>Saturation</b> : comparer \(\beta i_B\) à \(i_{C,sat}\), pas à une valeur arbitraire ; \(V_{CE}\) saturé vaut \(\approx0{,}2\) V, pas \(0{,}7\) V.</li>
+<li><b>Effet transistor ou effet Early</b> : fine et peu dopée, ou seulement fine.</li>
+<li><b>Gain chargé ou à vide</b> : si une charge \(R_L\) est branchée, passer par \(\dfrac{R_L}{Z_o+R_L}\).</li>
+<li><b>Coupure basse</b> : due aux condensateurs de liaison et de découplage ; coupure haute : capacités internes.</li>
+<li><b>Mots absolus</b> (« toujours », « jamais », « forcément ») : presque toujours faux.</li>
+</ol></div>
+<p class="s4-small">Liste de contrôle · cases mémorisées sur cet appareil : <b data-ckcount="int">0 / 0</b></p>
+<div class="ck-list">
+<label><input type="checkbox" data-ck="i1" data-grp="int"/><span>Donner l'état des jonctions pour les trois modes et reconnaître le mode à partir de \(V_{BE}\) et \(V_{CE}\).</span></label>
+<label><input type="checkbox" data-ck="i2" data-grp="int"/><span>Calculer \(i_B\), \(i_C\), \(V_{CE}\) en polarisation par la base (TD5 ex. 5.1).</span></label>
+<label><input type="checkbox" data-ck="i3" data-grp="int"/><span>Calculer le point \(Q\) d'un pont avec \(R_E\) via Thévenin (TD5 ex. 5.2, 5.3).</span></label>
+<label><input type="checkbox" data-ck="i4" data-grp="int"/><span>Dimensionner \(R_C\), \(R_E\), \(R_1\), \(R_2\) pour un \(Q\) donné (TD5 ex. 5.3, 5.5).</span></label>
+<label><input type="checkbox" data-ck="i5" data-grp="int"/><span>Commutation : tester la saturation et choisir \(R_B\) (TD5 ex. 5.7).</span></label>
+<label><input type="checkbox" data-ck="i6" data-grp="int"/><span>Régulateur ballast à transistor (TD5 ex. 5.9) et générateur de courant à Zener (CM5).</span></label>
+<label><input type="checkbox" data-ck="i7" data-grp="int"/><span>Calculer \(r_e\), \(Z_i\), \(Z_o\), \(A_v\) d'un émetteur commun (TD6 ex. 6.1, 6.4).</span></label>
+<label><input type="checkbox" data-ck="i8" data-grp="int"/><span>Dire ce que changent \(C_1\), \(C_2\), \(C_3\) et dimensionner un condensateur (TD6 ex. 6.2, 6.3).</span></label>
+<label><input type="checkbox" data-ck="i9" data-grp="int"/><span>Deux étages en cascade : gains chargés, adaptation d'impédance (TD6 ex. 6.5).</span></label>
+<label><input type="checkbox" data-ck="i10" data-grp="int"/><span>Citer les classes A, B, AB, D avec angle et rendement.</span></label>
+<label><input type="checkbox" data-ck="i11" data-grp="int"/><span>Avoir passé une interro blanche chronométrée au simulateur.</span></label>
+</div>
+<div class="box corr-link"><div class="bt">✅ Exercices du poly à refaire en priorité</div><p>TD5 : <a href="corriges.html#ex5-1">5.1</a>, <a href="corriges.html#ex5-2">5.2</a>, <a href="corriges.html#ex5-3">5.3</a>, <a href="corriges.html#ex5-5">5.5</a>, <a href="corriges.html#ex5-7">5.7</a>, <a href="corriges.html#ex5-9">5.9</a> · TD6 : <a href="corriges.html#ex6-1">6.1</a>, <a href="corriges.html#ex6-2">6.2</a>, <a href="corriges.html#ex6-3">6.3</a>, <a href="corriges.html#ex6-4">6.4</a>, <a href="corriges.html#ex6-5">6.5</a>, <a href="corriges.html#ex6-6">6.6</a>. Les polarisations et montages des annales corrigées sont sur la page <a href="partiel.html#exos">Partiel</a>.</p></div>
+</section>
+
+<section id="int-simu">
+<h2>Simulateur d'interro</h2>
+<p class="s4-sub">53 questions sur le CM4, le CM5, le TD5 et le TD6, à une seule bonne réponse. <b>Entraînement</b> : correction immédiate, thème par thème. <b>Interro blanche</b> : tirage, questions et réponses mélangées, chrono d'une heure, correction à la fin. Les valeurs numériques ont été recalculées ; les questions s'inspirent des annales (source indiquée en entraînement).</p>
+<div id="bankInterro"></div>
+<p class="s4-src">Sources : amphis Cours 3 à 5 (diapositives), poly de TD (TD1 à TD6), annales d'électronique ING2 ECE. Le programme et le format des évaluations viennent de l'annonce de l'enseignant ; les dates sont à confirmer sur l'emploi du temps officiel. Révision complète sur les annales : <a href="partiel.html">page Partiel</a>.</p>
+</section>
+</div>
+</main>
+<div class="foot">
+<div class="wrap">
+<span>De l'Atome à la Puce · Évaluations de novembre · 2026-2027</span>
+<span><a href="partiel.html">Partiel →</a> · <a href="index.html">← Retour au cours</a></span>
+</div>
+</div>
+<a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="js/maths.js"></script>
+<script src="js/data-interro.js"></script>
+<script src="js/revision.js"></script>
+<script>
+  RevisionBank.mount({
+    root: document.getElementById("bankInterro"),
+    bank: window.INTERRO,
+    themes: window.INTERRO_THEMES,
+    storage: "interro",
+    examMinutes: 60,
+    examCount: 25,
+    examLabel: "Interro blanche"
+  });
+</script>
+</body>
+</html>

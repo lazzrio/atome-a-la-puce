@@ -1,7 +1,8 @@
 /* Hors ligne : le réseau d'abord (contenu toujours à jour), la copie locale si pas de connexion. */
-const CACHE = "atome-puce-v6";
+const CACHE = "atome-puce-v7";
 const CORE = ["./", "index.html", "corriges.html", "fiche-ch0-ch1.html", "css/style.css", "js/app.js", "js/quiz.js", "js/lightbox.js",
-  "js/corriges.js", "js/maths.js", "js/interro.js", "assets/favicon.svg", "assets/icon-192.png", "manifest.webmanifest"];
+  "js/corriges.js", "js/maths.js", "js/interro.js",
+  "partiel.html", "evaluations.html", "js/revision.js", "js/data-annales.js", "js/data-interro.js", "assets/favicon.svg", "assets/icon-192.png", "manifest.webmanifest"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));

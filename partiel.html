@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Partiel — De l'Atome à la Puce</title>
+<meta content="Révision du partiel d'électronique ING2 à partir de tous les DS et partiels des annales : ce qui tombe, les réflexes, 12 exercices corrigés, 2 sujets blancs rédigés, 97 questions d'entraînement et épreuve blanche chronométrée." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#0d8073" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#0a1113" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="De l'atome à la puce — Partiel" property="og:title"/>
+<meta content="Annales DS et partiels d'électronique ING2 : thèmes qui reviennent, réflexes, exercices corrigés, QCM d'entraînement et épreuve blanche." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet"/>
+</head>
+<body class="cx-page s40-page" data-page="partiel">
+<div class="topbar">
+<div class="topbar-in">
+<a aria-label="Accueil du site" class="brand" href="index.html">
+<span class="chip-logo"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="10" rx="1" width="10" x="7" y="7"></rect><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"></path></svg></span>
+      De l'Atome à la Puce
+    </a>
+<nav aria-label="Navigation principale" class="nav" id="nav">
+<a href="index.html">Accueil</a>
+<a href="index.html#cours"><span class="ni">📚</span> Cours</a>
+<a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
+<a href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
+<a href="corriges.html"><span class="ni">✅</span> Corrigés</a>
+<a class="nav-corr" href="evaluations.html"><span class="ni">🗓️</span> Évaluations</a>
+<a aria-current="page" class="active nav-corr" href="partiel.html"><span class="ni">📝</span> Partiel</a>
+<a href="index.html#notions"><span class="ni">💡</span> Notions</a>
+<a href="index.html#formules"><span class="ni">📘</span> Formules</a>
+<a href="index.html#express"><span class="ni">⚡</span> Express</a>
+<a href="index.html#exos"><span class="ni">🎯</span> Exos</a>
+<a href="index.html#boite"><span class="ni">🧰</span> À côté</a>
+<a href="index.html#quiz"><span class="ni">🧠</span> Quiz</a>
+<a href="index.html#planning"><span class="ni">📅</span> Planning</a>
+</nav>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
+<svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</button>
+<button aria-expanded="false" aria-label="Menu" class="burger" id="burger"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</div>
+</div>
+<main>
+<div class="hero hero-sm">
+<div class="hero-grid"></div>
+<div class="hero-in">
+<div>
+<span class="eyebrow">📝 Partiel · annales corrigées</span>
+<h1>Réviser le partiel <em>sur les annales</em>.</h1>
+<p class="lead">Les sept sujets d'annales d'électronique (quatre DS, trois partiels) passés au crible : ce qui revient chaque année, les réflexes que les corrigés répètent, douze exercices corrigés pas à pas, deux sujets blancs rédigés de 1h30 (huit vrais exercices, sans QCM), 97 questions pour t'entraîner et une épreuve blanche chronométrée. Les erreurs des corrigés officiels sont signalées.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="#banque">S'entraîner sur les questions →</a>
+<a class="btn btn-ghost" href="#sujets">✍️ Sujets blancs rédigés</a>
+<a class="btn btn-ghost" href="#exos">Exercices corrigés</a>
+<a class="btn btn-ghost" href="evaluations.html">🗓️ DS et interro de novembre</a>
+</div>
+<div class="s4-prog"><span>Partiel : semaine du 14 décembre · 1h30 (à confirmer sur l'EDT)</span><span>J-<b data-countdown="2026-12-14T08:00">—</b></span></div>
+</div>
+</div>
+</div>
+<div class="wrap s40">
+<nav aria-label="Sections de la page" class="s4-toc">
+<a href="#epreuve">Les annales</a>
+<a href="#frequence">Ce qui tombe</a>
+<a href="#reflexes">Réflexes</a>
+<a href="#exos">Exercices corrigés</a>
+<a href="#sujets">Sujets rédigés</a>
+<a href="#banque">Questions & épreuve blanche</a>
+<a href="#pieges">Erreurs des corrigés</a>
+</nav>
+
+<!-- ================= ÉPREUVE ================= -->
+<section id="epreuve">
+<h2>Les annales et l'épreuve</h2>
+<p class="s4-sub">Sept sujets, deux familles : les DS (premiers chapitres) et les partiels (tout le semestre).</p>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Code</th><th>Sujet</th><th>Durée</th><th>Calculatrice</th><th>Format et contenu</th></tr>
+<tr><td data-l="Code"><b>DS19</b></td><td data-l="Sujet">DS 2019-20</td><td data-l="Durée">1h30</td><td data-l="Calculatrice">oui</td><td data-l="Format">10 blocs de 3 affirmations vrai/faux (0,75 pt par bloc, tout ou rien) + 2 exercices rédigés : dopage du silicium à l'indium, diode et Zener</td></tr>
+<tr><td data-l="Code"><b>DS20</b></td><td data-l="Sujet">DS 2020-21</td><td data-l="Durée">1h</td><td data-l="Calculatrice">non</td><td data-l="Format">20 QCM à 3 propositions : conduction, semi-conducteurs, diode, Zener, BJT en polarisation</td></tr>
+<tr><td data-l="Code"><b>DS22</b></td><td data-l="Sujet">DS 2022-23</td><td data-l="Durée">1h30</td><td data-l="Calculatrice">non</td><td data-l="Format">25 QCM, mêmes thèmes que DS20 + effet transistor</td></tr>
+<tr><td data-l="Code"><b>DS24</b></td><td data-l="Sujet">DS 2023-24 (« fonda »)</td><td data-l="Durée">1h30</td><td data-l="Calculatrice">oui, non programmable (énoncé)</td><td data-l="Format">44 QCM, <b>plusieurs bonnes réponses possibles</b> : juste seulement si toutes les bonnes et aucune mauvaise sont cochées. Bandes, diode, Zener (simulation), BJT</td></tr>
+<tr><td data-l="Code"><b>P20</b></td><td data-l="Sujet">Partiel 2020-21</td><td data-l="Durée">1h</td><td data-l="Calculatrice">oui</td><td data-l="Format">20 QCM : BJT (polarisation, petits signaux, classes), CMOS, layout</td></tr>
+<tr><td data-l="Code"><b>P22</b></td><td data-l="Sujet">Partiel 2022-23</td><td data-l="Durée">1h30</td><td data-l="Calculatrice">oui</td><td data-l="Format">28 QCM : polarisation, ampli à émetteur commun, Zener + transistor ballast, CMOS (masque, délai), rappels de DS</td></tr>
+<tr><td data-l="Code"><b>P24</b></td><td data-l="Sujet">Partiel 2023-24</td><td data-l="Durée">1h30</td><td data-l="Calculatrice">non</td><td data-l="Format">48 QCM en 6 parties : semi-conducteurs, Zener, BJT, émetteur commun, CMOS, porte TTL</td></tr>
+</table></div>
+<div class="s4-tip"><span class="s4-lbl">Comment lire cette page</span>Dans la banque de questions, chaque question indique ses sources (DS19 Q1a = DS 2019-20, question 1, proposition a). Quand une même affirmation est posée dans plusieurs sujets, elle apparaît une seule fois avec toutes ses sources : <b>plus il y en a, plus elle a de chances de retomber</b>.</div>
+<div class="s4-trap"><span class="s4-lbl">Format 2026</span>Les annales sont des QCM, mais le DS de la semaine 45 est annoncé comme des exercices à rédiger et l'interro de la semaine 46 comme un QCM intégral mélangé (voir <a href="evaluations.html">Évaluations</a>). Le format du partiel de décembre n'est pas encore connu : entraîne-toi aux deux, les calculs sont les mêmes.</div>
+</section>
+
+<!-- ================= FRÉQUENCE ================= -->
+<section id="frequence">
+<h2>Ce qui tombe, chaque année</h2>
+<p class="s4-sub">Thèmes relevés dans les sept sujets (● = au moins une question). Les DS portent sur les quatre premiers cours, les partiels ajoutent les petits signaux et le CMOS.</p>
+<div class="tbl-wrap"><table>
+<tr><th>Thème</th><th>DS19</th><th>DS20</th><th>DS22</th><th>DS24</th><th>P20</th><th>P22</th><th>P24</th><th>Sujets</th></tr>
+<tr><td>Conduction, résistivité, dérive (CM1)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td><td>●</td><td>●</td><td><b>6 / 7</b></td></tr>
+<tr><td>Condensateur, PCB (CM1)</td><td>●</td><td>●</td><td>●</td><td></td><td></td><td></td><td></td><td>3 / 7</td></tr>
+<tr><td>Atome, dopage, semi-conducteurs (CM2)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td><td>●</td><td>●</td><td><b>6 / 7</b></td></tr>
+<tr><td>Diode, modèles, droite de charge (CM3)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td><td></td><td></td><td>4 / 7</td></tr>
+<tr><td>Zener et régulation (CM3, TD4)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td><td>●</td><td>●</td><td><b>6 / 7</b></td></tr>
+<tr><td>BJT statique, polarisation, commutation (CM4)</td><td></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td><b>6 / 7</b></td></tr>
+<tr><td>Effet transistor, Early, \(\alpha\) et \(\beta\)</td><td></td><td>●</td><td>●</td><td>●</td><td>●</td><td></td><td></td><td>4 / 7</td></tr>
+<tr><td>Petits signaux : \(r_e\), \(Z_i\), \(Z_o\), \(A_v\) (CM5)</td><td></td><td></td><td></td><td></td><td>●</td><td>●</td><td>●</td><td>3 / 7</td></tr>
+<tr><td>Classes d'amplification, push-pull</td><td></td><td></td><td></td><td></td><td>●</td><td></td><td></td><td>1 / 7</td></tr>
+<tr><td>FET, CMOS, layout, TTL (CM6-7)</td><td></td><td></td><td></td><td></td><td>●</td><td>●</td><td>●</td><td>3 / 7</td></tr>
+</table></div>
+<div class="s4-grid">
+<div class="s4-card"><h4>Quasi sûr de tomber</h4><ul class="s4-small"><li>Conduction et sens du champ ou des électrons.</li><li>Dopage et conductivité (calcul avec \(np=n_i^2\)).</li><li>Zener : tension minimale, courant maximal, limites de la régulation.</li><li>Polarisation d'un BJT par pont, avec ou sans \(R_E\).</li></ul></div>
+<div class="s4-card"><h4>Très probable au partiel</h4><ul class="s4-small"><li>\(r_e\), \(Z_i\), \(Z_o\), \(A_v\) d'un émetteur commun.</li><li>Une porte CMOS : équation, pull-up / pull-down, délai.</li><li>Une question sur l'effet transistor ou l'effet Early.</li></ul></div>
+<div class="s4-card"><h4>Plus rare mais vu</h4><ul class="s4-small"><li>Classes A, B, AB, D (une seule fois, en P20).</li><li>Condensateur de couplage et PCB (DS de début de série).</li><li>Layouts à reconnaître (NAND, NOR) : voir les PDF, les schémas ne sont pas reproduits ici.</li></ul></div>
+</div>
+</section>
+
+<!-- ================= RÉFLEXES ================= -->
+<section id="reflexes">
+<h2>Les douze réflexes des corrigés</h2>
+<p class="s4-sub">Ce que les corrigés font systématiquement, dans l'ordre où ils le font.</p>
+<div class="s4-must"><ol>
+<li><b>Lire le type de composant avant de calculer.</b> Germanium (\(0{,}3\) V) ou silicium (\(0{,}7\) V) ; modèle idéal (\(0\) V), parfait (seuil), réel (seuil + \(r\)). Même schéma, réponses opposées entre DS19 Q8 (germanium) et DS22 Q11 (silicium).</li>
+<li><b>Diode : Thévenin vu de la diode</b>, puis \(I_D=\dfrac{E_{Th}-V_S}{R_{Th}+r}\) ; vérifier que \(I_D>0\). Si la tension à vide dépasse le seuil, la diode conduit.</li>
+<li><b>Droite de charge</b> : \(I_D=\dfrac{E_{Th}-V_D}{R_{Th}}\), points particuliers \(\dfrac{E_{Th}}{R_{Th}}\) (\(V_D=0\)) et \(E_{Th}\) (\(I_D=0\)). Diviseur symétrique : \(I_D=\dfrac{E}{R}-\dfrac{2V_D}{R}\).</li>
+<li><b>Zener</b> : elle régule si \(E\dfrac{R_L}{R+R_L}\ge V_Z\), donc \(E_{min}=V_Z\dfrac{R+R_L}{R_L}\). Courant : \(I_Z=\dfrac{E-V_Z}{R}-\dfrac{V_Z}{R_L}\), qui doit rester entre \(0\) et \(I_{Z,max}\).</li>
+<li><b>Diodes identiques en parallèle</b> : même tension, le courant total \(\dfrac{E-V_S}{R}\) se partage en parts égales.</li>
+<li><b>Semi-conducteur</b> : \(np=n_i^2\) ; dopé, les majoritaires valent le dopage (\(p\approx N_A\) ou \(n\approx N_D\)) ; \(\gamma=e(n\mu_n+p\mu_p)\). <b>Unités</b> : cm ou m, on ne mélange pas.</li>
+<li><b>Conducteur</b> : \(R=\dfrac{\rho\ell}{S}\) ; \(\vec v=-\mu\vec E\) : électrons opposés au champ ; le champ va du potentiel haut au potentiel bas.</li>
+<li><b>BJT : la continue d'abord.</b> Pont : \(E_{Th}\), \(R_{Th}\) ; \(I_B=\dfrac{E_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\) ; \(I_C=\beta I_B\) ; \(V_{CE}=V_{CC}-R_CI_C-R_EI_E\). Puis on vérifie le mode.</li>
+<li><b>Lire un tableau de simulation</b> : \(V_{BC}>0\) (jonction BC directe) = saturé ; \(V_{BE}\approx0{,}7\) et \(V_{BC}<0\) = actif (P20 Q7).</li>
+<li><b>Petits signaux</b> : \(r_e=\dfrac{26\ \mathrm{mV}}{I_E}\) ; \(Z_i=R_1\parallel R_2\parallel(\beta+1)r_e\) ; \(Z_o=R_C\parallel r_o\) ; \(A_v\approx-\dfrac{R_C\parallel r_o\,(\parallel R_L)}{r_e}\) avec découplage.</li>
+<li><b>CMOS</b> : série \(\leftrightarrow\) ET, parallèle \(\leftrightarrow\) OU ; pull-up et pull-down complémentaires ; délai \(\tau=\dfrac{(R_{P,eq}+R_{N,eq})\,C}{2}\) sur les pires chemins.</li>
+<li><b>QCM : se méfier des mots</b> (« impérativement », « toujours », « petits courants »), accepter qu'aucune ou plusieurs propositions soient justes, et relire la question quand deux sujets posent la même phrase avec un mot changé.</li>
+</ol></div>
+</section>
+
+<!-- ================= EXERCICES ================= -->
+<section id="exos">
+<h2>Exercices corrigés</h2>
+<p class="s4-sub">Les exercices rédigés des annales et les QCM à calcul reprise en exercices, avec formule littérale, application numérique et vérification.</p>
+
+<details>
+<summary><span class="s4-q">DS19 Ex. 2</span> Dopage du silicium à l'indium (5 pts)</summary>
+<div class="s4-ans">
+<p><b>Données.</b> Silicium intrinsèque \(n_i=10^{10}\ \mathrm{cm^{-3}}\), \(\mu_n=1\,450\) et \(\mu_p=450\ \mathrm{cm^2/(V\cdot s)}\), \(e=1{,}6\cdot10^{-19}\) C, \(M_{Si}=28{,}1\) g/mol, \(\rho_{Si}=2{,}42\) g/cm³, \(\mathcal N_A=6{,}02\cdot10^{23}\ \mathrm{mol^{-1}}\). On dope avec de l'indium : un atome d'impureté pour \(10^7\) atomes de silicium.</p>
+<p><b>Q11-12. Conductivité et résistivité du silicium pur.</b> \(n_i=p_i\).</p>
+<div class="mq">\[\gamma_i=e\,n_i(\mu_n+\mu_p)=1{,}6\cdot10^{-19}\times10^{10}\times1\,900=3{,}04\cdot10^{-6}\ \mathrm{S/cm}=3{,}04\cdot10^{-4}\ \mathrm{S/m}\]</div>
+<div class="mq">\[\rho_i=\frac{1}{\gamma_i}=3{,}3\cdot10^{5}\ \Omega\cdot\mathrm{cm}=3{,}3\ \mathrm{k\Omega\cdot m}\]</div>
+<p><b>Q13-14.</b> L'indium est en colonne 13 : 3 électrons de valence, il lui manque un électron pour la liaison covalente. Il est <b>accepteur</b> ; le silicium dopé est de <b>type P</b>.</p>
+<p><b>Q15. Densité de trous.</b> Atomes de silicium par cm³, puis dopage :</p>
+<div class="mq">\[\mathcal N_{Si}=\frac{\rho\,\mathcal N_A}{M}=\frac{2{,}42\times6{,}02\cdot10^{23}}{28{,}1}=5{,}2\cdot10^{22}\ \mathrm{cm^{-3}}\qquad N_A=\frac{\mathcal N_{Si}}{10^{7}}=5{,}2\cdot10^{15}\ \mathrm{cm^{-3}}\]</div>
+<p>Chaque accepteur crée un trou : \(p\approx N_A\approx5\cdot10^{15}\ \mathrm{cm^{-3}}\).</p>
+<p><b>Q16. Densité d'électrons</b> (action de masse) :</p>
+<div class="mq">\[n=\frac{n_i^2}{p}=\frac{10^{20}}{5\cdot10^{15}}=2\cdot10^{4}\ \mathrm{cm^{-3}}\ll p\quad\text{cohérent}\]</div>
+<p><b>Q17-18. Nouvelle conductivité et résistivité.</b> Les électrons sont négligeables :</p>
+<div class="mq">\[\gamma\approx p\,e\,\mu_p=5\cdot10^{15}\times1{,}6\cdot10^{-19}\times450=0{,}36\ \mathrm{S/cm}\qquad\rho=\frac{1}{\gamma}=2{,}8\ \Omega\cdot\mathrm{cm}=2{,}8\cdot10^{-2}\ \Omega\cdot\mathrm{m}\]</div>
+<p><b>Q19. Conclusion.</b> La conductivité est multipliée par \(\dfrac{0{,}36}{3{,}04\cdot10^{-6}}\approx1{,}2\cdot10^{5}\) : un seul atome d'indium pour dix millions d'atomes de silicium suffit à transformer l'isolant quasi parfait en matériau conducteur. C'est tout l'intérêt du dopage.</p>
+<div class="s4-trap"><span class="s4-lbl">Piège</span>Le corrigé officiel écrit \(\gamma_i=3{,}04\ \mu\mathrm{S/m}\) et \(\rho_i=329\ \mathrm{k\Omega\cdot m}\). Les nombres sont justes mais les unités sont celles du cm (S/cm et \(\Omega\cdot\)cm) : en mètres, \(\gamma_i=3{,}04\cdot10^{-4}\) S/m et \(\rho_i=3{,}3\ \mathrm{k\Omega\cdot m}\).</div>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">DS19 Ex. 3A</span> Diode à jonction PN : droite de charge et point de fonctionnement (3,5 pts)</summary>
+<div class="s4-ans">
+<p><b>Circuit.</b> Source \(E=10\) V, résistance \(2R\) jusqu'à un nœud A, résistance \(2R\) de A à la masse, puis \(R=50\ \Omega\) en série avec la diode (courant \(i_d\), tension \(u_d\)). Diode : \(V_S=0{,}7\) V, \(r=2\ \Omega\).</p>
+<p><b>Q20. Droite de charge.</b> On remplace tout ce qui est à gauche de la diode par son équivalent de Thévenin. À vide (diode retirée) la résistance \(R\) n'est parcourue par aucun courant : le nœud A est au milieu d'un pont diviseur.</p>
+<div class="mq">\[E_{Th}=\frac{2R}{2R+2R}E=\frac{E}{2}\qquad R_{Th}=R+(2R\parallel2R)=R+R=2R\]</div>
+<p>Loi des mailles \(E_{Th}-R_{Th}i_d=u_d\), soit la droite de charge sous la forme \(y=ax+b\) :</p>
+<div class="mq">\[i_d=-\frac{1}{2R}\,u_d+\frac{E}{4R}\]</div>
+<p><b>Q21. Courant.</b> On remplace \(u_d\) par le modèle réel \(u_d=V_S+r\,i_d\) :</p>
+<div class="mq">\[\frac{E}{2}-2R\,i_d=V_S+r\,i_d\ \Longrightarrow\ i_d=\frac{\frac{E}{2}-V_S}{r+2R}=\frac{5-0{,}7}{2+100}=42\ \mathrm{mA}\]</div>
+<p><b>Q22. Tracé.</b> Points particuliers de la droite de charge :</p>
+<div class="mq">\[i_d(u_d=0)=\frac{E}{4R}=\frac{10}{200}=50\ \mathrm{mA}\qquad u_d(i_d=0)=\frac{E}{2}=5\ \mathrm{V}\]</div>
+<p>La caractéristique de la diode est presque verticale en \(V_S=0{,}7\) V ; son intersection avec la droite donne le point de polarisation \(Q\approx(0{,}7\ \mathrm V\,;\,42\ \mathrm{mA})\) (exactement \(u_d=0{,}7+2\times0{,}042=0{,}78\) V avec la résistance interne).</p>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">DS19 Ex. 3B</span> Régulation de tension : expression de la sortie (4 pts)</summary>
+<div class="s4-ans">
+<p><b>Circuit.</b> Source \(u_e=E\), résistance série \(R\), puis en parallèle : la Zener (\(V_Z\), \(r_Z\)) et la charge \(R_L\). \(u_d\) = tension sur la Zener = tension de sortie.</p>
+<p><b>Q23. Thévenin vu par la Zener</b> (pont diviseur) :</p>
+<div class="mq">\[E_{Th}=\frac{R_L}{R+R_L}E\qquad R_{Th}=R\parallel R_L=\frac{R\,R_L}{R+R_L}\]</div>
+<p><b>Q24.</b> Loi des mailles : \(E_{Th}-R_{Th}\,i_d=u_d\), soit \(i_d=\dfrac{E_{Th}-u_d}{R_{Th}}\). <b>Q25.</b> Modèle réel de la Zener : \(u_d=V_Z+r_Z\,i_d\).</p>
+<p><b>Q26. Sortie en fonction de \(E\).</b> On substitue :</p>
+<div class="mq">\[u_d=V_Z+r_Z\frac{E_{Th}-u_d}{R_{Th}}\ \Longrightarrow\ u_d\left(1+\frac{r_Z}{R_{Th}}\right)=V_Z+r_Z\frac{E_{Th}}{R_{Th}}\qquad\text{avec}\ \frac{E_{Th}}{R_{Th}}=\frac{E}{R}\]</div>
+<div class="mq">\[u_d=\frac{\dfrac{r_Z}{R}\,E+V_Z}{1+r_Z\dfrac{R+R_L}{R\,R_L}}\]</div>
+<p><b>Q27-29. Conditions de régulation</b> (\(u_d\) le plus proche possible de \(V_Z\)) :</p>
+<ul>
+<li>le terme \(\dfrac{r_Z}{R}E\) doit être négligeable devant \(V_Z\) : \(R\gg r_Z\) ;</li>
+<li>le terme \(r_Z\dfrac{R+R_L}{R\,R_L}=r_Z\left(\dfrac{1}{R}+\dfrac{1}{R_L}\right)\) doit être très petit devant \(1\) : \(R_L\gg r_Z\) aussi. Le corrigé résume : la charge doit être très grande devant \(R\) (elle ne doit pas tirer de courant).</li>
+</ul>
+<p><b>Vérification numérique</b> : \(V_Z=5{,}6\) V, \(r_Z=10\ \Omega\), \(R=100\ \Omega\), \(R_L=1\ \mathrm{k\Omega}\). Le dénominateur vaut \(1+10\times\dfrac{1\,100}{100\,000}=1{,}11\). Pour \(E=12\) V : \(u_d=\dfrac{0{,}1\times12+5{,}6}{1{,}11}=6{,}13\) V ; pour \(E=14\) V : \(6{,}31\) V. Une variation de \(2\) V en entrée n'en donne que \(0{,}18\) V en sortie : le régulateur divise l'ondulation par \(\approx11\).</p>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">DS22 Q19-20</span> Zener et diodes : trouver \(R_1\) et \(R_2\)</summary>
+<div class="s4-ans">
+<p><b>Circuit.</b> Un signal rectangulaire \(u_e\) vaut alternativement \(+12\) V et \(-12\) V (rapport cyclique \(0{,}5\)). Il attaque en série une Zener \(D_1\) (\(V_S=0{,}6\) V en direct, \(V_Z=3{,}6\) V en inverse), puis \(R_1\), puis un nœud M relié à la masse par \(R_2\) en parallèle avec une diode \(D_2\) (\(V_S=0{,}6\) V, passante quand M est négatif). On veut un courant \(|i|=12\) mA dans les deux alternances.</p>
+<p><b>Alternance +12 V.</b> \(D_1\) conduit (\(0{,}6\) V), \(D_2\) est bloquée (M est positif) : seule \(R_2\) ramène le courant à la masse.</p>
+<div class="mq">\[i=\frac{12-0{,}6}{R_1+R_2}=12\ \mathrm{mA}\ \Longrightarrow\ R_1+R_2=\frac{11{,}4}{0{,}012}=950\ \Omega\]</div>
+<p><b>Alternance \(-12\) V.</b> \(D_1\) est en inverse mais conduit dans sa zone Zener (\(3{,}6\) V) ; \(D_2\) conduit et impose \(V_M=-0{,}6\) V. Le courant dans la source traverse \(R_1\) :</p>
+<div class="mq">\[|i|=\frac{12-3{,}6-0{,}6}{R_1}=12\ \mathrm{mA}\ \Longrightarrow\ R_1=\frac{7{,}8}{0{,}012}=650\ \Omega\]</div>
+<p><b>Conclusion.</b> \(R_1=650\ \Omega\) et \(R_2=950-650=300\ \Omega\) (réponses (b) et (a) du sujet). On a deux équations (une par alternance) pour deux inconnues : dès qu'un circuit a deux états, écrire une équation par état.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">DS24 Q27-40</span> BJT polarisé par la base avec \(R_E\) (\(\beta=250\))</summary>
+<div class="s4-ans">
+<p><b>Circuit.</b> \(V_{CC}=14\) V ; \(R_B=15\ \mathrm{k\Omega}\) de \(V_{CC}\) à la base ; \(R_C=50\ \Omega\) au collecteur ; \(R_E=80\ \Omega\) à l'émetteur ; silicium, \(\beta=250\), zone linéaire.</p>
+<p><b>Courant de base.</b> Maille d'entrée \(V_{CC}-R_Bi_B-V_{BE}-R_Ei_E=0\) avec \(i_E=(\beta+1)i_B\) :</p>
+<div class="mq">\[i_B=\frac{V_{CC}-V_{BE}}{R_B+(\beta+1)R_E}=\frac{14-0{,}7}{15\,000+251\times80}=\frac{13{,}3}{35\,080}=379\ \mu\mathrm A\]</div>
+<p><b>Courants.</b> \(i_C=\beta i_B=250\times379\ \mu\mathrm A=94{,}8\) mA ; \(i_E=i_C+i_B=95{,}2\) mA.</p>
+<p><b>Potentiels.</b></p>
+<div class="mq">\[V_E=R_Ei_E=7{,}6\ \mathrm V\qquad V_B=V_E+V_{BE}=8{,}3\ \mathrm V\qquad V_C=V_{CC}-R_Ci_C=14-4{,}74=9{,}25\ \mathrm V\]</div>
+<p><b>Mode.</b> \(V_{BE}=+0{,}7\) V : jonction BE en <b>direct</b>. \(V_{BC}=V_B-V_C=-0{,}95\) V : jonction BC en <b>inverse</b>. Donc mode actif : le transistor amplifie (Q38-40).</p>
+<div class="s4-tip"><span class="s4-lbl">Autres questions du même sujet</span>Base mince et peu dopée ; dans un pnp les porteurs majoritaires de l'émetteur sont des trous ; \(\beta=100\) et \(I_C=10\) mA donnent \(I_B=100\ \mu\)A ; base reliée directement à l'alimentation : transistor détruit.</div>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">DS24 Q41-44 · P24 Q16-24</span> Polarisation par pont \(16\ \mathrm{k\Omega}/1\ \mathrm{k\Omega}\)</summary>
+<div class="s4-ans">
+<p><b>Circuit.</b> \(V_{CC}=12\) V ; \(R_1=16\ \mathrm{k\Omega}\) (vers \(V_{CC}\)), \(R_2=1\ \mathrm{k\Omega}\) (vers la masse), \(R_C=240\ \Omega\), émetteur à la masse. Au point de fonctionnement : \(i_B=100\ \mu\)A, \(V_{CE}=6\) V.</p>
+<p><b>Thévenin de base.</b></p>
+<div class="mq">\[V_{BB}=E_{Th}=12\times\frac{1}{17}=0{,}706\ \mathrm V\qquad R_B=R_{Th}=16\parallel1=0{,}94\ \mathrm{k\Omega}\]</div>
+<p><b>Droite d'attaque</b> (caractéristique d'entrée) : \(I_B=-\dfrac{V_{BE}}{R_B}+\dfrac{V_{BB}}{R_B}\). <b>Droite de charge</b> (caractéristique de sortie) : \(I_C=-\dfrac{V_{CE}}{R_C}+\dfrac{V_{CC}}{R_C}\).</p>
+<p><b>Point de fonctionnement.</b></p>
+<div class="mq">\[V_{BE}=V_{BB}-R_Bi_B=0{,}706-940\times10^{-4}=0{,}61\ \mathrm V\qquad i_C=\frac{V_{CC}-V_{CE}}{R_C}=\frac{6}{240}=25\ \mathrm{mA}\]</div>
+<div class="mq">\[\beta=\frac{i_C}{i_B}=\frac{25\ \mathrm{mA}}{100\ \mu\mathrm A}=250\qquad i_E=i_B+i_C=25{,}1\ \mathrm{mA}\qquad\alpha=\frac{i_C}{i_E}=0{,}996\]</div>
+<p>La jonction collecteur-base est en inverse (\(V_{CB}=6-0{,}6=5{,}4\) V \(>0\)) : mode actif.</p>
+<div class="s4-trap"><span class="s4-lbl">Piège</span>Dans le corrigé du DS 2023-24, les lettres de Q43 et Q44 ne correspondent pas à ses propres calculs (voir « Erreurs des corrigés »). Se fier aux valeurs : \(\beta=250\), \(\alpha=0{,}996\).</div>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">DS20 Q16-19 · P20 Q1-2</span> Pont diviseur : effet de \(R_E\) sur le point \(Q\)</summary>
+<div class="s4-ans">
+<p><b>Données.</b> \(R_1=68\ \mathrm{k\Omega}\), \(R_2=12\ \mathrm{k\Omega}\), \(R_C=1{,}5\ \mathrm{k\Omega}\), \(V_{CC}=20\) V, \(\beta=25\), silicium.</p>
+<p><b>Sans \(R_E\).</b></p>
+<div class="mq">\[E_{Th}=20\times\frac{12}{80}=3\ \mathrm V\qquad R_{Th}=68\parallel12=10{,}2\ \mathrm{k\Omega}\qquad i_B=\frac{3-0{,}7}{10{,}2\ \mathrm k}=225\ \mu\mathrm A\]</div>
+<div class="mq">\[i_C=\beta i_B=5{,}6\ \mathrm{mA}\qquad V_{CE}=V_{CC}-R_Ci_C=11{,}6\ \mathrm V\quad(\text{actif})\]</div>
+<p>Si le transistor est remplacé par un autre de \(\beta=50\), \(i_C\) double (\(11{,}3\) mA) : \(Q\) dépend de \(\beta\).</p>
+<p><b>Avec \(R_E=1\ \mathrm{k\Omega}\).</b> \(i_B=\dfrac{E_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\) :</p>
+<div class="mq">\[\beta=25:\ i_B=\frac{2{,}3}{10{,}2\ \mathrm k+26\ \mathrm k}=63\ \mu\mathrm A,\ i_C=1{,}59\ \mathrm{mA}\qquad\beta=50:\ i_B=\frac{2{,}3}{10{,}2\ \mathrm k+51\ \mathrm k}=38\ \mu\mathrm A,\ i_C=1{,}88\ \mathrm{mA}\]</div>
+<p>Pour \(\beta\) multiplié par \(2\), \(i_C\) ne bouge plus que de \(18\ \%\). Avec \((\beta+1)R_E\ge10\,R_{Th}\) l'indépendance est quasi totale : \(i_E\approx\dfrac{E_{Th}-V_{BE}}{R_E}\). C'est la réponse « les coordonnées du point de polarisation sont indépendantes de \(\beta\) » des QCM (DS20 Q17, DS22 Q18, P20 Q1).</p>
+<p><b>Variante DS20 Q18-19</b> : NPN émetteur à la masse, \(\beta=100\), \(R_A=10\ \mathrm{k\Omega}\) (base), \(R_B=1\ \mathrm{k\Omega}\) (collecteur), \(V_{CE}=5\) V, \(I_C=2\) mA : \(I_B=20\ \mu\)A, \(V_A=0{,}7+10\ \mathrm k\times20\ \mu\mathrm A=0{,}9\approx1\) V ; \(V_B=5+1\ \mathrm k\times2\ \mathrm{mA}=7\) V.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">P22 Q13-17</span> Zener et transistor ballast</summary>
+<div class="s4-ans">
+<p><b>Circuit.</b> \(V_{CC}=12\) V ; \(R_1=180\ \Omega\) de \(V_{CC}\) à la base ; Zener \(V_Z=5{,}6\) V (\(r_Z=0\)) de la base à la masse ; collecteur à \(V_{CC}\) ; émetteur vers \(R_2=220\ \Omega\) en série avec une LED (\(V_{LED}=2\) V, \(R_{LED}=10\ \Omega\)) en parallèle avec la charge. \(V_{BE}=0{,}6\) V, \(\beta=150\), \(V_{CE,sat}=0{,}2\) V. La Zener est passante.</p>
+<div class="mq">\[V_B=V_Z=5{,}6\ \mathrm V\qquad I_{R_1}=\frac{12-5{,}6}{180}=35{,}6\ \mathrm{mA}\approx40\ \mathrm{mA}\]</div>
+<div class="mq">\[V_E=V_B-V_{BE}=5{,}0\ \mathrm V\qquad I_{LED}=\frac{V_E-V_{LED}}{R_2+R_{LED}}=\frac{5-2}{230}=13\ \mathrm{mA}\approx10\ \mathrm{mA}\qquad V_{CE}=12-5=7\ \mathrm V\]</div>
+<p>\(V_{CE}=7\) V \(>V_{CE,sat}\) : le transistor est actif. La sortie vaut \(V_Z-V_{BE}\) quelle que soit la charge (dans les limites du courant) : le transistor « ballast » fournit le courant de charge, la Zener ne débite que le courant de base (\(\beta\) fois plus faible).</p>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">P24 Q25-30</span> Émetteur commun en petits signaux</summary>
+<div class="s4-ans">
+<p><b>Circuit.</b> \(V_{CC}=12\) V ; \(R_1=270\ \mathrm{k\Omega}\) de \(V_{CC}\) à la base ; \(R_2=2{,}2\ \mathrm{k\Omega}\) au collecteur (c'est la résistance de collecteur) ; émetteur à la masse ; \(C_1\) à l'entrée, \(C_2\) à la sortie. \(\beta=60\), \(V_{BE}=0{,}7\) V, \(r_o=40\ \mathrm{k\Omega}\).</p>
+<p><b>Polarisation.</b></p>
+<div class="mq">\[i_B=\frac{12-0{,}7}{270\ \mathrm k}=41{,}9\ \mu\mathrm A\qquad i_C=\beta i_B=2{,}5\ \mathrm{mA}\qquad i_E=(\beta+1)i_B=2{,}56\ \mathrm{mA}\]</div>
+<p><b>Paramètres dynamiques.</b></p>
+<div class="mq">\[r_e=\frac{26\ \mathrm{mV}}{I_E}=10{,}2\ \Omega\qquad Z_i=R_1\parallel(\beta+1)r_e=270\ \mathrm k\parallel622\ \Omega=620\ \Omega\]</div>
+<div class="mq">\[Z_o=R_C\parallel r_o=2{,}2\ \mathrm k\parallel40\ \mathrm k=2{,}09\ \mathrm{k\Omega}\qquad A_v\approx-\frac{R_C\parallel r_o}{r_e}=-\frac{2\,085}{10{,}2}\approx-204\]</div>
+<p>Les réponses du sujet (\(40\ \mu\)A, \(2\) mA, \(10\ \Omega\), \(600\ \Omega\), \(2\ \mathrm{k\Omega}\), \(-200\)) sont les valeurs proposées les plus proches. Le signe \(-\) : l'émetteur commun inverse le signal.</p>
+<p><b>Variante P22 Q9-12</b> (\(\beta=100\), \(r_e=1{,}36\ \Omega\), \(R_C=1\ \mathrm{k\Omega}\), \(r_o=50\ \mathrm{k\Omega}\), pont \(6\ \mathrm{k\Omega}/3\ \mathrm{k\Omega}\)) : \(Z_i=2\,000\parallel137=128\ \Omega\), \(Z_o=980\ \Omega\), \(A_v\approx-720\).</p>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">Révision BJT ex. 0.1</span> Transistor en commutation</summary>
+<div class="s4-ans">
+<p><b>Données.</b> \(V_{CC}=10\) V, \(\beta=200\), \(V_{BE}=0{,}7\) V, \(V_{CE,sat}=0{,}25\) V, \(R_C=500\ \Omega\), \(R_B=14{,}7\ \mathrm{k\Omega}\), \(V_{in}=0\) ou \(5\) V.</p>
+<p><b>Équations.</b> Maille d'entrée : \(V_{in}-R_Bi_B-V_{BE}=0\). Maille de sortie : \(V_{CC}-R_Ci_C-V_{CE}=0\) (et \(V_{out}=V_{CE}\)).</p>
+<p><b>\(V_{in}=0\).</b> Pas de courant de base : transistor <b>bloqué</b>, \(V_{CE}=V_{out}=V_{CC}=10\) V.</p>
+<p><b>\(V_{in}=5\) V.</b> On suppose le transistor saturé :</p>
+<div class="mq">\[i_B=\frac{5-0{,}7}{14{,}7\ \mathrm k}=292{,}5\ \mu\mathrm A\qquad i_{C,sat}=\frac{V_{CC}-V_{CE,sat}}{R_C}=\frac{10-0{,}25}{500}=19{,}5\ \mathrm{mA}\]</div>
+<p><b>Vérification.</b> \(\beta\,i_B=200\times292{,}5\ \mu\mathrm A=58{,}5\ \mathrm{mA}>19{,}5\) mA : le courant que le transistor <i>voudrait</i> faire passer dépasse ce que le circuit autorise, il est bien saturé et \(V_{out}=0{,}25\) V. Le rapport \(\dfrac{\beta i_B}{i_{C,sat}}=3\) est le coefficient de sur-saturation.</p>
+<p>Le montage est une porte NON : entrée à \(0\) V \(\to\) sortie à \(10\) V ; entrée à \(5\) V \(\to\) sortie à \(0{,}25\) V.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">P20 Q13 · P24 Q31-35</span> Porte CMOS : équations et délai</summary>
+<div class="s4-ans">
+<p><b>Méthode.</b> pMOS conducteur pour une entrée à \(0\), nMOS pour une entrée à \(1\). Série = ET, parallèle = OU. Le pull-down est la fonction complémentaire du pull-up (De Morgan). Délai : \(\tau=\dfrac{(R_{P,eq}+R_{N,eq})\,C}{2}\) avec la résistance équivalente du <b>pire chemin</b> (le plus de transistors en série).</p>
+<p><b>P24 : première porte.</b> pMOS : \((C\parallel D)\) en série avec \(A\) puis \(B\) ; nMOS : \((C\text{–}D)\) en série, en parallèle avec \(A\) et avec \(B\).</p>
+<div class="mq">\[\text{pull-up}:\ (\bar C+\bar D)\,\bar A\,\bar B\qquad\text{pull-down}:\ \overline{OUT_1}=A+B+CD\qquad OUT_1=\overline{A+B+CD}\]</div>
+<p>Avec \(R_N=10\ \mathrm{k\Omega}\), \(R_P=20\ \mathrm{k\Omega}\), \(C_O=50\) pF : pire pull-up \(=3\times20=60\ \mathrm{k\Omega}\) (\(A\), \(B\) et \(C\) ou \(D\)), pire pull-down \(=2\times10=20\ \mathrm{k\Omega}\).</p>
+<div class="mq">\[\tau=\frac{(60+20)\times10^{3}\times50\cdot10^{-12}}{2}=2\ \mu\mathrm s\]</div>
+<p>Deuxième porte : \(2\ \mu\)s aussi ; deux portes en cascade, les délais s'additionnent (\(\approx4\ \mu\)s : le corrigé retient la proposition la plus proche, \(5\ \mu\)s).</p>
+<p><b>P20 Q13.</b> pMOS \((x_1\parallel x_2)\)–\((x_3\parallel x_4)\)–\(x_5\) : pire pull-up \(=3\times100=300\ \mathrm{k\Omega}\) ; nMOS \((x_1\text{–}x_2)\parallel(x_3\text{–}x_4)\parallel x_5\) : pire pull-down \(=2\times5=10\ \mathrm{k\Omega}\) ; \(C=10\) pF :</p>
+<div class="mq">\[\tau=\frac{(300+10)\times10^{3}\times10\cdot10^{-12}}{2}=1{,}55\ \mu\mathrm s\approx1{,}6\ \mu\mathrm s\]</div>
+</div>
+</details>
+
+<details>
+<summary><span class="s4-q">P24 Q8-15</span> Régulateur Zener : jusqu'où régule-t-il ?</summary>
+<div class="s4-ans">
+<p><b>Données.</b> \(V_{in}=10\) V, \(R_S=100\ \Omega\), Zener \(V_Z=5{,}1\) V, charge \(R_L\) variable.</p>
+<p><b>Condition de conduction.</b> La Zener conduit si la tension à vide à ses bornes dépasse \(V_Z\) :</p>
+<div class="mq">\[V_{in}\frac{R_L}{R_S+R_L}\ge V_Z\ \Longleftrightarrow\ R_L\ge\frac{V_Z\,R_S}{V_{in}-V_Z}=\frac{5{,}1\times100}{4{,}9}=104\ \Omega\]</div>
+<p><b>Bilan des courants</b> (\(I_Z=I_{R_S}-I_L\)) :</p>
+<div class="tbl-wrap"><table>
+<tr><th>\(R_L\)</th><th>\(I_{R_S}=\frac{V_{in}-V_Z}{R_S}\)</th><th>\(I_L=\frac{V_Z}{R_L}\)</th><th>\(I_Z\)</th><th>Verdict</th></tr>
+<tr><td>\(200\ \Omega\)</td><td>49 mA</td><td>25,5 mA</td><td>23,5 mA</td><td>bonne régulation</td></tr>
+<tr><td>\(150\ \Omega\)</td><td>49 mA</td><td>34 mA</td><td>15 mA</td><td>marge réduite : la limite approche</td></tr>
+<tr><td>\(50\ \Omega\)</td><td>—</td><td>—</td><td>0 (bloquée)</td><td>plus de régulation : \(V_{out}=3{,}3\) V</td></tr>
+</table></div>
+<p><b>Les deux limites d'un régulateur Zener.</b> \(R_S\) trop petite : \(I_Z=\dfrac{V_{in}-V_Z}{R_S}-I_L\) dépasse \(I_{Z,max}\), la Zener chauffe et est endommagée. \(R_S\) trop grande ou \(R_L\) trop petite : la tension à vide tombe sous \(V_Z\), la Zener ne conduit plus. C'est pourquoi ce montage convient aux <b>faibles courants d'utilisation</b>.</p>
+<p>Avec \(V_Z=10\) V, \(R_S=100\ \Omega\), \(R_L=200\ \Omega\) (Q8-11) : \(V_{out}=10\) V à \(10{,}7\) V pour \(V_{in}\) de \(16\) à \(30\) V, \(I_L\approx50\) mA : régulation correcte tant que \(V_{in}\) reste assez grand.</p>
+</div>
+</details>
+</section>
+
+<!-- ================= SUJETS RÉDIGÉS ================= -->
+<section id="sujets">
+<h2>Deux sujets blancs rédigés (1h30 chacun)</h2>
+<p class="s4-sub">De vrais exercices, sans QCM, sur tout le semestre : réseaux et AOP, conduction, semi-conducteurs, diode, Zener, BJT en statique et en dynamique, JFET et MOSFET, CMOS. Sujets originaux, construits sur les types d'exercices des annales et des TD, avec toutes les valeurs recalculées. Chronomètre, calculatrice, rédaction complète (formule littérale, application numérique, vérification), puis correction.</p>
+<div class="s4-tip"><span class="s4-lbl">Mode d'emploi</span>Les montages sont décrits en mots : fais d'abord le <b>schéma</b> sur ta feuille, c'est la première étape d'une copie. Chaque exercice vaut \(5\) points, soit \(\approx20\) min. Une question bloquée : passer à la suivante. Correction dépliable sous chaque exercice.</div>
+
+<h3>Sujet A · diode, Zener, BJT en statique, CMOS</h3>
+
+<h4>Exercice A1 · Jonction PN et diode (5 pts)</h4>
+<p><b>Données.</b> Silicium à \(300\) K : \(n_i=1{,}5\cdot10^{10}\ \mathrm{cm^{-3}}\), \(\mu_n=1\,350\) et \(\mu_p=480\ \mathrm{cm^2/(V\cdot s)}\), \(e=1{,}6\cdot10^{-19}\) C, \(V_T=\dfrac{k_BT}{e}=25{,}9\) mV. Une jonction PN abrupte a une zone P dopée au bore à \(N_A=10^{17}\ \mathrm{cm^{-3}}\) et une zone N dopée au phosphore à \(N_D=10^{16}\ \mathrm{cm^{-3}}\).</p>
+<ol>
+<li>Donner les densités de porteurs majoritaires et minoritaires dans chaque zone. <i>(1,5)</i></li>
+<li>Calculer la conductivité de la zone P, en S/cm puis en S/m. <i>(1)</i></li>
+<li>Calculer la barrière de potentiel \(V_0\) de la jonction. <i>(1)</i></li>
+<li>La diode obéit à \(I_D=I_S\left(e^{U_D/V_T}-1\right)\) avec \(I_S=10^{-12}\) A. Calculer \(U_D\) pour \(I_D=10\) mA. Que devient \(U_D\) si \(I_D\) est multiplié par \(10\) ? Comment évolue \(U_D\), à courant constant, quand la température augmente ? <i>(1,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice A1</summary>
+<div class="s4-ans">
+<p><b>1.</b> Zone P : \(p\approx N_A=10^{17}\ \mathrm{cm^{-3}}\) (majoritaires), \(n=\dfrac{n_i^2}{p}=\dfrac{2{,}25\cdot10^{20}}{10^{17}}=2{,}25\cdot10^{3}\ \mathrm{cm^{-3}}\) (minoritaires). Zone N : \(n\approx N_D=10^{16}\ \mathrm{cm^{-3}}\), \(p=\dfrac{n_i^2}{n}=2{,}25\cdot10^{4}\ \mathrm{cm^{-3}}\).</p>
+<p><b>2.</b> Les électrons sont négligeables : \(\gamma_P\approx e\,p\,\mu_p=1{,}6\cdot10^{-19}\times10^{17}\times480=7{,}7\ \mathrm{S/cm}=7{,}7\cdot10^{2}\ \mathrm{S/m}\).</p>
+<p><b>3.</b></p>
+<div class="mq">\[V_0=V_T\ln\frac{N_AN_D}{n_i^2}=0{,}0259\times\ln\frac{10^{17}\times10^{16}}{2{,}25\cdot10^{20}}=0{,}0259\times29{,}1=0{,}75\ \mathrm V\]</div>
+<p><b>4.</b> \(U_D=V_T\ln\left(\dfrac{I_D}{I_S}+1\right)=0{,}0259\times\ln\left(10^{10}\right)=0{,}0259\times23{,}0=0{,}60\ \mathrm V\). Le logarithme explique la « tension de seuil » : si \(I_D\) est multiplié par \(10\), \(U_D\) n'augmente que de \(V_T\ln10=60\) mV. À courant constant, \(I_S\) croît très vite avec \(T\), donc \(U_D\) <b>diminue</b> d'environ \(2\) mV/°C (à \(+40\)\,°C : \(\approx0{,}52\) V) : c'est le principe du capteur de température à diode.</p>
+</div>
+</details>
+
+<h4>Exercice A2 · Alimentation : pont de Graëtz et Zener (5 pts)</h4>
+<p><b>Montage.</b> Un transformateur délivre une tension sinusoïdale de \(15\) V crête à \(50\) Hz. Elle alimente un pont de Graëtz de quatre diodes (\(V_S=0{,}7\) V), suivi d'un condensateur de lissage supposé parfait : la tension continue obtenue \(U_c\) vaut la crête de la tension redressée. Puis une résistance \(R=330\ \Omega\) alimente une diode Zener (\(V_Z=5{,}1\) V, \(r_Z=0\)) en parallèle avec la charge \(R_L\).</p>
+<ol>
+<li>Pendant l'alternance positive, quelles diodes conduisent ? Calculer \(U_c\). <i>(1)</i></li>
+<li>Quelle est la fréquence de la tension redressée ? Quel est le rôle du condensateur ? <i>(0,5)</i></li>
+<li>Pour \(R_L=470\ \Omega\), calculer \(I_R\), \(I_L\) et \(I_Z\). <i>(1)</i></li>
+<li>Pour \(U_c\) fixée, quelle est la plus petite charge \(R_{L,min}\) qui laisse la Zener conduire ? <i>(1)</i></li>
+<li>En pratique \(U_c\) varie de \(12\) V à \(14\) V et \(R_L\) de \(300\ \Omega\) à l'infini (circuit ouvert). La Zener supporte \(I_{Z,max}=40\) mA. Montrer que le régulateur fonctionne dans tous les cas. <i>(1,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice A2</summary>
+<div class="s4-ans">
+<p><b>1.</b> Alternance positive : les deux diodes opposées en diagonale conduisent (une côté borne \(+\), une côté retour), l'autre paire est bloquée. Le courant traverse <b>deux</b> diodes : \(U_c=15-2V_S=15-1{,}4=13{,}6\) V.</p>
+<p><b>2.</b> Chaque alternance est redressée : \(f=2\times50=100\) Hz. Le condensateur se charge vite sur la crête et se décharge lentement dans la charge (\(\tau=R\,C\)) : il lisse la tension.</p>
+<p><b>3.</b> La Zener impose \(u=V_Z\) : \(I_R=\dfrac{U_c-V_Z}{R}=\dfrac{13{,}6-5{,}1}{330}=25{,}8\) mA ; \(I_L=\dfrac{V_Z}{R_L}=\dfrac{5{,}1}{470}=10{,}9\) mA ; \(I_Z=I_R-I_L=14{,}9\) mA \(>0\) : la Zener conduit bien.</p>
+<p><b>4.</b> Limite : la tension à vide vaut \(V_Z\) : \(U_c\dfrac{R_L}{R+R_L}=V_Z\), donc \(R_{L,min}=\dfrac{V_Z\,R}{U_c-V_Z}=\dfrac{5{,}1\times330}{8{,}5}=198\ \Omega\).</p>
+<p><b>5.</b> Deux pires cas.</p>
+<ul>
+<li><i>Zener la moins sollicitée</i> (\(U_c\) minimale, charge maximale) : \(U_c=12\) V, \(R_L=300\ \Omega\). Tension à vide : \(12\times\dfrac{300}{630}=5{,}7\) V \(>5{,}1\) V : elle conduit, et \(I_Z=\dfrac{12-5{,}1}{330}-\dfrac{5{,}1}{300}=20{,}9-17{,}0=3{,}9\) mA \(>0\).</li>
+<li><i>Zener la plus sollicitée</i> (\(U_c\) maximale, pas de charge) : \(I_Z=\dfrac{14-5{,}1}{330}=27\) mA \(<40\) mA (puissance \(5{,}1\times0{,}027=0{,}14\) W).</li>
+</ul>
+<p>Le régulateur fonctionne sur toute la plage.</p>
+</div>
+</details>
+
+<h4>Exercice A3 · BJT polarisé par pont, puis commutation (5 pts)</h4>
+<p><b>Montage 1.</b> NPN au silicium, \(\beta=100\), \(V_{BE}=0{,}7\) V. \(V_{CC}=12\) V ; \(R_1=40\ \mathrm{k\Omega}\) de \(V_{CC}\) à la base, \(R_2=10\ \mathrm{k\Omega}\) de la base à la masse ; \(R_C=2{,}2\ \mathrm{k\Omega}\) au collecteur ; \(R_E=820\ \Omega\) à l'émetteur.</p>
+<ol>
+<li>Donner le générateur de Thévenin vu par la base. <i>(1)</i></li>
+<li>Calculer \(I_B\), \(I_C\) et \(I_E\). <i>(1,5)</i></li>
+<li>Calculer \(V_{CE}\) et donner le mode de fonctionnement. <i>(1)</i></li>
+<li>Le transistor est remplacé par un autre de \(\beta=200\). De combien varie \(I_C\) en pourcentage ? Conclure. <i>(0,5)</i></li>
+</ol>
+<p><b>Montage 2.</b> Le même transistor (émetteur à la masse, \(V_{CE,sat}=0{,}2\) V) commande un relais dont la bobine, de résistance \(240\ \Omega\), est alimentée sous \(12\) V. Il est piloté par une sortie logique à \(5\) V à travers une résistance \(R_B\).</p>
+<ol start="5">
+<li>Calculer \(I_{C,sat}\), puis \(R_B\) pour un coefficient de sur-saturation de \(3\) ; choisir une valeur de la série E12 (\(2{,}2\) ; \(2{,}7\) ; \(3{,}3\ \mathrm{k\Omega}\)). À quoi sert une diode montée en inverse aux bornes de la bobine ? <i>(1)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice A3</summary>
+<div class="s4-ans">
+<p><b>1.</b> \(E_{Th}=V_{CC}\dfrac{R_2}{R_1+R_2}=12\times\dfrac{10}{50}=2{,}4\) V ; \(R_{Th}=R_1\parallel R_2=8\ \mathrm{k\Omega}\).</p>
+<p><b>2.</b> Maille d'entrée : \(E_{Th}-R_{Th}I_B-V_{BE}-R_EI_E=0\) avec \(I_E=(\beta+1)I_B\) :</p>
+<div class="mq">\[I_B=\frac{E_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}=\frac{1{,}7}{8\,000+101\times820}=\frac{1{,}7}{90\,820}=18{,}7\ \mu\mathrm A\]</div>
+<p>\(I_C=\beta I_B=1{,}87\) mA ; \(I_E=I_C+I_B=1{,}89\) mA.</p>
+<p><b>3.</b> \(V_{CE}=V_{CC}-R_CI_C-R_EI_E=12-4{,}12-1{,}55=6{,}3\) V. \(V_{BE}=0{,}7\) V et \(V_{CE}>0{,}2\) V (\(V_{CB}>0\)) : <b>mode actif</b>.</p>
+<p><b>4.</b> Avec \(\beta=200\) : \(I_B=\dfrac{1{,}7}{8\,000+201\times820}=9{,}84\ \mu\)A, \(I_C=1{,}97\) mA, soit \(+5\ \%\) pour un \(\beta\) <b>doublé</b>. Ici \((\beta+1)R_E=82{,}8\ \mathrm{k\Omega}\approx10\,R_{Th}\) : le point \(Q\) est quasi indépendant de \(\beta\). Sans \(R_E\), \(I_C\) aurait doublé.</p>
+<p><b>5.</b> \(I_{C,sat}=\dfrac{12-0{,}2}{240}=49\) mA ; \(I_{B,min}=\dfrac{I_{C,sat}}{\beta}=0{,}49\) mA ; avec un coefficient \(3\) : \(I_B=1{,}48\) mA et \(R_B=\dfrac{5-0{,}7}{1{,}48\ \mathrm{mA}}=2{,}9\ \mathrm{k\Omega}\). On prend \(2{,}7\ \mathrm{k\Omega}\) (\(I_B=1{,}6\) mA, coefficient \(3{,}2\) : on reste du côté de la saturation). La diode de <b>roue libre</b> donne un chemin au courant de la bobine quand le transistor se bloque : sans elle, \(u_L=L\dfrac{\mathrm di}{\mathrm dt}\) crée une surtension qui détruit le transistor.</p>
+</div>
+</details>
+
+<h4>Exercice A4 · Porte CMOS \(Y=\overline{AB+CD}\) (5 pts)</h4>
+<ol>
+<li>En utilisant le théorème de De Morgan, donner l'expression que doit réaliser le réseau de pMOS (PUN), puis décrire les deux réseaux : quels transistors sont en série, lesquels en parallèle ? <i>(1,5)</i></li>
+<li>Combien de transistors comporte la porte ? <i>(0,5)</i></li>
+<li>Avec \(R_N=10\ \mathrm{k\Omega}\), \(R_P=20\ \mathrm{k\Omega}\) (résistance unitaire de chaque transistor passant) et une capacité de sortie \(C_{OUT}=2\) pF, calculer le temps de propagation \(\tau=\dfrac{(R_{N,eq}+R_{P,eq})\,C_{OUT}}{2}\) en prenant le pire chemin dans chaque réseau. <i>(1,5)</i></li>
+<li>Toutes les dimensions sont divisées par \(S=2\) (\(V_{DD}\) constant). Que deviennent le délai et la fréquence maximale ? <i>(1)</i></li>
+<li>Donner \(Y\) pour \((A,B,C,D)=(1,0,1,1)\) et pour \((0,1,1,0)\). <i>(0,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice A4</summary>
+<div class="s4-ans">
+<p><b>1.</b> nMOS (PDN) : on part de \(\overline Y=AB+CD\) avec les entrées <i>non</i> complémentées : « \(\cdot\) » donne la série, « \(+\) » le parallèle. PDN \(=(A\text{ en série avec }B)\parallel(C\text{ en série avec }D)\). pMOS (PUN) : on exprime \(Y\) avec les entrées <i>complémentées</i> :</p>
+<div class="mq">\[Y=\overline{AB+CD}=\overline{AB}\cdot\overline{CD}=(\bar A+\bar B)(\bar C+\bar D)\]</div>
+<p>PUN \(=(A\parallel B)\) en série avec \((C\parallel D)\), tous en pMOS. Les deux réseaux sont duaux : série \(\leftrightarrow\) parallèle.</p>
+<p><b>2.</b> \(4\) nMOS + \(4\) pMOS \(=8\) transistors.</p>
+<p><b>3.</b> Pire chemin du PUN : \(2\) pMOS en série (\(A\) ou \(B\), puis \(C\) ou \(D\)), \(R_{P,eq}=2\times20=40\ \mathrm{k\Omega}\). Pire chemin du PDN : \(2\) nMOS en série, \(R_{N,eq}=2\times10=20\ \mathrm{k\Omega}\).</p>
+<div class="mq">\[\tau=\frac{(40+20)\cdot10^{3}\times2\cdot10^{-12}}{2}=60\ \mathrm{ns}\]</div>
+<p><b>4.</b> D'après le cours, une miniaturisation d'un facteur \(S\) à \(V_{DD}\) constant divise le délai par \(S^2\) : \(\tau'=\dfrac{60}{4}=15\) ns, et la fréquence maximale est multipliée par \(S^2=4\).</p>
+<p><b>5.</b> \((1,0,1,1)\) : \(AB=0\), \(CD=1\), \(Y=\overline{0+1}=0\). \((0,1,1,0)\) : \(AB=0\), \(CD=0\), \(Y=\overline{0}=1\).</p>
+</div>
+</details>
+
+<h3>Sujet B · réseaux et AOP, diode, BJT en dynamique, FET</h3>
+
+<h4>Exercice B1 · Réseau linéaire, AOP et filtre RC (5 pts)</h4>
+<p><b>Montage.</b> Une source \(E=10\) V alimente \(R_1=1\ \mathrm{k\Omega}\) en série avec \(R_2=4\ \mathrm{k\Omega}\) (\(R_2\) à la masse) ; on note M le point milieu.</p>
+<ol>
+<li>Donner le générateur de Thévenin vu depuis M. <i>(1)</i></li>
+<li>On branche sur M une charge \(R_L=1{,}2\ \mathrm{k\Omega}\) à la masse. Calculer \(V_L\). <i>(0,5)</i></li>
+<li>On intercale entre M et la charge un AOP idéal monté en suiveur. Que vaut \(V_L\) ? Pourquoi ? <i>(1)</i></li>
+<li>Un AOP idéal alimenté en \(\pm12\) V est monté en inverseur (résistance d'entrée \(R_a=2\ \mathrm{k\Omega}\), résistance de réaction \(R_f=10\ \mathrm{k\Omega}\)). Donner le gain, et la sortie pour \(v_e=0{,}5\) V. <i>(1)</i></li>
+<li>Même montage avec \(v_e=3\) V : que vaut la sortie ? <i>(0,5)</i></li>
+<li>On place un condensateur \(C=1\ \mu\)F entre M et la masse (sans charge). Donner la constante de temps et la fréquence de coupure du filtre obtenu. <i>(1)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice B1</summary>
+<div class="s4-ans">
+<p><b>1.</b> À vide : \(V_{Th}=E\dfrac{R_2}{R_1+R_2}=10\times\dfrac{4}{5}=8\) V. Source neutralisée (fil) : \(R_{Th}=R_1\parallel R_2=\dfrac{1\times4}{5}=800\ \Omega\).</p>
+<p><b>2.</b> Diviseur avec la charge : \(V_L=V_{Th}\dfrac{R_L}{R_{Th}+R_L}=8\times\dfrac{1{,}2}{0{,}8+1{,}2}=4{,}8\) V : la charge fait chuter la tension (on ne peut pas appliquer le diviseur à vide).</p>
+<p><b>3.</b> AOP en suiveur : \(V_+=V_M\) et, contre-réaction, \(V_-=V_+\), donc \(V_L=V_{out}=V_M=8\) V. Le courant d'entrée de l'AOP est nul (\(i_+=0\)) : le diviseur n'est pas chargé, et la sortie de l'AOP (impédance de sortie \(\approx0\)) alimente la charge. C'est l'adaptation d'impédance.</p>
+<p><b>4.</b> Inverseur : \(V_{out}=-\dfrac{R_f}{R_a}v_e\), gain \(-5\) ; pour \(v_e=0{,}5\) V : \(V_{out}=-2{,}5\) V.</p>
+<p><b>5.</b> Le calcul linéaire donne \(-15\) V, impossible avec une alimentation de \(\pm12\) V : l'AOP <b>sature</b>, \(V_{out}\approx-V_{sat}\approx-12\) V (et \(V_+\neq V_-\)).</p>
+<p><b>6.</b> Le condensateur voit \(R_{Th}\) : \(\tau=R_{Th}C=800\times10^{-6}=0{,}8\) ms ; \(f_c=\dfrac{1}{2\pi R_{Th}C}=199\) Hz (filtre passe-bas).</p>
+</div>
+</details>
+
+<h4>Exercice B2 · Écrêteur à diode (5 pts)</h4>
+<p><b>Montage.</b> Une source \(e(t)=10\sin(\omega t)\) V (\(f=50\) Hz) alimente une résistance \(R=1\ \mathrm{k\Omega}\), puis la sortie \(s\). Entre \(s\) et la masse : une diode (anode côté \(s\), \(V_S=0{,}7\) V) en série avec une pile \(E_0=3\) V dont le pôle \(+\) est du côté de la cathode.</p>
+<ol>
+<li>À quelle condition sur \(s\) la diode conduit-elle ? Quelle est alors la valeur de \(s\) (diode parfaite) ? <i>(1)</i></li>
+<li>Donner la caractéristique de transfert \(s=f(e)\) et l'allure de \(s(t)\). <i>(1)</i></li>
+<li>Pendant quelle durée de la période la diode conduit-elle ? <i>(1,5)</i></li>
+<li>Calculer le courant maximal dans la diode. <i>(1)</i></li>
+<li>La diode réelle a une résistance interne \(r=10\ \Omega\). Que devient le plafond de \(s\) ? <i>(0,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice B2</summary>
+<div class="s4-ans">
+<p><b>1.</b> La diode conduit si \(V_{anode}-V_{cathode}=s-E_0\ge V_S\), c'est-à-dire \(s\ge E_0+V_S=3{,}7\) V. Elle impose alors \(s=3{,}7\) V.</p>
+<p><b>2.</b> Diode bloquée (pas de courant, pas de chute dans \(R\)) : \(s=e\) pour \(e\le3{,}7\) V. Diode passante : \(s=3{,}7\) V pour \(e\ge3{,}7\) V. La caractéristique est une droite de pente \(1\) qui s'aplatit à \(3{,}7\) V. \(s(t)\) est une sinusoïde dont les crêtes positives sont rabotées à \(3{,}7\) V ; l'alternance négative est intacte (jusqu'à \(-10\) V).</p>
+<p><b>3.</b> Conduction quand \(10\sin\omega t\ge3{,}7\), soit \(\sin\omega t\ge0{,}37\) : \(\omega t\in[21{,}7^{\circ};158{,}3^{\circ}]\), une plage de \(136{,}6^{\circ}\) sur \(360^{\circ}\) : \(38\ \%\) de la période, soit \(0{,}38\times20\ \mathrm{ms}=7{,}6\) ms (de \(1{,}2\) ms à \(8{,}8\) ms).</p>
+<p><b>4.</b> Au maximum \(e=10\) V : \(I_{max}=\dfrac{10-3{,}7}{1\,000}=6{,}3\) mA.</p>
+<p><b>5.</b> Modèle réel : \(I=\dfrac{10-3{,}7}{1\,000+10}=6{,}24\) mA et \(s=3{,}7+r\,I=3{,}7+0{,}062=3{,}76\) V : le plafond monte très légèrement.</p>
+</div>
+</details>
+
+<h4>Exercice B3 · Amplificateur à émetteur commun (5 pts)</h4>
+<p><b>Montage.</b> \(V_{CC}=15\) V ; pont \(R_1=56\ \mathrm{k\Omega}\) (vers \(V_{CC}\)) et \(R_2=12\ \mathrm{k\Omega}\) (vers la masse) ; \(R_C=3{,}3\ \mathrm{k\Omega}\) ; \(R_E=1\ \mathrm{k\Omega}\) découplée par un grand condensateur \(C_3\). Un générateur \(v_g\) de résistance interne \(R_s=1\ \mathrm{k\Omega}\) attaque la base par \(C_1\) ; la sortie alimente \(R_L=10\ \mathrm{k\Omega}\) par \(C_2\). NPN : \(\beta=100\), \(V_{BE}=0{,}7\) V, \(r_e=26\ \mathrm{mV}/I_E\), \(r_o\) infinie.</p>
+<ol>
+<li>Calculer le point de repos \((I_B,I_C,I_E,V_{CE})\) et donner le mode. <i>(1,5)</i></li>
+<li>Calculer \(r_e\), \(Z_i\), \(Z_o\) et le gain à vide \(A_v\). <i>(1,5)</i></li>
+<li>Calculer le gain en tension chargé par \(R_L\) (en dB) puis le gain global \(v_{out}/v_g\) en tenant compte de \(R_s\). <i>(1)</i></li>
+<li>Calculer \(C_1\) pour une coupure basse à \(20\) Hz. <i>(0,5)</i></li>
+<li>Quel serait le gain chargé sans \(C_3\) ? <i>(0,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice B3</summary>
+<div class="s4-ans">
+<p><b>1.</b> \(E_{Th}=15\times\dfrac{12}{68}=2{,}65\) V ; \(R_{Th}=56\parallel12=9{,}88\ \mathrm{k\Omega}\).</p>
+<div class="mq">\[I_B=\frac{E_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}=\frac{1{,}95}{9\,880+101\,000}=17{,}6\ \mu\mathrm A\qquad I_C=\beta I_B=1{,}76\ \mathrm{mA}\qquad I_E=1{,}77\ \mathrm{mA}\]</div>
+<p>\(V_{CE}=15-3{,}3\ \mathrm k\times1{,}76\ \mathrm{mA}-1\ \mathrm k\times1{,}77\ \mathrm{mA}=7{,}4\) V \(>0{,}2\) V : <b>mode actif</b>.</p>
+<p><b>2.</b> \(r_e=\dfrac{26\ \mathrm{mV}}{1{,}77\ \mathrm{mA}}=14{,}7\ \Omega\). \((\beta+1)r_e=1{,}48\ \mathrm{k\Omega}\), donc \(Z_i=R_1\parallel R_2\parallel(\beta+1)r_e=9{,}88\ \mathrm k\parallel1{,}48\ \mathrm k=1{,}29\ \mathrm{k\Omega}\). \(Z_o=R_C=3{,}3\ \mathrm{k\Omega}\). \(A_v=-\dfrac{R_C}{r_e}=-\dfrac{3\,300}{14{,}7}=-225\) (\(R_E\) court-circuitée par \(C_3\)).</p>
+<p><b>3.</b> Avec la charge : \(A_{v,ch}=A_v\dfrac{R_L}{Z_o+R_L}=-225\times\dfrac{10}{13{,}3}=-169\), soit \(20\log169=44{,}6\) dB (même résultat par \(-\dfrac{R_C\parallel R_L}{r_e}=-\dfrac{2\,481}{14{,}7}\)). Pont d'entrée : \(\dfrac{v_b}{v_g}=\dfrac{Z_i}{Z_i+R_s}=\dfrac{1{,}29}{2{,}29}=0{,}56\), donc \(\dfrac{v_{out}}{v_g}=-169\times0{,}56=-95\).</p>
+<p><b>4.</b> \(C_1\) voit \(R_s+Z_i=2{,}29\ \mathrm{k\Omega}\) : \(C_1=\dfrac{1}{2\pi f_c(R_s+Z_i)}=\dfrac{1}{2\pi\times20\times2\,290}=3{,}5\ \mu\mathrm F\) (on prend \(4{,}7\ \mu\)F normalisé).</p>
+<p><b>5.</b> Sans \(C_3\) : \(A_{v,ch}\approx-\dfrac{R_C\parallel R_L}{R_E+r_e}=-\dfrac{2\,481}{1\,015}=-2{,}4\) : le découplage multiplie le gain par près de \(70\).</p>
+</div>
+</details>
+
+<h4>Exercice B4 · JFET autopolarisé et MOSFET (5 pts)</h4>
+<p><b>JFET.</b> Canal N, \(I_{DSS}=8\) mA, \(V_P=V_{GS,off}=-4\) V, \(I_D=I_{DSS}\left(1-\dfrac{V_{GS}}{V_P}\right)^2\). \(V_{DD}=20\) V, \(R_D=2{,}2\ \mathrm{k\Omega}\), \(R_S=500\ \Omega\) ; la grille est reliée à la masse par \(R_G=1\ \mathrm{M\Omega}\) (\(I_G=0\)).</p>
+<ol>
+<li>Écrire l'équation vérifiée par \(I_D\) (autopolarisation) et la résoudre. Justifier le choix de la racine. <i>(1,5)</i></li>
+<li>Calculer \(V_{DS}\) et vérifier que le JFET est en zone active. <i>(0,5)</i></li>
+<li>Calculer la transconductance \(g_m=\dfrac{2I_{DSS}}{|V_P|}\left(1-\dfrac{V_{GS}}{V_P}\right)\). <i>(0,5)</i></li>
+<li>Donner le gain en tension en source commune avec \(R_S\) découplée, puis sans découplage (\(A_v=-\dfrac{g_mR_D}{1+g_mR_S}\)), et l'impédance d'entrée. <i>(1)</i></li>
+</ol>
+<p><b>MOSFET.</b> Un nMOS vérifie \(I_D=\dfrac12K\,(V_{GS}-V_T)^2\) en zone active, avec \(V_T=1\) V. On mesure \(I_D=2\) mA pour \(V_{GS}=3\) V.</p>
+<ol start="5">
+<li>Calculer \(K\). Dans quelle région est le transistor pour \(V_{DS}=5\) V ? pour \(V_{DS}=1\) V ? Calculer \(g_m\). <i>(1,5)</i></li>
+</ol>
+<details>
+<summary>Correction de l'exercice B4</summary>
+<div class="s4-ans">
+<p><b>1.</b> Grille à la masse et \(I_G=0\) : \(V_G=0\) et \(V_S=R_SI_D\), donc \(V_{GS}=-R_SI_D\). Avec \(I_D\) en mA :</p>
+<div class="mq">\[I_D=8\left(1-\frac{-0{,}5\,I_D}{-4}\right)^2=8\,(1-0{,}125\,I_D)^2\]</div>
+<p>On pose \(t=0{,}125\,I_D\) (soit \(I_D=8t\)) : \(8t=8(1-t)^2\), d'où \(t^2-3t+1=0\) et \(t=\dfrac{3\pm\sqrt5}{2}\). Racine \(t=0{,}382\) : \(I_D=3{,}06\) mA et \(V_{GS}=-0{,}5\times3{,}06=-1{,}53\) V, comprise entre \(V_P=-4\) V et \(0\) : <b>valable</b>. Racine \(t=2{,}62\) : \(I_D=21\) mA, \(V_{GS}=-10{,}5\) V \(<V_P\) : le canal serait fermé, <b>rejetée</b>.</p>
+<p><b>2.</b> \(V_{DS}=V_{DD}-(R_D+R_S)I_D=20-2{,}7\ \mathrm k\times3{,}06\ \mathrm{mA}=11{,}7\) V. Zone active si \(V_{DS}>V_{GS}-V_P=-1{,}53+4=2{,}47\) V : \(11{,}7>2{,}47\), c'est le cas.</p>
+<p><b>3.</b> \(g_m=\dfrac{2\times8\ \mathrm{mA}}{4\ \mathrm V}\,(1-0{,}382)=4\ \mathrm{mS}\times0{,}618=2{,}47\ \mathrm{mS}\) (contrôle : \(\dfrac{2\sqrt{I_{DSS}I_D}}{|V_P|}=2{,}47\) mS).</p>
+<p><b>4.</b> \(R_S\) découplée : \(A_v=-g_mR_D=-2{,}47\ \mathrm{mS}\times2{,}2\ \mathrm{k\Omega}=-5{,}4\). Sans découplage : \(A_v=-\dfrac{5{,}4}{1+g_mR_S}=-\dfrac{5{,}4}{1+1{,}24}=-2{,}4\). Impédance d'entrée \(Z_i\approx R_G=1\ \mathrm{M\Omega}\) (grille isolée) : bien supérieure à celle d'un BJT, mais gain bien plus faible (\(-5\) contre \(-225\) pour le BJT de B3).</p>
+<p><b>5.</b> \(K=\dfrac{2I_D}{(V_{GS}-V_T)^2}=\dfrac{2\times2\ \mathrm{mA}}{(3-1)^2}=1\ \mathrm{mA/V^2}\) (ce \(K\) contient \(W/L\)). \(V_{GS}-V_T=2\) V : pour \(V_{DS}=5\) V \(>2\) V, canal pincé, <b>région active</b> ; pour \(V_{DS}=1\) V \(<2\) V, <b>région ohmique</b>. \(g_m=K(V_{GS}-V_T)=1\times2=2\) mS (contrôle : \(\dfrac{2I_D}{V_{GS}-V_T}=2\) mS).</p>
+</div>
+</details>
+<div class="s4-trap"><span class="s4-lbl">Piège du MOSFET</span>Selon les énoncés, la loi est \(I_D=K(V_{GS}-V_T)^2\) ou \(I_D=\tfrac12K(V_{GS}-V_T)^2\), et \(g_m\) change d'un facteur \(2\). Toujours recopier la loi de l'énoncé avant de dériver. Le cours donne \(I_D=\tfrac12K_n\tfrac WL(V_{GS}-V_T)^2\) et \(g_m=K_n\tfrac WL(V_{GS}-V_T)\).</div>
+<div class="s4-tip"><span class="s4-lbl">Pour aller plus loin</span>Autres exercices de ce type dans le poly corrigé : <a href="corriges.html#ex7-1">7.1</a> et <a href="corriges.html#ex7-5">7.5</a> (JFET autopolarisé), <a href="corriges.html#ex8-3">8.3</a> (ampli JFET), <a href="corriges.html#ex9-1">9.1</a> et <a href="corriges.html#ex9-6">9.6</a> (porte CMOS), <a href="corriges.html#ex10-1">10.1</a> et <a href="corriges.html#ex10-3">10.3</a> (délais), <a href="corriges.html#ex6-4">6.4</a> (émetteur commun), <a href="corriges.html#ex4-6">4.6</a> (régulation Zener).</div>
+</section>
+
+<!-- ================= BANQUE ================= -->
+<section id="banque">
+<h2>Questions des annales et épreuve blanche</h2>
+<p class="s4-sub">97 questions tirées des sept sujets, classées par thème. <b>Entraînement</b> : tu coches, tu vérifies, la correction explique. <b>Épreuve blanche</b> : un tirage au hasard, questions et réponses mélangées, chronomètre, correction à la fin. Les questions réussies sont mémorisées sur cet appareil.</p>
+<div id="bank"></div>
+</section>
+
+<!-- ================= PIÈGES ================= -->
+<section id="pieges">
+<h2>Erreurs et ambiguïtés des corrigés</h2>
+<p class="s4-sub">Les corrigés officiels (surlignés en couleur) contiennent des erreurs d'unité, de lettre ou de cohérence. Si tu retombes dessus au partiel, tu sauras pourquoi ça ne colle pas.</p>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Où</th><th>Ce que dit le corrigé</th><th>Ce qu'il faut retenir</th></tr>
+<tr><td data-l="Où">DS19 Q11-12</td><td data-l="Corrigé">\(\gamma=3{,}04\ \mu\mathrm{S/m}\), \(\rho=329\ \mathrm{k\Omega\cdot m}\)</td><td data-l="À retenir">Nombres justes, unités fausses : ce sont des S/cm et des \(\Omega\cdot\)cm. En m : \(3{,}04\cdot10^{-4}\) S/m et \(3{,}3\ \mathrm{k\Omega\cdot m}\).</td></tr>
+<tr><td data-l="Où">P24 Q1</td><td data-l="Corrigé">« \(4\cdot10^{-6}\) S/m »</td><td data-l="À retenir">\(4{,}2\cdot10^{-6}\) S/cm \(=4{,}2\cdot10^{-4}\) S/m. Comparer les ordres de grandeur plutôt que les unités de l'énoncé.</td></tr>
+<tr><td data-l="Où">DS19 Q29</td><td data-l="Corrigé">« \(R_L\) très grande devant \(R\) »</td><td data-l="À retenir">La condition rigoureuse est \(r_Z\left(\frac1R+\frac1{R_L}\right)\ll1\), donc \(R\) <i>et</i> \(R_L\) grands devant \(r_Z\).</td></tr>
+<tr><td data-l="Où">DS22 Q15c</td><td data-l="Corrigé">« à même tension, \(D_1\) dissipe plus que \(D_2\) » coché vrai</td><td data-l="À retenir">Incohérent avec la ligne précédente (\(R_{stat}(D_2)<R_{stat}(D_1)\)) : à même \(V\), \(P=VI\) est plus grande pour la diode qui laisse passer le plus de courant. Le DS24 Q17 classe cette idée fausse.</td></tr>
+<tr><td data-l="Où">DS22 Q25</td><td data-l="Corrigé">\(30\) mA</td><td data-l="À retenir">Avec \(E=10\) V, \(R_1=100\ \Omega\), \(R_2=40\ \Omega\) et une diode à \(0{,}7\) V, on trouve \(\frac{9{,}3}{100}-\frac{0{,}7}{40}\approx75\) mA, absent des propositions : question à ne pas retenir comme modèle.</td></tr>
+<tr><td data-l="Où">DS22 Q21-22</td><td data-l="Corrigé">\(i_c\approx100\ \mu\)A et \(V_{CE}\approx10\) V</td><td data-l="À retenir">Incompatibles : avec \(R_C=1\ \mathrm{k\Omega}\) sous \(20\) V, \(V_{CE}=10\) V impose \(i_c\approx10\) mA. Le \(100\ \mu\)A du corrigé est le courant de base (\(\frac{10-0{,}7}{100\ \mathrm k}\approx93\ \mu\)A).</td></tr>
+<tr><td data-l="Où">DS24 Q43-44</td><td data-l="Corrigé">« Q43-d » et « Q44-c »</td><td data-l="À retenir">Ses calculs donnent \(\beta=250\) (proposition c) et \(\alpha=0{,}996\) (proposition d) : les lettres sont inversées.</td></tr>
+<tr><td data-l="Où">P20 Q5</td><td data-l="Corrigé">\(A_i=100\)</td><td data-l="À retenir">C'est \(\beta=i_C/i_B\). Le courant réellement livré à \(R_L\) est environ moitié (diviseur de courant avec \(R_C\parallel r_o\)). Lire la définition dans l'énoncé.</td></tr>
+<tr><td data-l="Où">DS19 Q8 / DS22 Q11</td><td data-l="Corrigé">Même schéma, réponses opposées</td><td data-l="À retenir">Diode au <b>germanium</b> avec \(5\ \Omega\) (\(u_R>u_D\)) ou au <b>silicium</b> (\(u_R<u_D\)) : le matériau change tout.</td></tr>
+<tr><td data-l="Où">DS19 Q1b / DS20 Q1b</td><td data-l="Corrigé">« Laplace » faux, « Coulomb » vrai</td><td data-l="À retenir">Un seul mot change et la réponse s'inverse : relire chaque proposition.</td></tr>
+</table></div>
+<p class="s4-src">Sources : annales d'électronique ING2 ECE Paris (DS 2019-20, 2020-21, 2022-23, 2023-24 ; partiels 2020-21, 2022-23, 2023-24) et leurs corrigés ; exercice de commutation tiré du document de révision BJT. Les schémas ne sont pas reproduits : les circuits sont décrits en mots, les figures sont dans les PDF des annales. Les valeurs ont été recalculées. Pour le cours correspondant : <a href="index.html#ch1">Ch1</a>, <a href="index.html#ch2">Ch2</a>, <a href="index.html#ch3">Ch3</a>, <a href="index.html#ch4">Ch4</a>, <a href="index.html#ch5">Ch5</a>, <a href="index.html#ch7">Ch7</a> ; les TD en détail : <a href="corriges.html">Corrigés</a>.</p>
+</section>
+</div>
+</main>
+<div class="foot">
+<div class="wrap">
+<span>De l'Atome à la Puce · Partiel (annales) · 2026-2027</span>
+<span><a href="evaluations.html">Évaluations →</a> · <a href="index.html">← Retour au cours</a></span>
+</div>
+</div>
+<a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="js/maths.js"></script>
+<script src="js/data-annales.js"></script>
+<script src="js/revision.js"></script>
+<script>
+  RevisionBank.mount({
+    root: document.getElementById("bank"),
+    bank: window.ANNALES,
+    themes: window.ANNALES_THEMES,
+    storage: "annales",
+    examMinutes: 90,
+    examCount: 30,
+    examLabel: "Épreuve blanche"
+  });
+</script>
+</body>
+</html>

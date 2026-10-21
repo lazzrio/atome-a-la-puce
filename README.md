@@ -13,6 +13,8 @@ Statique, sans dépendance, hébergé tel quel sur GitHub Pages :
 |---|---|
 | 📚 **Cours complet** | Les 8 chapitres expliqués pas à pas, avec 119 schémas et, pour chaque chapitre, les compléments utiles aux TD |
 | ✅ **TD corrigés** (`corriges.html`) | Les 11 TD du livret d'exercices : 87 fiches (23 exercices de TD que le poly ne corrige pas, 31 applications directes dont le corrigé a été revu, 33 exercices supplémentaires). Pour chaque question, tout le raisonnement : données et inconnues, loi utilisée et pourquoi, formule encadrée avec ses symboles, calcul complet avec unités, vérification du résultat, pièges, **erreurs du poly signalées**. Formules écrites comme sur une copie (rendu KaTeX). Recherche, filtres par TD et par type, suivi « fait » |
+| 🗓️ **Évaluations** (`evaluations.html`) | DS de la semaine 45 (CM1 à CM3, TD1 à TD4, exercices rédigés) et interro de la semaine 46 (CM4, CM5, TD5, TD6, QCM mélangé) : programme exact, plan de révision, fiches, liste de contrôle, **sujet blanc du DS corrigé** (4 exercices, 20 points) et **simulateur d'interro** (53 QCM, questions et réponses mélangées, chrono d'une heure) |
+| 📝 **Partiel** (`partiel.html`) | Les 7 sujets d'annales (DS 2019-20, 2020-21, 2022-23, 2023-24 ; partiels 2020-21, 2022-23, 2023-24) : matrice des thèmes qui tombent, 12 réflexes, 12 exercices corrigés, **2 sujets blancs rédigés** (8 exercices de 5 points sur tout le semestre, corrigés), **97 questions** d'annales avec épreuve blanche chronométrée, et les erreurs des corrigés officiels signalées |
 | 🧭 **Déroulés** | Table de décision + 14 exercices types résolus pas à pas avec valeurs numériques |
 | 💡 **Notions clés** | Une fiche de synthèse par chapitre |
 | 📘 **Formules détaillées** / ⚡ **Express** | Toutes les formules avec variables, unités et conditions, et l'aide-mémoire brut |
@@ -36,6 +38,8 @@ progression (localStorage), utilisable hors ligne et installable sur téléphone
 atome-a-la-puce/
 ├── index.html            # page unique (vues : cours, déroulés, notions…)
 ├── corriges.html         # le poly de TD corrigé
+├── evaluations.html      # DS semaine 45 + interro semaine 46
+├── partiel.html          # annales (DS et partiels) corrigées
 ├── 404.html              # page d'erreur GitHub Pages
 ├── manifest.webmanifest  # installation sur téléphone
 ├── sw.js                 # hors ligne (réseau d'abord, cache ensuite)
@@ -45,6 +49,9 @@ atome-a-la-puce/
 │   ├── corriges.js       # recherche, filtres, suivi « fait » des corrigés
 │   ├── maths.js          # rendu des formules (KaTeX) et ajustement à la largeur de l'écran
 │   ├── quiz.js           # moteur de quiz + banque de questions
+│   ├── revision.js       # banque de QCM des pages Évaluations et Partiel (entraînement + épreuve blanche)
+│   ├── data-annales.js   # 97 questions tirées des annales
+│   ├── data-interro.js   # 53 questions pour l'interro de la semaine 46
 │   └── lightbox.js       # visionneuse plein écran
 ├── assets/
 │   ├── favicon.svg, icon-192.png, icon-512.png
