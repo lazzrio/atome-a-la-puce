@@ -1361,6 +1361,14 @@
 <div class="frow"><div class="fx">\(\displaystyle V_{A}=\left(\sum \,\frac{V_{k}}{R_{k}}+\sum \,i_{k}\right)\,/\,\left(\sum \,\frac{1}{R_{k}}\right)\)</div><div class="fd"><span class="nm">Théorème de Millman.</span> Potentiel en un nœud. <b>\(V_{k}\)</b>, <b>\(i_{k}\)</b> sources reliées au nœud.</div></div>
 <div class="frow"><div class="fx">\(\displaystyle R_{N}=R_{\mathrm{Th}};\,\allowbreak V_{\mathrm{Th}}=R_{N}\cdot i_{N}\)</div><div class="fd"><span class="nm">Équivalence Thévenin ↔ Norton.</span> <b>\(V_{\mathrm{Th}}\)</b> tension à vide, <b>\(i_{N}\)</b> courant de court-circuit.</div></div>
 <div class="frow"><div class="fx">\(\displaystyle V_{\mathrm{out}}=-\left(\frac{R_{f}}{R_{1}}\right)\cdot V_{\mathrm{in}}\)</div><div class="fd"><span class="nm">AOP inverseur.</span> Non-inverseur : \(V_{\mathrm{out}}=\left(1+\frac{R_{f}}{R_{1}}\right)V_{\mathrm{in}}\). <span class="cond">régime linéaire (contre-réaction sur −)</span></div></div>
+<div class="frow"><div class="fx">\(\displaystyle \sum i_{\text{entrants}}=\sum i_{\text{sortants}}\)</div><div class="fd"><span class="nm">Loi des nœuds.</span> Conservation du courant en un nœud. Loi des mailles : \(\sum u=0\) le long d'une maille (flèches dans le sens du parcours : \(+\), sinon \(-\)).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R_{eq}=R_1+R_2\)</div><div class="fd"><span class="nm">Résistances en série.</span> Même courant. Parallèle : \(\frac{1}{R_{eq}}=\sum\frac{1}{R_k}\), soit \(R_1\parallel R_2=\frac{R_1R_2}{R_1+R_2}\) (toujours plus petite que la plus petite).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R_1\parallel R_2=\frac{R_1R_2}{R_1+R_2}\)</div><div class="fd"><span class="nm">Résistances en parallèle.</span> Même tension. \(n\) résistances identiques : \(\frac{R}{n}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle P=u\,i=R\,i^2=\frac{u^2}{R}\)</div><div class="fd"><span class="nm">Puissance dissipée (effet Joule).</span> \(P\) en \(\mathrm{W}\). Énergie \(W=P\cdot t\) en \(\mathrm{J}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle i_N=\frac{V_{Th}}{R_{Th}}\)</div><div class="fd"><span class="nm">Courant de Norton.</span> Courant de court-circuit. \(R_{Th}\) : résistance vue sources neutralisées (source de tension \(\to\) fil, source de courant \(\to\) trou).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_+=V_-\ ;\ i_+=i_-=0\)</div><div class="fd"><span class="nm">AOP idéal en régime linéaire.</span> Contre-réaction sur l'entrée \(-\). Sinon (comparateur) : \(V_{out}=\pm V_{sat}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{out}=V_{in}\)</div><div class="fd"><span class="nm">AOP suiveur.</span> Adaptation d'impédance : \(Z_{in}\to\infty\), \(Z_{out}\approx0\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{out}=-R_f\left(\frac{V_1}{R_1}+\frac{V_2}{R_2}\right)\)</div><div class="fd"><span class="nm">AOP sommateur inverseur.</span> Soustracteur (\(R_1=R_2\), \(R_f=R_3\)) : \(V_{out}=\frac{R_2}{R_1}(V_2-V_1)\).</div></div>
 </div>
 <div class="fgroup" data-fg="g1"><h3>Chapitre 1 — Conduction &amp; passifs <span>Conducteurs</span></h3>
 <div class="frow"><div class="fx">\(\displaystyle v=-\mu \cdot E;\,\allowbreak \mu =\frac{e\tau }{m}\)</div><div class="fd"><span class="nm">Vitesse de dérive &amp; mobilité.</span> \(\mathbf{\mu }\) <span class="unit">\(\mathrm{m}^{2}\cdot \,\mathrm{V}^{-1}\cdot \,\mathrm{s}^{-1}\)</span>, \(\mathbf{\tau }\) temps entre collisions \(\approx 3\cdot 10^{-14}\,\mathrm{s},\,\allowbreak \mathbf{E}\) champ <span class="unit">\(\mathrm{V}/\,\mathrm{m}\)</span>.</div></div>
@@ -1369,6 +1377,20 @@
 <div class="frow"><div class="fx">\(\displaystyle \rho _{T}=\rho _{0}(1+\alpha (T-T_{0}))\)</div><div class="fd"><span class="nm">Loi de Matthiessen.</span> \(\mathbf{\alpha }\) coefficient thermique. <span class="cond">conducteur : \(R\nearrow\) avec \(T\)</span></div></div>
 <div class="frow"><div class="fx">\(\displaystyle C=\varepsilon \cdot \frac{S}{d}=\frac{q}{u};\,\allowbreak i=C\cdot \frac{\mathrm{d}u}{\mathrm{d}t}\)</div><div class="fd"><span class="nm">Condensateur.</span> \(\mathbf{C}\) <span class="unit">\(\mathrm{F}\)</span>, \(\mathbf{\varepsilon }=\varepsilon _{0}\varepsilon _{r},\,\allowbreak \varepsilon _{0}=8{,}85\cdot 10^{-12}\,\mathrm{F}/\,\mathrm{m},\,\allowbreak \mathbf{d}\) distance armatures.</div></div>
 <div class="frow"><div class="fx">\(\displaystyle f_{c}=1\,/\,(2\pi RC)\)</div><div class="fd"><span class="nm">Fréquence de coupure</span> (découplage, filtre RC). <span class="unit">\(\mathrm{Hz}\)</span></div></div>
+<div class="frow"><div class="fx">\(\displaystyle j=\frac{i}{S}\quad\Longleftrightarrow\quad i=j\,S\)</div><div class="fd"><span class="nm">Densité de courant et courant.</span> \(j\) en \(\mathrm{A/m^2}\), \(S\) section en \(\mathrm{m}^2\) (\(1\ \mathrm{mm^2}=10^{-6}\ \mathrm{m^2}\)). Plus généralement \(i=\iint j\,\mathrm dS\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle E=\frac{u}{\ell}\)</div><div class="fd"><span class="nm">Champ électrique dans un conducteur homogène.</span> \(u\) tension entre les extrémités \(\mathrm{V}\), \(\ell\) longueur \(\mathrm{m}\). Le champ va du potentiel haut au potentiel bas.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle j=-n\,e\,v=\rho_m\,v\ ;\ v=\frac{j}{n\,e}\)</div><div class="fd"><span class="nm">Densité de courant et vitesse de dérive.</span> \(\rho_m=-ne\) densité volumique de charge \(\mathrm{C/m^3}\). Les électrons (\(q=-e\)) vont en sens inverse de \(\vec j\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle i=n\,e\,v\,S\)</div><div class="fd"><span class="nm">Courant et porteurs.</span> Nombre d'électrons qui traversent la section par seconde : \(\frac{i}{e}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \mu=\frac{\gamma}{n\,e}=\frac{v}{E}\)</div><div class="fd"><span class="nm">Mobilité à partir de la conductivité.</span> \(\mu\) en \(\mathrm{m^2\,V^{-1}\,s^{-1}}\) (\(1\ \mathrm{m^2/Vs}=10^{4}\ \mathrm{cm^2/Vs}\)).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle u=R\,i\ ;\ R=\frac{\ell}{\gamma\,S}\)</div><div class="fd"><span class="nm">Loi d'Ohm macroscopique et conductivité.</span> \(\gamma=\frac{\ell}{R\,S}\). Conductance \(G=\frac1R\) en \(\mathrm{S}\). Section d'un fil : \(S=\pi r^2=\frac{\pi d^2}{4}\) (attention rayon ou diamètre).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle 1\ \mu\Omega\cdot\mathrm{cm}=10^{-8}\ \Omega\cdot\mathrm{m}\)</div><div class="fd"><span class="nm">Conversion de résistivité.</span> Cuivre \(\rho\approx1{,}7\cdot10^{-8}\ \Omega\cdot\mathrm m\) ; \(1\ \Omega\cdot\mathrm{cm}=10^{-2}\ \Omega\cdot\mathrm m\) ; \(1\ \mathrm{S/cm}=100\ \mathrm{S/m}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R(T)=R_0\,[1+\alpha\,(T-T_0)]\)</div><div class="fd"><span class="nm">Résistance en fonction de la température.</span> Même loi que \(\rho\), car la géométrie ne change pas. \(\Delta T\) en kelvin ou en °C (même écart). Impuretés : \(\rho=\rho_{pur}+\sum\Delta\rho\) (Matthiessen).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R=\rho\,\rho_{v}\,\frac{\ell^{2}}{m}\)</div><div class="fd"><span class="nm">Fil de masse \(m\) imposée.</span> \(\rho_v\) masse volumique. À masse et longueur fixées, on minimise \(\rho\cdot\rho_v\) (d'où l'aluminium des lignes haute tension).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle C=\frac{\varepsilon_0\varepsilon_r\,S}{d}\)</div><div class="fd"><span class="nm">Capacité d'un condensateur plan.</span> \(S\) surface des armatures \(\mathrm{m^2}\) (\(1\ \mathrm{cm^2}=10^{-4}\ \mathrm{m^2}\)), \(d\) écart \(\mathrm m\). Un diélectrique multiplie \(C\) par \(\varepsilon_r\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle C_{//}=C_1+C_2\ ;\ \frac{1}{C_s}=\frac{1}{C_1}+\frac{1}{C_2}\)</div><div class="fd"><span class="nm">Association de condensateurs.</span> À l'inverse des résistances : les capacités s'additionnent en parallèle.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle W=\tfrac12\,C\,u^2\)</div><div class="fd"><span class="nm">Énergie stockée.</span> \(W\) en \(\mathrm J\) ; \(q=C\,u\) charge en \(\mathrm C\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle Z_C=\frac{1}{jC\omega}\ ;\ |Z_C|=\frac{1}{2\pi f\,C}\)</div><div class="fd"><span class="nm">Impédance d'un condensateur.</span> Fil aux hautes fréquences, circuit ouvert en continu.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \tau=RC\ ;\ u(t)=E\left(1-e^{-t/\tau}\right)\)</div><div class="fd"><span class="nm">Charge d'un condensateur par \(R\).</span> Décharge : \(u(t)=u_0\,e^{-t/\tau}\). Après \(5\tau\) : \(99\ \%\) de la charge.</div></div>
 </div>
 <div class="fgroup" data-fg="g2"><h3>Chapitre 2 — Semi-conducteurs <span>Jonction PN</span></h3>
 <div class="frow"><div class="fx">\(\displaystyle E_{\mathrm{th}}=\left(\frac{3}{2}\right)\cdot k_{B}\cdot T\)</div><div class="fd"><span class="nm">Équipartition (3 ddl translation).</span> <b>\(k_{B}\)</b>\(=1{,}38\cdot 10^{-23}\,\mathrm{J}/\,\mathrm{K},\,\allowbreak \mathbf{T}\) en \(K\).</div></div>
@@ -1379,6 +1401,17 @@
 <div class="frow"><div class="fx">\(\displaystyle \frac{D}{\mu }=\frac{k_{B}T}{q}\approx 25\,\mathrm{mV}\)</div><div class="fd"><span class="nm">Relation d'Einstein.</span> \(\mathbf{D}\) coef. de diffusion <span class="unit">\(c\,\mathrm{m}^{2}/\,\mathrm{s}\)</span>. <span class="cond">petits champs, à \(20^{\circ}\mathrm{C}\)</span></div></div>
 <div class="frow"><div class="fx">\(\displaystyle V_{0}=\left(\frac{k_{B}T}{e}\right)\cdot \ln \left(\frac{N_{A}N_{D}}{n_{i}^{2}}\right)\)</div><div class="fd"><span class="nm">Barrière de potentiel.</span> \(\approx 0{,}76\,\mathrm{V}\) typique. \(N_{A}N_{D}\nearrow \Longrightarrow V_{0}\nearrow ;\,\allowbreak T\nearrow \Longrightarrow V_{0}\searrow\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle I_{D}=I_{S}\left(e^{\frac{eU_{D}}{\eta }\cdot k_{B}\cdot T}-1\right)\)</div><div class="fd"><span class="nm">Relation de Shockley.</span> <b>\(I_{S}\)</b> courant inverse de saturation, \(\mathbf{\eta }\,\in [1{,}2]\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \mathcal N_{at}=\frac{\rho_v\,\mathcal N_A}{M}\)</div><div class="fd"><span class="nm">Nombre d'atomes par unité de volume.</span> \(\rho_v\) masse volumique \(\mathrm{g/cm^3}\), \(M\) masse molaire \(\mathrm{g/mol}\), \(\mathcal N_A=6{,}02\cdot10^{23}\ \mathrm{mol^{-1}}\). Si : \(\approx5\cdot10^{22}\ \mathrm{cm^{-3}}\) ; Ge : \(4{,}4\cdot10^{22}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle N_{dop}=\frac{\mathcal N_{at}}{10^{k}}\)</div><div class="fd"><span class="nm">Dopage « 1 atome d'impureté pour \(10^k\) atomes ».</span> Donne \(N_D\) ou \(N_A\) en \(\mathrm{cm^{-3}}\). Dopages successifs : dopage net \(=N_D-N_A\) (le plus fort l'emporte s'il domine d'un facteur \(\ge10\)).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \gamma_i=e\,n_i\,(\mu_n+\mu_p)\ ;\ \rho_i=\frac{1}{\gamma_i}\)</div><div class="fd"><span class="nm">Conductivité intrinsèque.</span> Silicium pur : \(n=p=n_i\). Dopé : on garde le terme des majoritaires seul.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \gamma\approx e\,n\,\mu_n\ (N)\ ;\ \gamma\approx e\,p\,\mu_p\ (P)\)</div><div class="fd"><span class="nm">Conductivité d'un semi-conducteur dopé.</span> Unités : \(n\) en \(\mathrm{cm^{-3}}\) et \(\mu\) en \(\mathrm{cm^2/Vs}\) donne \(\gamma\) en \(\mathrm{S/cm}\) ; en SI, \(\mathrm{m^{-3}}\) et \(\mathrm{m^2/Vs}\) donnent \(\mathrm{S/m}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle j_{cond}=e\,(n\mu_n+p\mu_p)\,E\)</div><div class="fd"><span class="nm">Courant de conduction (dérive).</span> Chaque porteur dérive : \(v_n=-\mu_nE\), \(v_p=+\mu_pE\). Total \(j=j_{cond}+j_{diff}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle j_{diff}=e\,D_n\,\nabla n-e\,D_p\,\nabla p\)</div><div class="fd"><span class="nm">Courant de diffusion (loi de Fick).</span> Des zones concentrées vers les zones diluées. \(D=\mu\,\frac{k_BT}{e}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_T=\frac{k_BT}{e}=25{,}9\ \mathrm{mV}\ (300\ \mathrm K)\)</div><div class="fd"><span class="nm">Tension thermique.</span> \(T\) en kelvin : \(T=\theta(^{\circ}\mathrm C)+273{,}15\). \(1\ \mathrm{eV}=1{,}6\cdot10^{-19}\ \mathrm J\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \frac{n_i(T_2)}{n_i(T_1)}=\left(\frac{T_2}{T_1}\right)^{3/2}\exp\left[-\frac{E_g}{2k_B}\left(\frac{1}{T_2}-\frac{1}{T_1}\right)\right]\)</div><div class="fd"><span class="nm">Évolution de \(n_i\) avec la température.</span> \(E_g\) en joules (ou \(k_B=8{,}62\cdot10^{-5}\ \mathrm{eV/K}\) avec \(E_g\) en eV). \(n_i\) double environ tous les 8 à \(10^{\circ}\mathrm C\) pour le silicium.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \Delta n=\Delta p=G\,\tau_v\ ;\ \gamma=e\,[(n+\Delta n)\mu_n+(p+\Delta p)\mu_p]\)</div><div class="fd"><span class="nm">Photoconduction (éclairement stationnaire).</span> \(G\) taux de génération \(\mathrm{cm^{-3}s^{-1}}\), \(\tau_v\) durée de vie des porteurs \(\mathrm s\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle I_S(T+11^{\circ}\mathrm C)\approx2\,I_S(T)\ \ (\mathrm{Si})\)</div><div class="fd"><span class="nm">Courant inverse et température.</span> À courant direct constant, \(U_D\) baisse d'environ \(2\ \mathrm{mV/^{\circ}C}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle U_D=\eta\,V_T\,\ln\left(\frac{I_D}{I_S}+1\right)\)</div><div class="fd"><span class="nm">Tension d'une diode pour un courant donné.</span> Inversion de la loi de Shockley. \(I_D\times10\Rightarrow U_D+\eta V_T\ln10\approx+60\ \mathrm{mV}\) : d'où la « tension de seuil ».</div></div>
 </div>
 <div class="fgroup" data-fg="g3"><h3>Chapitre 3 — La diode <span>Modèles &amp; applications</span></h3>
 <div class="frow"><div class="fx">\(\displaystyle V_{S}=0{,}7\,\mathrm{V}\,(\text{Si})\,/\,0{,}3\,\mathrm{V}\,(\text{Ge})\)</div><div class="fd"><span class="nm">Tension de seuil.</span> selon le matériau.</div></div>
@@ -1387,6 +1420,23 @@
 <div class="frow"><div class="fx">\(\displaystyle V_{\mathrm{out}}=V_{\mathrm{in}}-V_{S}\)</div><div class="fd"><span class="nm">Redressement simple alternance.</span> Graëtz (double) : chute de \(2\cdot V_{S}\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle R_{L,\,\mathrm{min}}=V_{Z}\cdot R\,/\,(V_{i}-V_{Z})\)</div><div class="fd"><span class="nm">Régulateur Zener, charge variable.</span> \(V_{D}=-V_{Z}\) en inverse. <span class="cond">\(I_{Z}\le I_{Z,\,\mathrm{max}}\)</span></div></div>
 <div class="frow"><div class="fx">\(\displaystyle \frac{N_{1}}{N_{2}}=\frac{V_{\mathrm{in}}}{V_{2}}=\frac{i_{2}}{i_{1}}\)</div><div class="fd"><span class="nm">Transformateur.</span> \(\mathbf{N}\) nombre de spires (primaire/secondaire).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle I_D=\frac{E_{Th}-V_D}{R_{Th}}\)</div><div class="fd"><span class="nm">Droite de charge.</span> \(E_{Th},R_{Th}\) : Thévenin vu depuis les bornes de la diode (diode retirée). Points : \(I_D=\frac{E_{Th}}{R_{Th}}\) (\(V_D=0\)) et \(V_D=E_{Th}\) (\(I_D=0\)). Point de fonctionnement = intersection avec la caractéristique.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle E_{Th}\gt V_S\ \Rightarrow\ \text{passante}\)</div><div class="fd"><span class="nm">Test d'état d'une diode.</span> Tension à vide \(\gt V_S\) : passante, et on vérifie \(I_D\gt 0\). Plusieurs diodes : tester une combinaison d'états, vérifier courants \(\gt 0\) (passantes) et tensions \(\lt V_S\) (bloquées).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R_{stat}=\frac{V_D}{I_D}\ ;\ r_d=\frac{\mathrm dV_D}{\mathrm dI_D}=\frac{\eta V_T}{I_D}\)</div><div class="fd"><span class="nm">Résistances statique et dynamique.</span> Statique : au point \(Q\). Dynamique : pente inverse de la caractéristique (\(\frac1r\)). Courbe plus raide \(\Rightarrow\) résistances plus faibles.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle P_D=V_D\,I_D=V_S\,I_D+r\,I_D^2\)</div><div class="fd"><span class="nm">Puissance dissipée dans la diode.</span> À comparer à \(P_{max}\) du boîtier.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle I_{tot}=\sum I_k\ ;\ I_k=\frac{I_{tot}}{n}\)</div><div class="fd"><span class="nm">Diodes identiques en parallèle.</span> Même tension \(V_S\) ; le courant total \(\frac{E-V_S}{R}\) se partage.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle s_{max}=E_0+V_S\)</div><div class="fd"><span class="nm">Écrêteur à diode et pile.</span> Diode (anode vers la sortie) en série avec une pile \(E_0\) : elle conduit dès que \(s\ge E_0+V_S\). Écrêtage négatif : \(s_{min}=-(E_0+V_S)\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{max}=V_{crête}-V_S\ \text{ (1 alt.)}\ ;\ V_{crête}-2V_S\ \text{ (pont)}\)</div><div class="fd"><span class="nm">Amplitude après redressement.</span> Fréquence en sortie : \(f\) (simple alternance), \(2f\) (double alternance).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \langle V\rangle=\frac{V_m}{\pi}\ \text{(1 alt.)}\ ;\ \frac{2V_m}{\pi}\ \text{(2 alt.)}\)</div><div class="fd"><span class="nm">Valeur moyenne d'un signal redressé (diode idéale).</span> \(V_m\) amplitude de crête. Valeur efficace d'une sinusoïde : \(\frac{V_m}{\sqrt2}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \Delta V\approx\frac{I}{f\,C}\ \text{(1 alt.)}\ ;\ \frac{I}{2f\,C}\ \text{(2 alt.)}\)</div><div class="fd"><span class="nm">Ondulation après condensateur de lissage.</span> \(I\) courant de charge ; décharge lente \(\tau=R_LC\). Gros \(C\) \(\Rightarrow\) faible ondulation.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R=\frac{V_{alim}-V_{LED}}{I_{LED}}\)</div><div class="fd"><span class="nm">Résistance de limitation d'une LED.</span> \(V_{LED}\approx1{,}8\) à \(3\ \mathrm V\) selon la couleur ; \(I_{LED}\approx10\) à \(20\ \mathrm{mA}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_D=-(V_Z+r_Z\,I_Z)\)</div><div class="fd"><span class="nm">Modèle réel de la Zener (en inverse).</span> \(r_Z\) faible. Zener en direct : seuil \(V_S\) comme une diode. Dissipation : \(P_Z=V_Z\,I_Z\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle I_Z=I_R-I_L=\frac{V_i-V_Z}{R}-\frac{V_Z}{R_L}\)</div><div class="fd"><span class="nm">Courant dans la Zener (régulateur).</span> Il faut \(0\lt I_Z\le I_{Z,max}\) (\(I_{Z,max}=\frac{P_{max}}{V_Z}\)). Mini : \(V_i\) minimal et \(R_L\) minimale ; maxi : \(V_i\) maximale et charge ouverte.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle E_{min}=V_Z\,\frac{R+R_L}{R_L}\)</div><div class="fd"><span class="nm">Tension d'entrée minimale pour réguler.</span> Tension à vide \(E\frac{R_L}{R+R_L}\ge V_Z\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R\ge\frac{V_{i,max}-V_Z}{I_{Z,max}+I_{L,min}}\)</div><div class="fd"><span class="nm">Choix de \(R\) (protection de la Zener).</span> Et \(R\le\frac{V_{i,min}-V_Z}{I_{Z,min}+I_{L,max}}\) pour que la régulation tienne : on prend \(R\) entre les deux.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle u=\frac{\frac{r_Z}{R}E+V_Z}{1+r_Z\frac{R+R_L}{R\,R_L}}\)</div><div class="fd"><span class="nm">Tension de sortie avec \(r_Z\).</span> Régulation : \(R\gg r_Z\) et \(R_L\gg r_Z\). Variation : \(\Delta u\approx\frac{r_Z\parallel R_L}{R+r_Z\parallel R_L}\,\Delta E\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_2=\frac{N_2}{N_1}\,V_1\)</div><div class="fd"><span class="nm">Tension au secondaire.</span> Valeur efficace ou crête selon l'énoncé ; \(i_2=\frac{N_1}{N_2}\,i_1\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle u_L=L\,\frac{\mathrm di}{\mathrm dt}\)</div><div class="fd"><span class="nm">Bobine : surtension à la coupure.</span> La diode de roue libre (en inverse sur la bobine) évacue le courant et limite la surtension.</div></div>
 </div>
 <div class="fgroup" data-fg="g4"><h3>Chapitre 4 — BJT statique <span>Polarisation</span></h3>
 <div class="frow"><div class="fx">\(\displaystyle i_{C}=\beta \cdot i_{B};\,\allowbreak i_{E}=i_{B}+i_{C}\)</div><div class="fd"><span class="nm">Effet transistor.</span> \(\mathbf{\beta }=h_{\mathrm{FE}}\approx 100-200,\,\allowbreak \alpha =\frac{I_{C}}{I_{E}}\approx 1,\,\allowbreak \gamma =\beta +1\).</div></div>
@@ -1395,6 +1445,19 @@
 <div class="frow"><div class="fx">\(\displaystyle V_{\mathrm{Th}}=V_{\mathrm{CC}}\cdot \frac{R_{2}}{R_{1}+R_{2}}\)</div><div class="fd"><span class="nm">Pont diviseur.</span> \(R_{\mathrm{Th}}=R_{1}//R_{2}\). <span class="cond">\(R_{1}//R_{2}\lt 0{,}01(\beta +1)R_{E}\)</span></div></div>
 <div class="frow"><div class="fx">\(\displaystyle i_{E}=\frac{V_{E}}{R_{E}};\,\allowbreak V_{E}=V_{\mathrm{BB}}-V_{\mathrm{BE}}\)</div><div class="fd"><span class="nm">Polarisation par l'émetteur.</span> \(\beta\)-indépendant, \(i_{C}\approx i_{E}\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle R_{B}=(V-V_{\mathrm{BE},\,\mathrm{sat}})\,/\,i_{B,\,\mathrm{sat}}\)</div><div class="fd"><span class="nm">Commutation (saturation).</span> \(R_{C}=\frac{V_{\mathrm{CC}}-V_{\mathrm{CE},\,\mathrm{sat}}}{i_{C,\,\mathrm{sat}}}\). <span class="cond">\(\beta \cdot i_{B}\gt i_{C,\,\mathrm{sat}}\)</span></div></div>
+<div class="frow"><div class="fx">\(\displaystyle \alpha=\frac{\beta}{\beta+1}\ ;\ \beta=\frac{\alpha}{1-\alpha}\ ;\ i_E=(\beta+1)\,i_B\)</div><div class="fd"><span class="nm">Relations entre gains en courant.</span> \(\alpha=\frac{i_C}{i_E}\) (\(0{,}9\) à \(1\)), \(\beta=\frac{i_C}{i_B}\) (\(\approx100\)). Avec \(\beta=250\) : \(\alpha=0{,}996\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{CB}=V_{CE}-V_{BE}\)</div><div class="fd"><span class="nm">Tension base-collecteur.</span> Actif : \(V_{BE}=0{,}7\) et \(V_{CB}\gt 0\) (BC inverse). Saturé : \(V_{CE}\le0{,}2\ \mathrm V\) (les deux jonctions passantes). Bloqué : \(V_{BE}\lt 0{,}7\ \mathrm V\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{BB}=R_B\,i_B+V_{BE}+R_E\,i_E\)</div><div class="fd"><span class="nm">Maille d'entrée (avec \(R_E\)).</span> Avec \(i_E=(\beta+1)i_B\) : \(i_B=\frac{V_{BB}-V_{BE}}{R_B+(\beta+1)R_E}\). Sans \(R_E\) : \(i_B=\frac{V_{BB}-V_{BE}}{R_B}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{CC}=R_C\,i_C+V_{CE}+R_E\,i_E\)</div><div class="fd"><span class="nm">Maille de sortie.</span> Droite de charge avec \(R_E\) : \(V_{CE}=V_{CC}-(R_C+R_E)\,i_C\) (\(i_E\approx i_C\)). \(i_{C,sat}=\frac{V_{CC}}{R_C+R_E}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle i_B=\frac{V_{CC}-V_{BE}}{R_B}\ ;\ V_{CE}=V_{CC}-R_C\,\beta\,i_B\)</div><div class="fd"><span class="nm">Polarisation par la base.</span> Dépend de \(\beta\) : \(\beta\) doublé \(\Rightarrow\) \(i_C\) doublé. Si \(\beta i_B\gt i_{C,sat}\) : saturé, \(V_{CE}=V_{CE,sat}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle i_B=\frac{V_{CC}-V_{BE}}{R_B+(\beta+1)R_C}\)</div><div class="fd"><span class="nm">\(R_B\) reliée au collecteur (contre-réaction).</span> Maille \(V_{CC}=R_C(i_C+i_B)+R_Bi_B+V_{BE}\). Stabilise un peu \(Q\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R_{Th}=\frac{R_1R_2}{R_1+R_2}\ ;\ i_B=\frac{V_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\)</div><div class="fd"><span class="nm">Pont diviseur : courant de base exact.</span> Si \((\beta+1)R_E\ge10\,R_{Th}\) : \(V_E\approx V_{Th}-V_{BE}\), \(i_E\approx\frac{V_E}{R_E}\), \(Q\) indépendant de \(\beta\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R_C=\frac{V_{CC}-V_{CE}-V_E}{I_C}\ ;\ R_E=\frac{V_E}{I_E}\)</div><div class="fd"><span class="nm">Dimensionner un point \(Q\) voulu.</span> Puis \(V_B=V_E+V_{BE}\), \(R_2=\frac{V_B}{I_p}\), \(R_1=\frac{V_{CC}-V_B}{I_p+I_B}\) avec \(I_p\approx10\,I_B\) (courant du pont).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle P_{T}\approx V_{CE}\,i_C\)</div><div class="fd"><span class="nm">Puissance dissipée dans le transistor.</span> Puissance fournie par l'alimentation : \(V_{CC}\,i_C\) (+ pont). À comparer à \(P_{max}\) du boîtier.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle i_B=k\,\frac{i_{C,sat}}{\beta}\ ;\ R_B=\frac{V_{in}-V_{BE}}{i_B}\)</div><div class="fd"><span class="nm">Saturer sûrement (coefficient \(k=2\) à \(5\)).</span> \(i_{C,sat}=\frac{V_{CC}-V_{CE,sat}}{R_C}\). Sorties : bloqué \(V_{out}=V_{CC}\), saturé \(V_{out}=V_{CE,sat}\) (porte NON). Charge LED : \(R_C=\frac{V_{CC}-V_{LED}-V_{CE,sat}}{I_{LED}}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{sortie}=V_Z-V_{BE}\ ;\ i_L\approx\frac{V_Z-V_{BE}}{R_E}\)</div><div class="fd"><span class="nm">Régulateur à transistor et générateur de courant.</span> Le transistor fournit \(\beta+1\) fois le courant de la Zener. Le courant de charge ne dépend pas de la charge tant que le transistor est actif.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle i_C=i_{C0}\left(1+\frac{V_{CE}}{V_A}\right)\ ;\ r_o=\frac{V_A}{I_C}\)</div><div class="fd"><span class="nm">Effet Early.</span> Légère pente de \(i_C(V_{CE})\) en zone active, due à la modulation de la largeur de base.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle I_C=\frac{V_{CC}-V_C}{R_C}\ ;\ I_E=\frac{V_E}{R_E}\)</div><div class="fd"><span class="nm">Déduire les courants de potentiels mesurés.</span> Loi d'Ohm en potentiels. \(V_{BE}=V_B-V_E\), \(V_{CE}=V_C-V_E\). \(V_{BE}\) baisse d'environ \(2\ \mathrm{mV/^{\circ}C}\).</div></div>
 </div>
 <div class="fgroup" data-fg="g5"><h3>Chapitre 5 — BJT dynamique <span>Amplification</span></h3>
 <div class="frow"><div class="fx">\(\displaystyle r_{E}=26\,\mathrm{mV}\,/\,I_{E}\)</div><div class="fd"><span class="nm">Résistance dynamique d'émetteur.</span> <b>\(I_{E}\)</b> courant DC. <span class="cond">à \(T=300\,\mathrm{K}\)</span></div></div>
@@ -1403,6 +1466,18 @@
 <div class="frow"><div class="fx">\(\displaystyle A_{P}=A_{V}\cdot A_{i}\)</div><div class="fd"><span class="nm">Gain en puissance.</span> \(\mathrm{d}B\colon A_{V,\,dB}=20\cdot \log (A_{V}),\,\allowbreak A_{P,\,dB}=10\cdot \log (A_{P})\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle v_{\mathrm{out}}=A_{V}\cdot v_{\mathrm{in}}\cdot \frac{R_{L}}{Z_{\mathrm{out}}+R_{L}}\)</div><div class="fd"><span class="nm">Sortie chargée</span> (diviseur). Adaptation : \(Z_{o,\,1}=Z_{i,\,2}\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle \beta _{D}\approx \beta _{1}\cdot \beta _{2}\)</div><div class="fd"><span class="nm">Paire Darlington.</span> \(g_{m}=\frac{I_{C}}{V_{T}},\,\allowbreak r_{\pi }=\frac{\beta }{g_{m}}\) (Giacoletto).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle A_i=\frac{i_{out}}{i_{in}}\)</div><div class="fd"><span class="nm">Gain en courant.</span> Certains corrigés retiennent \(A_i=\frac{i_C}{i_B}=\beta\) ; le courant réellement livré à \(R_L\) est plus faible (diviseur de courant avec \(R_C\parallel r_o\)). Lire la définition de l'énoncé.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle A_{dB}=20\log|A|\ ;\ A=10^{A_{dB}/20}\)</div><div class="fd"><span class="nm">Décibels.</span> \(20\log\) pour tension et courant, \(10\log\) pour la puissance. \(\times10\) : \(20\ \mathrm{dB}\) ; \(\times100\) : \(40\ \mathrm{dB}\) ; \(\times2\) : \(6\ \mathrm{dB}\) ; \(-3\ \mathrm{dB}\) : \(\times0{,}707\) (coupure).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle Z_{base}=(\beta+1)\,(r_e+R_{E,non\ découplée})\)</div><div class="fd"><span class="nm">Impédance vue de la base.</span> Découplée : \((\beta+1)r_e\). Non découplée : \((\beta+1)(r_e+R_E)\). Puis \(Z_{in}=R_1\parallel R_2\parallel Z_{base}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle Z_{out}=R_C\parallel r_o\ \ (\approx R_C)\)</div><div class="fd"><span class="nm">Impédance de sortie.</span> \(r_o=\frac{V_A}{I_C}\) grande devant \(R_C\) en général.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle A_v=-\frac{R_C\parallel R_L\parallel r_o}{r_e}\)</div><div class="fd"><span class="nm">Gain avec charge.</span> Équivaut à \(A_{v,vide}\frac{R_L}{Z_{out}+R_L}\). Sans \(C_3\) : \(-\frac{R_C\parallel R_L}{R_E+r_e}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \frac{v_b}{v_g}=\frac{Z_{in}}{Z_{in}+R_s}\)</div><div class="fd"><span class="nm">Source de résistance interne \(R_s\).</span> Gain global : \(\frac{v_{out}}{v_g}=A_v\,\frac{Z_{in}}{Z_{in}+R_s}\). Cascade : \(A_{tot}=A_{v1}\cdot A_{v2}\) avec \(A_{v1}\) chargé par \(Z_{in,2}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle C=\frac{1}{2\pi f_c\,R_{vue}}\)</div><div class="fd"><span class="nm">Dimensionner un condensateur.</span> \(R_{vue}\) : résistance vue par le condensateur (Thévenin à ses bornes), par exemple \(R_s+Z_{in}\) pour \(C_1\). Prendre \(f_c\) une décade sous la plus basse fréquence utile. Découplage : \(R_{vue}=R_E\parallel\left(r_e+\frac{R_{Th}}{\beta+1}\right)\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle g_m=\frac{I_C}{V_T}\ ;\ r_\pi=\frac{\beta}{g_m}\approx(\beta+1)r_e\ ;\ r_e\approx\frac{1}{g_m}\)</div><div class="fd"><span class="nm">Modèle haute fréquence.</span> Plus capacités de jonction. \(f_T\) : fréquence de transition.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \eta=\frac{P_{charge}}{P_{alim}}\ ;\ P_{charge}=\frac{V_m^2}{2R_L}\)</div><div class="fd"><span class="nm">Rendement d'un étage de puissance.</span> Classe B : \(\eta_{max}=\frac{\pi}{4}=78{,}5\ \%\) (crête \(=V_{CC}\)). Classe A : \(\eta\le50\ \%\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle i_{out}=i_{in}\left(1-\frac{2}{\beta+2}\right)\approx i_{in}\)</div><div class="fd"><span class="nm">Miroir de courant.</span> Deux transistors identiques (\(V_{BE1}=V_{BE2}\)). Courant d'entrée : \(i_{in}=\frac{V_{CC}-V_{BE}}{R}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle C_{Miller}=C\,(1-A_v)\)</div><div class="fd"><span class="nm">Effet Miller.</span> Capacité entre entrée et sortie d'un étage inverseur de gain \(A_v\), vue de l'entrée.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{BE,D}\approx2\times0{,}7\ \mathrm V\ ;\ \beta_D\approx\beta_1\beta_2\)</div><div class="fd"><span class="nm">Paire Darlington.</span> Gain énorme et \(Z_{in}\) forte, au prix d'un \(V_{BE}\) double.</div></div>
 </div>
 <div class="fgroup" data-fg="g6"><h3>Chapitre 6 — Le FET <span>JFET &amp; MOSFET</span></h3>
 <div class="frow"><div class="fx">\(\displaystyle I_{D}=I_{\mathrm{DSS}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)^{2}\)</div><div class="fd"><span class="nm">JFET, transfert quadratique.</span> <b>\(I_{\mathrm{DSS}}\)</b> courant \(\max (V_{\mathrm{GS}}=0)\). <span class="cond">zone active, \(V_{\mathrm{DS}}\gt V_{P}\)</span></div></div>
@@ -1411,6 +1486,19 @@
 <div class="frow"><div class="fx">\(\displaystyle A_{V}=-g_{m}\cdot R_{D}\)</div><div class="fd"><span class="nm">Ampli source commune.</span> Drain commun (suiveur) : \(A_{V}\approx 1,\,\allowbreak Z_{\mathrm{in}}=R_{G}\approx M\,\mathrm{\Omega }\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle I_{D}=\frac{1}{2}\cdot K_{n}\cdot \left(\frac{W}{L}\right)\cdot (V_{\mathrm{GS}}-V_{T})^{2}\)</div><div class="fd"><span class="nm">MOSFET, région active.</span> <b>\(V_{T}\)</b> tension de seuil, <b>\(\frac{W}{L}\)</b> géométrie. <span class="cond">\(V_{\mathrm{GS}}\gt V_{T}\) et \(V_{\mathrm{DS}}\gt V_{\mathrm{GS}}-V_{T}\)</span></div></div>
 <div class="frow"><div class="fx">\(\displaystyle g_{m}=K_{n}\left(\frac{W}{L}\right)(V_{\mathrm{GS}}-V_{T})=\frac{2I_{D}}{V_{\mathrm{GS}}-V_{T}}\)</div><div class="fd"><span class="nm">Transconductance MOSFET.</span> \(K_{n}=\mu _{n}C_{ox}\) facteur de gain.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{GS}=-R_S\,I_D\ ;\ V_{DS}=V_{DD}-(R_D+R_S)\,I_D\)</div><div class="fd"><span class="nm">JFET autopolarisé (grille à la masse, \(I_G=0\)).</span> On reporte \(V_{GS}\) dans \(I_D=I_{DSS}(1-\frac{V_{GS}}{V_P})^2\) : équation du second degré, on garde la racine \(V_P\lt V_{GS}\le0\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_G=V_{DD}\frac{R_2}{R_1+R_2}\ ;\ V_{GS}=V_G-R_S\,I_D\)</div><div class="fd"><span class="nm">Polarisation par pont diviseur.</span> \(I_G=0\) : le pont n'est pas chargé. Même équation du second degré.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{DS}\gt V_{GS}-V_P\ (V_{GS}+|V_P|)\)</div><div class="fd"><span class="nm">Condition de zone active (JFET).</span> Sinon zone ohmique. Blocage : \(V_{GS}\le V_{GS,off}\). Vérifier après le calcul.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle g_m=\frac{2\sqrt{I_{DSS}\,I_D}}{|V_P|}=g_{m0}\left(1-\frac{V_{GS}}{V_P}\right)\)</div><div class="fd"><span class="nm">Transconductance du JFET à partir de \(I_D\).</span> \(g_{m0}=\frac{2I_{DSS}}{|V_P|}\) (en \(V_{GS}=0\)). \(\Delta I_D=g_m\Delta V_{GS}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle A_v=-g_m\,(R_D\parallel R_L)\ ;\ A_v=-\frac{g_m\,R_D'}{1+g_m R_S}\)</div><div class="fd"><span class="nm">Source commune (\(R_S\) découplée ou non).</span> \(Z_{in}=R_G\) (ou \(R_1\parallel R_2\)), \(Z_{out}=R_D\). Non découplée : \(R_S\) réduit le gain de \(1+g_mR_S\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle A_v=\frac{g_m R_S'}{1+g_m R_S'}\ ;\ Z_{out}\approx\frac{1}{g_m}\parallel R_S\)</div><div class="fd"><span class="nm">Drain commun (suiveur).</span> \(R_S'=R_S\parallel R_L\). \(A_v\lt 1\) et proche de \(1\) si \(g_mR_S'\gg1\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle A_v=+g_m R_D'\ ;\ Z_{in}\approx\frac{1}{g_m}\)</div><div class="fd"><span class="nm">Grille commune.</span> Pas d'inversion, impédance d'entrée faible.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{out}=V_{in}\frac{R_{DS}}{R+R_{DS}}\)</div><div class="fd"><span class="nm">JFET en région ohmique.</span> \(R_{DS}\) commandée par \(V_{GS}\) : atténuateur commandé en tension. Valable pour \(V_{DS}\ll V_{GS}-V_P\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{ov}=V_{GS}-V_T\)</div><div class="fd"><span class="nm">Tension de surcharge (MOSFET).</span> Région ohmique si \(V_{DS}\lt V_{ov}\), active (canal pincé) si \(V_{DS}\gt V_{ov}\), bloqué si \(V_{ov}\lt 0\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle I_D=K\left[V_{ov}\,V_{DS}-\frac{V_{DS}^2}{2}\right]\ \ (K=K_n\tfrac WL)\)</div><div class="fd"><span class="nm">MOSFET en région ohmique.</span> Convention \(I_D=\frac12K\,V_{ov}^2\) en actif. Pour \(V_{DS}\ll V_{ov}\) : \(R_{DS}\approx\frac{1}{K\,V_{ov}}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{GS}=V_{DS}=V_{DD}-R_D\,I_D\)</div><div class="fd"><span class="nm">MOSFET polarisé par contre-réaction drain-grille.</span> Le transistor est toujours en région active (\(V_{DS}=V_{GS}\gt V_{GS}-V_T\)). Résoudre l'équation du second degré, garder \(V_{GS}\gt V_T\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle K=\frac{2I_D}{(V_{GS}-V_T)^2}\)</div><div class="fd"><span class="nm">Retrouver \(K\) depuis une mesure.</span> Dépend de la convention de l'énoncé : avec \(I_D=K(V_{GS}-V_T)^2\), \(K=\frac{I_D}{(V_{GS}-V_T)^2}\) et \(g_m=2K\,V_{ov}\). Toujours recopier la loi de l'énoncé.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{DD,min}=(R_D+R_S)\,I_D+V_{GS}-V_P\)</div><div class="fd"><span class="nm">\(V_{DD}\) minimal pour la zone active.</span> On impose \(V_{DS}=V_{GS}-V_P\) à la limite : \(V_{DD,min}=(R_D+R_S)I_D+V_{GS}-V_P\).</div></div>
 </div>
 <div class="fgroup" data-fg="g7"><h3>Chapitre 7 — Logique CMOS <span>Performance</span></h3>
 <div class="frow"><div class="fx"><span style="text-decoration:overline">\(A+B\)</span>\(\displaystyle =\bar{A}\cdot \bar{B};\,\allowbreak\)<span style="text-decoration:overline">\(A\cdot B\)</span>\(\displaystyle =\bar{A}+\bar{B}\)</div><div class="fd"><span class="nm">De Morgan.</span> « + » → parallèle, « · » → série.</div></div>
@@ -1419,6 +1507,16 @@
 <div class="frow"><div class="fx">\(\displaystyle C_{\mathrm{OUT}}=\sum \,C_{\square }\cdot (\ell \cdot w)\)</div><div class="fd"><span class="nm">Capacité de sortie.</span> somme sur tous les matériaux reliés à la sortie.</div></div>
 <div class="frow"><div class="fx">\(\displaystyle \tau =(R_{N}+R_{P})\cdot C_{\mathrm{OUT}}\,/\,2\)</div><div class="fd"><span class="nm">Délai d'une porte.</span> moyenne des deux réseaux. \(n\) en série : \(\tau \approx \left(\frac{n^{2}}{2}\right)\)RC.</div></div>
 <div class="frow"><div class="fx">\(\displaystyle I_{\mathrm{DS}}\,\propto \,\frac{W}{L}\)</div><div class="fd"><span class="nm">Miniaturisation.</span> \(L\searrow \Longrightarrow I_{\mathrm{DS}}\nearrow \Longrightarrow\) commutation plus rapide. Taille /\(S\colon \frac{\tau }{S^{2}},\,\allowbreak f\cdot S^{2}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle N_{MOS}=2\,n\)</div><div class="fd"><span class="nm">Porte complémentaire à \(n\) entrées.</span> \(n\) nMOS + \(n\) pMOS (par exemple NAND2 : 4). Les deux réseaux sont duaux : série \(\leftrightarrow\) parallèle.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle A\oplus B=A\bar B+\bar A B\ ;\ \overline{A\cdot B}\ ;\ \overline{A+B}\)</div><div class="fd"><span class="nm">Portes usuelles.</span> NAND : PUN parallèle, PDN série. NOR : PUN série, PDN parallèle. XOR : \(A\bar B+\bar AB\). Multiplexeur 2:1 : \(OUT=\bar S\,A+S\,B\). Additionneur : \(Somme=A\oplus B\oplus C_{in}\), \(C_{out}=AB+C_{in}(A\oplus B)\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle Y_{PUN}=Y\ (\text{entrées complémentées})\ ;\ Y_{PDN}=\bar Y\)</div><div class="fd"><span class="nm">Construire un réseau.</span> Série = ET, parallèle = OU. Une porte CMOS est toujours inverseuse : pour une fonction non inversée (AND, OR), ajouter un inverseur.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R=R_\square\times N_{carrés}\ ;\ N_{carrés}=\frac{\ell}{w}\)</div><div class="fd"><span class="nm">Résistance d'une piste (calcul des carrés).</span> Coude \(=0{,}5\) carré. Contact : valeur donnée en \(\Omega\) par contact. Chemin = somme des tronçons en série (polysilicium + contacts + métal).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle A=\ell\cdot w\ \ (\text{en }\lambda^2)\ ;\ 1\ \text{carreau}=2\lambda\)</div><div class="fd"><span class="nm">Surfaces d'un layout.</span> Un carreau de \(2\lambda\times2\lambda\) vaut \(4\lambda^2\). \(C_{OUT}=\sum C_\square\cdot A\) : poly, métal, diffusion N (ou P), contacts reliés à la sortie.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle R_{eq}=n\,R\ (\text{série})\ ;\ \frac{R}{n}\ (\text{parallèle})\)</div><div class="fd"><span class="nm">Résistance équivalente d'un réseau.</span> Pour le délai on prend le <b>pire chemin</b> (le plus de transistors en série) dans chaque réseau. Parallèle : meilleur cas, un seul chemin conduit.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle t_{out}=\max_k\left(t_{in,k}\right)+\tau_{porte}\)</div><div class="fd"><span class="nm">Délai d'un circuit à plusieurs portes.</span> On propage les instants d'arrivée porte par porte ; le délai du circuit est le plus grand à la sortie. Portes en cascade : les délais s'additionnent.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle P_{dyn}=C_{OUT}\,V_{DD}^2\,f\)</div><div class="fd"><span class="nm">Consommation dynamique.</span> Charge et décharge de \(C_{OUT}\) à chaque commutation ; \(f\) fréquence de commutation. Statique \(\approx0\) en CMOS.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle \tau\to\frac{\tau}{S^2}\ ;\ f_{max}\to f\,S^2\ ;\ I_{DS}\propto\frac{W}{L}\)</div><div class="fd"><span class="nm">Facteur d'échelle \(S\) (dimensions \(/S\), \(V_{DD}\) constant).</span> D'après le cours : délai \(\frac{\tau}{S^2}\), fréquence \(\times S^2\), puissance \(\times S\). Le courant \(I_{DS}\propto\frac WL\) : réduire \(L\) accélère la charge de \(C_{OUT}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle N_{puces}=\frac{A_{plaquette}}{A_{puce}}\)</div><div class="fd"><span class="nm">Nombre de puces par plaquette.</span> Ordre de grandeur : \(A_{puce}\) divisée par \(S^2\) \(\Rightarrow\) \(S^2\) fois plus de puces par plaquette (coût par puce divisé d'autant).</div></div>
 </div>
 </div>
 </section>
@@ -1439,6 +1537,14 @@
 <div class="ei"><span class="nm">Th↔No</span><span class="vl">\(V_{\mathrm{Th}}=R_{N}i_{N},\,\allowbreak R_{N}=R_{\mathrm{Th}}\)</span></div>
 <div class="ei"><span class="nm">AOP inv.</span><span class="vl">\(\frac{-R_{f}}{R_{1}}\cdot V_{\mathrm{in}}\)</span></div>
 <div class="ei"><span class="nm">AOP non-inv</span><span class="vl">\(\left(1+\frac{R_{f}}{R_{1}}\right)V_{\mathrm{in}}\)</span></div>
+<div class="ei"><span class="nm">Nœuds</span><span class="vl">\(\sum i_{\text{entrants}}=\sum i_{\text{sortants}}\)</span></div>
+<div class="ei"><span class="nm">R série</span><span class="vl">\(R_{eq}=R_1+R_2\)</span></div>
+<div class="ei"><span class="nm">R //</span><span class="vl">\(R_1\parallel R_2=\frac{R_1R_2}{R_1+R_2}\)</span></div>
+<div class="ei"><span class="nm">Puissance</span><span class="vl">\(P=u\,i=R\,i^2=\frac{u^2}{R}\)</span></div>
+<div class="ei"><span class="nm">Norton</span><span class="vl">\(i_N=\frac{V_{Th}}{R_{Th}}\)</span></div>
+<div class="ei"><span class="nm">AOP idéal</span><span class="vl">\(V_+=V_-\ ;\ i_+=i_-=0\)</span></div>
+<div class="ei"><span class="nm">Suiveur</span><span class="vl">\(V_{out}=V_{in}\)</span></div>
+<div class="ei"><span class="nm">Sommateur</span><span class="vl">\(V_{out}=-R_f\left(\frac{V_1}{R_1}+\frac{V_2}{R_2}\right)\)</span></div>
 </div>
 <div class="eg"><h4>Ch.1 · Conduction</h4>
 <div class="ei"><span class="nm">Dérive</span><span class="vl">\(v=-\mu E\)</span></div>
@@ -1448,6 +1554,20 @@
 <div class="ei"><span class="nm">Matthiessen</span><span class="vl">\(\rho =\rho _{0}(1+\alpha \Delta T)\)</span></div>
 <div class="ei"><span class="nm">Condo</span><span class="vl">\(C=\frac{\varepsilon S}{d},\,\allowbreak i=C\cdot \frac{\mathrm{d}u}{\mathrm{d}t}\)</span></div>
 <div class="ei"><span class="nm">Coupure</span><span class="vl">\(f_{c}=\frac{1}{2\pi RC}\)</span></div>
+<div class="ei"><span class="nm">\(j=i/S\)</span><span class="vl">\(j=\frac{i}{S}\quad\Longleftrightarrow\quad i=j\,S\)</span></div>
+<div class="ei"><span class="nm">Champ</span><span class="vl">\(E=\frac{u}{\ell}\)</span></div>
+<div class="ei"><span class="nm">\(j\) et \(v\)</span><span class="vl">\(j=-n\,e\,v=\rho_m\,v\ ;\ v=\frac{j}{n\,e}\)</span></div>
+<div class="ei"><span class="nm">Courant</span><span class="vl">\(i=n\,e\,v\,S\)</span></div>
+<div class="ei"><span class="nm">Mobilité</span><span class="vl">\(\mu=\frac{\gamma}{n\,e}=\frac{v}{E}\)</span></div>
+<div class="ei"><span class="nm">Ohm</span><span class="vl">\(u=R\,i\ ;\ R=\frac{\ell}{\gamma\,S}\)</span></div>
+<div class="ei"><span class="nm">Unités \(\rho\)</span><span class="vl">\(1\ \mu\Omega\cdot\mathrm{cm}=10^{-8}\ \Omega\cdot\mathrm{m}\)</span></div>
+<div class="ei"><span class="nm">\(R(T)\)</span><span class="vl">\(R(T)=R_0\,[1+\alpha\,(T-T_0)]\)</span></div>
+<div class="ei"><span class="nm">Masse fixée</span><span class="vl">\(R=\rho\,\rho_{v}\,\frac{\ell^{2}}{m}\)</span></div>
+<div class="ei"><span class="nm">Condo plan</span><span class="vl">\(C=\frac{\varepsilon_0\varepsilon_r\,S}{d}\)</span></div>
+<div class="ei"><span class="nm">Assoc. \(C\)</span><span class="vl">\(C_{//}=C_1+C_2\ ;\ \frac{1}{C_s}=\frac{1}{C_1}+\frac{1}{C_2}\)</span></div>
+<div class="ei"><span class="nm">Énergie</span><span class="vl">\(W=\tfrac12\,C\,u^2\)</span></div>
+<div class="ei"><span class="nm">\(Z_C\)</span><span class="vl">\(Z_C=\frac{1}{jC\omega}\ ;\ |Z_C|=\frac{1}{2\pi f\,C}\)</span></div>
+<div class="ei"><span class="nm">RC</span><span class="vl">\(\tau=RC\ ;\ u(t)=E\left(1-e^{-t/\tau}\right)\)</span></div>
 </div>
 <div class="eg"><h4>Ch.2 · SC &amp; PN</h4>
 <div class="ei"><span class="nm">Équipart.</span><span class="vl">\(E_{\mathrm{th}}=\frac{3}{2}\cdot k_{B}T\)</span></div>
@@ -1458,6 +1578,16 @@
 <div class="ei"><span class="nm">Einstein</span><span class="vl">\(\frac{D}{\mu }=\frac{k_{B}T}{q}\approx 25\,\mathrm{mV}\)</span></div>
 <div class="ei"><span class="nm">Barrière</span><span class="vl">\(V_{0}=\frac{k_{B}T}{e}\cdot \ln \left(\frac{N_{A}N_{D}}{n_{i}^{2}}\right)\)</span></div>
 <div class="ei"><span class="nm">Shockley</span><span class="vl">\(I_{D}=I_{S}\left(e^{\frac{eU}{\eta k_{\mathrm{BT}}}}-1\right)\)</span></div>
+<div class="ei"><span class="nm">Atomes/cm³</span><span class="vl">\(\mathcal N_{at}=\frac{\rho_v\,\mathcal N_A}{M}\)</span></div>
+<div class="ei"><span class="nm">Dopage</span><span class="vl">\(N_{dop}=\frac{\mathcal N_{at}}{10^{k}}\)</span></div>
+<div class="ei"><span class="nm">\(\gamma_i\)</span><span class="vl">\(\gamma_i=e\,n_i\,(\mu_n+\mu_p)\ ;\ \rho_i=\frac{1}{\gamma_i}\)</span></div>
+<div class="ei"><span class="nm">\(\gamma\) dopé</span><span class="vl">\(\gamma\approx e\,n\,\mu_n\ (N)\ ;\ \gamma\approx e\,p\,\mu_p\ (P)\)</span></div>
+<div class="ei"><span class="nm">Conduction</span><span class="vl">\(j_{cond}=e\,(n\mu_n+p\mu_p)\,E\)</span></div>
+<div class="ei"><span class="nm">Diffusion</span><span class="vl">\(j_{diff}=e\,D_n\,\nabla n-e\,D_p\,\nabla p\)</span></div>
+<div class="ei"><span class="nm">\(V_T\)</span><span class="vl">\(V_T=\frac{k_BT}{e}=25{,}9\ \mathrm{mV}\ (300\ \mathrm K)\)</span></div>
+<div class="ei"><span class="nm">Photocond.</span><span class="vl">\(\Delta n=\Delta p=G\,\tau_v\ ;\ \gamma=e\,[(n+\Delta n)\mu_n+(p+\Delta p)\mu_p]\)</span></div>
+<div class="ei"><span class="nm">\(I_S(T)\)</span><span class="vl">\(I_S(T+11^{\circ}\mathrm C)\approx2\,I_S(T)\ \ (\mathrm{Si})\)</span></div>
+<div class="ei"><span class="nm">Shockley inv.</span><span class="vl">\(U_D=\eta\,V_T\,\ln\left(\frac{I_D}{I_S}+1\right)\)</span></div>
 </div>
 <div class="eg"><h4>Ch.3 · Diode</h4>
 <div class="ei"><span class="nm">Seuil Si/Ge</span><span class="vl">\(0{,}7\,/\,0{,}3\,\mathrm{V}\)</span></div>
@@ -1467,6 +1597,23 @@
 <div class="ei"><span class="nm">Graëtz</span><span class="vl">\(V_{\mathrm{out}}=V_{\mathrm{in}}-2\,\mathrm{V}_{S}\)</span></div>
 <div class="ei"><span class="nm">Zener \(R_{\mathrm{Lmin}}\)</span><span class="vl">\(\frac{V_{Z}R}{V_{i}-V_{Z}}\)</span></div>
 <div class="ei"><span class="nm">Transfo</span><span class="vl">\(\frac{N_{1}}{N_{2}}=\frac{V_{\mathrm{in}}}{V_{2}}=\frac{i_{2}}{i_{1}}\)</span></div>
+<div class="ei"><span class="nm">Charge</span><span class="vl">\(I_D=\frac{E_{Th}-V_D}{R_{Th}}\)</span></div>
+<div class="ei"><span class="nm">Diode passante ?</span><span class="vl">\(E_{Th}\gt V_S\ \Rightarrow\ \text{passante}\)</span></div>
+<div class="ei"><span class="nm">\(R_{stat}\)</span><span class="vl">\(R_{stat}=\frac{V_D}{I_D}\ ;\ r_d=\frac{\mathrm dV_D}{\mathrm dI_D}=\frac{\eta V_T}{I_D}\)</span></div>
+<div class="ei"><span class="nm">\(P_D\)</span><span class="vl">\(P_D=V_D\,I_D=V_S\,I_D+r\,I_D^2\)</span></div>
+<div class="ei"><span class="nm">Parallèle</span><span class="vl">\(I_{tot}=\sum I_k\ ;\ I_k=\frac{I_{tot}}{n}\)</span></div>
+<div class="ei"><span class="nm">Seuil écrêteur</span><span class="vl">\(s_{max}=E_0+V_S\)</span></div>
+<div class="ei"><span class="nm">Crête</span><span class="vl">\(V_{max}=V_{crête}-V_S\ \text{ (1 alt.)}\ ;\ V_{crête}-2V_S\ \text{ (pont)}\)</span></div>
+<div class="ei"><span class="nm">Moyenne</span><span class="vl">\(\langle V\rangle=\frac{V_m}{\pi}\ \text{(1 alt.)}\ ;\ \frac{2V_m}{\pi}\ \text{(2 alt.)}\)</span></div>
+<div class="ei"><span class="nm">Ondulation</span><span class="vl">\(\Delta V\approx\frac{I}{f\,C}\ \text{(1 alt.)}\ ;\ \frac{I}{2f\,C}\ \text{(2 alt.)}\)</span></div>
+<div class="ei"><span class="nm">LED</span><span class="vl">\(R=\frac{V_{alim}-V_{LED}}{I_{LED}}\)</span></div>
+<div class="ei"><span class="nm">Zener</span><span class="vl">\(V_D=-(V_Z+r_Z\,I_Z)\)</span></div>
+<div class="ei"><span class="nm">\(I_Z\)</span><span class="vl">\(I_Z=I_R-I_L=\frac{V_i-V_Z}{R}-\frac{V_Z}{R_L}\)</span></div>
+<div class="ei"><span class="nm">\(E_{min}\)</span><span class="vl">\(E_{min}=V_Z\,\frac{R+R_L}{R_L}\)</span></div>
+<div class="ei"><span class="nm">\(R\) mini</span><span class="vl">\(R\ge\frac{V_{i,max}-V_Z}{I_{Z,max}+I_{L,min}}\)</span></div>
+<div class="ei"><span class="nm">Sortie \(r_Z\)</span><span class="vl">\(u=\frac{\frac{r_Z}{R}E+V_Z}{1+r_Z\frac{R+R_L}{R\,R_L}}\)</span></div>
+<div class="ei"><span class="nm">Transfo</span><span class="vl">\(V_2=\frac{N_2}{N_1}\,V_1\)</span></div>
+<div class="ei"><span class="nm">Roue libre</span><span class="vl">\(u_L=L\,\frac{\mathrm di}{\mathrm dt}\)</span></div>
 </div>
 <div class="eg"><h4>Ch.4 · BJT statique</h4>
 <div class="ei"><span class="nm">Gains</span><span class="vl">\(i_{C}=\beta i_{B},\,\allowbreak i_{E}=i_{B}+i_{C},\,\allowbreak \alpha \approx 1\)</span></div>
@@ -1476,6 +1623,19 @@
 <div class="ei"><span class="nm">Pont</span><span class="vl">\(V_{\mathrm{Th}}=\frac{V_{\mathrm{CC}}R_{2}}{R_{1}+R_{2}}\)</span></div>
 <div class="ei"><span class="nm">Émetteur</span><span class="vl">\(i_{E}=\frac{V_{\mathrm{BB}}-V_{\mathrm{BE}}}{R_{E}}\)</span></div>
 <div class="ei"><span class="nm">Seuils</span><span class="vl">\(\text{bloq}\lt 0{,}7;\,\allowbreak \text{ sat }\,V_{\mathrm{CE}}\lt 0{,}2\)</span></div>
+<div class="ei"><span class="nm">\(\alpha,\beta\)</span><span class="vl">\(\alpha=\frac{\beta}{\beta+1}\ ;\ \beta=\frac{\alpha}{1-\alpha}\ ;\ i_E=(\beta+1)\,i_B\)</span></div>
+<div class="ei"><span class="nm">\(V_{CB}\)</span><span class="vl">\(V_{CB}=V_{CE}-V_{BE}\)</span></div>
+<div class="ei"><span class="nm">Maille base</span><span class="vl">\(V_{BB}=R_B\,i_B+V_{BE}+R_E\,i_E\)</span></div>
+<div class="ei"><span class="nm">Maille coll.</span><span class="vl">\(V_{CC}=R_C\,i_C+V_{CE}+R_E\,i_E\)</span></div>
+<div class="ei"><span class="nm">Base seule</span><span class="vl">\(i_B=\frac{V_{CC}-V_{BE}}{R_B}\ ;\ V_{CE}=V_{CC}-R_C\,\beta\,i_B\)</span></div>
+<div class="ei"><span class="nm">Contre-réaction</span><span class="vl">\(i_B=\frac{V_{CC}-V_{BE}}{R_B+(\beta+1)R_C}\)</span></div>
+<div class="ei"><span class="nm">Thévenin base</span><span class="vl">\(R_{Th}=\frac{R_1R_2}{R_1+R_2}\ ;\ i_B=\frac{V_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\)</span></div>
+<div class="ei"><span class="nm">Dimension.</span><span class="vl">\(R_C=\frac{V_{CC}-V_{CE}-V_E}{I_C}\ ;\ R_E=\frac{V_E}{I_E}\)</span></div>
+<div class="ei"><span class="nm">Puissance</span><span class="vl">\(P_{T}\approx V_{CE}\,i_C\)</span></div>
+<div class="ei"><span class="nm">Commutation</span><span class="vl">\(i_B=k\,\frac{i_{C,sat}}{\beta}\ ;\ R_B=\frac{V_{in}-V_{BE}}{i_B}\)</span></div>
+<div class="ei"><span class="nm">Ballast</span><span class="vl">\(V_{sortie}=V_Z-V_{BE}\ ;\ i_L\approx\frac{V_Z-V_{BE}}{R_E}\)</span></div>
+<div class="ei"><span class="nm">Early</span><span class="vl">\(i_C=i_{C0}\left(1+\frac{V_{CE}}{V_A}\right)\ ;\ r_o=\frac{V_A}{I_C}\)</span></div>
+<div class="ei"><span class="nm">Mesure \(Q\)</span><span class="vl">\(I_C=\frac{V_{CC}-V_C}{R_C}\ ;\ I_E=\frac{V_E}{R_E}\)</span></div>
 </div>
 <div class="eg"><h4>Ch.5 · BJT dynamique</h4>
 <div class="ei"><span class="nm">\(r_{E}\)</span><span class="vl">\(26\,\mathrm{mV}/I_{E}\)</span></div>
@@ -1486,6 +1646,18 @@
 <div class="ei"><span class="nm">dB</span><span class="vl">\(20\cdot \log (A_{V});\,\allowbreak 10\cdot \log (A_{P})\)</span></div>
 <div class="ei"><span class="nm">Darlington</span><span class="vl">\(\beta _{D}\approx \beta _{1}\beta _{2}\)</span></div>
 <div class="ei"><span class="nm">\(\eta\) class \(\frac{A}{B}\)</span><span class="vl">\(\le 50\%\,/\,\le 78{,}5\%\)</span></div>
+<div class="ei"><span class="nm">Gain courant</span><span class="vl">\(A_i=\frac{i_{out}}{i_{in}}\)</span></div>
+<div class="ei"><span class="nm">\(\to\) dB</span><span class="vl">\(A_{dB}=20\log|A|\ ;\ A=10^{A_{dB}/20}\)</span></div>
+<div class="ei"><span class="nm">Entrée base</span><span class="vl">\(Z_{base}=(\beta+1)\,(r_e+R_{E,non\ découplée})\)</span></div>
+<div class="ei"><span class="nm">\(Z_{out}\)</span><span class="vl">\(Z_{out}=R_C\parallel r_o\ \ (\approx R_C)\)</span></div>
+<div class="ei"><span class="nm">Gain chargé</span><span class="vl">\(A_v=-\frac{R_C\parallel R_L\parallel r_o}{r_e}\)</span></div>
+<div class="ei"><span class="nm">Pont d'entrée</span><span class="vl">\(\frac{v_b}{v_g}=\frac{Z_{in}}{Z_{in}+R_s}\)</span></div>
+<div class="ei"><span class="nm">\(C\) de liaison</span><span class="vl">\(C=\frac{1}{2\pi f_c\,R_{vue}}\)</span></div>
+<div class="ei"><span class="nm">Giacoletto</span><span class="vl">\(g_m=\frac{I_C}{V_T}\ ;\ r_\pi=\frac{\beta}{g_m}\approx(\beta+1)r_e\ ;\ r_e\approx\frac{1}{g_m}\)</span></div>
+<div class="ei"><span class="nm">Rendement</span><span class="vl">\(\eta=\frac{P_{charge}}{P_{alim}}\ ;\ P_{charge}=\frac{V_m^2}{2R_L}\)</span></div>
+<div class="ei"><span class="nm">Miroir</span><span class="vl">\(i_{out}=i_{in}\left(1-\frac{2}{\beta+2}\right)\approx i_{in}\)</span></div>
+<div class="ei"><span class="nm">Miller</span><span class="vl">\(C_{Miller}=C\,(1-A_v)\)</span></div>
+<div class="ei"><span class="nm">Darlington</span><span class="vl">\(V_{BE,D}\approx2\times0{,}7\ \mathrm V\ ;\ \beta_D\approx\beta_1\beta_2\)</span></div>
 </div>
 <div class="eg"><h4>Ch.6 · FET</h4>
 <div class="ei"><span class="nm">JFET \(I_{D}\)</span><span class="vl">\(I_{\mathrm{DSS}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)^{2}\)</span></div>
@@ -1496,6 +1668,19 @@
 <div class="ei"><span class="nm">Drain com.</span><span class="vl">\(A_{V}\approx 1\)</span></div>
 <div class="ei"><span class="nm">MOSFET \(I_{D}\)</span><span class="vl">\(\frac{1}{2}K_{n}\left(\frac{W}{L}\right)(V_{\mathrm{GS}}-V_{T})^{2}\)</span></div>
 <div class="ei"><span class="nm">\(g_{m}\) MOS</span><span class="vl">\(\frac{2I_{D}}{V_{\mathrm{GS}}-V_{T}}\)</span></div>
+<div class="ei"><span class="nm">Autopolar.</span><span class="vl">\(V_{GS}=-R_S\,I_D\ ;\ V_{DS}=V_{DD}-(R_D+R_S)\,I_D\)</span></div>
+<div class="ei"><span class="nm">Pont JFET</span><span class="vl">\(V_G=V_{DD}\frac{R_2}{R_1+R_2}\ ;\ V_{GS}=V_G-R_S\,I_D\)</span></div>
+<div class="ei"><span class="nm">Zone active</span><span class="vl">\(V_{DS}\gt V_{GS}-V_P\ (V_{GS}+|V_P|)\)</span></div>
+<div class="ei"><span class="nm">\(g_m\) (\(I_D\))</span><span class="vl">\(g_m=\frac{2\sqrt{I_{DSS}\,I_D}}{|V_P|}=g_{m0}\left(1-\frac{V_{GS}}{V_P}\right)\)</span></div>
+<div class="ei"><span class="nm">Source com.</span><span class="vl">\(A_v=-g_m\,(R_D\parallel R_L)\ ;\ A_v=-\frac{g_m\,R_D'}{1+g_m R_S}\)</span></div>
+<div class="ei"><span class="nm">Drain com.</span><span class="vl">\(A_v=\frac{g_m R_S'}{1+g_m R_S'}\ ;\ Z_{out}\approx\frac{1}{g_m}\parallel R_S\)</span></div>
+<div class="ei"><span class="nm">Grille com.</span><span class="vl">\(A_v=+g_m R_D'\ ;\ Z_{in}\approx\frac{1}{g_m}\)</span></div>
+<div class="ei"><span class="nm">Atténuateur</span><span class="vl">\(V_{out}=V_{in}\frac{R_{DS}}{R+R_{DS}}\)</span></div>
+<div class="ei"><span class="nm">Surtension</span><span class="vl">\(V_{ov}=V_{GS}-V_T\)</span></div>
+<div class="ei"><span class="nm">MOS ohmique</span><span class="vl">\(I_D=K\left[V_{ov}\,V_{DS}-\frac{V_{DS}^2}{2}\right]\ \ (K=K_n\tfrac WL)\)</span></div>
+<div class="ei"><span class="nm">MOS autopolar.</span><span class="vl">\(V_{GS}=V_{DS}=V_{DD}-R_D\,I_D\)</span></div>
+<div class="ei"><span class="nm">\(K\) mesuré</span><span class="vl">\(K=\frac{2I_D}{(V_{GS}-V_T)^2}\)</span></div>
+<div class="ei"><span class="nm">\(V_{DD}\) mini</span><span class="vl">\(V_{DD,min}=(R_D+R_S)\,I_D+V_{GS}-V_P\)</span></div>
 </div>
 <div class="eg"><h4>Ch.7 · CMOS</h4>
 <div class="ei"><span class="nm">De Morgan</span><span class="vl"><span style="text-decoration:overline">\(A+B\)</span>\(=\bar{A}\bar{B};\,\allowbreak\)<span style="text-decoration:overline">\(\text{AB}\)</span>\(=\bar{A}+\bar{B}\)</span></div>
@@ -1505,6 +1690,16 @@
 <div class="ei"><span class="nm">Délai</span><span class="vl">\(\tau =\frac{(R_{N}+R_{P})C_{\mathrm{OUT}}}{2}\)</span></div>
 <div class="ei"><span class="nm">\(n\) série</span><span class="vl">\(\tau \approx \left(\frac{n^{2}}{2}\right)\text{RC}\)</span></div>
 <div class="ei"><span class="nm">Miniatur.</span><span class="vl">\(I_{\mathrm{DS}}\propto \frac{W}{L};\,\allowbreak \tau \to \frac{\tau }{S^{2}}\)</span></div>
+<div class="ei"><span class="nm">Nb transistors</span><span class="vl">\(N_{MOS}=2\,n\)</span></div>
+<div class="ei"><span class="nm">Fonctions</span><span class="vl">\(A\oplus B=A\bar B+\bar A B\ ;\ \overline{A\cdot B}\ ;\ \overline{A+B}\)</span></div>
+<div class="ei"><span class="nm">PUN / PDN</span><span class="vl">\(Y_{PUN}=Y\ (\text{entrées complémentées})\ ;\ Y_{PDN}=\bar Y\)</span></div>
+<div class="ei"><span class="nm">Nb carrés</span><span class="vl">\(R=R_\square\times N_{carrés}\ ;\ N_{carrés}=\frac{\ell}{w}\)</span></div>
+<div class="ei"><span class="nm">Aire (\(\lambda\))</span><span class="vl">\(A=\ell\cdot w\ \ (\text{en }\lambda^2)\ ;\ 1\ \text{carreau}=2\lambda\)</span></div>
+<div class="ei"><span class="nm">Résistances eq.</span><span class="vl">\(R_{eq}=n\,R\ (\text{série})\ ;\ \frac{R}{n}\ (\text{parallèle})\)</span></div>
+<div class="ei"><span class="nm">Chemin critique</span><span class="vl">\(t_{out}=\max_k\left(t_{in,k}\right)+\tau_{porte}\)</span></div>
+<div class="ei"><span class="nm">Puissance dyn.</span><span class="vl">\(P_{dyn}=C_{OUT}\,V_{DD}^2\,f\)</span></div>
+<div class="ei"><span class="nm">Miniaturisation</span><span class="vl">\(\tau\to\frac{\tau}{S^2}\ ;\ f_{max}\to f\,S^2\ ;\ I_{DS}\propto\frac{W}{L}\)</span></div>
+<div class="ei"><span class="nm">Puces/plaquette</span><span class="vl">\(N_{puces}=\frac{A_{plaquette}}{A_{puce}}\)</span></div>
 </div>
 </div>
 </div>
