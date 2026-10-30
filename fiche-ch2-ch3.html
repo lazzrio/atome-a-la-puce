@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<script src="gate.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Fiche DS Ch2-Ch3 — De l'Atome à la Puce</title>
+<meta content="Fiche de révision du DS : semi-conducteurs et jonction PN (Ch2, TD2), diode (Ch3, TD3) et diode Zener (TD4) : formules, méthodes, pièges, exercices du poly résolus et entraînement corrigé." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#0d8073" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#0a1113" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="De l'atome à la puce — Fiche DS Ch2-Ch3" property="og:title"/>
+<meta content="Ch2, TD2, Ch3, TD3 et TD4 : formules, méthodes, pièges, exemples résolus et entraînement corrigé." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet"/>
+</head>
+<body class="cx-page s40-page">
+<div class="topbar">
+<div class="topbar-in">
+<a aria-label="Accueil du site" class="brand" href="index.html">
+<span class="chip-logo"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="10" rx="1" width="10" x="7" y="7"></rect><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"></path></svg></span>
+      De l'Atome à la Puce
+    </a>
+<nav aria-label="Navigation principale" class="nav" id="nav">
+<a href="index.html">Accueil</a>
+<a href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
+<a aria-current="page" class="active" href="fiche-ch2-ch3.html"><span class="ni">📋</span> Fiche DS Ch2-Ch3</a>
+<a href="index.html#cours"><span class="ni">📚</span> Cours</a>
+<a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
+<a href="corriges.html"><span class="ni">✅</span> Corrigés</a>
+<a class="nav-corr" href="evaluations.html"><span class="ni">🗓️</span> Évaluations</a>
+<a class="nav-corr" href="partiel.html"><span class="ni">📝</span> Partiel</a>
+<a href="index.html#notions"><span class="ni">💡</span> Notions</a>
+<a href="index.html#formules"><span class="ni">📘</span> Formules</a>
+<a href="index.html#express"><span class="ni">⚡</span> Express</a>
+<a href="index.html#exos"><span class="ni">🎯</span> Exos</a>
+<a href="index.html#boite"><span class="ni">🧰</span> À côté</a>
+<a href="index.html#quiz"><span class="ni">🧠</span> Quiz</a>
+<a href="index.html#planning"><span class="ni">📅</span> Planning</a>
+</nav>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
+<svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</button>
+<button aria-expanded="false" aria-label="Menu" class="burger" id="burger"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</div>
+</div>
+<main>
+<div class="hero hero-sm">
+<div class="hero-grid"></div>
+<div class="hero-in">
+<div>
+<span class="eyebrow">📋 Fiche de révision du DS · Ch2, TD2, Ch3, TD3, TD4</span>
+<h1>Chapitres 2 et 3 : <em>l'essentiel</em>.</h1>
+<p class="lead">Les semi-conducteurs et la jonction PN (Ch2), la diode (Ch3) avec la diode Zener, et les TD2, TD3, TD4 de ton DS, réunis sur une page. Les formules, les méthodes, les ordres de grandeur, les pièges, les exercices du poly résolus, puis de l'entraînement corrigé. Le CM1 et le TD1 sont dans la <a href="fiche-ch0-ch1.html">fiche Ch0-Ch1</a>.</p>
+<div class="s4-prog"><span>Ch2 Semi-conducteurs et jonction PN</span><span>TD2 Les semi-conducteurs</span><span>Ch3 La diode</span><span>TD3 Diode PN</span><span>TD4 Diode Zener</span></div>
+</div>
+</div>
+</div>
+<div class="wrap s40">
+<nav aria-label="Sections de la fiche" class="s4-toc">
+<a href="#essentiel">L'essentiel</a>
+<a href="#ch2">Ch2</a>
+<a href="#td2">TD2</a>
+<a href="#ch3">Ch3</a>
+<a href="#td3">TD3</a>
+<a href="#td4">TD4 Zener</a>
+<a href="#pieges">Pièges et unités</a>
+<a href="#entrainement">Entraînement</a>
+<a href="#formulaire">Formulaire</a>
+</nav>
+<!-- ================= ESSENTIEL ================= -->
+<section id="essentiel">
+<h2>L'essentiel</h2>
+<p class="s4-sub">Si tu ne retiens que ça, tu as déjà la moyenne. Chaque point est détaillé plus bas. Le DS porte sur CM1, CM2, CM3 et TD1 à TD4 : le CM1 et le TD1 sont dans la <a href="fiche-ch0-ch1.html">fiche Ch0-Ch1</a>, cette fiche couvre tout le reste.</p>
+<div class="s4-must"><ol>
+<li><b>Bandes d'énergie</b> : isolant (gap énorme, bande de conduction vide), semi-conducteur (gap \(\approx1\) eV : Si \(1{,}12\), Ge \(0{,}67\)), conducteur (niveau de Fermi dans la bande de conduction). Un semi-conducteur chauffé conduit <em>mieux</em>, un métal chauffé conduit <em>moins bien</em>.</li>
+<li><b>Action de masse</b> : \(n\,p=n_i^2\) à l'équilibre. Dopé \(N\) : \(n\approx N_D\), \(p=\dfrac{n_i^2}{N_D}\). Dopé \(P\) : \(p\approx N_A\), \(n=\dfrac{n_i^2}{N_A}\).</li>
+<li><b>Dopant</b> : groupe V (phosphore, antimoine, arsenic) = donneur = type \(N\) ; groupe III (bore, indium, gallium) = accepteur = type \(P\).</li>
+<li><b>Conductivité</b> : \(\gamma=e\,(n\mu_n+p\mu_p)\). Dopé, un seul terme compte. <b>Un seul système d'unités</b> : tout en cm ou tout en m.</li>
+<li><b>Atomes par volume</b> : \(\mathcal N_{at}=\dfrac{\rho_v\,\mathcal N_A}{M}\) ; « 1 atome pour \(10^k\) » donne \(N_{dop}=\mathcal N_{at}/10^k\).</li>
+<li><b>Jonction PN</b> : \(V_0=\dfrac{k_BT}{e}\ln\dfrac{N_AN_D}{n_i^2}\approx0{,}7\) V (Si). Directe : la barrière s'annule, ça passe. Inverse : la barrière grandit, seul passe le courant de fuite \(I_S\).</li>
+<li><b>Diode</b> : trois modèles. Idéal \(V_D=0\) ; parfait \(V_D=V_S\) (\(0{,}7\) V Si, \(0{,}3\) V Ge) ; réel \(V_D=V_S+r\,I_D\).</li>
+<li><b>Méthode pour une diode</b> : la retirer, calculer la tension à vide (Thévenin) ; si elle dépasse \(V_S\), la diode est passante et \(I_D=\dfrac{E_{Th}-V_S}{R_{Th}+r}\). Toujours vérifier \(I_D>0\).</li>
+<li><b>Droite de charge</b> : \(I_D=\dfrac{E_{Th}-V_D}{R_{Th}}\) ; le point de fonctionnement est son intersection avec la caractéristique.</li>
+<li><b>Zener régulatrice</b> : en inverse, \(V_D=-V_Z\) tant que \(0\le I_Z\le I_{Z,max}\). Elle régule si \(E\dfrac{R_L}{R+R_L}\ge V_Z\) ; \(I_Z=\dfrac{E-V_Z}{R}-\dfrac{V_Z}{R_L}\).</li>
+</ol></div>
+<h3>Plan de révision en 3 séances</h3>
+<div class="s4-plan">
+<div><b>Séance 1 · Ch2 + TD2</b><ul><li>Bandes, dopage, action de masse, courants de conduction et de diffusion, jonction PN.</li><li>Refaire les exercices 2.3 (Ge/Sb), 2.4 (Si/In), 2.6 (photoconduction) cachés.</li><li>Tu dois écrire de tête \(np=n_i^2\), \(\gamma=e(n\mu_n+p\mu_p)\) et \(V_0\).</li></ul></div>
+<div><b>Séance 2 · Ch3 + TD3 + TD4</b><ul><li>Modèles de diode, état par la tension à vide, droite de charge, redresseurs, écrêteurs.</li><li>Zener : les trois problèmes types (charge, source, dimensionnement de \(R\)).</li><li>Refaire 3.2, 3.6, 4.2, 4.6, 4.8 cachés.</li></ul></div>
+<div><b>Séance 3 · entraînement</b><ul><li>La section Entraînement en temps limité (\(1\) h) puis le <a href="evaluations.html#ds-blanc">sujet blanc du DS</a>.</li><li>Relire Pièges et unités et le Formulaire.</li><li>Calculatrice : puissances de dix, \(\ln\), \(e^x\), racine carrée.</li></ul></div>
+</div>
+<div class="s4-tip"><span class="s4-lbl">Format du DS</span>Exercices à rédiger : la formule littérale et l'application numérique sont notées séparément. Écris toujours la formule avant les chiffres, avec les unités, et vérifie l'ordre de grandeur.</div>
+</section>
+
+<!-- ================= CH2 ================= -->
+<section id="ch2">
+<h2>Ch2 · Semi-conducteurs et jonction PN <span class="s4-tag">amphi Cours 2</span></h2>
+<h3>A. Des atomes aux bandes d'énergie</h3>
+<ul>
+<li><b>Modèle de Bohr</b> : couches \(K,L,M,N\ldots\) de capacité \(2n^2\) électrons. Silicium \(Z=14\) : \((K)^2(L)^8(M)^4\), donc \(4\) électrons de valence et quatre liaisons covalentes (règle de l'octet).</li>
+<li><b>Énergie thermique</b> : \(E_{th}=\tfrac32k_BT\) (trois degrés de liberté de translation), \(k_B=1{,}38\times10^{-23}\) J/K. Température en kelvin : \(T=\theta+273{,}15\).</li>
+<li><b>À \(0\) K</b> : bande de valence pleine, bande de conduction vide, séparées par le gap \(E_g\). Le niveau de Fermi est le plus haut niveau occupé à \(0\) K.</li>
+</ul>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Matériau</th><th>Gap \(E_g\)</th><th>Niveau de Fermi</th><th>Effet de \(T\nearrow\)</th></tr>
+<tr><td data-l="Matériau">Conducteur</td><td data-l="Gap">pas de gap utile</td><td data-l="Fermi">dans la bande de conduction</td><td data-l="Effet de T">\(\gamma\searrow\), \(\rho\nearrow\) (plus de chocs)</td></tr>
+<tr><td data-l="Matériau">Semi-conducteur</td><td data-l="Gap">\(\approx1\) eV</td><td data-l="Fermi">milieu du gap (intrinsèque)</td><td data-l="Effet de T">\(\gamma\nearrow\), \(\rho\searrow\) (plus de porteurs)</td></tr>
+<tr><td data-l="Matériau">Isolant</td><td data-l="Gap">plusieurs eV</td><td data-l="Fermi">dans le gap</td><td data-l="Effet de T">presque rien</td></tr>
+</table></div>
+<ul>
+<li><b>Paires électron-trou</b> : un électron qui franchit le gap laisse un <b>trou</b> (quasi-particule de charge \(+e\)) ; la recombinaison est le chemin inverse. Dans un semi-conducteur intrinsèque \(n=p=n_i\).</li>
+<li><b>Photon</b> : il excite un électron si \(E=h\nu=\dfrac{hc}{\lambda}\ge E_g\). Lumière visible (\(0{,}4\) à \(0{,}8\ \mu\)m) : \(1{,}5\) à \(3{,}1\) eV, supérieure à \(1{,}12\) eV (TD2, ex. 2.2).</li>
+<li><b>Concentration intrinsèque</b> : \(n_i=A\,T^{3/2}e^{-E_g/2k_BT}\), croît très vite avec \(T\) (double tous les \(8\) à \(10^{\circ}\)C pour le silicium).</li>
+</ul>
+<div class="s4-trap"><span class="s4-lbl">Piège</span>Le gap n'est pas la « tension de seuil » : \(E_g=1{,}12\) eV pour le silicium, \(V_S=0{,}7\) V pour la diode. Et \(E_g\) dans l'exponentielle doit être en joules (ou utiliser \(k_B=8{,}62\times10^{-5}\) eV/K).</div>
+<h3>B. Dopage</h3>
+<div class="s4-grid">
+<div class="s4-card"><h4>Type \(N\)</h4><p class="s4-small">Impureté du groupe V (P, As, Sb), \(5\) électrons de valence. Le \(5^e\) est libéré : <b>donneur</b>, qui devient un ion \(+\) fixe. Majoritaires : électrons.</p><div class="mq">\[n\approx N_D\qquad p=\frac{n_i^2}{N_D}\]</div></div>
+<div class="s4-card"><h4>Type \(P\)</h4><p class="s4-small">Impureté du groupe III (B, In, Ga), \(3\) électrons de valence. Elle capte un électron et crée un trou : <b>accepteur</b>, ion \(-\) fixe. Majoritaires : trous.</p><div class="mq">\[p\approx N_A\qquad n=\frac{n_i^2}{N_A}\]</div></div>
+</div>
+<ul>
+<li><b>Hypothèse de dopage fort</b> : \(N_D\gg n_i\) (ou \(N_A\gg n_i\)) et impuretés toutes ionisées. À vérifier avec \(n\gg p\) en fin de calcul.</li>
+<li><b>Dopages successifs</b> : dopage net \(=N_D-N_A\) ; le type est celui du plus fort, et si les deux sont proches il faut garder la différence. Si l'un domine d'un facteur \(\ge10\), on garde le plus fort.</li>
+<li><b>Atomes par cm³</b> : \(\mathcal N_{at}=\dfrac{\rho_v\mathcal N_A}{M}\) (Si : \(\dfrac{2{,}33\times6{,}02\cdot10^{23}}{28{,}1}\approx5\cdot10^{22}\ \mathrm{cm^{-3}}\) ; Ge : \(4{,}4\cdot10^{22}\)).</li>
+<li><b>Dopage « 1 pour \(10^k\) »</b> : \(N_{dop}=\dfrac{\mathcal N_{at}}{10^k}\).</li>
+</ul>
+<h3>C. Courants dans un semi-conducteur</h3>
+<div class="mq">\[j_{cond}=e\,(n\mu_n+p\mu_p)\,E=\gamma E\qquad j_{diff}=e\,D_n\nabla n-e\,D_p\nabla p\qquad j=j_{cond}+j_{diff}\]</div>
+<ul>
+<li><b>Dérive</b> : sous champ, les électrons vont à contre-champ et les trous dans le sens du champ ; les deux courants s'ajoutent.</li>
+<li><b>Diffusion</b> : des zones concentrées vers les zones diluées (loi de Fick). Relation d'Einstein \(\dfrac{D}{\mu}=\dfrac{k_BT}{e}\approx26\) mV.</li>
+<li><b>Mobilités</b> : \(\mu_n>\mu_p\) (Si : \(1\,350\) et \(480\ \mathrm{cm^2/(V\cdot s)}\)). \(\mu\) baisse quand le dopage dépasse \(\approx10^{16}\ \mathrm{cm^{-3}}\) et quand \(T\) augmente.</li>
+<li><b>Photoconduction</b> : sous éclairement stationnaire \(\Delta n=\Delta p=G\,\tau_v\) (génération \(\times\) durée de vie), qui s'ajoutent à \(n\) et \(p\).</li>
+</ul>
+<h3>D. La jonction PN</h3>
+<ul>
+<li><b>À l'équilibre</b> : les majoritaires diffusent et se recombinent ; restent des ions fixes : la <b>zone de charge désertée</b> (ZCD), chargée \(-\) côté \(P\) et \(+\) côté \(N\). Elle crée un champ \(E_d\) et une barrière \(V_0\) qui arrête la diffusion.</li>
+</ul>
+<div class="s4-key"><span class="s4-lbl">À savoir</span><div class="mq">\[V_0=\frac{k_BT}{e}\ln\frac{N_AN_D}{n_i^2}\qquad\frac{k_BT}{e}=25{,}9\ \mathrm{mV}\ (300\ \mathrm K)\]</div><p class="s4-small">\(V_0\) augmente avec \(N_AN_D\), diminue quand \(T\) augmente (\(n_i\nearrow\)). Valeur typique \(0{,}7\) V pour le silicium.</p></div>
+<ul>
+<li><b>Polarisation directe</b> (\(P\) au \(+\)) : la tension appliquée annule la barrière, la ZCD se rétrécit, le courant passe.</li>
+<li><b>Polarisation inverse</b> (\(P\) au \(-\)) : la barrière grandit, la ZCD s'élargit ; il ne reste que le courant de fuite \(I_S\) (porteurs minoritaires, quelques nA, double tous les \(\approx11^{\circ}\)C pour le Si). Au-delà de \(V_{BR}\) : avalanche.</li>
+</ul>
+<div class="s4-key"><span class="s4-lbl">Relation de Shockley</span><div class="mq">\[I_D=I_S\left(e^{U_D/\eta V_T}-1\right)\qquad U_D=\eta V_T\ln\left(\frac{I_D}{I_S}+1\right)\]</div><p class="s4-small">\(\eta\) entre \(1\) et \(2\), \(V_T=\dfrac{k_BT}{e}\). Si \(I_D\) est multiplié par \(10\), \(U_D\) n'augmente que de \(\eta V_T\ln10\approx60\) mV : d'où la « tension de seuil ». À courant constant, \(U_D\) baisse d'environ \(2\) mV/°C.</p></div>
+</section>
+
+<!-- ================= TD2 ================= -->
+<section id="td2">
+<h2>TD2 · Les semi-conducteurs <span class="s4-tag">poly \(p\). 10 à 18</span></h2>
+<p class="s4-sub">Pour chaque exercice : la démarche et le résultat pour te vérifier. Corrigés complets : <a href="corriges.html#td2">page Corrigés</a>.</p>
+<h3>Ex 2.1 et 2.2 · Questions de cours</h3>
+<ul>
+<li><b>Électrons libres dans un métal</b> : le niveau de Fermi est dans la bande de conduction, donc des électrons y sont déjà à \(0\) K.</li>
+<li><b>Silicium à \(T>0\)</b> : oui, quelques électrons franchissent le gap par agitation thermique.</li>
+<li><b>Isolant</b> : le gap est si grand que l'énergie thermique ne permet presque jamais de le franchir.</li>
+<li><b>Photorésistance</b> : un photon visible (\(\ge1{,}5\) eV) dépasse \(E_g=1{,}12\) eV ; la lumière crée des paires, \(n\) et \(p\) augmentent, la résistance baisse.</li>
+</ul>
+<h3>Ex 2.3 · Germanium dopé à l'antimoine</h3>
+<p>Antimoine : colonne 15, donc donneur, type \(N\). Un Sb pour \(10^6\) Ge : \(N_D=\dfrac{4{,}4\times10^{28}}{10^6}=4{,}4\times10^{22}\ \mathrm{m^{-3}}\) et \(n\approx N_D\).</p>
+<div class="mq">\[p=\frac{n_i^2}{n}=\frac{(2{,}4\cdot10^{19})^2}{4{,}4\cdot10^{22}}=1{,}3\cdot10^{16}\ \mathrm{m^{-3}}\ll n\qquad\gamma\approx e\,n\,\mu_n=1{,}6\cdot10^{-19}\times4{,}4\cdot10^{22}\times0{,}40=2{,}8\cdot10^{3}\ \mathrm{S/m}\]</div>
+<p>\(\rho=\dfrac1\gamma=3{,}6\times10^{-4}\ \Omega\cdot\mathrm m\), contre \(0{,}44\ \Omega\cdot\mathrm m\) pour le germanium pur : le dopage divise \(\rho\) par \(\approx1\,200\).</p>
+<h3>Ex 2.4 · Silicium dopé à l'indium</h3>
+<p>Même exercice que le DS 2019-20 (corrigé sur la page <a href="partiel.html#exos">Partiel</a>) : \(\gamma_i=3{,}04\cdot10^{-6}\) S/cm ; In accepteur, type \(P\) ; \(N_A=\dfrac{5{,}2\cdot10^{22}}{10^7}=5{,}2\cdot10^{15}\ \mathrm{cm^{-3}}\) ; \(p\approx5\cdot10^{15}\), \(n=2\cdot10^4\) ; \(\gamma=p\,e\,\mu_p=0{,}36\) S/cm, soit \(\approx10^5\) fois plus.</p>
+<h3>Ex 2.5 · Germanium pur et température</h3>
+<p>\(\mathcal N_{Ge}=\dfrac{5{,}36\times6{,}02\cdot10^{23}}{72{,}6}=4{,}4\cdot10^{22}\ \mathrm{cm^{-3}}\). À \(300\) K : \(n_i=A\,T^{3/2}e^{-E_g/2k_BT}=1{,}44\cdot10^{21}\times300^{3/2}\times e^{-12{,}96}=1{,}8\cdot10^{19}\ \mathrm{m^{-3}}\), soit \(1{,}8\cdot10^{13}\ \mathrm{cm^{-3}}\) : une proportion de \(\approx4\cdot10^{-10}\) d'atomes « ionisés », contre \(1\) électron libre par atome dans un métal.</p>
+<div class="mq">\[\gamma=e\,n_i(\mu_n+\mu_p)=1{,}6\cdot10^{-19}\times1{,}76\cdot10^{13}\times5\,300=1{,}5\cdot10^{-2}\ \mathrm{S/cm}\Rightarrow\rho=67\ \Omega\cdot\mathrm{cm}=0{,}67\ \Omega\cdot\mathrm m\]</div>
+<p>À \(T_1=200^{\circ}\)C \(=473\) K : \(n_i\approx4\cdot10^{15}\ \mathrm{cm^{-3}}\) (\(\times230\)), \(\mu_n=1\,780\), \(\mu_p=520\) (elles <em>baissent</em>), \(\rho\approx0{,}68\ \Omega\cdot\mathrm{cm}\) : \(100\) fois moins résistif. \(n_i\) l'emporte sur la baisse des mobilités.</p>
+<h3>Ex 2.6 · Photoconduction dans du silicium dopé \(N\)</h3>
+<p>Dopé à \(N_D=5\cdot10^{14}\ \mathrm{cm^{-3}}=5\cdot10^{20}\ \mathrm{m^{-3}}\) : \(\gamma\approx e\,N_D\,\mu_n=1{,}6\cdot10^{-19}\times5\cdot10^{20}\times0{,}13=10{,}4\) S/m, \(\rho=0{,}096\ \Omega\cdot\mathrm m\). Éclairé : \(\Delta n=\Delta p=G\tau_v=5\cdot10^{22}\times10^{-6}=5\cdot10^{16}\ \mathrm{cm^{-3}}\), bien supérieur à \(N_D\).</p>
+<div class="mq">\[n=5{,}05\cdot10^{22}\ \mathrm{m^{-3}}\quad p\approx5\cdot10^{22}\ \mathrm{m^{-3}}\quad\gamma=e\,(n\mu_n+p\mu_p)=1{,}6\cdot10^{-19}\times(6{,}6+2{,}4)\cdot10^{21}=1{,}4\cdot10^{3}\ \mathrm{S/m}\]</div>
+<p>\(\rho=0{,}70\) m\(\Omega\cdot\)m : la conductivité est multipliée par \(\approx140\). <b>Les trous créés comptent</b> : ici ils pèsent presque autant que les électrons.</p>
+<h3>Ex 2.7 · Mobilité dans l'aluminium</h3>
+<p>\(n=3\times\dfrac{2{,}7\times6{,}02\cdot10^{23}}{26{,}98}=1{,}8\cdot10^{23}\ \mathrm{cm^{-3}}=1{,}8\cdot10^{29}\ \mathrm{m^{-3}}\) (3 électrons libres par atome), \(\gamma=\dfrac{1}{2{,}65\cdot10^{-8}}=3{,}8\cdot10^{7}\) S/m, donc \(\mu=\dfrac{\gamma}{ne}=1{,}3\cdot10^{-3}\ \mathrm{m^2/(V\cdot s)}=13\ \mathrm{cm^2/(V\cdot s)}\).</p>
+<h3>Ex 2.8 · Plaquette à dopages multiples</h3>
+<p>On calcule le dopage <b>net</b> de chaque zone, puis \(n\) et \(p\) avec \(n_i=8{,}3\cdot10^9\ \mathrm{cm^{-3}}\) :</p>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Zone</th><th>Dopage net</th><th>Type</th><th>Majoritaires</th><th>Minoritaires</th></tr>
+<tr><td data-l="Zone">1 (plaquette)</td><td data-l="Dopage net">\(N_A=10^{13}\)</td><td data-l="Type">\(P\)</td><td data-l="Majoritaires">\(p=10^{13}\)</td><td data-l="Minoritaires">\(n=6{,}9\cdot10^{6}\)</td></tr>
+<tr><td data-l="Zone">2 (caisson)</td><td data-l="Dopage net">\(N_D-N_A\approx10^{15}\)</td><td data-l="Type">\(N\)</td><td data-l="Majoritaires">\(n\approx10^{15}\)</td><td data-l="Minoritaires">\(p=7\cdot10^{4}\)</td></tr>
+<tr><td data-l="Zone">3 (dans le caisson)</td><td data-l="Dopage net">\(N_A-N_D\approx10^{17}\)</td><td data-l="Type">\(P\)</td><td data-l="Majoritaires">\(p\approx10^{17}\)</td><td data-l="Minoritaires">\(n=6{,}9\cdot10^{2}\)</td></tr>
+<tr><td data-l="Zone">4 (dans la plaquette)</td><td data-l="Dopage net">\(\approx10^{17}\)</td><td data-l="Type">\(P\)</td><td data-l="Majoritaires">\(p\approx10^{17}\)</td><td data-l="Minoritaires">\(n=6{,}9\cdot10^{2}\)</td></tr>
+</table></div>
+<p>Concentrations en \(\mathrm{cm^{-3}}\). Résistivité de chaque zone : \(\rho=\dfrac{1}{e\,N\,\mu}\) avec \(\mu\) lue sur la courbe au dopage total.</p>
+<h3>Ex 2.9 · Si le silicium était un métal</h3>
+<p>Un électron libre par atome : \(n=\dfrac{2{,}33\times6{,}02\cdot10^{23}}{28{,}086}=5{,}0\cdot10^{22}\ \mathrm{cm^{-3}}\), contre \(\approx10^{10}\) réellement : \(\approx5\cdot10^{12}\) fois plus.</p>
+</section>
+
+<!-- ================= CH3 ================= -->
+<section id="ch3">
+<h2>Ch3 · La diode <span class="s4-tag">amphi Cours 3</span></h2>
+<h3>A. Caractéristique et modèles</h3>
+<p>La diode est une jonction PN encapsulée : dipôle <b>polarisé</b>, <b>non linéaire</b>, qui conduit de l'anode vers la cathode. Trois zones : passante, bloquée, claquage.</p>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Modèle</th><th>Diode passante</th><th>Diode bloquée</th><th>Usage</th></tr>
+<tr><td data-l="Modèle">Idéal</td><td data-l="Passante">\(V_D=0\), interrupteur fermé</td><td data-l="Bloquée">\(I_D=0\)</td><td data-l="Usage">comprendre vite</td></tr>
+<tr><td data-l="Modèle">Parfait</td><td data-l="Passante">\(V_D=V_S\)</td><td data-l="Bloquée">\(I_D=0\)</td><td data-l="Usage">le plus utilisé</td></tr>
+<tr><td data-l="Modèle">Réel</td><td data-l="Passante">\(V_D=V_S+r\,I_D\)</td><td data-l="Bloquée">\(I_D=0\)</td><td data-l="Usage">quand \(r\) est donnée</td></tr>
+</table></div>
+<p>Seuils : \(V_S=0{,}7\) V (Si), \(0{,}3\) V (Ge), \(0{,}15\) à \(0{,}45\) V (Schottky), \(1{,}8\) à \(3\) V (LED).</p>
+<h3>B. Résistances statique et dynamique</h3>
+<div class="mq">\[R_{stat}=\frac{V_D}{I_D}\qquad r_d=\frac{\mathrm dV_D}{\mathrm dI_D}=\frac{\eta V_T}{I_D}\qquad P_D=V_D\,I_D\]</div>
+<p class="s4-small">Statique : en un point \(Q\). Dynamique : inverse de la pente de la caractéristique. Une courbe plus raide a des résistances plus faibles.</p>
+<h3>C. Méthode : état d'une diode et point de fonctionnement</h3>
+<div class="s4-must"><ol>
+<li><b>Retirer la diode</b> et calculer la tension à vide \(E_{Th}\) entre ses bornes (Thévenin), avec \(R_{Th}\).</li>
+<li>Si \(E_{Th}>V_S\) : diode <b>passante</b>. Sinon bloquée, \(I_D=0\).</li>
+<li>Passante : \(I_D=\dfrac{E_{Th}-V_S}{R_{Th}+r}\), puis \(V_D=V_S+rI_D\).</li>
+<li><b>Vérifier</b> : \(I_D>0\) (passante) ou \(V_D<V_S\) (bloquée). Sinon changer d'hypothèse.</li>
+<li>Plusieurs diodes : tester une combinaison d'états et vérifier chaque courant et chaque tension.</li>
+</ol></div>
+<figure class="s4-fig">
+<svg aria-label="Droite de charge de pente négative coupant la caractéristique verticale de la diode en Q" role="img" viewbox="0 0 470 250">
+<path class="w" d="M60 210 H430 M60 210 V30"></path>
+<text class="t" x="438" y="214">u_d</text><text class="t" x="40" y="26">i_d</text>
+<path class="cur" d="M60 60 L360 210"></path>
+<path class="w" d="M102 210 V40"></path>
+<circle class="dot" cx="102" cy="81" r="5"></circle>
+<text class="tn" x="112" y="76">Q</text>
+<text class="t" x="66" y="52">E_Th/R_Th</text><text class="t" x="340" y="232">E_Th</text><text class="t" x="94" y="230">V_S</text>
+<text class="t" x="230" y="120">droite de charge</text>
+</svg>
+<figcaption>Droite de charge \(i_d=\dfrac{E_{Th}-u_d}{R_{Th}}\) (points \(\dfrac{E_{Th}}{R_{Th}}\) et \(E_{Th}\)) et diode parfaite (verticale en \(V_S\)). Le point \(Q\) est leur intersection.</figcaption>
+</figure>
+<h3>D. Applications</h3>
+<div class="s4-grid">
+<div class="s4-card"><h4>Redressement</h4><div class="mq">\[V_{max}=V_m-V_S\ \ (1\ \text{alt.})\qquad V_m-2V_S\ \ (\text{pont})\]</div><p class="s4-small">Simple alternance : fréquence \(f\), moyenne \(\dfrac{V_m}{\pi}\). Pont de Graëtz : \(2f\), moyenne \(\dfrac{2V_m}{\pi}\), deux diodes en série à chaque alternance (\(d_1,d_2\) puis \(d_3,d_4\)). Lissage : \(\Delta V\approx\dfrac{I}{fC}\) (\(\dfrac{I}{2fC}\) en double alternance).</p></div>
+<div class="s4-card"><h4>Écrêteur</h4><div class="mq">\[s_{max}=E_0+V_S\]</div><p class="s4-small">Diode (anode vers la sortie) en série avec une pile \(E_0\) : elle conduit dès que \(s\ge E_0+V_S\). Raisonner alternance par alternance : quelles diodes conduisent ?</p></div>
+<div class="s4-card"><h4>DC</h4><p class="s4-small"><b>Protection</b> contre l'inversion de polarité. <b>Capteur de température</b> : \(V_D\) baisse de \(\approx2\) mV/°C. <b>LED</b> : \(R=\dfrac{V_{alim}-V_{LED}}{I_{LED}}\). <b>Roue libre</b> : en inverse sur une bobine, évite la surtension \(u_L=L\dfrac{\mathrm di}{\mathrm dt}\).</p></div>
+<div class="s4-card"><h4>Alimentation AC \(\to\) DC</h4><p class="s4-small">Transformateur (\(\dfrac{V_2}{V_1}=\dfrac{N_2}{N_1}\)) \(\to\) pont de Graëtz \(\to\) condensateur de lissage (charge rapide, décharge lente \(\tau=R_LC\)) \(\to\) régulateur (Zener ou CI).</p></div>
+</div>
+<h3>E. La diode Zener</h3>
+<p>Utilisée en <b>inverse</b> dans sa zone Zener : caractéristique quasi verticale, donc \(V_D\approx-V_Z\) quasi constante malgré les variations de courant. En direct elle se comporte comme une diode ordinaire. Modèle réel : \(V_D=-(V_Z+r_ZI_Z)\). On la place toujours avec une résistance série \(R\).</p>
+<figure class="s4-fig">
+<svg aria-label="Tension de sortie du régulateur en fonction de E : droite de pente un demi puis palier à V_Z" role="img" viewbox="0 0 470 250">
+<path class="w" d="M60 210 H430 M60 210 V30"></path>
+<text class="t" x="438" y="214">E</text><text class="t" x="40" y="26">u_L</text>
+<path class="cur" d="M60 210 L194 98 H420"></path>
+<path class="w" d="M194 98 V210"></path>
+<text class="t" x="22" y="102">V_Z</text><text class="t" x="168" y="230">E_min</text>
+<text class="t" x="90" y="170">pente R_L/(R+R_L)</text><text class="t" x="260" y="88">régulation : u_L = V_Z</text>
+</svg>
+<figcaption>Caractéristique de transfert d'un régulateur Zener : tant que \(E<E_{min}\), la Zener est bloquée et \(u_L=E\dfrac{R_L}{R+R_L}\) ; ensuite \(u_L=V_Z\) (TD4, ex. 4.3).</figcaption>
+</figure>
+<div class="s4-key"><span class="s4-lbl">Les formules du régulateur</span><div class="mq">\[E_{min}=V_Z\frac{R+R_L}{R_L}\qquad I_Z=\frac{E-V_Z}{R}-\frac{V_Z}{R_L}\qquad R_{L,min}=\frac{V_Z\,R}{E-V_Z}\]</div><div class="mq">\[u=\frac{\frac{r_Z}{R}E+V_Z}{1+r_Z\frac{R+R_L}{R\,R_L}}\qquad\Delta u\approx\frac{r_Z\parallel R_L}{R+r_Z\parallel R_L}\,\Delta E\]</div></div>
+<div class="s4-grid">
+<div class="s4-card"><h4>Charge variable (E fixe)</h4><p class="s4-small">\(I_L\) varie. \(I_Z=I_R-I_L\) avec \(I_R=\dfrac{E-V_Z}{R}\) fixe. \(I_Z\ge0\) donne \(R_{L,min}\) ; \(I_Z\le I_{Z,max}\) donne \(R_{L,max}\) (charge ouverte : \(I_Z=I_R\), attention à \(I_{Z,max}\)).</p></div>
+<div class="s4-card"><h4>Source variable (charge fixe)</h4><p class="s4-small">\(I_L=\dfrac{V_Z}{R_L}\) fixe. \(I_R\) varie de \(I_L\) (\(I_Z=0\)) à \(I_L+I_{Z,max}\), d'où \(E_{min}\) et \(E_{max}\) : \(E=V_Z+R\,I_R\).</p></div>
+<div class="s4-card"><h4>Dimensionner \(R\)</h4><p class="s4-small">Pires cas : \(R\le\dfrac{E_{min}-V_Z}{I_{Z,min}+I_{L,max}}\) et \(R\ge\dfrac{E_{max}-V_Z}{I_{Z,max}+I_{L,min}}\). Si \(R_{max}<R_{min}\), le cahier des charges est impossible.</p></div>
+</div>
+<h3>F. Les autres diodes</h3>
+<ul>
+<li><b>Schottky</b> : métal et semi-conducteur (généralement \(N\)), seuil \(0{,}15\) à \(0{,}45\) V, commutation rapide, hautes fréquences.</li>
+<li><b>Varicap</b> : capacité variable avec la tension inverse (récepteurs radio). <b>LED</b> : la recombinaison émet un photon, \(V_S\) dépend de la couleur.</li>
+<li><b>Datasheet</b> (1N4148) : \(I_R\) courant inverse, \(V_{RRM}\) tension inverse de pointe répétitive, \(V_R\) tension inverse nominale, \(V_{BR}\) tension de claquage.</li>
+</ul>
+</section>
+
+<!-- ================= TD3 ================= -->
+<section id="td3">
+<h2>TD3 · La diode à jonction PN <span class="s4-tag">poly \(p\). 19 à 32</span></h2>
+<p class="s4-sub">Corrigés complets : <a href="corriges.html#td3">page Corrigés</a>.</p>
+<h3>Ex 3.2 · Diode en sortie d'un pont diviseur</h3>
+<p>\(E=10\) V, \(R_1=100\ \Omega\), \(R_2=40\ \Omega\), diode (parfaite, \(0{,}7\) V) en parallèle sur \(R_2\). Sans la diode : \(V_A=10\times\dfrac{40}{140}=2{,}86\) V \(>0{,}7\) V : passante.</p>
+<div class="mq">\[E_{Th}=2{,}86\ \mathrm V\quad R_{Th}=28{,}6\ \Omega\quad i=\frac{E_{Th}-V_S}{R_{Th}}=\frac{2{,}86-0{,}7}{28{,}6}=75{,}5\ \mathrm{mA}\]</div>
+<p>Vérification par les nœuds : \(\dfrac{10-0{,}7}{100}-\dfrac{0{,}7}{40}=93-17{,}5=75{,}5\) mA. (Le poly prend \(E=5\) V dans une application numérique et trouve \(26\) mA : erreur.)</p>
+<h3>Ex 3.3 · Allumage d'une LED</h3>
+<p>\(E=5\) V, modèle réel \(V_S=0{,}7\) V et \(r_d=10\ \Omega\), \(I=20\) mA : \(R=\dfrac{E-V_S}{I}-r_d=\dfrac{4{,}3}{0{,}02}-10=205\ \Omega\) (on prend \(220\ \Omega\) en série E12).</p>
+<h3>Ex 3.4 · Écrêteur à deux diodes</h3>
+<p>Diodes idéales, \(u_e=15\cos\omega t\) : \(D_1\) conduit quand la sortie dépasse \(E_1=10\) V, \(D_2\) quand elle descend sous \(-E_2=-5\) V. Donc \(u_s=u_e\) entre \(-5\) V et \(+10\) V, et \(u_s=10\) V ou \(-5\) V ailleurs : crêtes positives limitées à \(10\) V, négatives à \(-5\) V.</p>
+<h3>Ex 3.5 · Deux diodes en parallèle (graphique)</h3>
+<p>Même tension \(V_D\) : on <b>additionne les courants</b> des deux caractéristiques pour tracer \(i(V_D)\) de l'ensemble, puis on cherche l'intersection avec la droite de charge \(i=\dfrac{E-V_D}{R}\) (\(E=2\) V, \(R=200\ \Omega\)). On lit \(V_D\), puis \(i_1\) et \(i_2\) sur chaque courbe.</p>
+<h3>Ex 3.6 · Quatre circuits « presque simples »</h3>
+<p>Diodes parfaites au silicium (\(0{,}7\) V). Toujours : on suppose l'état, on calcule, on vérifie.</p>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Circuit</th><th>Idée</th><th>\(i\)</th><th>\(S\)</th></tr>
+<tr><td data-l="Circuit">(a) \(5\) V, \(D_1\), \(D_2\) en série, \(1\ \mathrm{k\Omega}\)</td><td data-l="Idée">deux chutes de \(0{,}7\) V</td><td data-l="i">\(\dfrac{5-1{,}4}{1\,000}=3{,}6\) mA</td><td data-l="S">\(3{,}6\) V</td></tr>
+<tr><td data-l="Circuit">(b) \(10\) V, \(4\ \mathrm{k\Omega}\), \(D\), \(3\ \mathrm{k\Omega}\) vers \(-5\) V</td><td data-l="Idée">tension totale \(10+5\)</td><td data-l="i">\(\dfrac{10-0{,}7+5}{7\,000}=2{,}04\) mA</td><td data-l="S">\(3\ \mathrm k\times2{,}04\ \mathrm{mA}=6{,}1\) V</td></tr>
+<tr><td data-l="Circuit">(c) \(10\) V, \(1\ \mathrm{k\Omega}\), \(D_1\parallel D_2\)</td><td data-l="Idée">diodes imposent \(0{,}7\) V</td><td data-l="i">\(\dfrac{10-0{,}7}{1\,000}=9{,}3\) mA</td><td data-l="S">\(0{,}7\) V</td></tr>
+<tr><td data-l="Circuit">(d) \(2\) V via \(D_1\), \(4\) V via \(D_2\), \(1\ \mathrm{k\Omega}\) vers \(-1\) V</td><td data-l="Idée">seule la source la plus haute conduit</td><td data-l="i">\(\dfrac{(4-0{,}7)+1}{1\,000}=4{,}3\) mA</td><td data-l="S">\(4{,}3\) V</td></tr>
+</table></div>
+<p class="s4-small">(d) : \(D_2\) impose \(V_A=3{,}3\) V ; pour \(D_1\), \(2-V_A<0{,}7\) donc \(D_1\) est bloquée.</p>
+<h3>Ex 3.7 · Redresseur « de précision » à AOP</h3>
+<p>Diode bloquée : \(V_A=-V_{SAT}\) (l'AOP sature, boucle ouverte), \(u_s=0\), \(V^-=0\) ; elle le reste tant que \(u_e<0\) (alors \(V^+<V^-\)). Diode passante : boucle fermée, régime linéaire, \(V^-=V^+=u_e\) donc \(u_s=u_e\), possible si \(u_e>0\). Résultat : \(u_s=u_e\) pour \(u_e>0\), \(0\) sinon, <b>sans perte de \(0{,}7\) V</b> : l'AOP compense le seuil de la diode.</p>
+<h3>Ex 3.8 · Synthétiser une caractéristique par morceaux</h3>
+<p>Chaque branche (diode + \(R_k\) + \(E_k\)) s'allume à \(E=E_k\) et ajoute une pente \(\dfrac1{R_k}\). Pentes des segments : \(1\), \(3\), \(5\), \(16\) mA/V. Donc :</p>
+<div class="mq">\[E_k=0;1;2;3\ \mathrm V\qquad\frac{1}{R_1}=1\ \mathrm{mS},\ \frac{1}{R_2}=2,\ \frac{1}{R_3}=2,\ \frac{1}{R_4}=11\ \mathrm{mS}\Rightarrow R_k=1\ \mathrm k\Omega;\ 500\ \Omega;\ 500\ \Omega;\ 91\ \Omega\]</div>
+<p>Contrôle en \(E=4\) V : \(4+3\times2+2\times2+1\times11=25\) mA.</p>
+<h3>Ex 3.9 · Écrêteur mixte</h3>
+<p>Même méthode que l'écrêteur : repérer à quelle tension chaque diode conduit (en tenant compte des sources en série), puis tracer \(u_s(t)\) morceau par morceau.</p>
+</section>
+
+<!-- ================= TD4 ================= -->
+<section id="td4">
+<h2>TD4 · La diode Zener <span class="s4-tag">poly \(p\). 33 à 42</span></h2>
+<p class="s4-sub">Corrigés complets : <a href="corriges.html#td4">page Corrigés</a>.</p>
+<h3>Ex 4.2 · Stabilisateur : régulation aval puis amont</h3>
+<p>\(R=100\ \Omega\), \(V_Z=6{,}2\) V, \(I_{Z,max}=100\) mA, \(I_{Z,min}=0\).</p>
+<p><b>Régulation aval</b> (\(E=24\) V fixe, \(R_L\) varie) : \(I_R=\dfrac{24-6{,}2}{100}=178\) mA. \(0\le I_Z\le100\) mA impose \(78\le I_L\le178\) mA, donc</p>
+<div class="mq">\[R_{L,min}=\frac{6{,}2}{0{,}178}=35\ \Omega\qquad R_{L,max}=\frac{6{,}2}{0{,}078}=79\ \Omega\]</div>
+<p><b>Régulation amont</b> (\(R_L=220\ \Omega\), \(E\) varie) : \(I_L=\dfrac{6{,}2}{220}=28{,}2\) mA ; \(I_R\) de \(28{,}2\) à \(128{,}2\) mA, donc \(E=V_Z+RI_R\) de \(9{,}0\) à \(19{,}0\) V. <b>Charge déconnectée</b> avec \(E=24\) V : \(I_Z=178\) mA \(>100\) mA, la Zener est détruite.</p>
+<h3>Ex 4.3 · Caractéristique de transfert</h3>
+<p>\(R=R_L=100\ \Omega\), \(V_Z=5{,}6\) V : \(E_{min}=5{,}6\times\dfrac{200}{100}=11{,}2\) V. Avant, \(u_L=\dfrac E2\) (diviseur) ; après, \(u_L=5{,}6\) V. Courbe : droite de pente \(\tfrac12\) puis palier (voir la figure du Ch3).</p>
+<h3>Ex 4.4 · Courant dans un régulateur à \(E\) variable</h3>
+<p>\(R=820\ \Omega\), \(V_Z=10\) V, \(E\) de \(20\) à \(40\) V, à vide. Zener idéale : \(I_{Z,min}=\dfrac{20-10}{820}=12{,}2\) mA, \(I_{Z,max}=\dfrac{40-10}{820}=36{,}6\) mA. Avec \(r_Z=7\ \Omega\) : \(I_Z=\dfrac{E-V_Z}{R+r_Z}\) donne \(12{,}1\) et \(36{,}3\) mA : \(r_Z\) change peu les courants.</p>
+<h3>Ex 4.5 · Diode classique et Zener (deux états)</h3>
+<p>\(u_e=\pm10\) V, \(D_1\) Zener (\(0{,}6\) V direct, \(3{,}2\) V inverse), \(R_1\), puis \(R_2\) en parallèle avec \(D_2\) (\(0{,}6\) V), on veut \(|i|=10\) mA dans les deux cas. Une équation par état :</p>
+<div class="mq">\[+10\ \mathrm V:\ \frac{10-0{,}6}{R_1+R_2}=10\ \mathrm{mA}\Rightarrow R_1+R_2=940\ \Omega\qquad-10\ \mathrm V:\ \frac{10-3{,}2-0{,}6}{R_1}=10\ \mathrm{mA}\Rightarrow R_1=620\ \Omega\]</div>
+<p>D'où \(R_1=620\ \Omega\) et \(R_2=320\ \Omega\). (Même structure que DS 2022-23 Q19-20.)</p>
+<h3>Ex 4.6 · Régulation d'une tension redressée</h3>
+<p>\(V_Z=45\) V, \(R_L=1{,}8\ \mathrm{k\Omega}\), \(E\) de \(40\) à \(60\) V. À \(E=40\) V la Zener est bloquée : \(i=\dfrac{40}{R+1\,800}=20\) mA donc \(R=200\ \Omega\). Régulation à partir de \(E\dfrac{R_L}{R+R_L}=45\), soit \(E=45\times\dfrac{2\,000}{1\,800}=50\) V. Avant, \(u_s=0{,}9\,E\) ; après, \(45\) V. À \(E=60\) V : \(I_R=\dfrac{60-45}{200}=75\) mA, \(I_L=25\) mA, \(I_Z=50\) mA.</p>
+<h3>Ex 4.7 · Deux Zener en série</h3>
+<p>Tensions qui s'ajoutent : \(V_Z=15+15=30\) V. \(E=45\) V, \(R_L=100\ \Omega\) : \(I_L=0{,}3\) A. \(0\le I_Z\le0{,}2\) A donne \(0{,}3\le I_R\le0{,}5\) A, donc \(R=\dfrac{45-30}{I_R}\) entre \(30\) et \(50\ \Omega\).</p>
+<h3>Ex 4.8 · Régulateur \(18\) V pour \(E\) de \(22\) à \(28\) V</h3>
+<p>\(R_L=18\ \Omega\), \(I_L=1\) A, \(I_Z\) entre \(0{,}2\) et \(2\) A. Pires cas :</p>
+<div class="mq">\[R_{max}=\frac{22-18}{0{,}2+1}=3{,}33\ \Omega\qquad R_{min}=\frac{28-18}{2+1}=3{,}33\ \Omega\]</div>
+<p>Une seule valeur \(R=3{,}33\ \Omega\), aucune marge : cahier des charges à la limite (et \(30\) W dans \(R\) : en pratique un transistor ballast).</p>
+<h3>Ex 4.9 · Tension de sortie et courant Zener</h3>
+<p>\(E=120\) V, \(R=5\ \mathrm{k\Omega}\), \(V_Z=50\) V, \(R_L=10\ \mathrm{k\Omega}\). À vide : \(120\times\dfrac{10}{15}=80\) V \(>50\) V : la Zener conduit, \(u=50\) V. \(I_R=\dfrac{120-50}{5\,000}=14\) mA, \(I_L=5\) mA, \(I_Z=9\) mA.</p>
+<h3>Ex 4.1 · Zener en régime alternatif</h3>
+<p>Raisonner par alternance avec le bon modèle : en direct la Zener est une diode (\(V_S\)), en inverse elle impose \(V_Z\) dès que la tension à vide dépasse \(V_Z\), sinon elle est bloquée (\(I=0\)).</p>
+</section>
+
+<!-- ================= PIÈGES ================= -->
+<section id="pieges">
+<h2>Pièges et unités</h2>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Piège</th><th>Ce qu'il faut faire</th></tr>
+<tr><td data-l="Piège">Mélanger cm et m</td><td data-l="À faire">\(n\) en \(\mathrm{cm^{-3}}\) et \(\mu\) en \(\mathrm{cm^2/Vs}\) donnent \(\gamma\) en S/cm. \(1\ \mathrm{S/cm}=100\ \mathrm{S/m}\) ; \(1\ \Omega\cdot\mathrm{cm}=10^{-2}\ \Omega\cdot\mathrm m\) ; \(1\ \mathrm{cm^{-3}}=10^{6}\ \mathrm{m^{-3}}\).</td></tr>
+<tr><td data-l="Piège">Oublier un type de porteur</td><td data-l="À faire">Dopé : un terme domine. Intrinsèque ou éclairé : garder \(n\mu_n+p\mu_p\).</td></tr>
+<tr><td data-l="Piège">Germanium ou silicium</td><td data-l="À faire">Relire le matériau : \(0{,}3\) V ou \(0{,}7\) V change le sens d'une comparaison.</td></tr>
+<tr><td data-l="Piège">Appliquer le diviseur avec la diode</td><td data-l="À faire">Retirer d'abord la diode (Thévenin), décider de l'état, puis calculer.</td></tr>
+<tr><td data-l="Piège">Oublier la chute du pont</td><td data-l="À faire">Graëtz : deux diodes en série, \(V_m-2V_S\). Fréquence \(\times2\).</td></tr>
+<tr><td data-l="Piège">Zener : confondre \(I_Z\) et \(I_R\)</td><td data-l="À faire">\(I_R=I_Z+I_L\). Charge ouverte : \(I_Z=I_R\), souvent le pire cas pour la Zener.</td></tr>
+<tr><td data-l="Piège">Condition de régulation</td><td data-l="À faire">Tension <i>à vide</i> \(E\frac{R_L}{R+R_L}\ge V_Z\), pas \(E\ge V_Z\).</td></tr>
+<tr><td data-l="Piège">Deux états, une équation</td><td data-l="À faire">Un circuit à deux états (alternance \(\pm\)) donne deux équations : une par état.</td></tr>
+<tr><td data-l="Piège">\(kT/e\) : \(26\) ou \(25{,}9\) mV</td><td data-l="À faire">\(\approx26\) mV à \(300\) K (\(25\) mV à \(20^{\circ}\)C) ; utiliser la valeur de l'énoncé.</td></tr>
+</table></div>
+</section>
+
+<!-- ================= ENTRAINEMENT ================= -->
+<section id="entrainement">
+<h2>Entraînement</h2>
+<p class="s4-sub">Questions de type évaluation, nouvelles valeurs. Cherche d'abord, puis ouvre la correction.</p>
+<details><summary><span class="s4-q">\(Q_{1}\,\cdot\) cours</span>Pourquoi la conductivité d'un semi-conducteur augmente-t-elle avec la température, alors que celle d'un métal diminue ?</summary><div class="s4-ans">
+<p>Métal : le nombre d'électrons libres est fixe ; l'agitation thermique multiplie les chocs, \(\tau\) et \(\mu\) baissent, \(\gamma\) baisse. Semi-conducteur : l'énergie thermique fait franchir le gap à de plus en plus d'électrons (\(n_i\propto T^{3/2}e^{-E_g/2k_BT}\)) ; l'augmentation de \(n\) et \(p\) l'emporte largement sur la baisse des mobilités, donc \(\gamma\) augmente.</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{2}\,\cdot\) dopage</span>Du silicium (\(n_i=1{,}5\cdot10^{10}\ \mathrm{cm^{-3}}\), \(\mathcal N_{at}=5\cdot10^{22}\ \mathrm{cm^{-3}}\), \(\mu_p=480\ \mathrm{cm^2/Vs}\)) est dopé au bore à raison d'un atome pour \(2\cdot10^{6}\) atomes de silicium. Type, \(p\), \(n\), \(\gamma\), \(\rho\) ?</summary><div class="s4-ans">
+<p>Bore, colonne 13 : accepteur, type \(P\). \(N_A=\dfrac{5\cdot10^{22}}{2\cdot10^{6}}=2{,}5\cdot10^{16}\ \mathrm{cm^{-3}}\) ; \(p\approx2{,}5\cdot10^{16}\ \mathrm{cm^{-3}}\) ; \(n=\dfrac{n_i^2}{p}=\dfrac{2{,}25\cdot10^{20}}{2{,}5\cdot10^{16}}=9\cdot10^{3}\ \mathrm{cm^{-3}}\).</p>
+<div class="mq">\[\gamma\approx e\,p\,\mu_p=1{,}6\cdot10^{-19}\times2{,}5\cdot10^{16}\times480=1{,}9\ \mathrm{S/cm}\quad\rho=0{,}52\ \Omega\cdot\mathrm{cm}\]</div>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{3}\,\cdot\) jonction</span>Jonction PN au silicium, \(N_A=10^{17}\ \mathrm{cm^{-3}}\), \(N_D=10^{15}\ \mathrm{cm^{-3}}\), \(n_i=1{,}5\cdot10^{10}\ \mathrm{cm^{-3}}\), \(k_BT/e=25{,}9\) mV. Calculer \(V_0\). Que devient \(V_0\) si \(N_D\) passe à \(10^{17}\) ?</summary><div class="s4-ans">
+<div class="mq">\[V_0=0{,}0259\times\ln\frac{10^{17}\times10^{15}}{2{,}25\cdot10^{20}}=0{,}0259\times26{,}8=0{,}69\ \mathrm V\]</div>
+<p>Avec \(N_D=10^{17}\) : \(0{,}0259\times\ln\dfrac{10^{34}}{2{,}25\cdot10^{20}}=0{,}0259\times31{,}4=0{,}81\) V : \(V_0\) augmente avec \(N_AN_D\), mais lentement (logarithme).</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{4}\,\cdot\) Shockley</span>Diode \(I_S=10^{-13}\) A, \(\eta=1\), \(V_T=25{,}9\) mV. Tension pour \(I_D=1\) mA, puis pour \(10\) mA ? Que vaut la différence ?</summary><div class="s4-ans">
+<p>\(U_D=V_T\ln\dfrac{I_D}{I_S}\) : \(1\) mA : \(0{,}0259\times\ln(10^{10})=0{,}596\) V ; \(10\) mA : \(0{,}0259\times\ln(10^{11})=0{,}656\) V. Différence \(V_T\ln10=60\) mV par décade de courant.</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{5}\,\cdot\) état d'une diode</span>\(E=6\) V, \(R_1=1\ \mathrm{k\Omega}\) vers un nœud \(A\), \(R_2=2\ \mathrm{k\Omega}\) de \(A\) à la masse, diode au silicium (\(0{,}7\) V, \(r=0\)) de \(A\) à la masse. État de la diode et courants ?</summary><div class="s4-ans">
+<p>Sans diode : \(V_A=6\times\dfrac{2}{3}=4\) V \(>0{,}7\) V : passante. \(E_{Th}=4\) V, \(R_{Th}=\dfrac{1\times2}{3}=0{,}667\ \mathrm{k\Omega}\), \(i_D=\dfrac{4-0{,}7}{667}=4{,}95\) mA. Vérification : \(\dfrac{6-0{,}7}{1\,000}-\dfrac{0{,}7}{2\,000}=5{,}3-0{,}35=4{,}95\) mA.</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{6}\,\cdot\) LED</span>Une LED rouge (\(V_{LED}=2\) V à \(15\) mA) est alimentée en \(9\) V. Quelle résistance en série ? Puissance dans la résistance ?</summary><div class="s4-ans">
+<p>\(R=\dfrac{9-2}{0{,}015}=467\ \Omega\) (on prend \(470\ \Omega\)). \(P=R\,I^2=470\times(0{,}015)^2=0{,}106\) W : une résistance \(\tfrac14\) W convient.</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{7}\,\cdot\) redressement</span>Un transformateur délivre \(12\) V crête à \(50\) Hz sur un pont de Graëtz (diodes au silicium). Tension de crête redressée, fréquence, valeur moyenne approchée ?</summary><div class="s4-ans">
+<p>\(V_{max}=12-2\times0{,}7=10{,}6\) V ; fréquence \(100\) Hz ; moyenne \(\dfrac{2V_{max}}{\pi}=\dfrac{2\times10{,}6}{\pi}=6{,}7\) V.</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{8}\,\cdot\) écrêteur</span>\(e=8\sin\omega t\), résistance série \(1\ \mathrm{k\Omega}\), puis une diode (anode vers la sortie) en série avec une pile \(2\) V (\(+\) côté cathode), diode au silicium. Plafond de \(s\), courant maximal ?</summary><div class="s4-ans">
+<p>\(s_{max}=E_0+V_S=2{,}7\) V ; \(I_{max}=\dfrac{8-2{,}7}{1\,000}=5{,}3\) mA. L'alternance négative passe intacte (jusqu'à \(-8\) V).</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{9}\,\cdot\) Zener, charge</span>\(E=15\) V, \(R=150\ \Omega\), Zener \(V_Z=9{,}1\) V, \(I_{Z,max}=50\) mA. Calculer \(R_{L,min}\). Que se passe-t-il à vide ?</summary><div class="s4-ans">
+<div class="mq">\[R_{L,min}=\frac{V_ZR}{E-V_Z}=\frac{9{,}1\times150}{5{,}9}=231\ \Omega\qquad I_R=\frac{15-9{,}1}{150}=39{,}3\ \mathrm{mA}\]</div>
+<p>À vide \(I_Z=I_R=39{,}3\) mA \(<50\) mA : la Zener survit, il n'y a pas de limite supérieure pour \(R_L\).</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{10}\,\cdot\) dimensionner \(R\)</span>Zener \(V_Z=5{,}1\) V, charge \(R_L=100\ \Omega\), \(E\) entre \(9\) et \(12\) V, \(I_Z\) doit rester entre \(2\) et \(60\) mA. Plage de \(R\) ?</summary><div class="s4-ans">
+<p>\(I_L=\dfrac{5{,}1}{100}=51\) mA.</p>
+<div class="mq">\[R_{max}=\frac{9-5{,}1}{0{,}002+0{,}051}=73{,}6\ \Omega\qquad R_{min}=\frac{12-5{,}1}{0{,}060+0{,}051}=62{,}2\ \Omega\]</div>
+<p>\(R\in[62{,}2\,;\,73{,}6]\ \Omega\) : on prend \(68\ \Omega\) (E12). Avec \(I_{Z,max}=40\) mA on aurait \(R_{min}=75{,}8\ \Omega>R_{max}\) : impossible.</p>
+</div></details>
+<details><summary><span class="s4-q">\(Q_{11}\,\cdot\) cours</span>Citer trois différences entre une diode classique et une diode Zener, et un usage de chacune.</summary><div class="s4-ans">
+<p>La Zener est dopée pour avoir une tension de claquage faible et bien définie, et elle fonctionne <b>en inverse</b> dans sa zone Zener (\(V_D\approx-V_Z\)) sans destruction ; la diode classique ne conduit qu'en direct et claque en inverse. Caractéristique quasi verticale en inverse pour la Zener. Usages : redressement, protection (classique) ; régulation de tension, référence (Zener).</p>
+</div></details>
+</section>
+
+<!-- ================= FORMULAIRE ================= -->
+<section id="formulaire">
+<h2>Formulaire de la veille</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>Semi-conducteurs</h4>
+<div class="mq">\[\begin{gathered}np=n_i^2\\[4pt] n\approx N_D,\ p=\frac{n_i^2}{N_D}\\[4pt] p\approx N_A,\ n=\frac{n_i^2}{N_A}\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}\gamma=e(n\mu_n+p\mu_p)\\[4pt] \mathcal N_{at}=\frac{\rho_v\mathcal N_A}{M}\\[4pt] N_{dop}=\frac{\mathcal N_{at}}{10^k}\end{gathered}\]</div>
+</div>
+<div class="s4-card"><h4>Températures et courants</h4>
+<div class="mq">\[\begin{gathered}n_i=A\,T^{3/2}e^{-E_g/2k_BT}\\[4pt] E_{th}=\tfrac32k_BT\\[4pt] D=\mu\frac{k_BT}{e}\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}j=e(n\mu_n+p\mu_p)E+j_{diff}\\[4pt] \Delta n=\Delta p=G\tau_v\end{gathered}\]</div>
+</div>
+<div class="s4-card"><h4>Jonction PN</h4>
+<div class="mq">\[\begin{gathered}V_0=\frac{k_BT}{e}\ln\frac{N_AN_D}{n_i^2}\\[4pt] I_D=I_S\left(e^{U_D/\eta V_T}-1\right)\\[4pt] U_D=\eta V_T\ln\left(\frac{I_D}{I_S}+1\right)\end{gathered}\]</div>
+</div>
+<div class="s4-card"><h4>Diode</h4>
+<div class="mq">\[\begin{gathered}V_D=V_S+r\,I_D\\[4pt] I_D=\frac{E_{Th}-V_S}{R_{Th}+r}\\[4pt] I_D=\frac{E_{Th}-V_D}{R_{Th}}\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}V_{max}=V_m-V_S\ (\text{1 alt.})\\[4pt] V_m-2V_S\ (\text{pont})\\[4pt] s_{max}=E_0+V_S\end{gathered}\]</div>
+</div>
+<div class="s4-card"><h4>Zener</h4>
+<div class="mq">\[\begin{gathered}E_{min}=V_Z\frac{R+R_L}{R_L}\\[4pt] I_Z=\frac{E-V_Z}{R}-\frac{V_Z}{R_L}\\[4pt] R_{L,min}=\frac{V_ZR}{E-V_Z}\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}R\le\frac{E_{min}-V_Z}{I_{Z,min}+I_{L,max}}\\[4pt] R\ge\frac{E_{max}-V_Z}{I_{Z,max}+I_{L,min}}\end{gathered}\]</div>
+</div>
+<div class="s4-card"><h4>Rappels CM1 (fiche Ch0-Ch1)</h4>
+<div class="mq">\[\begin{gathered}\vec v=-\mu\vec E\qquad j=\gamma E=\frac{i}{S}\\[4pt] R=\rho\frac{\ell}{S}\qquad\rho(T)=\rho_0[1+\alpha\Delta T]\\[4pt] C=\frac{\varepsilon_0\varepsilon_rS}{d}\qquad f_c=\frac{1}{2\pi RC}\end{gathered}\]</div>
+</div>
+</div>
+<p class="s4-small">Constantes : \(e=1{,}6\times10^{-19}\) C · \(k_B=1{,}38\times10^{-23}\) J/K \(=8{,}62\times10^{-5}\) eV/K · \(\dfrac{k_BT}{e}=25{,}9\) mV (\(300\) K) · \(\mathcal N_A=6{,}02\times10^{23}\) mol\(^{-1}\) · \(V_S=0{,}7\) V (Si), \(0{,}3\) V (Ge) · \(E_g=1{,}12\) eV (Si), \(0{,}67\) eV (Ge) · \(1\) eV \(=1{,}6\times10^{-19}\) J.</p>
+</section>
+<p class="s4-src">Sources : amphis Cours 2 « Semi-conducteurs et jonction PN » et Cours 3 « La diode », poly ING2 TD2 (AD 2.1 à 2.13, ES 2.1 à 2.7), TD3 (AD 3.1 à 3.20, ES) et TD4 (AD 4.1 à 4.16, ES 4.1 à 4.5). Les schémas des circuits sont décrits en mots : refais-les sur ta copie. Corrigés complets : <a href="corriges.html#td2">TD2</a>, <a href="corriges.html#td3">TD3</a>, <a href="corriges.html#td4">TD4</a>. Les annales de cette matière sont sur la page <a href="partiel.html">Partiel</a>.</p>
+</div>
+</main>
+<div class="foot">
+<div class="wrap">
+<span>De l'Atome à la Puce · Fiche DS Ch2-Ch3 · 2026-2027</span>
+<span><a href="index.html">← Retour au cours</a></span>
+</div>
+</div>
+<a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="js/maths.js"></script>
+<script src="js/interro.js"></script>
+</body>
+</html>

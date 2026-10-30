@@ -480,7 +480,7 @@ td.mono,th.mono{font-family:var(--f-mono)}
 .nav{flex-wrap:nowrap;gap:0}
 .nav button,.nav a{padding:8px}
 .nav .ni{display:none}
-@media(max-width:1380px){
+@media(max-width:1640px){
   .nav{display:none;position:absolute;top:56px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);
     flex-direction:column;padding:10px;margin:0;box-shadow:var(--shadow);max-height:calc(100vh - 60px);overflow-y:auto}
   .nav.open{display:flex}
