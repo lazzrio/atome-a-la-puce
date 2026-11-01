@@ -1,5 +1,5 @@
 /* Hors ligne : le réseau d'abord (contenu toujours à jour), la copie locale si pas de connexion. */
-const CACHE = "atome-puce-v9";
+const CACHE = "atome-puce-v10";
 const CORE = ["./", "gate.js", "index.html", "corriges.html", "fiche-ch0-ch1.html", "fiche-ch2-ch3.html", "css/style.css", "js/app.js", "js/quiz.js", "js/lightbox.js",
   "js/corriges.js", "js/maths.js", "js/interro.js",
   "partiel.html", "cartes.html", "js/cartes.js", "js/data-cartes.js", "evaluations.html", "js/revision.js", "js/data-annales.js", "js/data-interro.js", "assets/favicon.svg", "assets/icon-192.png", "manifest.webmanifest"];

@@ -83,7 +83,7 @@
     var opts = shuffle([{ t: q.a, ok: true }].concat(q.d.map(function (x) { return { t: x, ok: false }; })));
     var letters = ["A", "B", "C", "D"];
     var card = document.createElement("div"); card.className = "qcard";
-    var h = '<div class="qtag">' + NAMES[q.c] + " · " + (q.t === "f" ? "formule" : "constante / valeur") + '</div><div class="qtext">' + q.q + '</div><div class="opts">';
+    var h = '<div class="qtag">' + NAMES[q.c] + " · " + (q.t === "f" ? "formule" : q.t === "k" ? "constante / valeur" : "poly de TD (hors cours)") + '</div><div class="qtext">' + q.q + '</div><div class="opts">';
     opts.forEach(function (o, k) { h += '<button class="opt" data-ok="' + (o.ok ? 1 : 0) + '"><span class="mk">' + letters[k] + '</span><span>' + o.t + "</span></button>"; });
     h += '</div><div class="qfeed"><div class="verdict"></div><div class="expl"></div></div>';
     card.innerHTML = h; cont.innerHTML = ""; cont.appendChild(card); rm(card);
