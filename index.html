@@ -603,6 +603,21 @@
 <li>\(V_{\mathrm{DS}}\gt V_{\mathrm{GS}}-V_{T}\to\) canal pincé, région active.</li>
 </ul>
 <div class="eq">\(\displaystyle g_{m}=K_{n}\cdot \frac{W}{L}\cdot (V_{\mathrm{GS}}-V_{T})=\frac{2\cdot I_{D}}{V_{\mathrm{GS}}-V_{T}}\)<span class="lbl">transconductance MOSFET</span></div>
+<div class="box ex"><div class="bt">▹ Exemple du cours : JFET polarisé par pont diviseur</div>
+<p><b>Énoncé.</b> \(V_{DD}=24\,\mathrm{V}\), \(R_1=2{,}1\,\mathrm{M\Omega}\), \(R_2=270\,\mathrm{k\Omega}\), \(R_D=2{,}4\,\mathrm{k\Omega}\), \(R_S=1{,}5\,\mathrm{k\Omega}\), \(I_{DSS}=8\,\mathrm{mA}\), \(V_{GS,off}=-4\,\mathrm{V}\). Calculer le point de repos \(Q\ (V_{DS},\,I_D)\).</p>
+<p><b>1. Thévenin du pont de grille</b> (\(I_G=0\), le pont n'est pas chargé) :</p>
+<div class="eq">\(\displaystyle V_{Th}=\frac{R_2}{R_1+R_2}V_{DD}=\frac{270}{2\,370}\times24=2{,}734\,\mathrm{V}\qquad R_{Th}=\frac{R_1R_2}{R_1+R_2}=239{,}2\,\mathrm{k\Omega}\)</div>
+<p><b>2. Maille de grille.</b> \(I_G=0\), donc aucune chute dans \(R_{Th}\) : \(V_{Th}=V_{GS}+R_SI_D\). Comme \(I_D=I_S\) :</p>
+<div class="eq">\(\displaystyle I_D=\frac{V_{Th}-V_{GS}}{R_S}\quad(1)\)<span class="lbl">on ne connaît pas \(V_{GS}\)</span></div>
+<p><b>3. Fonction de transfert</b> du JFET :</p>
+<div class="eq">\(\displaystyle I_D=I_{DSS}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)^{2}\quad(2)\)</div>
+<p><b>4. On égale (1) et (2)</b> : équation du second degré en \(V_{GS}\). Avec \(V_{GS}\) en volts et les courants en mA :</p>
+<div class="eq">\(\displaystyle \frac{2{,}734-V_{GS}}{1{,}5}=8\left(1+\frac{V_{GS}}{4}\right)^{2}\ \Longrightarrow\ 0{,}5\,V_{GS}^{2}+4{,}667\,V_{GS}+6{,}177=0\)</div>
+<p>Solutions : \(V_{GS1}=-7{,}736\,\mathrm{V}\) et \(V_{GS2}=-1{,}597\,\mathrm{V}\). On ne retient que \(V_{GS2}\) : \(V_{GS1}<V_{GS,off}=-4\,\mathrm{V}\) est impossible (canal fermé, le JFET serait bloqué). Donc \(V_{GS}=-1{,}597\,\mathrm{V}\).</p>
+<p><b>5. Courant et tension de drain.</b></p>
+<div class="eq">\(\displaystyle I_D=\frac{2{,}734+1{,}597}{1{,}5}=2{,}887\,\mathrm{mA}\qquad V_{DS}=V_{DD}-(R_D+R_S)\,I_D=24-3{,}9\times2{,}887=12{,}74\,\mathrm{V}\)</div>
+<p><b>6. Vérification de la zone active</b> : \(V_{DS}=12{,}74\,\mathrm{V}>V_{GS}-V_P=-1{,}597+4=2{,}40\,\mathrm{V}\) ✓. On a aussi \(V_P<V_{GS}\le0\) ✓. Bonus : \(g_m=\frac{2I_{DSS}}{|V_P|}\left(1-\frac{V_{GS}}{V_P}\right)=4\ \mathrm{mS}\times0{,}601=2{,}40\ \mathrm{mS}\).</p>
+<p><b>Réponse.</b> \(Q=(V_{DS}=12{,}74\,\mathrm{V}\,;\,I_D=2{,}887\,\mathrm{mA})\), avec \(V_{GS}=-1{,}597\,\mathrm{V}\).</p></div>
 <h3>Comparatif BJT / JFET / MOSFET</h3>
 <div class="tbl-wrap"><table>
 <tr><th></th><th>BJT</th><th>JFET</th><th>MOSFET</th></tr>
