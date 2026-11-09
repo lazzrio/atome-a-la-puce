@@ -1,9 +1,9 @@
-# Génère js/data-cm56.js : QCM de révision CM5 (BJT dynamique) et CM6 (FET),
+# Génère js/data-cm45.js : QCM de révision CM4 (BJT en statique) et CM5 (BJT dynamique),
 # avec schémas SVG et valeurs numériques calculées ici (aucune valeur tapée à la main).
 import json, math
 
 import os
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'js', 'data-cm56.js')
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'js', 'data-cm45.js')
 
 # ---------------------------------------------------------------- formatage
 def fr(x, d=3):
@@ -222,6 +222,232 @@ def num(th, src, q, good, bads, e):
     """question numérique à une bonne réponse (en 1re position)."""
     add(th, src, q, [good] + bads, [0], e)
 
+
+# ---------------------------------------------------------------- schémas CM4 (continu)
+def bat(s, x, y1, y2, lab):
+    """source continue verticale, + en haut (grande plaque)."""
+    mid = (y1 + y2) // 2
+    s.wire((x, y1), (x, mid - 5)); s.wire((x, mid + 5), (x, y2))
+    s.wire((x - 14, mid - 5), (x + 14, mid - 5)); s.wire((x - 7, mid + 5), (x + 7, mid + 5))
+    s.text(x - 20, mid + 5, lab, anchor='end')
+
+def fig_fond(v, labs=('V<tspan class="sb" dy="4">BB</tspan><tspan dy="-4"> = %s</tspan>', 'R<tspan class="sb" dy="4">B</tspan><tspan dy="-4"> = %s</tspan>', 'R<tspan class="sb" dy="4">C</tspan><tspan dy="-4"> = %s</tspan>')):
+    s = S(500, 300)
+    bat(s, 90, 150, 262, labs[0] % v['VBB']); s.gnd(90, 262)
+    s.wire((90, 150), (110, 150)); s.resh(110, 200, 150, labs[1] % v['RB']); s.wire((200, 150), (216, 150))
+    s.npn(238, 150)
+    s.wire((256, 182), (256, 262)); s.gnd(256, 262)
+    s.resv(256, 40, 118, labs[2] % v['RC'])
+    s.wire((256, 40), (410, 40)); bat(s, 410, 40, 262, 'V<tspan class="sb" dy="4">CC</tspan><tspan dy="-4"> = %s</tspan>' % v['VCC']); s.gnd(410, 262)
+    s.text(272, 214, 'E', 'tn2'); s.text(272, 112, 'C', 'tn2'); s.text(206, 140, 'B', 'tn2', 'end')
+    return s.svg('Émetteur commun fondamental : deux sources continues')
+
+def fig_emet(v):
+    s = S(500, 300)
+    bat(s, 110, 150, 262, 'V<tspan class="sb" dy="4">BB</tspan><tspan dy="-4"> = %s</tspan>' % v['VBB']); s.gnd(110, 262)
+    s.wire((110, 150), (216, 150)); s.npn(238, 150)
+    s.resv(256, 182, 262, L('R', 'E', '= ' + v['RE'])); s.gnd(256, 262)
+    s.resv(256, 40, 118, L('R', 'C', '= ' + v['RC']))
+    s.wire((256, 40), (410, 40)); bat(s, 410, 40, 262, 'V<tspan class="sb" dy="4">CC</tspan><tspan dy="-4"> = %s</tspan>' % v['VCC']); s.gnd(410, 262)
+    return s.svg('Polarisation par l\'émetteur')
+
+def fig_pdt(v):
+    s = S(470, 310)
+    s.vcc(170, 26, 'V<tspan class="sb" dy="4">CC</tspan><tspan dy="-4"> = ' + v['VCC'] + '</tspan>')
+    s.wire((170, 26), (256, 26))
+    s.resv(170, 26, 150, L('R', '1', '= ' + v['R1']), 'l')
+    s.resv(170, 150, 268, L('R', '2', '= ' + v['R2']), 'l'); s.gnd(170, 268)
+    s.dot(170, 150); s.npn(238, 150); s.wire((170, 150), (216, 150))
+    s.resv(256, 26, 118, L('R', 'C', '= ' + v['RC']))
+    s.resv(256, 182, 268, L('R', 'E', '= ' + v['RE'])); s.gnd(256, 268)
+    return s.svg('Polarisation par pont diviseur de tension (continu)')
+
+def fig_modes(vb, vc):
+    s = S(460, 300)
+    bat(s, 130, 150, 262, vb); s.gnd(130, 262)
+    s.wire((130, 150), (216, 150)); s.npn(238, 150)
+    s.wire((256, 182), (256, 262)); s.gnd(256, 262)
+    s.wire((256, 118), (256, 60), (380, 60)); bat(s, 380, 60, 262, vc); s.gnd(380, 262)
+    s.text(272, 214, 'E', 'tn2'); s.text(272, 112, 'C', 'tn2'); s.text(206, 140, 'B', 'tn2', 'end')
+    s.text(256, 290, 'M (masse commune)', 't', 'middle')
+    return s.svg('Transistor NPN alimenté par deux sources : déterminer le mode')
+
+ARD = ('V<tspan class="sb" dy="4">cmd</tspan><tspan dy="-4"> = %s</tspan>', 'R<tspan class="sb" dy="4">B</tspan><tspan dy="-4"> = %s</tspan>', 'R<tspan class="sb" dy="4">C</tspan><tspan dy="-4"> (charge) = %s</tspan>')
+
+# =================== CM4 · FORMULES ===================
+add('f4', 'CM4', r'Relations entre les courants et les gains du BJT : lesquelles sont justes ?',
+    [r'\(i_E=i_B+i_C\)', r'\(\beta=\dfrac{i_C}{i_B}\) et \(\alpha=\dfrac{i_C}{i_E}\approx1\)', r'\(\gamma=\dfrac{i_E}{i_B}=\beta+1=\dfrac{1}{1-\alpha}\)', r'\(i_C=i_B+i_E\)', r'\(\alpha=\beta+1\)'], [0, 1, 2],
+    r'Loi des nœuds sur le transistor ; \(\beta\) (aussi noté \(h_{FE}\)) vaut typiquement 100 à 300.')
+add('f4', 'CM4', r'Émetteur commun fondamental (\(V_{BB}\), \(R_B\), \(V_{CC}\), \(R_C\)) : équation de la <b>droite de charge statique</b> ?',
+    [r'\(i_C=-\dfrac{1}{R_C}V_{CE}+\dfrac{V_{CC}}{R_C}\)', r'\(i_B=-\dfrac{1}{R_B}V_{BE}+\dfrac{V_{BB}}{R_B}\)', r'\(i_C=\dfrac{V_{CE}}{R_C}\)', r'\(i_C=\beta\dfrac{V_{CC}}{R_C}\)'], [0],
+    r'Maille collecteur \(V_{CC}-R_Ci_C-V_{CE}=0\). La deuxième proposition est la droite d\'<b>attaque</b> statique (maille base).')
+add('f4', 'CM4', r'Points remarquables de la droite de charge statique :',
+    [r'\(i_{C,sat}=\dfrac{V_{CC}}{R_C}\) (obtenu pour \(V_{CE}=0\))', r'\(V_{CE,blocage}=V_{CC}\) (obtenu pour \(i_C=0\))', r'le point \(Q\) est l\'intersection de la droite de charge et de la caractéristique \(i_C=f(V_{CE})\)', r'\(i_{C,sat}=\beta\,i_B\) toujours', r'\(V_{CE,blocage}=0\)'], [0, 1, 2],
+    r'La droite de charge contient tous les points de fonctionnement possibles, du blocage à la saturation.')
+add('f4', 'CM4', r'Polarisation <b>par la base</b> : relations du montage ?',
+    [r'\(i_B=\dfrac{V_{BB}-V_{BE}}{R_B}\), \(i_C=\beta i_B\), \(V_{CE}=V_{CC}-R_Ci_C\)', r'\(i_E=\dfrac{V_{BB}-V_{BE}}{R_E}\), \(V_{CE}=V_C-V_E\)', r'\(i_B=\dfrac{V_{BB}}{R_B}\), \(V_{CE}=V_{CC}\)', r'\(i_C=\dfrac{V_{CC}}{R_B}\)'], [0],
+    r'\(i_C\) et \(V_{CE}\) dépendent de \(\beta\) : montage « \(\beta\)-dépendant ».')
+add('f4', 'CM4', r'Polarisation <b>par l\'émetteur</b> : relations du montage ?',
+    [r'\(V_E=V_{BB}-V_{BE}\) et \(i_E=\dfrac{V_E}{R_E}\)', r'\(i_C\approx i_E\) car \(\alpha\approx1\)', r'\(V_C=V_{CC}-R_Ci_C\) et \(V_{CE}=V_C-V_E\)', r'\(i_C=\beta\dfrac{V_{BB}-V_{BE}}{R_E}\)', r'\(V_{CE}=V_{CC}-V_{BB}\)'], [0, 1, 2],
+    r'On n\'utilise jamais \(\beta\) : montage « \(\beta\)-indépendant ».')
+add('f4', 'CM4', r'Pont diviseur (PDT) : équivalent de Thévenin vu de la base, et calcul complet de \(i_B\) ?',
+    [r'\(V_{Th}=V_{CC}\dfrac{R_2}{R_1+R_2}\), \(R_{Th}=R_1\parallel R_2\), \(i_B=\dfrac{V_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\)', r'\(V_{Th}=V_{CC}\dfrac{R_1}{R_1+R_2}\), \(R_{Th}=R_1+R_2\)', r'\(i_B=\dfrac{V_{Th}-V_{BE}}{R_{Th}+R_E}\)', r'\(i_B=\dfrac{V_{CC}-V_{BE}}{R_1}\)'], [0],
+    r'Maille base : \(V_{Th}-R_{Th}i_B-V_{BE}-R_E(\beta+1)i_B=0\), car \(i_E=(\beta+1)i_B\).')
+add('f4', 'CM4', r'Condition pour considérer \(R_1\), \(R_2\), \(V_{CC}\) comme une source de tension constante (et calculer comme une polarisation par l\'émetteur) :',
+    [r'\(R_1\parallel R_2<0{,}01\,(\beta+1)R_E\)', r'\(R_1\parallel R_2>100\,(\beta+1)R_E\)', r'\(R_1+R_2<0{,}01\,R_E\)', r'\(R_1\parallel R_2<0{,}01\,R_C\)'], [0],
+    r'Résistance interne de la source (\(R_{Th}\), vue à gauche de la base) 100 fois plus petite que la charge vue à droite, \((\beta+1)R_E\).')
+add('f4', 'CM4', r'Transistor en commutation commandé par une sortie numérique \(V_{cmd}\) : dimensionnement ?',
+    [r'\(R_B=\dfrac{V_{cmd}-V_{BE,sat}}{i_{B,sat}}\)', r'\(R_C=\dfrac{V_{CC}-V_{CE,sat}}{i_{C,sat}}\)', r'condition de saturation : \(\beta i_B>i_{C,sat}\)', r'\(R_B=\dfrac{V_{CC}}{i_{C,sat}}\)', r'\(R_C=\dfrac{V_{cmd}}{i_{B,sat}}\)'], [0, 1, 2],
+    r'On prend \(i_{B,sat}\) et \(V_{BE,sat}\) dans la datasheet ; le gain à saturation est faible (\(\beta=10\) dans l\'exemple du cours).')
+add('f4', 'CM4', r'Temps de commutation :',
+    [r'\(t_{ON}=t_d+t_r\) et \(t_{OFF}=t_s+t_f\)', r'\(t_{ON}=t_s+t_f\) et \(t_{OFF}=t_d+t_r\)', r'\(t_{ON}=t_d\cdot t_r\)', r'\(t_{ON}=t_{OFF}\) toujours'], [0],
+    r'\(t_d\) : retard (jusqu\'à \(10\ \%\)), \(t_r\) : montée de \(10\) à \(90\ \%\), \(t_s\) : stockage, \(t_f\) : descente de \(90\) à \(10\ \%\).')
+add('f4', 'CM4', r'En tenant compte du courant de fuite collecteur-base \(i_{CB0}\) :',
+    [r'\(i_C=\beta\,i_B+(\beta+1)\,i_{CB0}\)', r'\(i_C=\beta\,(i_B+i_{CB0})\)', r'\(i_C=\beta\,i_B-i_{CB0}\)', r'\(i_C=(\beta+1)\,i_B\)'], [0],
+    r'Quand \(T\) augmente, \(\beta\) et \(i_{CB0}\) augmentent : le point \(Q\) se déplace. \(i_{CB0}\) est négligeable dans les calculs usuels.')
+
+# =================== CM4 · CONNAISSANCES ===================
+add('k4', 'CM4', r'Modes de fonctionnement d\'un NPN selon la polarisation des jonctions :',
+    [r'BE directe et BC inverse : amplification (mode actif)', r'BE directe et BC directe : saturation (« ON »)', r'BE inverse : bloqué (« OFF »)', r'BE inverse et BC directe : amplification', r'BE directe et BC inverse : saturation'], [0, 1, 2], r'')
+add('k4', 'CM4', r'Conditions sur les tensions (silicium) : lesquelles sont justes ?',
+    [r'bloqué si \(V_{BE}<0{,}7\ \mathrm V\)', r'actif si \(V_{BE}=0{,}7\ \mathrm V\) et \(V_{BC}<0\), donc \(V_{CE}>0{,}7\ \mathrm V\)', r'saturation maximale : \(V_{BC}=0{,}7\ \mathrm V\), donc \(V_{CE}=0\)', r'actif si \(V_{BC}>0{,}7\ \mathrm V\)', r'bloqué si \(V_{CE}<0{,}2\ \mathrm V\)'], [0, 1, 2],
+    r'\(V_{CE}=V_{CB}+V_{BE}\). Début de saturation dès \(V_{BC}\ge0\) (\(V_{CE}\le0{,}7\) V) ; en pratique il sature vraiment pour \(V_{CE}<0{,}2\) V.')
+add('k4', 'CM4', r'L\'effet transistor (NPN) :',
+    [r'les électrons diffusent de l\'émetteur vers la base (jonction BE directe)', r'dans la base, minoritaires, ils sont entraînés vers le collecteur par le fort champ de la jonction BC inverse (dérive)', r'il est d\'autant plus efficace que l\'émetteur est très dopé et la base très fine', r'le collecteur émet les électrons', r'la base est la zone la plus épaisse'], [0, 1, 2],
+    r'Une faible tension \(V_{BE}\) commande un fort courant \(i_C\). E émet, C collecte, B est une zone de transit.')
+add('k4', 'CM4', r'Comparaison des polarisations par la base et par l\'émetteur :',
+    [r'par la base : \(\beta\)-dépendante, le point \(Q\) bouge si \(\beta\) varie', r'par l\'émetteur : \(\beta\)-indépendante, \(Q\) très stable', r'par la base : utilisée pour la commutation (blocage / saturation)', r'par l\'émetteur : utilisée pour la commutation', r'par la base : \(Q\) ne dépend pas de \(\beta\)'], [0, 1, 2],
+    r'Par l\'émetteur : mode actif, amplification.')
+add('k4', 'CM4', r'Intérêt de la polarisation par pont diviseur par rapport à la polarisation par l\'émetteur :',
+    [r'on règle \(V_{BB}=V_{Th}\) en changeant seulement \(R_1\) et \(R_2\), sans changer l\'alimentation', r'elle supprime le besoin de \(R_E\)', r'elle rend le montage \(\beta\)-dépendant', r'elle évite toute alimentation continue'], [0],
+    r'Si \(R_1\parallel R_2<0{,}01(\beta+1)R_E\), on se ramène à une polarisation par l\'émetteur, \(\beta\)-indépendante.')
+add('k4', 'CM4', r'Effet de la température :',
+    [r'si \(T\) augmente, \(\beta\) augmente', r'si \(T\) augmente, le courant de fuite \(i_{CB0}\) augmente', r'la température déplace le point de fonctionnement en modifiant \(i_C\)', r'\(\beta\) ne dépend pas de la température', r'si \(T\) augmente, \(i_{CB0}\) diminue'], [0, 1, 2], r'')
+add('k4', 'CM4', r'L\'effet Early :',
+    [r'se voit par la légère pente des caractéristiques \(i_C(V_{CE})\) en zone active', r'les droites prolongées se coupent en \(-V_A\) (tension d\'Early) sur l\'axe des \(V_{CE}\)', r'se modélise par une résistance en parallèle entre collecteur et émetteur', r'rend \(i_C\) rigoureusement indépendant de \(V_{CE}\)', r'se produit uniquement au blocage'], [0, 1, 2], r'Il vient de la diminution de la largeur effective de la base.')
+add('k4', 'CM4', r'Lecture d\'une datasheet (ex. 2N3904) : quelles affirmations viennent du cours ?',
+    [r'utiliser les courbes données pour \(T_{amb}=25^{\circ}\mathrm C\)', r'vérifier pour quelle valeur de \(V_{CE}\) les courbes sont tracées (ici \(1\ \mathrm V\))', r'quand le transistor sature, le gain \(\beta=\frac{i_C}{i_B}\) chute', r'\(\beta\) est le même pour tous les courants', r'\(V_{BE}\) vaut toujours exactement \(0{,}7\ \mathrm V\)'], [0, 1, 2],
+    r'Dans l\'exemple du cours on lit \(V_{BE}=0{,}73\ \mathrm V\) et \(V_{CE,sat}=95\ \mathrm{mV}\) pour \(i_C\approx10\) mA.')
+add('k4', 'CM4', r'Modèle d\'Ebers-Moll (statique) du BJT :',
+    [r'une diode B-E (\(V_{BE}=0{,}7\ \mathrm V\)) et une source de courant \(i_C=\beta i_B\) entre C et E', r'deux diodes tête-bêche sans source', r'une résistance \(r_e\) et une source \(\beta i_b\) (petits signaux)', r'une source de tension entre C et E'], [0],
+    r'Plus juste que les deux diodes : la diode B-C est remplacée par le générateur de courant.')
+add('k4', 'CM4', r'Les trois montages fondamentaux, d\'après l\'usage type indiqué dans le cours :',
+    [r'émetteur commun : l\'émetteur est commun à l\'entrée et à la sortie', r'collecteur commun : amplification de puissance', r'base commune : amplification en tension', r'base commune : la base n\'est reliée à rien'], [0, 1, 2],
+    r'Le cours étudie surtout l\'émetteur commun (usage type indiqué : amplification en courant).')
+add('k4', 'CM4', r'Pourquoi le collecteur doit-il être porté à un potentiel positif (NPN) ?',
+    [r'pour polariser la jonction collecteur-base en inverse et collecter les électrons venant de la base', r'pour polariser la jonction BE en inverse', r'pour bloquer le transistor', r'pour que \(i_B\) soit maximal'], [0],
+    r'Maille collecteur : \(V_{CC}\) polarise BC en inverse à travers \(R_C\) ; sinon le transistor n\'amplifie pas.')
+add('k4', 'CM4', r'Logique à BJT (pour info) :',
+    [r'un transistor saturé/bloqué réalise une porte NOT (OUT = \(V_{CE,sat}\) quand IN = 1)', r'la technologie TTL (BJT) est plus rapide que la CMOS mais consomme davantage', r'en commutation, le transistor ne travaille jamais en zone active', r'la TTL consomme moins que la CMOS'], [0, 1, 2], r'')
+
+# =================== CM4 · CALCULS SUR SCHÉMA ===================
+VTH = 0.7
+# Scénario M : modes de fonctionnement
+srcM = 'Schéma M · mode de fonctionnement'
+for vb, vc, mode, why in [
+    (2, 6, 'actif (amplification)', 'V_{BC}=V_{BM}+V_{MC}=2-6=-4\\ \\mathrm V<0'),
+    (0.4, 5, 'bloqué', 'V_{BE}=0{,}4\\ \\mathrm V<0{,}7\\ \\mathrm V'),
+    (4, 2, 'saturé (au maximum)', 'V_{BC}=4-2=2\\ \\mathrm V>0{,}7\\ \\mathrm V')]:
+    F = fig_modes('V<tspan class="sb" dy="4">BE</tspan><tspan dy="-4"> = %s V</tspan>' % fr(vb), '%s V' % fr(vc))
+    opts = ['actif (amplification)', 'bloqué', 'saturé (au maximum)', 'détruit']
+    i = opts.index(mode)
+    add('c4', srcM, F + r'<b>Conditions :</b> NPN au silicium (seuil \(0{,}7\ \mathrm V\)) ; les résistances (nécessaires) ne sont pas dessinées. Le schéma donne directement \(V_{BE}=%s\ \mathrm V\) et le collecteur est à \(%s\ \mathrm V\) par rapport à M. Mode du transistor ?' % (fr(vb), fr(vc)),
+        opts, [i], r'\(%s\) : transistor %s. (Méthode du cours : d\'abord \(V_{BE}\) pour savoir s\'il est passant, puis \(V_{BC}\) pour actif ou saturé.)' % (why, mode))
+
+# Scénario F : émetteur commun fondamental (Ebers-Moll)
+VBB, VCC, RB, RC, b = 5, 12, 100e3, 1e3, 150
+IB = (VBB - VTH) / RB; IC = b * IB; VCE = VCC - RC * IC; ICsat = VCC / RC
+vF = {'VBB': '5 V', 'RB': '100 kΩ', 'RC': '1 kΩ', 'VCC': '12 V'}
+FF = fig_fond(vF)
+condF = r'<b>Conditions :</b> NPN, \(\beta=150\), \(V_{BE}=0{,}7\ \mathrm V\) ; modèle d\'Ebers-Moll.'
+srcF = 'Schéma F · émetteur commun fondamental'
+num('c4', srcF, FF + condF + r' Courant de base \(i_B\) :',
+    m(IB * 1e6, r'\mu A'), [m(VBB / RB * 1e6, r'\mu A'), m(IB * 1e6 * b / 10, r'\mu A'), m((VCC - VTH) / RB * 1e6, r'\mu A')],
+    r'Maille base : \(i_B=\dfrac{V_{BB}-V_{BE}}{R_B}=\dfrac{5-0{,}7}{100\ \mathrm k}=%s\ \mu\mathrm A\).' % fr(IB * 1e6))
+add('c4', srcF, FF + condF + r' Courant collecteur et tension \(V_{CE}\) : quelles valeurs sont justes ?',
+    [r'\(i_C=%s\ \mathrm{mA}\)' % fr(IC * 1e3), r'\(V_{CE}=%s\ \mathrm V\)' % fr(VCE), r'le transistor est en mode actif', r'\(V_{CE}=%s\ \mathrm V\)' % fr(VCC - VTH), r'le transistor est saturé'], [0, 1, 2],
+    r'\(i_C=\beta i_B=%s\) mA ; maille collecteur \(V_{CE}=V_{CC}-R_Ci_C=12-%s=%s\) V \(>0{,}7\) V : actif.' % (fr(IC * 1e3), fr(RC * IC), fr(VCE)))
+add('c4', srcF, FF + r' Droite de charge statique de ce montage : quelles affirmations sont justes ?',
+    [r'\(i_{C,sat}=%s\ \mathrm{mA}\)' % fr(ICsat * 1e3), r'\(V_{CE,blocage}=12\ \mathrm V\)', r'pente \(-\dfrac{1}{R_C}=-1\ \mathrm{mS}\)', r'\(i_{C,sat}=%s\ \mathrm{mA}\)' % fr(IC * 1e3), r'\(V_{CE,blocage}=5\ \mathrm V\)'], [0, 1, 2],
+    r'\(i_C=-\dfrac{V_{CE}}{R_C}+\dfrac{V_{CC}}{R_C}\) : \(i_{C,sat}=\dfrac{12}{1\ \mathrm k}=12\) mA, \(V_{CE,bloc}=V_{CC}\).')
+RB2 = 10e3; IB2 = (VBB - VTH) / RB2; ICa = b * IB2
+add('c4', srcF, FF + condF + r' <b>Nouvelle condition : \(R_B=10\ \mathrm{k\Omega}\).</b> Que se passe-t-il ?',
+    [r'\(\beta i_B=%s\ \mathrm{mA}>i_{C,sat}=12\ \mathrm{mA}\)' % fr(ICa * 1e3), r'le transistor sature : \(i_C\approx i_{C,sat}=12\ \mathrm{mA}\)', r'\(V_{CE}\approx0\) (approximation grossière)', r'\(i_C=%s\ \mathrm{mA}\)' % fr(ICa * 1e3), r'\(V_{CE}=%s\ \mathrm V\)' % fr(VCC - RC * ICa)], [0, 1, 2],
+    r'\(i_B=\dfrac{4{,}3}{10\ \mathrm k}=%s\ \mu\mathrm A\), \(\beta i_B=%s\) mA : impossible, \(i_C\) ne peut pas dépasser \(i_{C,sat}\). Même raisonnement que l\'exercice du cours sur le 2N3904.' % (fr(IB2 * 1e6), fr(ICa * 1e3)))
+# lecture datasheet en saturation
+num('c4', 'CM4 · saturation et datasheet', r'<b>Conditions :</b> émetteur commun fondamental saturé, \(V_{CC}=10\ \mathrm V\), \(R_C=1\ \mathrm{k\Omega}\). Sur la datasheet on lit \(V_{CE,sat}=0{,}1\ \mathrm V\) pour \(i_C\approx10\ \mathrm{mA}\). Valeur affinée de \(i_C\) ?',
+    m((10 - 0.1) / 1e3 * 1e3, 'mA'), [m(10, 'mA'), m(9.3, 'mA'), m(0.1, 'mA')],
+    r'\(i_C=\dfrac{V_{CC}-V_{CE,sat}}{R_C}=\dfrac{10-0{,}1}{1\ \mathrm k}=%s\) mA (le cours trouve \(9{,}91\) mA avec \(95\) mV).' % fr(9.9))
+# conception d'un point Q
+VCC2, ICq, VCEq, bq = 12, 5e-3, 6, 200
+IBq = ICq / bq; RBq = (VCC2 - VTH) / IBq; RCq = (VCC2 - VCEq) / ICq
+vD = {'VBB': '12 V', 'RB': '?', 'RC': '?', 'VCC': '12 V'}
+add('c4', 'Schéma F · choisir R_B et R_C', fig_fond(vD) + r'<b>Conditions :</b> \(V_{BB}=V_{CC}=12\ \mathrm V\), \(\beta=200\), \(V_{BE}=0{,}7\ \mathrm V\). On veut le point de fonctionnement \(i_C=5\ \mathrm{mA}\), \(V_{CE}=6\ \mathrm V\). Quelles valeurs sont justes ?',
+    [r'\(i_B=%s\ \mu\mathrm A\)' % fr(IBq * 1e6), r'\(R_B=%s\ \mathrm{k\Omega}\)' % fr(RBq / 1e3), r'\(R_C=%s\ \mathrm{k\Omega}\)' % fr(RCq / 1e3), r'\(R_C=%s\ \mathrm{k\Omega}\)' % fr(VCC2 / ICq / 1e3), r'\(R_B=%s\ \mathrm{k\Omega}\)' % fr(VCC2 / IBq / 1e3 * 2)], [0, 1, 2],
+    r'\(i_B=\dfrac{i_C}{\beta}=%s\ \mu\mathrm A\) ; maille base \(R_B=\dfrac{V_{BB}-V_{BE}}{i_B}=%s\ \mathrm{k\Omega}\) ; maille collecteur \(R_C=\dfrac{V_{CC}-V_{CE}}{i_C}=\dfrac{6}{5\ \mathrm m}=%s\ \mathrm{k\Omega}\).' % (fr(IBq * 1e6), fr(RBq / 1e3), fr(RCq / 1e3)))
+
+# Scénario E : polarisation par l'émetteur
+VBB, VCC, RC, RE = 3, 15, 2.2e3, 1e3
+VE = VBB - VTH; IE = VE / RE; VC = VCC - RC * IE; VCE = VC - VE
+vE = {'VBB': '3 V', 'VCC': '15 V', 'RC': '2,2 kΩ', 'RE': '1 kΩ'}
+FE = fig_emet(vE)
+condE = r'<b>Conditions :</b> NPN, \(\beta=100\), \(V_{BE}=0{,}7\ \mathrm V\), \(i_C\approx i_E\).'
+srcE = 'Schéma E · polarisation par l\'émetteur'
+num('c4', srcE, FE + condE + r' Courant d\'émetteur \(i_E\) :',
+    m(IE * 1e3, 'mA'), [m(VBB / RE * 1e3, 'mA'), m(IE * 1e3 / 100, 'mA'), m((VCC - VTH) / (RC + RE) * 1e3, 'mA')],
+    r'Maille base : \(V_E=V_{BB}-V_{BE}=%s\) V ; \(i_E=\dfrac{V_E}{R_E}=%s\) mA.' % (fr(VE), fr(IE * 1e3)))
+add('c4', srcE, FE + condE + r' Potentiels et tension \(V_{CE}\) :',
+    [r'\(V_C=%s\ \mathrm V\)' % fr(VC), r'\(V_{CE}=%s\ \mathrm V\)' % fr(VCE), r'le transistor est actif', r'\(V_{CE}=%s\ \mathrm V\)' % fr(VC), r'\(V_E=3\ \mathrm V\)'], [0, 1, 2],
+    r'\(V_C=V_{CC}-R_Ci_C=15-2{,}2\ \mathrm k\times%s\ \mathrm{mA}=%s\) V ; \(V_{CE}=V_C-V_E=%s\) V \(>0{,}7\) V.' % (fr(IE * 1e3), fr(VC), fr(VCE)))
+add('c4', srcE, FE + condE + r' <b>Nouvelle condition :</b> on remplace le transistor par un autre de \(\beta=300\). Quelles affirmations sont justes ?',
+    [r'\(i_C\) reste \(\approx%s\ \mathrm{mA}\)' % fr(IE * 1e3), r'\(V_{CE}\) reste \(\approx%s\ \mathrm V\)' % fr(VCE), r'le montage est \(\beta\)-indépendant', r'\(i_C\) est multiplié par 3', r'le transistor sature'], [0, 1, 2],
+    r'On n\'a jamais utilisé \(\beta\) : \(Q\) ne bouge pas (seul \(i_B=\frac{i_E}{\beta+1}\) change).')
+
+# Scénario P : pont diviseur
+VCC, R1, R2, RC, RE, b = 12, 8.2e3, 1.8e3, 2.7e3, 1e3, 200
+Rth = R1 * R2 / (R1 + R2); Vth = VCC * R2 / (R1 + R2); lim = 0.01 * (b + 1) * RE
+VE = Vth - VTH; IE = VE / RE; VC = VCC - RC * IE; VCEa = VC - VE
+IBf = (Vth - VTH) / (Rth + (b + 1) * RE); ICf = b * IBf; VCEf = VCC - RE * (b + 1) * IBf - RC * ICf
+vP = {'VCC': '12 V', 'R1': '8,2 kΩ', 'R2': '1,8 kΩ', 'RC': '2,7 kΩ', 'RE': '1 kΩ'}
+FP = fig_pdt(vP)
+condP = r'<b>Conditions :</b> NPN, \(\beta=200\), \(V_{BE}=0{,}7\ \mathrm V\).'
+srcP = 'Schéma P · pont diviseur de tension'
+add('c4', srcP, FP + condP + r' Peut-on considérer le pont comme une source de tension constante ?',
+    [r'oui : \(R_1\parallel R_2=%s\ \Omega<0{,}01(\beta+1)R_E=%s\ \Omega\)' % (fr(Rth, 4), fr(lim, 4)), r'non : \(R_1\parallel R_2>0{,}01(\beta+1)R_E\)', r'oui, car \(R_1>R_2\)', r'on ne peut pas savoir sans \(R_C\)'], [0],
+    r'\(R_1\parallel R_2=\dfrac{8{,}2\times1{,}8}{10}\ \mathrm{k\Omega}=%s\ \Omega\) et \(0{,}01\times201\times1\ \mathrm k=%s\ \Omega\) : condition vérifiée.' % (fr(Rth, 4), fr(lim, 4)))
+add('c4', srcP, FP + condP + r' Avec l\'approximation (source de tension), point de fonctionnement :',
+    [r'\(V_{BB}=V_{Th}=%s\ \mathrm V\)' % fr(Vth), r'\(i_C\approx i_E=%s\ \mathrm{mA}\)' % fr(IE * 1e3), r'\(V_{CE}\approx%s\ \mathrm V\)' % fr(VCEa), r'\(i_C=%s\ \mathrm{mA}\)' % fr(Vth / RE * 1e3), r'\(V_{CE}\approx%s\ \mathrm V\)' % fr(VCC - RC * IE)], [0, 1, 2],
+    r'\(V_{Th}=12\times\dfrac{1{,}8}{10}=%s\) V, \(V_E=%s\) V, \(i_E=%s\) mA, \(V_C=12-2{,}7\ \mathrm k\times i_C=%s\) V, \(V_{CE}=V_C-V_E=%s\) V.' % (fr(Vth), fr(VE), fr(IE * 1e3), fr(VC), fr(VCEa)))
+num('c4', srcP, FP + condP + r' Calcul <b>complet</b> (sans approximation) : courant collecteur \(i_C\) ?',
+    m(ICf * 1e3, 'mA', 4), [m(IE * 1e3, 'mA', 4), m(b * (Vth - VTH) / (Rth + RE) * 1e3, 'mA', 4), m(Vth / RE * 1e3, 'mA', 4)],
+    r'\(i_B=\dfrac{V_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}=\dfrac{%s}{%s+201\,000}=%s\ \mu\mathrm A\), \(i_C=\beta i_B=%s\) mA (approximation : %s mA), puis \(V_{CE}=V_{CC}-R_E(\beta+1)i_B-R_Ci_C=%s\) V.' % (fr(Vth - VTH), fr(Rth, 4), fr(IBf * 1e6), fr(ICf * 1e3, 4), fr(IE * 1e3), fr(VCEf)))
+R1b, R2b, bb = 47e3, 10e3, 150
+Rthb = R1b * R2b / (R1b + R2b); limb = 0.01 * (bb + 1) * 1e3
+add('c4', 'CM4 · condition du pont', fig_pdt({'VCC': '12 V', 'R1': '47 kΩ', 'R2': '10 kΩ', 'RC': '2,2 kΩ', 'RE': '1 kΩ'}) + r'<b>Conditions :</b> \(\beta=150\). L\'approximation « source de tension » est-elle permise ?',
+    [r'non : \(R_1\parallel R_2\approx%s\ \mathrm{k\Omega}>0{,}01(\beta+1)R_E=%s\ \mathrm{k\Omega}\), il faut le calcul complet par Thévenin' % (fr(Rthb / 1e3), fr(limb / 1e3)), r'oui, l\'écart est négligeable', r'oui, car \(R_E=1\ \mathrm{k\Omega}\)', r'non, car \(R_C>R_E\)'], [0],
+    r'C\'est le montage du schéma A (CM5) : on y fait le calcul complet \(i_B=\dfrac{E_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\).')
+
+# Scénario S : commutation par microcontrôleur
+Vcmd, VCC, ICs, IBs, VBEs = 5, 12, 100e-3, 10e-3, 1.0
+RBs = (Vcmd - VBEs) / IBs; RCs = (VCC - 0) / ICs; bs = ICs / IBs
+FS = fig_fond({'VBB': '5 V', 'RB': '?', 'RC': '?', 'VCC': '12 V'}, ARD)
+condS = r'<b>Conditions :</b> une sortie de microcontrôleur (\(V_{cmd}=5\ \mathrm V\), \(40\ \mathrm{mA}\) maximum) doit commander une charge parcourue par \(i_C=100\ \mathrm{mA}\) sous \(12\ \mathrm V\). Datasheet : \(i_{C,max}=600\ \mathrm{mA}\), \(V_{CE,max}=40\ \mathrm V\) ; à saturation \(i_{B,sat}=10\ \mathrm{mA}\), \(V_{BE,sat}=1\ \mathrm V\), \(V_{CE,sat}\approx0\).'
+srcS = 'Schéma S · transistor en commutation'
+add('c4', srcS, FS + condS + r' Quelles affirmations sont justes ?',
+    [r'le transistor convient : \(100\ \mathrm{mA}<600\ \mathrm{mA}\) et \(12\ \mathrm V<40\ \mathrm V\)', r'\(R_B=%s\ \Omega\)' % fr(RBs), r'\(R_C=%s\ \Omega\)' % fr(RCs), r'\(R_B=%s\ \Omega\)' % fr(Vcmd / IBs), r'\(R_C=%s\ \Omega\)' % fr(Vcmd / ICs)], [0, 1, 2],
+    r'\(R_B=\dfrac{V_{cmd}-V_{BE,sat}}{i_{B,sat}}=\dfrac{5-1}{10\ \mathrm m}=%s\ \Omega\) ; \(R_C=\dfrac{V_{CC}-V_{CE,sat}}{i_{C,sat}}=\dfrac{12}{0{,}1}=%s\ \Omega\). On prend ensuite une valeur normalisée de \(R_B\) un peu <b>plus petite</b> pour bien saturer.' % (fr(RBs), fr(RCs)))
+num('c4', srcS, FS + condS + r' Gain en courant à saturation \(\beta_{sat}=\dfrac{i_{C,sat}}{i_{B,sat}}\) :',
+    r'\(\beta_{sat}=%s\)' % fr(bs), [r'\(\beta_{sat}=200\)', r'\(\beta_{sat}=%s\)' % fr(bs * 10), r'\(\beta_{sat}=1\)'],
+    r'\(\dfrac{100}{10}=%s\) : faible, c\'est normal en saturation.' % fr(bs))
+num('c4', 'CM4 · temps de commutation', r'<b>Conditions :</b> datasheet : \(t_d=35\ \mathrm{ns}\), \(t_r=35\ \mathrm{ns}\), \(t_s=200\ \mathrm{ns}\), \(t_f=50\ \mathrm{ns}\). Temps de blocage \(t_{OFF}\) ?',
+    m(250, 'ns'), [m(70, 'ns'), m(320, 'ns'), m(235, 'ns')], r'\(t_{OFF}=t_s+t_f=200+50=250\) ns (et \(t_{ON}=t_d+t_r=70\) ns).')
+IBl, bl, ICB0 = 20e-6, 100, 0.1e-6
+ICl = bl * IBl + (bl + 1) * ICB0
+num('c4', 'CM4 · courant de fuite', r'<b>Conditions :</b> \(\beta=100\), \(i_B=20\ \mu\mathrm A\), courant de fuite \(i_{CB0}=0{,}1\ \mu\mathrm A\) (température élevée). Courant collecteur ?',
+    m(ICl * 1e3, 'mA', 4), [m(bl * IBl * 1e3 + 0.1e-3, 'mA', 4), m(bl * (IBl + ICB0) * 1e3 * 0.98, 'mA', 4), m((bl + 1) * IBl * 1e3, 'mA', 4)],
+    r'\(i_C=\beta i_B+(\beta+1)i_{CB0}=2\ \mathrm{mA}+%s\ \mu\mathrm A=%s\) mA.' % (fr((bl + 1) * ICB0 * 1e6), fr(ICl * 1e3, 4)))
+
+
 # =================== CM5 · FORMULES ===================
 add('f5', 'CM5', r'Résistance dynamique d\'émetteur du modèle \(r_e\) :',
     [r'\(r_e=\dfrac{26\ \mathrm{mV}}{I_E}\)', r'\(r_e=26\ \mathrm{mV}\cdot I_E\)', r'\(r_e=\dfrac{I_E}{26\ \mathrm{mV}}\)', r'\(r_e=\dfrac{26\ \mathrm{mV}}{I_B}\)'], [0],
@@ -358,167 +584,13 @@ num('c5', 'CM5 · bande passante', r'<b>Conditions :</b> le condensateur de liai
     m(fc, 'Hz'), [m(fc * 2 * math.pi, 'Hz'), m(fc * 10, 'Hz'), m(fc / 2, 'Hz')],
     r'\(f_c=\dfrac{1}{2\pi RC}=\dfrac{1}{2\pi\times3\,170\times10^{-5}}=%s\) Hz.' % fr(fc))
 
-# =================== CM6 · FORMULES ===================
-add('f6', 'CM6 · erratum', r'Selon l\'erratum du cours, quelle relation faut-il connaître <b>par cœur</b> ?',
-    [r'la définition \(g_m=\dfrac{\mathrm dI_D}{\mathrm dV_{GS}}\)', r'\(I_D=I_{DSS}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)^2\) (elle serait donnée si besoin)', r'\(g_m=\dfrac{2I_{DSS}}{|V_P|}\left(1-\dfrac{V_{GS}}{V_P}\right)\)', r'\(R_{DS}=V_P\,I_{DSS}\)'], [0],
-    r'L\'erratum précise que la loi quadratique n\'est pas à apprendre (donnée en évaluation si besoin), mais que \(g_m=\dfrac{\mathrm dI_D}{\mathrm dV_{GS}}\) est à connaître par cœur. La formule avec \(V_P\) de la diapo 17 est fausse.')
-add('f6', 'CM6 · erratum', r'Transconductance d\'un JFET à utiliser en évaluation (erratum) :',
-    [r'\(g_m=-\dfrac{2I_{DSS}}{V_{GS,off}}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)\)', r'\(g_m=\dfrac{2I_{DSS}}{|V_P|}\left(1-\dfrac{V_{GS}}{V_P}\right)\) avec \(V_P>0\)', r'\(g_m=I_{DSS}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)^2\)', r'\(g_m=\dfrac{I_{DSS}}{V_{GS,off}}\)'], [0],
-    r'On dérive \(I_D\) : \((u^2)\'=2u\'u\) avec \(u\'=-\dfrac{1}{V_{GS,off}}\). Comme \(V_{GS,off}<0\), \(g_m>0\). Utiliser \(V_{GS,off}\), pas \(V_P\).')
-add('f6', 'CM6', r'JFET : quelles relations sont justes ?',
-    [r'\(I_D=I_S\) et \(I_G\approx0\)', r'\(R_{DS}=\dfrac{V_P}{I_{DSS}}\) (zone ohmique, \(V_{GS}=0\))', r'\(|V_{GS,off}|=V_P\)', r'\(I_D=\beta\,I_G\)', r'\(I_D=I_{DSS}\) pour \(V_{GS}=V_{GS,off}\)'], [0, 1, 2],
-    r'\(I_D=I_{DSS}\) pour \(V_{GS}=0\) ; \(I_D=0\) pour \(V_{GS}=V_{GS,off}\).')
-add('f6', 'CM6', r'Droite de charge d\'un JFET (maille drain, \(R_D\) et \(R_S\)) :',
-    [r'\(I_D=-\dfrac{V_{DS}}{R_D+R_S}+\dfrac{V_{DD}}{R_D+R_S}\)', r'\(I_D=\dfrac{V_{DS}}{R_D+R_S}\)', r'\(I_D=-\dfrac{V_{DS}}{R_D}+\dfrac{V_{DD}}{R_S}\)', r'\(I_D=\dfrac{V_{DD}-V_{GS}}{R_D}\)'], [0], r'\(V_{DD}=(R_D+R_S)I_D+V_{DS}\).')
-add('f6', 'CM6', r'Ampli <b>source commune</b> (\(C_S\) présent) :',
-    [r'\(A_v=-g_m\,R_D\)', r'\(Z_{in}=R_1\parallel R_2\) (ou \(R_G\))', r'\(Z_{out}=R_D\)', r'\(A_v\approx1\)', r'\(Z_{out}=\dfrac{1}{g_m}\)'], [0, 1, 2], r'Gain élevé, déphasage de \(\pi\).')
-add('f6', 'CM6 · erratum', r'Ampli <b>drain commun</b> (source suiveuse) :',
-    [r'\(A_v=\dfrac{g_mR_S}{1+g_mR_S}\approx1\)', r'\(Z_{in}=R_G\) (très grande)', r'\(Z_{out}=\left(\dfrac{1}{R_S}+g_m\right)^{-1}=R_S\parallel\dfrac{1}{g_m}\)', r'\(Z_{out}=R_S\) exactement', r'\(A_v=-g_mR_S\)'], [0, 1, 2],
-    r'L\'erratum de la diapo 19 corrige \(Z_{out}\) : on éteint \(v_{in}\), \(v_{gs}=-e_{out}\), \(i_{out}=\dfrac{e_{out}}{R_S}+g_me_{out}\).')
-add('f6', 'CM6', r'MOSFET à enrichissement (canal N), région active :',
-    [r'\(I_D=\tfrac12K_n\dfrac WL(V_{GS}-V_T)^2\)', r'\(g_m=K_n\dfrac WL(V_{GS}-V_T)=\dfrac{2I_D}{V_{GS}-V_T}\)', r'condition : \(V_{GS}>V_T\) et \(V_{DS}>V_{GS}-V_T\)', r'\(I_D=I_{DSS}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)^2\)', r'condition : \(V_{DS}<V_{GS}-V_T\)'], [0, 1, 2],
-    r'\(0<V_{DS}<V_{GS}-V_T\) : région ohmique (\(R_{DS}=\dfrac{V_{DS}}{I_D}\)). \(V_{GS}<V_T\) : bloqué.')
-add('f6', 'CM6', r'Variation de courant de drain pour une petite variation de \(V_{GS}\) :',
-    [r'\(\Delta I_D=g_m\,\Delta V_{GS}\)', r'\(\Delta I_D=\dfrac{\Delta V_{GS}}{g_m}\)', r'\(\Delta I_D=\beta\,\Delta V_{GS}\)', r'\(\Delta I_D=g_m^2\,\Delta V_{GS}\)'], [0], r'\(g_m\) est la pente de la caractéristique de transfert, en siemens.')
-
-# =================== CM6 · CONNAISSANCES ===================
-add('k6', 'CM6', r'Le transistor à effet de champ :',
-    [r'est commandé en tension (\(V_{GS}\))', r'est unipolaire (un seul type de porteur)', r'a une impédance d\'entrée très élevée', r'est commandé par un courant de base', r'est bipolaire'], [0, 1, 2], r'Dans un JFET canal N, seuls les électrons circulent (de la source au drain).')
-add('k6', 'CM6', r'JFET canal N en fonctionnement normal :',
-    [r'\(V_{GS}<0\), \(V_{DS}>0\), \(I_D>0\)', r'\(V_{GS}>0\), \(V_{DS}<0\)', r'\(V_{GS}>V_T\)', r'\(V_{GS}=V_{DS}\)'], [0], r'La jonction grille-source est polarisée en inverse (\(I_G\approx0\)). Canal P : tous les signes s\'inversent.')
-add('k6', 'CM6', r'Distinguer \(V_{GS,off}\) et \(V_P\) :',
-    [r'\(V_{GS,off}\) est la tension grille-source qui ferme le canal (\(I_D=0\))', r'\(V_P\) est la tension \(V_{DS}\) de pincement à partir de laquelle \(I_D\) devient constant', r'numériquement \(|V_{GS,off}|=V_P\)', r'\(V_P\) est la tension qui bloque le transistor', r'les datasheets donnent toujours \(V_P\)'], [0, 1, 2], r'Les datasheets donnent \(V_{GS,off}\), jamais \(V_P\).')
-add('k6', 'CM6', r'Inconvénients de l\'impédance d\'entrée très élevée du FET :',
-    [r'sensibilité au bruit thermique (bruit Johnson)', r'sensibilité aux charges électrostatiques et aux champs parasites', r'consommation statique élevée', r'gain en courant trop faible'], [0, 1], r'Elle reste un avantage majeur pour les capteurs et les amplificateurs d\'instrumentation.')
-add('k6', 'CM6', r'Comparatif BJT / JFET du cours : quelles affirmations sont justes ?',
-    [r'le JFET a une meilleure stabilité thermique', r'le BJT a un gain d\'amplification plus élevé', r'le JFET consomme moins', r'le JFET a une impédance d\'entrée plus faible', r'le JFET est bipolaire'], [0, 1, 2], r'BJT : \(I_C=\beta I_B\), \(V_{BE}=0{,}7\) V ; JFET : \(I_D=I_S\), \(I_G=0\).')
-add('k6', 'CM6', r'Comparatif JFET / MOSFET du cours :',
-    [r'la grille du MOSFET est séparée du canal par un isolant (\(\mathrm{SiO_2}\))', r'le canal du MOSFET est créé par la polarisation (canal d\'inversion)', r'le MOSFET a une impédance d\'entrée encore plus forte (\(>10\,000\ \mathrm{M\Omega}\))', r'le MOSFET est plus difficile et plus coûteux à fabriquer', r'la grille du JFET est isolée du canal'], [0, 1, 2],
-    r'Le JFET est plus difficile à fabriquer et plus coûteux ; sa grille est en contact avec le canal (jonction PN).')
-add('k6', 'CM6', r'MOSFET canal N : formation du canal :',
-    [r'au-delà de \(V_T\), des électrons s\'accumulent sous le \(\mathrm{SiO_2}\) et forment un canal d\'inversion', r'le canal existe déjà à \(V_{GS}=0\) et on le réduit', r'les trous forment le canal', r'le courant traverse l\'oxyde de grille'], [0], r'Pour \(V_{GS}<V_T\) le transistor est bloqué (cut-off).')
-add('k6', 'CM6', r'JFET en commutation (hypothèse \(R_D\gg R_{DS}\)) :',
-    [r'si \(V_{in}=V_{GS}<V_{GS,off}\) : interrupteur ouvert, \(V_{out}=V_{DD}\)', r'si \(V_{in}=V_{GS}=0\) : interrupteur fermé équivalent à \(R_{DS}\), \(V_{out}\approx0\)', r'si \(V_{GS}=0\) le transistor est bloqué', r'\(V_{out}=V_{DD}\) pour \(V_{in}=0\)'], [0, 1], r'C\'est un inverseur.')
-add('k6', 'CM6', r'Pourquoi l\'ampli source commune est-il adapté à l\'amplification et le drain commun à l\'adaptation d\'impédance ?',
-    [r'source commune : gain \(-g_mR_D\) élevé', r'drain commun : \(A_v\approx1\) et \(Z_{in}\) très élevée', r'drain commun : gain très élevé', r'source commune : \(Z_{out}\) nulle'], [0, 1], r'Le drain commun est aussi appelé « source suiveuse ».')
-add('k6', 'CM6', r'Dans le modèle petits signaux du FET, la résistance \(r_o\) (ou \(r_{ds}\)) :',
-    [r'est omise dans les calculs sauf avis contraire', r'est toujours très faible', r'remplace \(g_m\)', r'est en série avec la grille'], [0], r'Comme pour le BJT, sa valeur élevée n\'a qu\'un faible impact.')
-
-# =================== CM6 · CALCULS SUR SCHÉMA ===================
-# Scénario D : autopolarisation, I_D donné (comme l'exemple du cours)
-VDD, RD, RS, RG, ID = 12, 2.2e3, 330, 1e6, 3e-3
-VD = VDD - RD * ID; VS = RS * ID; VDS = VD - VS; VGS = -VS
-vD = {'VDD': '12 V', 'RD': '2,2 kΩ', 'RS': '330 Ω', 'RG': '1 MΩ'}
-FD = fig_jfet_auto(vD)
-condD = r'<b>Conditions :</b> JFET canal N, courant de drain \(I_D=3\ \mathrm{mA}\) (mesuré), courant de grille négligeable.'
-srcD = 'Schéma D · JFET autopolarisé'
-add('c6', srcD, FD + condD + r' Quelles valeurs sont justes ?',
-    [r'\(V_G\approx0\ \mathrm V\)', r'\(V_{GS}=%s\ \mathrm V\)' % fr(VGS), r'\(V_{DS}=%s\ \mathrm V\)' % fr(VDS), r'\(V_{GS}=+%s\ \mathrm V\)' % fr(VS), r'\(V_{DS}=%s\ \mathrm V\)' % fr(VD)], [0, 1, 2],
-    r'\(I_G\approx0\) donc pas de chute dans \(R_G\) : \(V_G=0\). \(V_S=R_SI_D=%s\) V, \(V_{GS}=V_G-V_S=%s\) V (négatif, conforme). \(V_D=V_{DD}-R_DI_D=%s\) V, \(V_{DS}=V_D-V_S=%s\) V.' % (fr(VS), fr(VGS), fr(VD), fr(VDS)))
-num('c6', srcD, FD + r'<b>Conditions :</b> on mesure \(I_G=1\ \mathrm{nA}\) quand on applique \(V_{GS}=-20\ \mathrm V\) (datasheet). Impédance d\'entrée vue par la grille du transistor ?',
-    r'\(20\,000\ \mathrm{M\Omega}\)', [r'\(20\ \mathrm{M\Omega}\)', r'\(20\ \mathrm{k\Omega}\)', r'\(1\ \mathrm{M\Omega}\)'],
-    r'Loi d\'Ohm : \(R_{in}=\dfrac{V_{GS}}{I_G}=\dfrac{20}{10^{-9}}=2\cdot10^{10}\ \Omega=20\,000\ \mathrm{M\Omega}\) (le montage, lui, a \(Z_{in}=R_G\)).')
-
-# Scénario E : autopolarisation, loi quadratique
-IDSS, Voff, RS, RD, VDD, RL = 10e-3, -5.0, 500, 1.5e3, 18, 10e3
-a = IDSS / Voff ** 2; bq = -2 * IDSS / Voff * 1 + 1 / RS  # I_D = IDSS(1 - V/Voff)^2 with V = -RS*ID ; solve in V
-# (−V)/RS = IDSS (1 − V/Voff)^2  ->  IDSS/Voff^2 V^2 + (−2 IDSS/Voff + 1/RS) V + IDSS = 0
-A_, B_, C_ = IDSS / Voff ** 2, -2 * IDSS / Voff + 1 / RS, IDSS
-dl = B_ * B_ - 4 * A_ * C_
-V1 = (-B_ + math.sqrt(dl)) / (2 * A_); V2 = (-B_ - math.sqrt(dl)) / (2 * A_)
-VGS = V1 if Voff < V1 <= 0 else V2; Vbad = V2 if VGS == V1 else V1
-ID = -VGS / RS; VDS = VDD - (RD + RS) * ID
-gm = -2 * IDSS / Voff * (1 - VGS / Voff)
-Av = -gm * RD; AvL = -gm * (RD * RL / (RD + RL)); AvNoCS = -gm * RD / (1 + gm * RS)
-vE = {'VDD': '18 V', 'RD': '1,5 kΩ', 'RS': '500 Ω', 'RG': '1 MΩ'}
-FE = fig_jfet_auto(vE, cs=True, rl='10 kΩ')
-condE = r'<b>Conditions :</b> JFET canal N, \(I_{DSS}=10\ \mathrm{mA}\), \(V_{GS,off}=-5\ \mathrm V\), loi donnée \(I_D=I_{DSS}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)^2\), \(C_1\), \(C_2\), \(C_S\) de valeur suffisante.'
-srcE = 'Schéma E · JFET autopolarisé, source commune'
-add('c6', srcE, FE + condE + r' Point de repos : quelles affirmations sont justes ?',
-    [r'\(V_{GS}\approx%s\ \mathrm V\)' % fr(VGS), r'\(I_D\approx%s\ \mathrm{mA}\)' % fr(ID * 1e3), r'la racine \(V_{GS}\approx%s\ \mathrm V\) est rejetée car inférieure à \(V_{GS,off}\)' % fr(Vbad), r'\(I_D=I_{DSS}=10\ \mathrm{mA}\)', r'\(V_{GS}\approx+%s\ \mathrm V\)' % fr(-VGS)], [0, 1, 2],
-    r'\(V_G=0\), \(V_{GS}=-R_SI_D\). On remplace dans la loi : équation du second degré, racines \(%s\) V et \(%s\) V. On garde \(V_{GS,off}<V_{GS}\le0\) : \(V_{GS}=%s\) V, \(I_D=\dfrac{-V_{GS}}{R_S}=%s\) mA.' % (fr(V1), fr(V2), fr(VGS), fr(ID * 1e3)))
-add('c6', srcE, FE + condE + r' Tension \(V_{DS}\) et zone de fonctionnement :',
-    [r'\(V_{DS}\approx%s\ \mathrm V\)' % fr(VDS), r'zone active (car \(V_{DS}>V_{GS}-V_{GS,off}=%s\ \mathrm V\))' % fr(VGS - Voff), r'zone ohmique', r'\(V_{DS}\approx%s\ \mathrm V\)' % fr(VDD - RD * ID)], [0, 1],
-    r'\(V_{DS}=V_{DD}-(R_D+R_S)I_D=18-2\ \mathrm k\times%s\ \mathrm{mA}=%s\) V.' % (fr(ID * 1e3), fr(VDS)))
-num('c6', srcE, FE + condE + r' Transconductance \(g_m\) au point de repos (formule de l\'erratum) :',
-    m(gm * 1e3, 'mS'), [m(2 * IDSS / 5 * 1e3, 'mS'), m(gm * 1e3 / 2, 'mS'), m(ID / 0.026 * 1e3, 'mS')],
-    r'\(g_m=-\dfrac{2I_{DSS}}{V_{GS,off}}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)=\dfrac{2\times10}{5}\left(1-\dfrac{%s}{-5}\right)=%s\) mS.' % (fr(VGS), fr(gm * 1e3)))
-add('c6', srcE, FE + condE + r' Gain en tension et impédances (avec \(g_m\) du point de repos) :',
-    [r'\(A_v\approx%s\) avec \(R_L\) branchée' % fr(AvL), r'\(A_v\approx%s\) à vide' % fr(Av), r'\(Z_{in}=R_G=1\ \mathrm{M\Omega}\) et \(Z_{out}=R_D\)', r'\(A_v\approx%s\) avec \(R_L\)' % fr(-AvL), r'\(Z_{in}=R_S\)'], [0, 1, 2],
-    r'\(A_v=-g_mR_D=%s\) ; avec la charge, \(-g_m(R_D\parallel R_L)=%s\).' % (fr(Av), fr(AvL)))
-num('c6', srcE, FE + condE + r' <b>Nouvelle condition : on retire \(C_S\)</b> (\(R_S\) non découplée), sans charge. Gain en tension :',
-    r'\(A_v\approx%s\)' % fr(AvNoCS), [r'\(A_v\approx%s\)' % fr(Av), r'\(A_v\approx%s\)' % fr(-AvNoCS), r'\(A_v\approx1\)'],
-    r'\(A_v=-\dfrac{g_mR_D}{1+g_mR_S}=-\dfrac{%s}{1+%s}=%s\). Le point de repos ne change pas.' % (fr(gm * RD), fr(gm * RS), fr(AvNoCS)))
-
-# Scénario F : pont diviseur
-IDSS, Voff, R1, R2, RD, RS, VDD = 12e-3, -6.0, 1e6, 200e3, 2e3, 2e3, 24
-VTh = VDD * R2 / (R1 + R2); RTh = R1 * R2 / (R1 + R2)
-# (VTh - V)/RS = IDSS (1 - V/Voff)^2
-A_ = IDSS / Voff ** 2; B_ = -2 * IDSS / Voff + 1 / RS; C_ = IDSS - VTh / RS
-dl = B_ * B_ - 4 * A_ * C_
-V1 = (-B_ + math.sqrt(dl)) / (2 * A_); V2 = (-B_ - math.sqrt(dl)) / (2 * A_)
-VGS = V1 if Voff < V1 <= 0 else V2; Vbad = V2 if VGS == V1 else V1
-ID = (VTh - VGS) / RS; VDS = VDD - (RD + RS) * ID
-vF = {'VDD': '24 V', 'R1': '1 MΩ', 'R2': '200 kΩ', 'RD': '2 kΩ', 'RS': '2 kΩ'}
-FF = fig_fet_pont(vF)
-condF = r'<b>Conditions :</b> JFET canal N, \(I_{DSS}=12\ \mathrm{mA}\), \(V_{GS,off}=-6\ \mathrm V\), \(I_D=I_{DSS}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)^2\), \(I_G=0\).'
-srcF = 'Schéma F · JFET polarisé par pont'
-num('c6', srcF, FF + condF + r' Générateur de Thévenin vu par la grille :',
-    r'\(V_{Th}=%s\ \mathrm V\), \(R_{Th}\approx%s\ \mathrm{k\Omega}\)' % (fr(VTh), fr(RTh / 1e3)), [r'\(V_{Th}=%s\ \mathrm V\), \(R_{Th}=1{,}2\ \mathrm{M\Omega}\)' % fr(VDD * R1 / (R1 + R2)), r'\(V_{Th}=24\ \mathrm V\), \(R_{Th}=200\ \mathrm{k\Omega}\)', r'\(V_{Th}=%s\ \mathrm V\), \(R_{Th}=1{,}2\ \mathrm{M\Omega}\)' % fr(VTh)],
-    r'\(V_{Th}=V_{DD}\dfrac{R_2}{R_1+R_2}=24\times\dfrac{0{,}2}{1{,}2}=%s\) V ; \(R_{Th}=R_1\parallel R_2=%s\ \mathrm{k\Omega}\). Comme \(I_G=0\), aucune chute dans \(R_{Th}\) : \(V_G=V_{Th}\).' % (fr(VTh), fr(RTh / 1e3)))
-add('c6', srcF, FF + condF + r' Point de repos : quelles valeurs sont justes ?',
-    [r'\(V_{GS}\approx%s\ \mathrm V\)' % fr(VGS), r'\(I_D\approx%s\ \mathrm{mA}\)' % fr(ID * 1e3), r'\(V_{DS}\approx%s\ \mathrm V\)' % fr(VDS), r'\(V_{GS}\approx%s\ \mathrm V\)' % fr(Vbad), r'\(I_D=\dfrac{V_{Th}}{R_S}=%s\ \mathrm{mA}\)' % fr(VTh / RS * 1e3)], [0, 1, 2],
-    r'\(I_D=\dfrac{V_{Th}-V_{GS}}{R_S}\) et la loi quadratique donnent les racines \(%s\) V et \(%s\) V ; on garde \(V_{GS}>V_{GS,off}\). \(I_D=%s\) mA, \(V_{DS}=V_{DD}-(R_D+R_S)I_D=%s\) V \(>V_{GS}-V_{GS,off}=%s\) V : zone active.' % (fr(V1), fr(V2), fr(ID * 1e3), fr(VDS), fr(VGS - Voff)))
-
-# Scénario G : drain commun
-RS, gm, RG = 1e3, 4e-3, 1e6
-Av = gm * RS / (1 + gm * RS); Zout = 1 / (1 / RS + gm)
-vG = {'VDD': '15 V', 'RS': '1 kΩ', 'RG': '1 MΩ'}
-FG = fig_drain_commun(vG)
-condG = r'<b>Conditions :</b> au point de repos \(g_m=4\ \mathrm{mS}\) ; \(r_o\) négligée ; pas de charge.'
-srcG = 'Schéma G · drain commun'
-add('c6', srcG, FG + condG + r' Quelles valeurs sont justes ?',
-    [r'\(A_v=%s\)' % fr(Av), r'\(Z_{in}=1\ \mathrm{M\Omega}\)', r'\(Z_{out}=%s\ \Omega\)' % fr(Zout), r'\(Z_{out}=1\ \mathrm{k\Omega}\)', r'\(A_v=-4\)'], [0, 1, 2],
-    r'\(A_v=\dfrac{g_mR_S}{1+g_mR_S}=\dfrac{4}{5}=%s\) ; \(Z_{in}=R_G\) ; \(Z_{out}=\left(\dfrac{1}{R_S}+g_m\right)^{-1}=\dfrac{1}{10^{-3}+4\cdot10^{-3}}=%s\ \Omega\) (erratum : ce n\'est pas \(R_S\)).' % (fr(Av), fr(Zout)))
-
-# Scénario H : MOSFET, condition sur la région
-K, VT, VDD, R1, R2 = 2e-3, 2.0, 15, 200e3, 100e3
-VG = VDD * R2 / (R1 + R2); VGS = VG; ID = 0.5 * K * (VGS - VT) ** 2
-RD1, RD2 = 1e3, 1.5e3
-VDS1 = VDD - RD1 * ID; VDS2 = VDD - RD2 * ID; gmM = K * (VGS - VT)
-vH = {'VDD': '15 V', 'R1': '200 kΩ', 'R2': '100 kΩ', 'RD': '1 kΩ', 'RS': '0 Ω (fil)'}
-FH = fig_fet_pont(vH, mos=True)
-condH = r'<b>Conditions :</b> N-MOSFET, \(V_T=2\ \mathrm V\), \(K_n\dfrac WL=2\ \mathrm{mA/V^2}\), loi \(I_D=\tfrac12K_n\dfrac WL(V_{GS}-V_T)^2\) en région active, source à la masse (\(R_S=0\)).'
-srcH = 'Schéma H · MOSFET'
-add('c6', srcH, FH + condH + r' En supposant la région active, quelles valeurs sont justes ?',
-    [r'\(V_{GS}=%s\ \mathrm V\)' % fr(VGS), r'\(I_D=%s\ \mathrm{mA}\)' % fr(ID * 1e3), r'\(V_{DS}=%s\ \mathrm V\), hypothèse vérifiée (\(V_{DS}>V_{GS}-V_T=%s\ \mathrm V\))' % (fr(VDS1), fr(VGS - VT)), r'\(I_D=%s\ \mathrm{mA}\)' % fr(K * (VGS - VT) ** 2 * 1e3), r'le transistor est bloqué'], [0, 1, 2],
-    r'\(I_G=0\) : \(V_G=15\times\dfrac{100}{300}=%s\) V \(=V_{GS}\). \(I_D=\tfrac12\times2\times(%s-2)^2=%s\) mA. \(V_{DS}=15-1\ \mathrm k\times%s\ \mathrm{mA}=%s\) V.' % (fr(VG), fr(VGS), fr(ID * 1e3), fr(ID * 1e3), fr(VDS1)))
-num('c6', srcH, FH + condH + r' Transconductance au point de repos (\(R_D=1\ \mathrm{k\Omega}\)) :',
-    m(gmM * 1e3, 'mS'), [m(gmM * 1e3 / 2, 'mS'), m(gmM * 1e3 * 1.5, 'mS'), m(gmM * 1e3 * 3, 'mS')],
-    r'\(g_m=K_n\dfrac WL(V_{GS}-V_T)=2\times%s=%s\) mS, ou \(\dfrac{2I_D}{V_{GS}-V_T}=\dfrac{2\times%s}{%s}\).' % (fr(VGS - VT), fr(gmM * 1e3), fr(ID * 1e3), fr(VGS - VT)))
-add('c6', srcH, FH + condH + r' <b>Nouvelle condition : \(R_D=1{,}5\ \mathrm{k\Omega}\).</b> Que conclure ?',
-    [r'avec la loi de la région active on trouverait \(V_{DS}=%s\ \mathrm V\)' % fr(VDS2), r'cette valeur est inférieure à \(V_{GS}-V_T=%s\ \mathrm V\) : l\'hypothèse « région active » est fausse' % fr(VGS - VT), r'le transistor est en région ohmique', r'le transistor est bloqué', r'\(I_D\) reste égal à \(%s\ \mathrm{mA}\)' % fr(ID * 1e3)], [0, 1, 2],
-    r'\(V_{DS}=15-1{,}5\ \mathrm k\times%s\ \mathrm{mA}=%s\) V \(<%s\) V : le canal n\'est pas pincé, on est en région ohmique et la loi quadratique ne s\'applique plus.' % (fr(ID * 1e3), fr(VDS2), fr(VGS - VT)))
-
-# Scénario I : commutation
-IDSS, VP, VDD, RD = 18.5e-3, 1.4, 10, 4.7e3
-RDS = VP / IDSS; Vout_on = VDD * RDS / (RDS + RD)
-vI = {'VDD': '10 V', 'RD': '4,7 kΩ'}
-FI = fig_switch(vI)
-condI = r'<b>Conditions :</b> JFET avec \(I_{DSS}=18{,}5\ \mathrm{mA}\), \(V_P=1{,}4\ \mathrm V\) (\(V_{GS,off}=-1{,}4\ \mathrm V\)), \(R_{DS}=\dfrac{V_P}{I_{DSS}}\).'
-srcI = 'Schéma I · JFET en commutation'
-add('c6', srcI, FI + condI + r' Quelles affirmations sont justes ?',
-    [r'\(R_{DS}\approx%s\ \Omega\)' % fr(RDS), r'pour \(V_{in}=0\) : \(V_{out}\approx%s\ \mathrm V\)' % fr(Vout_on), r'pour \(V_{in}=-5\ \mathrm V\) : \(V_{out}=10\ \mathrm V\)', r'pour \(V_{in}=0\) : \(V_{out}=10\ \mathrm V\)', r'pour \(V_{in}=-5\ \mathrm V\) : \(V_{out}\approx0\)'], [0, 1, 2],
-    r'\(R_{DS}=\dfrac{1{,}4}{0{,}0185}=%s\ \Omega\). \(V_{in}=0\) : interrupteur fermé, \(V_{out}=V_{DD}\dfrac{R_{DS}}{R_{DS}+R_D}=%s\) V. \(V_{in}=-5\ \mathrm V<V_{GS,off}\) : bloqué, \(V_{out}=V_{DD}\).' % (fr(RDS), fr(Vout_on)))
-num('c6', 'CM6 · transconductance', r'<b>Conditions :</b> un JFET a une transconductance \(g_m=5\ \mathrm{mS}\) (\(5\,000\ \mu\mathrm S\)). On fait varier \(V_{GS}\) de \(1\ \mathrm V\). Variation du courant de drain ?',
-    m(5, 'mA'), [m(0.2, 'mA'), m(5, r'\mu A'), m(50, 'mA')], r'\(\Delta I_D=g_m\Delta V_{GS}=5\cdot10^{-3}\times1=5\) mA (exemple du cours).')
 
 # ---------------------------------------------------------------- sortie
-THEMES = {'f5': 'CM5 · formules', 'k5': 'CM5 · connaissances', 'c5': 'CM5 · calculs sur schéma',
-          'f6': 'CM6 · formules', 'k6': 'CM6 · connaissances', 'c6': 'CM6 · calculs sur schéma'}
-js = ('/* Généré par gen_cm56.py : QCM CM5 (BJT dynamique) et CM6 (FET). Valeurs calculées, schémas SVG. */\n'
-      'window.CM56_THEMES = ' + json.dumps(THEMES, ensure_ascii=False) + ';\n'
-      'window.CM56 = ' + json.dumps(Q, ensure_ascii=False, indent=0) + ';\n')
+THEMES = {'f4': 'CM4 · formules', 'k4': 'CM4 · connaissances', 'c4': 'CM4 · calculs sur schéma',
+          'f5': 'CM5 · formules', 'k5': 'CM5 · connaissances', 'c5': 'CM5 · calculs sur schéma'}
+js = ('/* Généré par gen_cm45.py : QCM CM4 (BJT en statique) et CM5 (BJT dynamique). Valeurs calculées, schémas SVG. */\n'
+      'window.CM45_THEMES = ' + json.dumps(THEMES, ensure_ascii=False) + ';\n'
+      'window.CM45 = ' + json.dumps(Q, ensure_ascii=False, indent=0) + ';\n')
 open(OUT, 'w', encoding='utf-8').write(js)
 from collections import Counter
 print(len(Q), Counter(q['th'] for q in Q), sum(1 for q in Q if len(q['a']) > 1), 'multi')

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<script src="gate.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Révision CM4-CM5 — De l'Atome à la Puce</title>
+<meta content="Révision des cours 4 (BJT en statique) et 5 (BJT en dynamique) : essentiel, pièges, méthodes, QCM à réponse unique ou multiple avec calculs sur schémas." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#0d8073" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#0a1113" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="De l'atome à la puce — Révision CM4-CM5" property="og:title"/>
+<meta content="BJT en statique et en dynamique : essentiel, méthodes et QCM avec schémas." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet"/>
+</head>
+<body class="cx-page s40-page">
+<div class="topbar">
+<div class="topbar-in">
+<a aria-label="Accueil du site" class="brand" href="index.html">
+<span class="chip-logo"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="10" rx="1" width="10" x="7" y="7"></rect><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"></path></svg></span>
+      De l'Atome à la Puce
+    </a>
+<nav aria-label="Navigation principale" class="nav" id="nav">
+<a href="index.html">Accueil</a>
+<a href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
+<a href="fiche-ch2-ch3.html"><span class="ni">📋</span> Fiche DS Ch2-Ch3</a>
+<a aria-current="page" class="active nav-corr" href="revision-cm4-cm5.html"><span class="ni">🔁</span> Révision CM4-5</a>
+<a href="index.html#cours"><span class="ni">📚</span> Cours</a>
+<a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
+<a href="corriges.html"><span class="ni">✅</span> Corrigés</a>
+<a class="nav-corr" href="cartes.html"><span class="ni">🃏</span> Flashcards</a>
+<a class="nav-corr" href="evaluations.html"><span class="ni">🗓️</span> Évaluations</a>
+<a class="nav-corr" href="partiel.html"><span class="ni">📝</span> Partiel</a>
+<a href="index.html#notions"><span class="ni">💡</span> Notions</a>
+<a href="index.html#formules"><span class="ni">📘</span> Formules</a>
+<a href="index.html#express"><span class="ni">⚡</span> Express</a>
+<a href="index.html#exos"><span class="ni">🎯</span> Exos</a>
+<a href="index.html#boite"><span class="ni">🧰</span> À côté</a>
+<a href="index.html#quiz"><span class="ni">🧠</span> Quiz</a>
+<a href="index.html#planning"><span class="ni">📅</span> Planning</a>
+</nav>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
+<svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</button>
+<button aria-expanded="false" aria-label="Menu" class="burger" id="burger"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</div>
+</div>
+<main>
+<div class="hero hero-sm">
+<div class="hero-grid"></div>
+<div class="hero-in">
+<div>
+<span class="eyebrow">🔁 Révision · CM4 et CM5</span>
+<h1>Le BJT en statique et en <em>dynamique</em>.</h1>
+<p class="lead">Le transistor bipolaire au repos (CM4 : modes de fonctionnement, droite de charge, polarisations, commutation) puis en petits signaux (CM5 : amplificateur émetteur commun, gains, impédances, classes). L'essentiel, les pièges, les méthodes, puis un QCM de 78 questions à réponse unique ou multiple sur les formules, les connaissances et des calculs de courants, tensions et résistances sur des schémas.</p>
+<div class="hero-cta"><a class="btn btn-primary" href="#qcm">Faire le QCM →</a><a class="btn btn-ghost" href="#methodes">Méthodes de calcul</a></div>
+<div class="s4-prog"><span>CM4 BJT en statique</span><span>CM5 BJT en dynamique</span><span>TD5 · TD6</span></div>
+</div>
+</div>
+</div>
+<div class="wrap s40">
+<nav aria-label="Sections de la page" class="s4-toc">
+<a href="#cm4">L'essentiel CM4</a>
+<a href="#cm5">L'essentiel CM5</a>
+<a href="#pieges">Pièges et erratum</a>
+<a href="#methodes">Méthodes de calcul</a>
+<a href="#qcm">QCM</a>
+<a href="#formulaire">Formulaire</a>
+</nav>
+
+<!-- ================= CM4 ================= -->
+<section id="cm4">
+<h2>CM4 · Le BJT en statique <span class="s4-tag">amphi Cours 4 · TD5</span></h2>
+<p class="s4-sub">Choisir les tensions et résistances continues qui placent le transistor dans le mode voulu : le point de repos \(Q\).</p>
+<div class="s4-must"><ol>
+<li><b>Effet transistor (NPN)</b> : la jonction BE directe injecte des électrons de l'émetteur (très dopé) dans la base (très fine, 50 à 100 µm) ; minoritaires, ils sont entraînés vers le collecteur par le champ de la jonction BC inverse. Une petite tension \(V_{BE}\) commande un fort courant \(i_C\).</li>
+<li><b>Courants et gains</b> : \(i_E=i_B+i_C\), \(\beta=h_{FE}=\dfrac{i_C}{i_B}\) (100 à 300), \(\alpha=\dfrac{i_C}{i_E}\approx1\), \(\gamma=\dfrac{i_E}{i_B}=\beta+1=\dfrac{1}{1-\alpha}\).</li>
+<li><b>Modes</b> : bloqué si \(V_{BE}<0{,}7\) V ; actif si \(V_{BE}=0{,}7\) V et \(V_{BC}<0\) (\(V_{CE}>0{,}7\) V) ; saturation dès \(V_{BC}\ge0\), maximale pour \(V_{BC}=0{,}7\) V (\(V_{CE}=0\)). En pratique il sature vraiment pour \(V_{CE}<0{,}2\) V. Rappel : \(V_{CE}=V_{CB}+V_{BE}\).</li>
+<li><b>Émetteur commun fondamental</b> : maille base \(i_B=\dfrac{V_{BB}-V_{BE}}{R_B}\) (droite d'attaque), maille collecteur \(i_C=\dfrac{V_{CC}-V_{CE}}{R_C}\) (droite de charge). \(Q\) = intersection de la droite de charge et de la caractéristique \(i_C(V_{CE})\).</li>
+<li><b>Droite de charge</b> : \(i_{C,sat}=\dfrac{V_{CC}}{R_C}\) (pour \(V_{CE}=0\)), \(V_{CE,bloc}=V_{CC}\) (pour \(i_C=0\)). Si \(\beta i_B>i_{C,sat}\), le transistor sature et \(i_C=i_{C,sat}\).</li>
+<li><b>Polarisation par la base</b> : \(\beta\)-dépendante (\(Q\) bouge avec \(\beta\)) → commutation, circuits numériques.</li>
+<li><b>Polarisation par l'émetteur</b> : \(V_E=V_{BB}-V_{BE}\), \(i_E=\dfrac{V_E}{R_E}\approx i_C\), \(V_{CE}=V_C-V_E\). \(\beta\)-indépendante, \(Q\) stable → amplification.</li>
+<li><b>Pont diviseur (PDT)</b> : \(V_{Th}=V_{CC}\dfrac{R_2}{R_1+R_2}\), \(R_{Th}=R_1\parallel R_2\). Calcul complet \(i_B=\dfrac{V_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\). Si \(R_1\parallel R_2<0{,}01(\beta+1)R_E\), on calcule comme une polarisation par l'émetteur avec \(V_{BB}=V_{Th}\).</li>
+<li><b>Commutation</b> : saturé = interrupteur fermé, bloqué = ouvert. \(R_B=\dfrac{V_{cmd}-V_{BE,sat}}{i_{B,sat}}\), \(R_C=\dfrac{V_{CC}-V_{CE,sat}}{i_{C,sat}}\) ; \(\beta_{sat}\) est faible (10 dans l'exemple du cours). \(t_{ON}=t_d+t_r\), \(t_{OFF}=t_s+t_f\).</li>
+<li><b>Modèle d'Ebers-Moll</b> : diode BE (\(V_{BE}=0{,}7\) V) et source de courant \(i_C=\beta i_B\). <b>Température</b> : \(T\nearrow\Rightarrow\beta\nearrow\) et \(i_{CB0}\nearrow\), avec \(i_C=\beta i_B+(\beta+1)i_{CB0}\). <b>Effet Early</b> : pente des caractéristiques, tension \(V_A\).</li>
+</ol></div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Jonction BE</th><th>Jonction BC</th><th>Mode</th><th>Usage</th></tr>
+<tr><td data-l="BE">directe</td><td data-l="BC">inverse</td><td data-l="Mode">actif (amplification)</td><td data-l="Usage">amplificateurs</td></tr>
+<tr><td data-l="BE">directe</td><td data-l="BC">directe</td><td data-l="Mode">saturé (« ON »)</td><td data-l="Usage">interrupteur fermé</td></tr>
+<tr><td data-l="BE">inverse</td><td data-l="BC">inverse</td><td data-l="Mode">bloqué (« OFF »)</td><td data-l="Usage">interrupteur ouvert</td></tr>
+</table></div>
+</section>
+
+<!-- ================= CM5 ================= -->
+<section id="cm5">
+<h2>CM5 · Le BJT en dynamique <span class="s4-tag">amphi Cours 5 · TD6</span></h2>
+<p class="s4-sub">On superpose au point de repos \(Q\) un petit signal alternatif et on calcule comment il est amplifié.</p>
+<div class="s4-must"><ol>
+<li><b>Les trois condensateurs</b> : \(C_1\) et \(C_2\) (liaison) bloquent le continu à l'entrée et à la sortie ; \(C_E\) (découplage) court-circuite \(R_E\) en alternatif. En continu ce sont des circuits ouverts : ils ne changent pas \(Q\).</li>
+<li><b>Schéma AC</b> : condensateurs \(\to\) fils, sources continues \(\to\) masse, transistor \(\to\) \((\beta+1)r_e\) entre B et E et source \(\beta\,i_b\) entre C et E.</li>
+<li><b>Résistance dynamique</b> : \(r_e=\dfrac{26\ \mathrm{mV}}{I_E}\), avec \(I_E\) le courant <em>continu</em> de repos (calculé avec le CM4).</li>
+<li><b>Émetteur commun avec \(C_E\)</b> : \(A_v\approx-\dfrac{R_C}{r_e}\) (déphasage de \(\pi\)), \(Z_{in}=R_1\parallel R_2\parallel(\beta+1)r_e\), \(Z_{out}=R_C\).</li>
+<li><b>Sans \(C_E\)</b> : \(A_v\approx-\dfrac{R_C}{R_E+r_e}\) (gain effondré), \(Z_{in}=R_1\parallel R_2\parallel(\beta+1)(r_e+R_E)\) (plus grande).</li>
+<li><b>Avec une charge</b> : \(v_{out}=A_v\,v_{in}\dfrac{R_L}{Z_{out}+R_L}\), soit \(A_v=-\dfrac{R_C\parallel R_L}{r_e}\). Avec une source \(R_s\) : \(v_{in}=v_g\dfrac{Z_{in}}{Z_{in}+R_s}\).</li>
+<li><b>Gains</b> : \(A_i=\dfrac{i_{out}}{i_{in}}\), \(A_P=A_vA_i\) ; en dB \(20\log|A_v|\) et \(10\log A_P\). Cascade : produit des gains <em>chargés</em>.</li>
+<li><b>Bande passante</b> : coupure basse par les condensateurs (\(f_c=\frac{1}{2\pi RC}\)), coupure haute par les capacités internes (modèle de Giacoletto \(g_m=\frac{I_C}{V_T}\), \(r_\pi=\frac{\beta}{g_m}\)).</li>
+<li><b>Classes</b> : A (\(360^{\circ}\), \(\eta\le50\ \%\)), B (\(180^{\circ}\), \(\eta\le78{,}5\ \%\), distorsion de croisement), AB (push-pull à diodes), D (PWM + filtre, très haut rendement).</li>
+<li><b>Montages</b> : Darlington (\(\beta_1\beta_2\), \(V_{BE}\approx1{,}4\) V), pont en H (sens d'un moteur), générateur de courant à Zener (\(i_L\approx\frac{V_Z-V_{BE}}{R_E}\)), miroir de courant (\(i_{out}\approx i_{in}\)), paire différentielle (cœur de l'AOP : \(Z_{in}\approx2\ \mathrm{M\Omega}\), \(Z_{out}\approx50\ \Omega\), \(A_d\approx10^5\)).</li>
+</ol></div>
+</section>
+
+<!-- ================= PIÈGES ================= -->
+<section id="pieges">
+<h2>Pièges et erratum</h2>
+<div class="s4-key"><span class="s4-lbl">CM4 · ne jamais oublier de vérifier le mode</span>
+<p>Après avoir calculé \(i_C=\beta i_B\), comparer à \(i_{C,sat}=\dfrac{V_{CC}}{R_C}\) (ou vérifier \(V_{CE}>0{,}7\) V). Un \(V_{CE}\) négatif signifie que l'hypothèse « actif » est fausse : le transistor sature et \(i_C=i_{C,sat}\).</p></div>
+<div class="s4-key"><span class="s4-lbl">CM4 · pont diviseur : approximation ou calcul complet ?</span>
+<p>Tester d'abord \(R_1\parallel R_2<0{,}01(\beta+1)R_E\). Si c'est faux (par exemple \(47\ \mathrm{k\Omega}\parallel10\ \mathrm{k\Omega}\) avec \(R_E=1\ \mathrm{k\Omega}\)), faire le calcul complet par Thévenin, sans négliger \(i_B\).</p></div>
+<div class="s4-key"><span class="s4-lbl">CM5 · erratum diapo 12 · impédance de sortie de l'émetteur commun</span>
+<p>On éteint \(v_{in}\) : \(i_b=0\), donc \(i_c=\beta i_b=0\) (circuit ouvert). Il ne reste que \(R_C\) : \(Z_{out}=\dfrac{v_{out}}{i_{out}}=R_C\).</p></div>
+<div class="s4-trap"><span class="s4-lbl">Majuscules et minuscules</span>\(I_E\), \(V_{CE}\) : grandeurs continues (CM4). \(i_b\), \(v_{in}\) : petits signaux (CM5). \(r_e\) se calcule avec le courant <b>continu</b> \(I_E\).</div>
+</section>
+
+<!-- ================= MÉTHODES ================= -->
+<section id="methodes">
+<h2>Méthodes de calcul</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>Trouver le mode d'un transistor</h4><ol class="s4-small">
+<li>Calculer \(V_{BE}\) : si \(V_{BE}<0{,}7\) V, il est bloqué.</li>
+<li>Sinon calculer \(V_{BC}=V_{BM}+V_{MC}\) : \(V_{BC}<0\) → actif ; \(V_{BC}\ge0\) → saturation (maximale si \(V_{BC}\ge0{,}7\) V).</li>
+</ol></div>
+<div class="s4-card"><h4>Point de repos \(Q\)</h4><ol class="s4-small">
+<li><b>Par la base</b> : maille base → \(i_B\), puis \(i_C=\beta i_B\), maille collecteur → \(V_{CE}\).</li>
+<li><b>Par l'émetteur</b> : \(V_E=V_{BB}-0{,}7\), \(i_E=\frac{V_E}{R_E}\approx i_C\), \(V_C=V_{CC}-R_Ci_C\), \(V_{CE}=V_C-V_E\).</li>
+<li><b>Pont</b> : tester la condition \(0{,}01(\beta+1)R_E\), puis approximation ou Thévenin complet.</li>
+<li>Toujours vérifier que \(\beta i_B\le i_{C,sat}\) et \(V_{CE}>0{,}7\) V.</li>
+</ol></div>
+<div class="s4-card"><h4>Dimensionner</h4><ol class="s4-small">
+<li><b>Point \(Q\) imposé</b> (\(i_C\), \(V_{CE}\)) : \(i_B=\frac{i_C}{\beta}\), \(R_B=\frac{V_{BB}-V_{BE}}{i_B}\), \(R_C=\frac{V_{CC}-V_{CE}}{i_C}\).</li>
+<li><b>Commutation</b> : vérifier \(i_{C,max}\) et \(V_{CE,max}\) ; prendre \(i_{B,sat}\), \(V_{BE,sat}\) dans la datasheet ; \(R_B\), \(R_C\), puis \(R_B\) normalisée un peu plus petite.</li>
+</ol></div>
+<div class="s4-card"><h4>Amplificateur à BJT (CM5)</h4><ol class="s4-small">
+<li><b>DC</b> (condensateurs ouverts) : point \(Q\) avec les méthodes du CM4, \(I_E\).</li>
+<li>\(r_e=\dfrac{26\ \mathrm{mV}}{I_E}\).</li>
+<li><b>AC</b> : schéma équivalent (condensateurs = fils, \(V_{CC}\) = masse), puis \(Z_{in}\), \(Z_{out}\), \(A_v\).</li>
+<li>Charge et source : ponts diviseurs de sortie et d'entrée.</li>
+</ol></div>
+</div>
+<div class="box ex"><div class="bt">▹ Exemple du cours : pont diviseur (2N3904)</div><p>\(V_{CC}=10\) V, \(R_1=10\ \mathrm{k\Omega}\), \(R_2=2{,}2\ \mathrm{k\Omega}\), \(R_C=3{,}6\ \mathrm{k\Omega}\), \(R_E=1\ \mathrm{k\Omega}\), \(\beta=200\). Condition : \(R_1\parallel R_2=1\,803\ \Omega<0{,}01\times201\times1\,000=2\,010\ \Omega\). Puis \(V_{BB}=1{,}8\) V, \(V_E=1{,}1\) V, \(i_C\approx i_E=1{,}1\) mA, \(V_C=6{,}0\) V, \(V_{CE}=4{,}9\) V \(>0{,}7\) V : il amplifie (calcul complet : \(i_C=1{,}09\) mA, \(V_{CE}=4{,}98\) V).</p></div>
+</section>
+
+<!-- ================= QCM ================= -->
+<section id="qcm">
+<h2>QCM CM4 et CM5</h2>
+<p class="s4-sub">Questions de formules, de connaissances et de calculs de courants, tensions et résistances sur des schémas, avec leurs conditions. Certaines questions ont <b>une seule</b> bonne réponse (boutons ronds), d'autres <b>plusieurs</b> (cases à cocher, indiquées « plusieurs réponses possibles ») : il faut cocher toutes les bonnes et aucune mauvaise. Toutes les valeurs ont été calculées. Choisissez les thèmes (CM4, CM5, formules, connaissances, calculs). <b>Entraînement</b> : correction immédiate. <b>Épreuve blanche</b> : tirage au sort, questions et réponses mélangées, chrono.</p>
+<div id="bankCm45"></div>
+</section>
+
+<!-- ================= FORMULAIRE ================= -->
+<section id="formulaire">
+<h2>Formulaire</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>BJT statique</h4>
+<div class="mq">\[\begin{gathered}i_E=i_B+i_C\qquad\beta=\frac{i_C}{i_B}\qquad\alpha=\frac{i_C}{i_E}\qquad\beta+1=\frac{1}{1-\alpha}\\[4pt] i_B=\frac{V_{BB}-V_{BE}}{R_B}\qquad V_{CE}=V_{CC}-R_Ci_C\qquad i_{C,sat}=\frac{V_{CC}}{R_C}\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}V_E=V_{BB}-V_{BE}\qquad i_E=\frac{V_E}{R_E}\qquad V_{CE}=V_C-V_E\\[4pt] V_{Th}=V_{CC}\frac{R_2}{R_1+R_2}\qquad i_B=\frac{V_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\qquad R_1\parallel R_2<0{,}01(\beta+1)R_E\\[4pt] R_B=\frac{V_{cmd}-V_{BE,sat}}{i_{B,sat}}\qquad R_C=\frac{V_{CC}-V_{CE,sat}}{i_{C,sat}}\qquad t_{ON}=t_d+t_r\quad t_{OFF}=t_s+t_f\end{gathered}\]</div>
+</div>
+<div class="s4-card"><h4>BJT dynamique</h4>
+<div class="mq">\[\begin{gathered}r_e=\frac{26\ \mathrm{mV}}{I_E}\\[4pt] A_v\approx-\frac{R_C\parallel R_L}{r_e}\ \ (C_E)\qquad A_v\approx-\frac{R_C\parallel R_L}{R_E+r_e}\\[4pt] Z_{in}=R_1\parallel R_2\parallel(\beta+1)r_e\qquad Z_{out}=R_C\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}v_{in}=v_g\frac{Z_{in}}{Z_{in}+R_s}\qquad v_{out}=A_vv_{in}\frac{R_L}{Z_{out}+R_L}\\[4pt] A_P=A_vA_i\qquad 20\log|A_v|\qquad f_c=\frac{1}{2\pi RC}\end{gathered}\]</div>
+</div>
+</div>
+<p class="s4-src">Sources : amphis Cours 4 « BJT en statique » et Cours 5 « BJT en dynamique », erratum diapo 12 du Cours 5, poly de TD. Les exercices corrigés du poly : <a href="corriges.html#td5">TD5 (polarisation)</a>, <a href="corriges.html#td6">TD6 (régime dynamique)</a>.</p>
+</section>
+</div>
+
+
+</main>
+<div class="foot">
+<div class="wrap">
+<span>De l'Atome à la Puce · Révision CM4-CM5 · 2026-2027</span>
+<span><a href="index.html">← Retour au cours</a></span>
+</div>
+</div>
+<a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="js/maths.js"></script>
+<script src="js/data-cm45.js"></script>
+<script src="js/revision.js"></script>
+<script>
+  RevisionBank.mount({
+    root: document.getElementById("bankCm45"),
+    bank: window.CM45,
+    themes: window.CM45_THEMES,
+    storage: "cm45",
+    examMinutes: 45,
+    examCount: 20,
+    examLabel: "Épreuve blanche"
+  });
+</script>
+</body>
+</html>
