@@ -807,3 +807,13 @@ a.card:hover{text-decoration:none}
   .rv-form input{width:110px}
 }
 @media print{.rv-bar,.rv-exambar,.rv-act{display:none!important}}
+
+/* schémas des QCM CM5-CM6 */
+.cm-fig{margin:6px 0 12px;background:var(--surface2)}
+.cm-fig svg{max-width:520px}
+.cm-fig .t{font-size:13px}
+.cm-fig .ti{font-size:13px}
+.cm-fig .tr{fill:none;stroke:var(--ink);stroke-width:1.4;opacity:.55}
+.cm-fig .tn2{fill:var(--ink);font-family:var(--f-mono);font-size:13px;font-weight:600}
+.cm-fig .sb{font-size:10px}
+.cm-fig .src{fill:var(--surface);stroke:var(--ink);stroke-width:2}

@@ -35,6 +35,7 @@
 <button data-go="deroules"><span class="ni">🧭</span> Déroulés</button>
 <a class="nav-corr nav-s40" href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
 <a href="fiche-ch2-ch3.html"><span class="ni">📋</span> Fiche DS Ch2-Ch3</a>
+<a class="nav-corr" href="revision-cm5-cm6.html"><span class="ni">🔁</span> Révision CM5-6</a>
 <a class="nav-corr" href="corriges.html"><span class="ni">✅</span> Corrigés</a>
 <a class="nav-corr" href="cartes.html"><span class="ni">🃏</span> Flashcards</a>
 <a class="nav-corr" href="evaluations.html"><span class="ni">🗓️</span> Évaluations</a>
@@ -101,6 +102,7 @@
 <button class="card" data-go="cours"><div class="ic">📚</div><h3>Le Cours Complet</h3><p>L'intégralité du programme, expliqué pas à pas, chapitre par chapitre, sans doublons.</p><span class="tag">8 chapitres →</span></button>
 <a class="card" href="fiche-ch0-ch1.html"><div class="ic">📋</div><h3>Fiche Ch0-Ch1</h3><p>Révisions ING1, conducteurs et composants, TD1 : l'essentiel, les méthodes, le circuit du Cours 0 résolu 6 fois, les pièges et 11 questions corrigées.</p><span class="tag">Fiche de révision →</span></a>
 <a class="card" href="corriges.html"><div class="ic">✅</div><h3>TD corrigés</h3><p>Les 11 TD du poly : exercices non corrigés résolus pas à pas, corrigés du poly revus (erreurs signalées), exercices supplémentaires.</p><span class="tag">87 exercices →</span></a>
+<a class="card" href="revision-cm5-cm6.html"><div class="ic">🔁</div><h3>Révision CM5-CM6</h3><p>BJT en dynamique et FET : essentiel, errata du cours, méthodes, QCM à réponse unique ou multiple avec calculs sur schémas.</p><span class="tag">69 questions →</span></a>
 <a class="card" href="cartes.html"><div class="ic">🃏</div><h3>Flashcards QCM</h3><p>Formules et constantes à connaître en cartes à 4 réponses : chapitres au choix, ordre aléatoire, correction immédiate.</p><span class="tag">S'entraîner →</span></a>
 <a class="card" href="evaluations.html"><div class="ic">🗓️</div><h3>Évaluations de novembre</h3><p>DS semaine 45 (exercices rédigés, cours 1 à 3, TD1 à TD4) et interro semaine 46 (QCM mélangé, cours 4-5, TD5-TD6) : fiches, sujet blanc corrigé, simulateur.</p><span class="tag">DS + interro →</span></a>
 <a class="card" href="partiel.html"><div class="ic">📝</div><h3>Partiel · annales</h3><p>Les 7 DS et partiels d'annales corrigés : ce qui tombe, les réflexes, 12 exercices, 97 questions et épreuve blanche chronométrée.</p><span class="tag">Annales →</span></a>
@@ -583,7 +585,7 @@
 <div class="eq">\(\displaystyle R_{\mathrm{DS}}=\frac{V_{P}}{I_{\mathrm{DSS}}}\)<span class="lbl">résistance ohmique du JFET</span></div>
 <figure class="cfig"><img alt="Schéma du cours : ch6-transfert" height="484" loading="lazy" src="assets/img/fig-ch6-transfert.jpg" width="860"/><figcaption><b>Caractéristique de transfert \(I_{D}=f(V_{\mathrm{GS}})\).</b> Loi quadratique entre \(V_{\mathrm{GS},\,\mathrm{off}}\) et 0, où \(I_{D}\) atteint \(I_{\mathrm{DSS}}\) (courbe de transconductance).</figcaption></figure>
 <h3>Régime dynamique — transconductance</h3>
-<div class="eq">\(\displaystyle g_{m}=\frac{\mathrm{d}I_{D}}{\mathrm{d}V_{\mathrm{GS}}}=\frac{2\cdot I_{\mathrm{DSS}}}{|V_{P}|}\left(1-\frac{V_{\mathrm{GS}}}{V_{P}}\right)\)<span class="lbl">transconductance (Siemens)</span></div>
+<div class="eq">\(\displaystyle g_{m}=\frac{\mathrm{d}I_{D}}{\mathrm{d}V_{\mathrm{GS}}}=-\frac{2\,I_{\mathrm{DSS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)\)<span class="lbl">transconductance (Siemens)</span></div>
 <p>\(g_{m}\) mesure la qualité du contrôle de \(I_{D}\) par \(V_{\mathrm{GS}}\) (pente de la courbe de transfert). \(\Delta I_{D}=g_{m}\cdot \Delta V_{\mathrm{GS}}\).</p>
 <h3>Montages JFET</h3>
 <div class="tbl-wrap"><table>
@@ -616,7 +618,7 @@
 <p>Solutions : \(V_{GS1}=-7{,}736\,\mathrm{V}\) et \(V_{GS2}=-1{,}597\,\mathrm{V}\). On ne retient que \(V_{GS2}\) : \(V_{GS1}<V_{GS,off}=-4\,\mathrm{V}\) est impossible (canal fermé, le JFET serait bloqué). Donc \(V_{GS}=-1{,}597\,\mathrm{V}\).</p>
 <p><b>5. Courant et tension de drain.</b></p>
 <div class="eq">\(\displaystyle I_D=\frac{2{,}734+1{,}597}{1{,}5}=2{,}887\,\mathrm{mA}\qquad V_{DS}=V_{DD}-(R_D+R_S)\,I_D=24-3{,}9\times2{,}887=12{,}74\,\mathrm{V}\)</div>
-<p><b>6. Vérification de la zone active</b> : \(V_{DS}=12{,}74\,\mathrm{V}>V_{GS}-V_P=-1{,}597+4=2{,}40\,\mathrm{V}\) ✓. On a aussi \(V_P<V_{GS}\le0\) ✓. Bonus : \(g_m=\frac{2I_{DSS}}{|V_P|}\left(1-\frac{V_{GS}}{V_P}\right)=4\ \mathrm{mS}\times0{,}601=2{,}40\ \mathrm{mS}\).</p>
+<p><b>6. Vérification de la zone active</b> : \(V_{DS}=12{,}74\,\mathrm{V}>V_{GS}-V_P=-1{,}597+4=2{,}40\,\mathrm{V}\) ✓. On a aussi \(V_P<V_{GS}\le0\) ✓. Bonus : \(g_m=-\frac{2I_{DSS}}{V_{GS,off}}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)=4\ \mathrm{mS}\times0{,}601=2{,}40\ \mathrm{mS}\).</p>
 <p><b>Réponse.</b> \(Q=(V_{DS}=12{,}74\,\mathrm{V}\,;\,I_D=2{,}887\,\mathrm{mA})\), avec \(V_{GS}=-1{,}597\,\mathrm{V}\).</p></div>
 <h3>Comparatif BJT / JFET / MOSFET</h3>
 <div class="tbl-wrap"><table>
@@ -897,7 +899,7 @@
 \(\displaystyle I_{D}=\frac{(3{,}5\,\pm \,2{,}45)}{(2\,\cdot \,0{,}15625)}=\frac{(3{,}5\,\pm \,2{,}45)}{0{,}3125}\Longrightarrow 19{,}0\,\mathrm{mA}\text{ ou }\,3{,}36\,\mathrm{mA}\)</div>\(19\,\mathrm{mA}\gt I_{\mathrm{DSS}}\) et donnerait \(V_{\mathrm{GS}}=-9{,}5\,\mathrm{V}\lt V_{\mathrm{GS},\,\mathrm{off}}\) : impossible. On garde <b>\(I_{D}=3{,}36\,\mathrm{mA}\)</b>, \(V_{\mathrm{GS}}=-1{,}68\,\mathrm{V}\) (bien entre −4 et 0 ✓).</div></div></li>
 <li class="step"><span class="sn"></span><div><div class="st">\(V_{\mathrm{DS}}\) et zone de fonctionnement</div><div class="sd"><div class="calc">\(\displaystyle V_{\mathrm{DS}}=V_{\mathrm{DD}}-(R_{D}+R_{S})\,I_{D}=15-1{,}5\,\mathrm{k}\,\cdot \,3{,}36\,\mathrm{m}\approx 10\,\mathrm{V}\)
 \(\displaystyle \text{Condition zone active }\colon V_{\mathrm{DS}}\gt V_{\mathrm{GS}}-V_{\mathrm{GS},\,\mathrm{off}}=-1{,}68+4=2{,}3\,\mathrm{V}\Longrightarrow 10\gt 2{,}3\text{ ✓}\)</div></div></div></li>
-<li class="step"><span class="sn"></span><div><div class="st">Transconductance et gain (source commune, \(R_{S}\) découplée)</div><div class="sd"><div class="calc">\(\displaystyle g_{m}=(2\,I_{\mathrm{DSS}}/|V_{P}|)\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)=(20\,\mathrm{m}/4)(1-0{,}42)=5\,\mathrm{m}\,\cdot \,0{,}58\approx 2{,}9\,\mathrm{mS}\)
+<li class="step"><span class="sn"></span><div><div class="st">Transconductance et gain (source commune, \(R_{S}\) découplée)</div><div class="sd"><div class="calc">\(\displaystyle g_{m}=-\frac{2\,I_{\mathrm{DSS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)=(20\,\mathrm{m}/4)(1-0{,}42)=5\,\mathrm{m}\,\cdot \,0{,}58\approx 2{,}9\,\mathrm{mS}\)
 \(\displaystyle A_{V}=-g_{m}\,R_{D}=-2{,}9\,\mathrm{m}\,\cdot \,1\,\mathrm{k}\approx -2{,}9\)</div>Faible gain : c'est la contrepartie de l'impédance d'entrée énorme du FET.</div></div></li>
 </ol>
 <div class="answer"><b class="lab">Réponse</b>\(I_{D}\approx 3{,}4\,\mathrm{mA},\,\allowbreak V_{\mathrm{GS}}\approx -1{,}7\,\mathrm{V},\,\allowbreak V_{\mathrm{DS}}\approx 10\,\mathrm{V}\) (zone active) ; \(g_{m}\approx 2{,}9\,\mathrm{mS},\,\allowbreak A_{V}\approx -2{,}9\).</div>
@@ -1224,7 +1226,7 @@
 <ul>
 <li>Commandé en <b>tension</b>, unipolaire, \(I_{G}\approx 0\) (\(Z_{\mathrm{in}}\) énorme), \(I_{D}=I_{S}\). Gain plus faible que le BJT.</li>
 <li>JFET : <b>\(I_{D}=I_{\mathrm{DSS}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)^{2}\)</b> \((V_{\mathrm{GS},\,\mathrm{off}}\lt V_{\mathrm{GS}}\lt 0);\,\allowbreak |V_{\mathrm{GS},\,\mathrm{off}}|=V_{P};\,\allowbreak R_{\mathrm{DS}}=\frac{V_{P}}{I_{\mathrm{DSS}}}\).</li>
-<li>\(g_{m}=\frac{\mathrm{d}I_{D}}{\mathrm{d}V_{\mathrm{GS}}}=(2I_{\mathrm{DSS}}/|V_{P}|)\left(1-\frac{V_{\mathrm{GS}}}{V_{P}}\right)\) ; source commune \(A_{V}=-g_{m}R_{D}\) ; drain commun \(\approx 1\).</li>
+<li>\(g_{m}=\frac{\mathrm{d}I_{D}}{\mathrm{d}V_{\mathrm{GS}}}=-\frac{2\,I_{\mathrm{DSS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)\) ; source commune \(A_{V}=-g_{m}R_{D}\) ; drain commun \(\approx 1\).</li>
 <li>MOSFET : grille isolée (SiO₂), canal d'inversion, seuil \(V_{T},\,\allowbreak I_{D}=\frac{1}{2}K_{n}\left(\frac{W}{L}\right)(V_{\mathrm{GS}}-V_{T})^{2}\) si \(V_{\mathrm{DS}}\ge V_{\mathrm{GS}}-V_{T}\) ; sinon ohmique ; \(g_{m}=\frac{2I_{D}}{V_{\mathrm{GS}}-V_{T}}\).</li>
 </ul>
 <div class="reflex"><b class="lab">⚡ Réflexes</b>Autopolarisation : \(V_{\mathrm{GS}}=-R_{S}I_{D}\) dans la loi quadratique \(\Longrightarrow 2^{\text{nd}}\) degré ⟹ garder la racine physique. MOSFET : bloqué ? puis supposer saturé, vérifier \(V_{\mathrm{DS}}\ge V_{\mathrm{GS}}-V_{T}\).</div>
@@ -1503,14 +1505,14 @@
 <div class="fgroup" data-fg="g6"><h3>Chapitre 6 — Le FET <span>JFET &amp; MOSFET</span></h3>
 <div class="frow"><div class="fx">\(\displaystyle I_{D}=I_{\mathrm{DSS}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)^{2}\)</div><div class="fd"><span class="nm">JFET, transfert quadratique.</span> <b>\(I_{\mathrm{DSS}}\)</b> courant \(\max (V_{\mathrm{GS}}=0)\). <span class="cond">zone active, \(V_{\mathrm{DS}}\gt V_{P}\)</span></div></div>
 <div class="frow"><div class="fx">\(\displaystyle R_{\mathrm{DS}}=V_{P}\,/\,I_{\mathrm{DSS}}\)</div><div class="fd"><span class="nm">Résistance ohmique</span> du JFET. \(|V_{\mathrm{GS},\,\mathrm{off}}|=V_{P}\).</div></div>
-<div class="frow"><div class="fx">\(\displaystyle g_{m}=\frac{\mathrm{d}I_{D}}{\mathrm{d}V_{\mathrm{GS}}}=(2I_{\mathrm{DSS}}/|V_{P}|)\left(1-\frac{V_{\mathrm{GS}}}{V_{P}}\right)\)</div><div class="fd"><span class="nm">Transconductance.</span> <span class="unit">\(\mathrm{S}\,(\text{Siemens})\)</span>. \(\Delta I_{D}=g_{m}\cdot \Delta V_{\mathrm{GS}}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle g_{m}=\frac{\mathrm{d}I_{D}}{\mathrm{d}V_{\mathrm{GS}}}=-\frac{2\,I_{\mathrm{DSS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)\)</div><div class="fd"><span class="nm">Transconductance.</span> <span class="unit">\(\mathrm{S}\,(\text{Siemens})\)</span>. \(\Delta I_{D}=g_{m}\cdot \Delta V_{\mathrm{GS}}\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle A_{V}=-g_{m}\cdot R_{D}\)</div><div class="fd"><span class="nm">Ampli source commune.</span> Drain commun (suiveur) : \(A_{V}\approx 1,\,\allowbreak Z_{\mathrm{in}}=R_{G}\approx M\,\mathrm{\Omega }\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle I_{D}=\frac{1}{2}\cdot K_{n}\cdot \left(\frac{W}{L}\right)\cdot (V_{\mathrm{GS}}-V_{T})^{2}\)</div><div class="fd"><span class="nm">MOSFET, région active.</span> <b>\(V_{T}\)</b> tension de seuil, <b>\(\frac{W}{L}\)</b> géométrie. <span class="cond">\(V_{\mathrm{GS}}\gt V_{T}\) et \(V_{\mathrm{DS}}\gt V_{\mathrm{GS}}-V_{T}\)</span></div></div>
 <div class="frow"><div class="fx">\(\displaystyle g_{m}=K_{n}\left(\frac{W}{L}\right)(V_{\mathrm{GS}}-V_{T})=\frac{2I_{D}}{V_{\mathrm{GS}}-V_{T}}\)</div><div class="fd"><span class="nm">Transconductance MOSFET.</span> \(K_{n}=\mu _{n}C_{ox}\) facteur de gain.</div></div>
 <div class="frow"><div class="fx">\(\displaystyle V_{GS}=-R_S\,I_D\ ;\ V_{DS}=V_{DD}-(R_D+R_S)\,I_D\)</div><div class="fd"><span class="nm">JFET autopolarisé (grille à la masse, \(I_G=0\)).</span> On reporte \(V_{GS}\) dans \(I_D=I_{DSS}(1-\frac{V_{GS}}{V_P})^2\) : équation du second degré, on garde la racine \(V_P\lt V_{GS}\le0\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle V_G=V_{DD}\frac{R_2}{R_1+R_2}\ ;\ V_{GS}=V_G-R_S\,I_D\)</div><div class="fd"><span class="nm">Polarisation par pont diviseur.</span> \(I_G=0\) : le pont n'est pas chargé. Même équation du second degré.</div></div>
-<div class="frow"><div class="fx">\(\displaystyle V_{DS}\gt V_{GS}-V_P\ (V_{GS}+|V_P|)\)</div><div class="fd"><span class="nm">Condition de zone active (JFET).</span> Sinon zone ohmique. Blocage : \(V_{GS}\le V_{GS,off}\). Vérifier après le calcul.</div></div>
-<div class="frow"><div class="fx">\(\displaystyle g_m=\frac{2\sqrt{I_{DSS}\,I_D}}{|V_P|}=g_{m0}\left(1-\frac{V_{GS}}{V_P}\right)\)</div><div class="fd"><span class="nm">Transconductance du JFET à partir de \(I_D\).</span> \(g_{m0}=\frac{2I_{DSS}}{|V_P|}\) (en \(V_{GS}=0\)). \(\Delta I_D=g_m\Delta V_{GS}\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle V_{DS}\gt V_{GS}-V_{GS,off}\ (V_{GS}+|V_{GS,off}|)\)</div><div class="fd"><span class="nm">Condition de zone active (JFET).</span> Sinon zone ohmique. Blocage : \(V_{GS}\le V_{GS,off}\). Vérifier après le calcul.</div></div>
+<div class="frow"><div class="fx">\(\displaystyle g_m=\frac{2\sqrt{I_{DSS}\,I_D}}{|V_{GS,off}|}=g_{m0}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)\)</div><div class="fd"><span class="nm">Transconductance du JFET à partir de \(I_D\).</span> \(g_{m0}=-\frac{2I_{DSS}}{V_{GS,off}}\) (en \(V_{GS}=0\)). \(\Delta I_D=g_m\Delta V_{GS}\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle A_v=-g_m\,(R_D\parallel R_L)\ ;\ A_v=-\frac{g_m\,R_D'}{1+g_m R_S}\)</div><div class="fd"><span class="nm">Source commune (\(R_S\) découplée ou non).</span> \(Z_{in}=R_G\) (ou \(R_1\parallel R_2\)), \(Z_{out}=R_D\). Non découplée : \(R_S\) réduit le gain de \(1+g_mR_S\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle A_v=\frac{g_m R_S'}{1+g_m R_S'}\ ;\ Z_{out}\approx\frac{1}{g_m}\parallel R_S\)</div><div class="fd"><span class="nm">Drain commun (suiveur).</span> \(R_S'=R_S\parallel R_L\). \(A_v\lt 1\) et proche de \(1\) si \(g_mR_S'\gg1\).</div></div>
 <div class="frow"><div class="fx">\(\displaystyle A_v=+g_m R_D'\ ;\ Z_{in}\approx\frac{1}{g_m}\)</div><div class="fd"><span class="nm">Grille commune.</span> Pas d'inversion, impédance d'entrée faible.</div></div>
@@ -1720,7 +1722,7 @@
 <div class="eg"><h4>Ch.6 · FET</h4>
 <div class="ei"><span class="nm">JFET \(I_{D}\)</span><span class="vl">\(I_{\mathrm{DSS}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)^{2}\)</span></div>
 <div class="ei"><span class="nm">\(R_{\mathrm{DS}}\)</span><span class="vl">\(\frac{V_{P}}{I_{\mathrm{DSS}}}\)</span></div>
-<div class="ei"><span class="nm">\(g_{m}\) JFET</span><span class="vl">\((2I_{\mathrm{DSS}}/|V_{P}|)\left(1-\frac{V_{\mathrm{GS}}}{V_{P}}\right)\)</span></div>
+<div class="ei"><span class="nm">\(g_{m}\) JFET</span><span class="vl">\(-\frac{2\,I_{\mathrm{DSS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\left(1-\frac{V_{\mathrm{GS}}}{V_{\mathrm{GS},\,\mathrm{off}}}\right)\)</span></div>
 <div class="ei"><span class="nm">\(\Delta I_{D}\)</span><span class="vl">\(g_{m}\cdot \Delta V_{\mathrm{GS}}\)</span></div>
 <div class="ei"><span class="nm">Source com.</span><span class="vl">\(A_{V}=-g_{m}R_{D}\)</span></div>
 <div class="ei"><span class="nm">Drain com.</span><span class="vl">\(A_{V}\approx 1\)</span></div>
@@ -1728,8 +1730,8 @@
 <div class="ei"><span class="nm">\(g_{m}\) MOS</span><span class="vl">\(\frac{2I_{D}}{V_{\mathrm{GS}}-V_{T}}\)</span></div>
 <div class="ei"><span class="nm">Autopolar.</span><span class="vl">\(V_{GS}=-R_S\,I_D\ ;\ V_{DS}=V_{DD}-(R_D+R_S)\,I_D\)</span></div>
 <div class="ei"><span class="nm">Pont JFET</span><span class="vl">\(V_G=V_{DD}\frac{R_2}{R_1+R_2}\ ;\ V_{GS}=V_G-R_S\,I_D\)</span></div>
-<div class="ei"><span class="nm">Zone active</span><span class="vl">\(V_{DS}\gt V_{GS}-V_P\ (V_{GS}+|V_P|)\)</span></div>
-<div class="ei"><span class="nm">\(g_m\) (\(I_D\))</span><span class="vl">\(g_m=\frac{2\sqrt{I_{DSS}\,I_D}}{|V_P|}=g_{m0}\left(1-\frac{V_{GS}}{V_P}\right)\)</span></div>
+<div class="ei"><span class="nm">Zone active</span><span class="vl">\(V_{DS}\gt V_{GS}-V_{GS,off}\ (V_{GS}+|V_{GS,off}|)\)</span></div>
+<div class="ei"><span class="nm">\(g_m\) (\(I_D\))</span><span class="vl">\(g_m=\frac{2\sqrt{I_{DSS}\,I_D}}{|V_{GS,off}|}=g_{m0}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)\)</span></div>
 <div class="ei"><span class="nm">Source com.</span><span class="vl">\(A_v=-g_m\,(R_D\parallel R_L)\ ;\ A_v=-\frac{g_m\,R_D'}{1+g_m R_S}\)</span></div>
 <div class="ei"><span class="nm">Drain com.</span><span class="vl">\(A_v=\frac{g_m R_S'}{1+g_m R_S'}\ ;\ Z_{out}\approx\frac{1}{g_m}\parallel R_S\)</span></div>
 <div class="ei"><span class="nm">Grille com.</span><span class="vl">\(A_v=+g_m R_D'\ ;\ Z_{in}\approx\frac{1}{g_m}\)</span></div>

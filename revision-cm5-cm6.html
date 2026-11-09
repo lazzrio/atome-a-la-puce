@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<script src="gate.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Révision CM5-CM6 — De l'Atome à la Puce</title>
+<meta content="Révision des cours 5 (BJT en dynamique) et 6 (FET) : essentiel, errata du cours, méthodes, QCM à réponse unique ou multiple avec calculs sur schémas." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#0d8073" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#0a1113" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="De l'atome à la puce — Révision CM5-CM6" property="og:title"/>
+<meta content="BJT en dynamique et FET : essentiel, errata, méthodes et QCM avec schémas." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet"/>
+</head>
+<body class="cx-page s40-page">
+<div class="topbar">
+<div class="topbar-in">
+<a aria-label="Accueil du site" class="brand" href="index.html">
+<span class="chip-logo"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="10" rx="1" width="10" x="7" y="7"></rect><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"></path></svg></span>
+      De l'Atome à la Puce
+    </a>
+<nav aria-label="Navigation principale" class="nav" id="nav">
+<a href="index.html">Accueil</a>
+<a href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
+<a href="fiche-ch2-ch3.html"><span class="ni">📋</span> Fiche DS Ch2-Ch3</a>
+<a aria-current="page" class="active nav-corr" href="revision-cm5-cm6.html"><span class="ni">🔁</span> Révision CM5-6</a>
+<a href="index.html#cours"><span class="ni">📚</span> Cours</a>
+<a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
+<a href="corriges.html"><span class="ni">✅</span> Corrigés</a>
+<a class="nav-corr" href="cartes.html"><span class="ni">🃏</span> Flashcards</a>
+<a class="nav-corr" href="evaluations.html"><span class="ni">🗓️</span> Évaluations</a>
+<a class="nav-corr" href="partiel.html"><span class="ni">📝</span> Partiel</a>
+<a href="index.html#notions"><span class="ni">💡</span> Notions</a>
+<a href="index.html#formules"><span class="ni">📘</span> Formules</a>
+<a href="index.html#express"><span class="ni">⚡</span> Express</a>
+<a href="index.html#exos"><span class="ni">🎯</span> Exos</a>
+<a href="index.html#boite"><span class="ni">🧰</span> À côté</a>
+<a href="index.html#quiz"><span class="ni">🧠</span> Quiz</a>
+<a href="index.html#planning"><span class="ni">📅</span> Planning</a>
+</nav>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
+<svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</button>
+<button aria-expanded="false" aria-label="Menu" class="burger" id="burger"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</div>
+</div>
+<main>
+<div class="hero hero-sm">
+<div class="hero-grid"></div>
+<div class="hero-in">
+<div>
+<span class="eyebrow">🔁 Révision · CM5 et CM6</span>
+<h1>BJT en dynamique et <em>FET</em>.</h1>
+<p class="lead">Le transistor bipolaire en petits signaux (CM5) et le transistor à effet de champ (CM6) : l'essentiel, les errata du cours à connaître, les méthodes de calcul, puis un QCM de 69 questions à réponse unique ou multiple sur les formules, les connaissances et des calculs de courants, tensions et résistances sur 9 schémas.</p>
+<div class="hero-cta"><a class="btn btn-primary" href="#qcm">Faire le QCM →</a><a class="btn btn-ghost" href="#errata">Errata du cours</a></div>
+<div class="s4-prog"><span>CM5 BJT en dynamique</span><span>CM6 JFET et MOSFET</span><span>TD6 · TD7 · TD8</span></div>
+</div>
+</div>
+</div>
+<div class="wrap s40">
+<nav aria-label="Sections de la page" class="s4-toc">
+<a href="#cm5">L'essentiel CM5</a>
+<a href="#cm6">L'essentiel CM6</a>
+<a href="#errata">Errata du cours</a>
+<a href="#methodes">Méthodes de calcul</a>
+<a href="#qcm">QCM</a>
+<a href="#formulaire">Formulaire</a>
+</nav>
+
+<!-- ================= CM5 ================= -->
+<section id="cm5">
+<h2>CM5 · Le BJT en dynamique <span class="s4-tag">amphi Cours 5 · TD6</span></h2>
+<p class="s4-sub">On superpose au point de repos \(Q\) un petit signal alternatif et on calcule comment il est amplifié.</p>
+<div class="s4-must"><ol>
+<li><b>Les trois condensateurs</b> : \(C_1\) et \(C_2\) (liaison) bloquent le continu à l'entrée et à la sortie ; \(C_E\) (découplage) court-circuite \(R_E\) en alternatif. En continu ce sont des circuits ouverts : ils ne changent pas \(Q\).</li>
+<li><b>Schéma AC</b> : condensateurs \(\to\) fils, sources continues \(\to\) masse, transistor \(\to\) \((\beta+1)r_e\) entre B et E et source \(\beta\,i_b\) entre C et E.</li>
+<li><b>Résistance dynamique</b> : \(r_e=\dfrac{26\ \mathrm{mV}}{I_E}\), avec \(I_E\) le courant <em>continu</em> de repos.</li>
+<li><b>Émetteur commun avec \(C_E\)</b> : \(A_v\approx-\dfrac{R_C}{r_e}\) (déphasage de \(\pi\)), \(Z_{in}=R_1\parallel R_2\parallel(\beta+1)r_e\), \(Z_{out}=R_C\).</li>
+<li><b>Sans \(C_E\)</b> : \(A_v\approx-\dfrac{R_C}{R_E+r_e}\) (gain effondré), \(Z_{in}=R_1\parallel R_2\parallel(\beta+1)(r_e+R_E)\) (plus grande).</li>
+<li><b>Avec une charge</b> : \(v_{out}=A_v\,v_{in}\dfrac{R_L}{Z_{out}+R_L}\), soit \(A_v=-\dfrac{R_C\parallel R_L}{r_e}\). Avec une source \(R_s\) : \(v_{in}=v_g\dfrac{Z_{in}}{Z_{in}+R_s}\).</li>
+<li><b>Gains</b> : \(A_i=\dfrac{i_{out}}{i_{in}}\), \(A_P=A_vA_i\) ; en dB \(20\log|A_v|\) et \(10\log A_P\). Cascade : produit des gains <em>chargés</em>.</li>
+<li><b>Bande passante</b> : coupure basse par les condensateurs (\(f_c=\frac{1}{2\pi RC}\)), coupure haute par les capacités internes (modèle de Giacoletto \(g_m=\frac{I_C}{V_T}\), \(r_\pi=\frac{\beta}{g_m}\)).</li>
+<li><b>Classes</b> : A (\(360^{\circ}\), \(\eta\le50\ \%\)), B (\(180^{\circ}\), \(\eta\le78{,}5\ \%\), distorsion de croisement), AB (push-pull à diodes), D (PWM + filtre, très haut rendement).</li>
+<li><b>Montages</b> : Darlington (\(\beta_1\beta_2\), \(V_{BE}\approx1{,}4\) V), pont en H (sens d'un moteur), générateur de courant à Zener (\(i_L\approx\frac{V_Z-V_{BE}}{R_E}\)), miroir de courant (\(i_{out}\approx i_{in}\)), paire différentielle (cœur de l'AOP : \(Z_{in}\approx2\ \mathrm{M\Omega}\), \(Z_{out}\approx50\ \Omega\), \(A_d\approx10^5\)).</li>
+</ol></div>
+</section>
+
+<!-- ================= CM6 ================= -->
+<section id="cm6">
+<h2>CM6 · Le transistor à effet de champ <span class="s4-tag">amphi Cours 6 · TD7, TD8</span></h2>
+<p class="s4-sub">Un transistor commandé en <b>tension</b>, unipolaire, d'impédance d'entrée énorme.</p>
+<div class="s4-grid">
+<div class="s4-card"><h4>JFET (canal N)</h4>
+<ul class="s4-small">
+<li>Grille polarisée en inverse : \(V_{GS}<0\), \(V_{DS}>0\), \(I_G\approx0\), \(I_D=I_S\).</li>
+<li>\(V_{GS,off}\) : ferme le canal (\(I_D=0\)). \(V_P\) : tension \(V_{DS}\) de pincement, \(I_D\) devient constant. \(|V_{GS,off}|=V_P\) ; les datasheets donnent \(V_{GS,off}\).</li>
+<li>\(V_{GS}=0\) : \(I_D=I_{DSS}\) maximal. Zone ohmique : \(R_{DS}=\dfrac{V_P}{I_{DSS}}\).</li>
+<li>Loi quadratique (donnée en évaluation) : \(I_D=I_{DSS}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)^2\), zone active \(V_{DS}>V_{GS}-V_{GS,off}\).</li>
+</ul></div>
+<div class="s4-card"><h4>MOSFET (canal N, enrichissement)</h4>
+<ul class="s4-small">
+<li>Grille isolée par du \(\mathrm{SiO_2}\) : \(I_G=0\), \(Z_{in}>10\,000\ \mathrm{M\Omega}\).</li>
+<li>\(V_{GS}<V_T\) : bloqué. Au-delà, canal d'inversion d'électrons sous l'oxyde.</li>
+<li>\(0<V_{DS}<V_{GS}-V_T\) : ohmique, \(R_{DS}=\dfrac{V_{DS}}{I_D}\). \(V_{DS}>V_{GS}-V_T\) : active, \(I_D=\tfrac12K_n\dfrac WL(V_{GS}-V_T)^2\).</li>
+<li>\(g_m=K_n\dfrac WL(V_{GS}-V_T)=\dfrac{2I_D}{V_{GS}-V_T}\).</li>
+</ul></div>
+</div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Montage</th><th>\(A_v\)</th><th>\(Z_{in}\)</th><th>\(Z_{out}\)</th><th>Usage</th></tr>
+<tr><td data-l="Montage">Source commune (\(C_S\) présent)</td><td data-l="Av">\(-g_mR_D\)</td><td data-l="Zin">\(R_1\parallel R_2\) ou \(R_G\)</td><td data-l="Zout">\(R_D\)</td><td data-l="Usage">amplification (gain élevé, déphasage \(\pi\))</td></tr>
+<tr><td data-l="Montage">Source commune, \(R_S\) non découplée</td><td data-l="Av">\(-\dfrac{g_mR_D}{1+g_mR_S}\)</td><td data-l="Zin">idem</td><td data-l="Zout">\(R_D\)</td><td data-l="Usage">gain plus faible, plus stable</td></tr>
+<tr><td data-l="Montage">Drain commun (source suiveuse)</td><td data-l="Av">\(\dfrac{g_mR_S}{1+g_mR_S}\approx1\)</td><td data-l="Zin">\(R_G\approx\mathrm{M\Omega}\)</td><td data-l="Zout">\(\left(\frac{1}{R_S}+g_m\right)^{-1}\)</td><td data-l="Usage">adaptation d'impédance</td></tr>
+<tr><td data-l="Montage">Commutation (\(R_D\gg R_{DS}\))</td><td data-l="Av">—</td><td data-l="Zin">—</td><td data-l="Zout">—</td><td data-l="Usage">\(V_{in}<V_{GS,off}\Rightarrow V_{out}=V_{DD}\) ; \(V_{in}=0\Rightarrow V_{out}\approx0\)</td></tr>
+</table></div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Critère</th><th>BJT</th><th>JFET</th><th>MOSFET</th></tr>
+<tr><td data-l="Critère">Commande</td><td data-l="BJT">courant, \(I_C=\beta I_B\)</td><td data-l="JFET">tension</td><td data-l="MOSFET">tension</td></tr>
+<tr><td data-l="Critère">Porteurs</td><td data-l="BJT">bipolaire</td><td data-l="JFET">unipolaire</td><td data-l="MOSFET">unipolaire</td></tr>
+<tr><td data-l="Critère">Impédance d'entrée</td><td data-l="BJT">faible</td><td data-l="JFET">\(>10\ \mathrm{M\Omega}\)</td><td data-l="MOSFET">\(>10\,000\ \mathrm{M\Omega}\)</td></tr>
+<tr><td data-l="Critère">Stabilité thermique, consommation</td><td data-l="BJT">moins bonnes</td><td data-l="JFET">meilleures</td><td data-l="MOSFET">meilleures</td></tr>
+<tr><td data-l="Critère">Gain d'amplification</td><td data-l="BJT">élevé</td><td data-l="JFET">faible</td><td data-l="MOSFET">faible</td></tr>
+<tr><td data-l="Critère">Fabrication</td><td data-l="BJT">—</td><td data-l="JFET">plus difficile, plus coûteux</td><td data-l="MOSFET">plus facile, moins coûteux</td></tr>
+</table></div>
+<div class="s4-trap"><span class="s4-lbl">Inconvénients de l'impédance d'entrée très élevée</span>Sensibilité au bruit thermique (bruit Johnson) et aux charges électrostatiques ou champs parasites.</div>
+</section>
+
+<!-- ================= ERRATA ================= -->
+<section id="errata">
+<h2>Errata du cours : ce qu'il faut retenir</h2>
+<div class="s4-key"><span class="s4-lbl">FET · diapos 13 et 17</span>
+<p>La loi \(I_D=I_{DSS}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)^2\) <b>n'est pas à apprendre</b> (elle serait donnée en évaluation). La définition \(g_m=\dfrac{\mathrm dI_D}{\mathrm dV_{GS}}\) est <b>à connaître par cœur</b>. En dérivant :</p>
+<div class="mq">\[g_m=-\frac{2I_{DSS}}{V_{GS,off}}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)\]</div>
+<p class="s4-small">Utiliser \(V_{GS,off}\) (négatif), pas \(V_P\) : la formule de la diapo 17 avec \(|V_P|\) et \(\left(1-\frac{V_{GS}}{V_P}\right)\) est fausse si \(V_P>0\).</p></div>
+<div class="s4-key"><span class="s4-lbl">FET · diapo 19 · impédance de sortie du drain commun</span>
+<p>On éteint \(v_{in}\) (fil) : \(v_{GS}=-e_{out}\), \(i_{out}=\dfrac{e_{out}}{R_S}+g_me_{out}\), donc</p>
+<div class="mq">\[Z_{out}=\left(\frac{1}{R_S}+g_m\right)^{-1}=R_S\parallel\frac{1}{g_m}\]</div></div>
+<div class="s4-key"><span class="s4-lbl">BJT · diapo 12 · impédance de sortie de l'émetteur commun</span>
+<p>On éteint \(v_{in}\) : \(i_b=0\), donc \(i_c=\beta i_b=0\) (circuit ouvert). Il ne reste que \(R_C\) : \(Z_{out}=\dfrac{v_{out}}{i_{out}}=R_C\).</p></div>
+</section>
+
+<!-- ================= MÉTHODES ================= -->
+<section id="methodes">
+<h2>Méthodes de calcul</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>Amplificateur à BJT</h4><ol class="s4-small">
+<li><b>DC</b> (condensateurs ouverts) : Thévenin du pont, \(I_B=\dfrac{E_{Th}-V_{BE}}{R_{Th}+(\beta+1)R_E}\), \(I_E=(\beta+1)I_B\), \(V_{CE}\) : vérifier le mode actif.</li>
+<li>\(r_e=\dfrac{26\ \mathrm{mV}}{I_E}\).</li>
+<li><b>AC</b> : schéma équivalent (condensateurs = fils, \(V_{CC}\) = masse), puis \(Z_{in}\), \(Z_{out}\), \(A_v\).</li>
+<li>Charge et source : ponts diviseurs de sortie et d'entrée.</li>
+</ol></div>
+<div class="s4-card"><h4>JFET autopolarisé ou sur pont</h4><ol class="s4-small">
+<li>\(I_G=0\) : \(V_G=0\) (autopolarisation) ou \(V_G=V_{Th}\) (pont), sans chute dans \(R_G\) ni \(R_{Th}\).</li>
+<li>Maille de grille : \(V_{GS}=V_G-R_SI_D\).</li>
+<li>Avec la loi quadratique : équation du second degré, garder \(V_{GS,off}<V_{GS}\le0\).</li>
+<li>\(V_{DS}=V_{DD}-(R_D+R_S)I_D\) et vérifier \(V_{DS}>V_{GS}-V_{GS,off}\).</li>
+<li>\(g_m\) (erratum), puis \(A_v\), \(Z_{in}\), \(Z_{out}\).</li>
+</ol></div>
+<div class="s4-card"><h4>MOSFET</h4><ol class="s4-small">
+<li>\(V_{GS}\) par le pont (\(I_G=0\)).</li>
+<li>\(V_{GS}<V_T\) : bloqué. Sinon supposer la région active : \(I_D=\tfrac12K_n\frac WL(V_{GS}-V_T)^2\).</li>
+<li>\(V_{DS}=V_{DD}-R_DI_D\) : si \(V_{DS}<V_{GS}-V_T\), l'hypothèse est fausse, région ohmique.</li>
+</ol></div>
+</div>
+<div class="box ex"><div class="bt">▹ Exemple du cours : JFET autopolarisé</div><p>\(R_G=10\ \mathrm{M\Omega}\), \(R_D=1\ \mathrm{k\Omega}\), \(R_S=220\ \Omega\), \(V_{DD}=15\) V, \(I_D=5\) mA : \(V_D=V_{DD}-R_DI_D=10\) V, \(V_S=R_SI_D=1{,}1\) V, \(V_{DS}=8{,}9\) V, \(V_G=R_GI_G\approx0\), \(V_{GS}=-1{,}1\) V (négatif : jonction grille-source en inverse, conforme). Exemple du pont diviseur résolu dans le <a href="index.html#ch6">chapitre 6</a>.</p></div>
+</section>
+
+<!-- ================= QCM ================= -->
+<section id="qcm">
+<h2>QCM CM5 et CM6</h2>
+<p class="s4-sub">Questions de formules, de connaissances et de calculs de courants, tensions et résistances sur des schémas, avec leurs conditions. Certaines questions ont <b>une seule</b> bonne réponse (boutons ronds), d'autres <b>plusieurs</b> (cases à cocher, indiquées « plusieurs réponses possibles ») : il faut cocher toutes les bonnes et aucune mauvaise. Toutes les valeurs ont été calculées. <b>Entraînement</b> : correction immédiate. <b>Épreuve blanche</b> : tirage au sort, questions et réponses mélangées, chrono.</p>
+<div id="bankCm56"></div>
+</section>
+
+<!-- ================= FORMULAIRE ================= -->
+<section id="formulaire">
+<h2>Formulaire</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>BJT dynamique</h4>
+<div class="mq">\[\begin{gathered}r_e=\frac{26\ \mathrm{mV}}{I_E}\\[4pt] A_v\approx-\frac{R_C\parallel R_L}{r_e}\ \ (C_E)\qquad A_v\approx-\frac{R_C\parallel R_L}{R_E+r_e}\\[4pt] Z_{in}=R_1\parallel R_2\parallel(\beta+1)r_e\qquad Z_{out}=R_C\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}v_{in}=v_g\frac{Z_{in}}{Z_{in}+R_s}\qquad v_{out}=A_vv_{in}\frac{R_L}{Z_{out}+R_L}\\[4pt] A_P=A_vA_i\qquad 20\log|A_v|\qquad f_c=\frac{1}{2\pi RC}\end{gathered}\]</div>
+</div>
+<div class="s4-card"><h4>FET</h4>
+<div class="mq">\[\begin{gathered}g_m=\frac{\mathrm dI_D}{\mathrm dV_{GS}}=-\frac{2I_{DSS}}{V_{GS,off}}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)\\[4pt] V_{GS}=V_G-R_SI_D\qquad V_{DS}=V_{DD}-(R_D+R_S)I_D\\[4pt] R_{DS}=\frac{V_P}{I_{DSS}}\qquad\Delta I_D=g_m\Delta V_{GS}\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}A_v=-g_mR_D\qquad A_v=\frac{g_mR_S}{1+g_mR_S}\qquad Z_{out}=\left(\frac{1}{R_S}+g_m\right)^{-1}\\[4pt] I_D=\tfrac12K_n\frac WL(V_{GS}-V_T)^2\qquad g_m=\frac{2I_D}{V_{GS}-V_T}\end{gathered}\]</div>
+</div>
+</div>
+<p class="s4-src">Sources : amphis Cours 5 « BJT en dynamique » et Cours 6 « Le FET », errata du cours (diapo 12 du Cours 5, diapos 13, 17 et 19 du Cours 6), poly de TD (TD6 à TD8). Les exercices corrigés du poly : <a href="corriges.html#td6">TD6</a>, <a href="corriges.html#td7">TD7</a>, <a href="corriges.html#td8">TD8</a>.</p>
+</section>
+</div>
+
+</main>
+<div class="foot">
+<div class="wrap">
+<span>De l'Atome à la Puce · Révision CM5-CM6 · 2026-2027</span>
+<span><a href="index.html">← Retour au cours</a></span>
+</div>
+</div>
+<a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="js/maths.js"></script>
+<script src="js/data-cm56.js"></script>
+<script src="js/revision.js"></script>
+<script>
+  RevisionBank.mount({
+    root: document.getElementById("bankCm56"),
+    bank: window.CM56,
+    themes: window.CM56_THEMES,
+    storage: "cm56",
+    examMinutes: 45,
+    examCount: 20,
+    examLabel: "Épreuve blanche"
+  });
+</script>
+</body>
+</html>

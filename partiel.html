@@ -35,6 +35,7 @@
 <a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
 <a href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
 <a href="fiche-ch2-ch3.html"><span class="ni">📋</span> Fiche DS Ch2-Ch3</a>
+<a class="nav-corr" href="revision-cm5-cm6.html"><span class="ni">🔁</span> Révision CM5-6</a>
 <a href="corriges.html"><span class="ni">✅</span> Corrigés</a>
 <a class="nav-corr" href="cartes.html"><span class="ni">🃏</span> Flashcards</a>
 <a class="nav-corr" href="evaluations.html"><span class="ni">🗓️</span> Évaluations</a>
@@ -500,7 +501,7 @@
 <ol>
 <li>Écrire l'équation vérifiée par \(I_D\) (autopolarisation) et la résoudre. Justifier le choix de la racine. <i>(1,5)</i></li>
 <li>Calculer \(V_{DS}\) et vérifier que le JFET est en zone active. <i>(0,5)</i></li>
-<li>Calculer la transconductance \(g_m=\dfrac{2I_{DSS}}{|V_P|}\left(1-\dfrac{V_{GS}}{V_P}\right)\). <i>(0,5)</i></li>
+<li>Calculer la transconductance \(g_m=-\dfrac{2I_{DSS}}{V_{GS,off}}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)\) (formule de l\'erratum du cours). <i>(0,5)</i></li>
 <li>Donner le gain en tension en source commune avec \(R_S\) découplée, puis sans découplage (\(A_v=-\dfrac{g_mR_D}{1+g_mR_S}\)), et l'impédance d'entrée. <i>(1)</i></li>
 </ol>
 <p><b>MOSFET.</b> Un nMOS vérifie \(I_D=\dfrac12K\,(V_{GS}-V_T)^2\) en zone active, avec \(V_T=1\) V. On mesure \(I_D=2\) mA pour \(V_{GS}=3\) V.</p>
@@ -514,7 +515,7 @@
 <div class="mq">\[I_D=8\left(1-\frac{-0{,}5\,I_D}{-4}\right)^2=8\,(1-0{,}125\,I_D)^2\]</div>
 <p>On pose \(t=0{,}125\,I_D\) (soit \(I_D=8t\)) : \(8t=8(1-t)^2\), d'où \(t^2-3t+1=0\) et \(t=\dfrac{3\pm\sqrt5}{2}\). Racine \(t=0{,}382\) : \(I_D=3{,}06\) mA et \(V_{GS}=-0{,}5\times3{,}06=-1{,}53\) V, comprise entre \(V_P=-4\) V et \(0\) : <b>valable</b>. Racine \(t=2{,}62\) : \(I_D=21\) mA, \(V_{GS}=-10{,}5\) V \(<V_P\) : le canal serait fermé, <b>rejetée</b>.</p>
 <p><b>2.</b> \(V_{DS}=V_{DD}-(R_D+R_S)I_D=20-2{,}7\ \mathrm k\times3{,}06\ \mathrm{mA}=11{,}7\) V. Zone active si \(V_{DS}>V_{GS}-V_P=-1{,}53+4=2{,}47\) V : \(11{,}7>2{,}47\), c'est le cas.</p>
-<p><b>3.</b> \(g_m=\dfrac{2\times8\ \mathrm{mA}}{4\ \mathrm V}\,(1-0{,}382)=4\ \mathrm{mS}\times0{,}618=2{,}47\ \mathrm{mS}\) (contrôle : \(\dfrac{2\sqrt{I_{DSS}I_D}}{|V_P|}=2{,}47\) mS).</p>
+<p><b>3.</b> \(g_m=\dfrac{2\times8\ \mathrm{mA}}{4\ \mathrm V}\,(1-0{,}382)=4\ \mathrm{mS}\times0{,}618=2{,}47\ \mathrm{mS}\) (contrôle : \(\dfrac{2\sqrt{I_{DSS}I_D}}{|V_{GS,off}|}=2{,}47\) mS).</p>
 <p><b>4.</b> \(R_S\) découplée : \(A_v=-g_mR_D=-2{,}47\ \mathrm{mS}\times2{,}2\ \mathrm{k\Omega}=-5{,}4\). Sans découplage : \(A_v=-\dfrac{5{,}4}{1+g_mR_S}=-\dfrac{5{,}4}{1+1{,}24}=-2{,}4\). Impédance d'entrée \(Z_i\approx R_G=1\ \mathrm{M\Omega}\) (grille isolée) : bien supérieure à celle d'un BJT, mais gain bien plus faible (\(-5\) contre \(-225\) pour le BJT de B3).</p>
 <p><b>5.</b> \(K=\dfrac{2I_D}{(V_{GS}-V_T)^2}=\dfrac{2\times2\ \mathrm{mA}}{(3-1)^2}=1\ \mathrm{mA/V^2}\) (ce \(K\) contient \(W/L\)). \(V_{GS}-V_T=2\) V : pour \(V_{DS}=5\) V \(>2\) V, canal pincé, <b>région active</b> ; pour \(V_{DS}=1\) V \(<2\) V, <b>région ohmique</b>. \(g_m=K(V_{GS}-V_T)=1\times2=2\) mS (contrôle : \(\dfrac{2I_D}{V_{GS}-V_T}=2\) mS).</p>
 </div>
