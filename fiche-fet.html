@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Fiche QCM FET — De l'Atome à la Puce</title>
+<meta content="Fiche pour préparer un QCM sur le FET (JFET et MOSFET) : principe, caractéristiques, polarisation, régime dynamique, commutation, comparatifs, errata, pièges et mini-test." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#0d8073" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#0a1113" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="De l'atome à la puce — Fiche QCM FET" property="og:title"/>
+<meta content="JFET et MOSFET : tout pour le QCM, errata, pièges et mini-test." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet"/>
+</head>
+<body class="cx-page s40-page">
+<div class="topbar">
+<div class="topbar-in">
+<a aria-label="Accueil du site" class="brand" href="index.html">
+<span class="chip-logo"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="10" rx="1" width="10" x="7" y="7"></rect><path d="M12 3v4M12 17v4M3 12h4M17 12h4M4 7h3M4 17h3M17 7h3M17 17h3"></path></svg></span>
+      De l'Atome à la Puce
+    </a>
+<nav aria-label="Navigation principale" class="nav" id="nav">
+<a href="index.html">Accueil</a>
+<a href="fiche-ch0-ch1.html"><span class="ni">📋</span> Fiche Ch0-Ch1</a>
+<a href="fiche-ch2-ch3.html"><span class="ni">📋</span> Fiche DS Ch2-Ch3</a>
+<a class="nav-corr" href="revision-cm4-cm5.html"><span class="ni">🔁</span> Révision CM4-5</a>
+<a aria-current="page" class="active nav-corr" href="fiche-fet.html"><span class="ni">📌</span> Fiche FET</a>
+<a href="index.html#cours"><span class="ni">📚</span> Cours</a>
+<a href="index.html#deroules"><span class="ni">🧭</span> Déroulés</a>
+<a href="corriges.html"><span class="ni">✅</span> Corrigés</a>
+<a class="nav-corr" href="cartes.html"><span class="ni">🃏</span> Flashcards</a>
+<a class="nav-corr" href="evaluations.html"><span class="ni">🗓️</span> Évaluations</a>
+<a class="nav-corr" href="partiel.html"><span class="ni">📝</span> Partiel</a>
+<a href="index.html#notions"><span class="ni">💡</span> Notions</a>
+<a href="index.html#formules"><span class="ni">📘</span> Formules</a>
+<a href="index.html#express"><span class="ni">⚡</span> Express</a>
+<a href="index.html#exos"><span class="ni">🎯</span> Exos</a>
+<a href="index.html#boite"><span class="ni">🧰</span> À côté</a>
+<a href="index.html#quiz"><span class="ni">🧠</span> Quiz</a>
+<a href="index.html#planning"><span class="ni">📅</span> Planning</a>
+</nav>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
+<svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</button>
+<button aria-expanded="false" aria-label="Menu" class="burger" id="burger"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</div>
+</div>
+<main>
+<div class="hero hero-sm">
+<div class="hero-grid"></div>
+<div class="hero-in">
+<div>
+<span class="eyebrow">📌 Fiche QCM · CM6</span>
+<h1>Le transistor à effet de champ : <em>JFET</em> et <em>MOSFET</em>.</h1>
+<p class="lead">Tout ce qu'il faut savoir pour un QCM sur le FET : principe, symboles, caractéristiques, polarisation, régime dynamique, commutation, comparatifs. Avec les formules exactes du cours, les deux errata, et les pièges classiques d'un QCM. À la fin, un mini-test de 14 questions pour t'auto-évaluer.</p>
+<div class="hero-cta"><a class="btn btn-primary" href="#test">Passer au mini-test →</a><a class="btn btn-ghost" href="#pieges">Les pièges</a></div>
+<div class="s4-prog"><span>CM6 Le FET</span><span>TD7 · TD8</span><span>Errata diapos 17 et 19</span></div>
+</div>
+</div>
+</div>
+<div class="wrap s40">
+<nav aria-label="Sections de la page" class="s4-toc">
+<a href="#principe">Principe</a>
+<a href="#jfet">JFET</a>
+<a href="#polar">Polarisation</a>
+<a href="#dyn">Régime dynamique</a>
+<a href="#comm">Commutation</a>
+<a href="#mos">MOSFET</a>
+<a href="#compar">Comparatifs</a>
+<a href="#pieges">Pièges</a>
+<a href="#test">Mini-test</a>
+</nav>
+
+<!-- ================= PRINCIPE ================= -->
+<section id="principe">
+<h2>Le principe du FET</h2>
+<div class="s4-must"><ol>
+<li><b>Commandé en tension</b> : on modifie un champ électrique (créé par une tension) pour faire varier le courant. Le BJT, lui, est commandé en courant (\(I_C=\beta I_B\)).</li>
+<li><b>Unipolaire</b> : un seul type de porteurs (électrons pour un canal N, trous pour un canal P). Dans un BJT, électrons <em>et</em> trous diffusent.</li>
+<li><b>Trois électrodes</b> : source S, grille G, drain D. Le courant circule dans le <b>canal</b>, de la source au drain.</li>
+<li><b>Courant de grille nul</b> : \(I_G\approx0\), donc \(I_D=I_S\). L'impédance d'entrée est très élevée.</li>
+<li><b>Deux transistors</b> : le <b>JFET</b> (grille = jonction PN polarisée en inverse) et le <b>MOSFET</b> (grille isolée par du \(\mathrm{SiO_2}\)).</li>
+</ol></div>
+<div class="s4-key"><span class="s4-lbl">Inconvénients d'une impédance d'entrée très élevée</span>
+<p>Sensibilité accrue aux <b>charges parasites</b> (électrostatiques, champs) et au <b>bruit thermique</b> (bruit de Johnson, dû à l'agitation thermique). Exemple du cours : \(I_G=1\ \mathrm{nA}\) à \(V_{GS}=-20\) V pour le 2N5486, donc \(R_{in}=\frac{20}{10^{-9}}=20\,000\ \mathrm{M\Omega}\).</p></div>
+</section>
+
+<!-- ================= JFET ================= -->
+<section id="jfet">
+<h2>Le JFET (canal N)</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>Polarisation et symbole</h4>
+<ul class="s4-small">
+<li>Canal N : \(V_{GS}\lt 0\), \(V_{DS}\gt 0\), \(I_D\gt 0\). La jonction grille-source est en <b>inverse</b>.</li>
+<li>Canal P : tout est inversé (\(V_{GS}\gt 0\), \(V_{DS}\lt 0\), \(I_D\lt 0\)), les <b>trous</b> circulent de la source vers le drain.</li>
+<li>Plus \(|V_{GS}|\) est grand, plus la zone désertée (ZDC) est large, plus le canal est étroit.</li>
+<li>Champ faible : canal ouvert, transistor passant. Champ fort : les ZDC se touchent, canal fermé, \(I_D=0\).</li>
+</ul></div>
+<div class="s4-card"><h4>Les deux tensions à ne pas confondre</h4>
+<ul class="s4-small">
+<li>\(V_{GS,off}\) (tension de <b>blocage</b>) : tension \(V_{GS}\) très négative à partir de laquelle le canal est fermé, \(I_D=0\).</li>
+<li>\(V_P\) (tension de <b>pincement</b>) : tension \(V_{DS}\) à partir de laquelle \(I_D\) devient constant.</li>
+<li>Elles ont la <b>même valeur absolue</b> : \(|V_{GS,off}|=V_P\) (exemple : \(V_{GS,off}=-1{,}4\) V et \(V_P=1{,}4\) V).</li>
+<li>Les datasheets donnent toujours \(V_{GS,off}\), jamais \(V_P\).</li>
+</ul></div>
+</div>
+
+<h3>Caractéristiques</h3>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Grandeur</th><th>À retenir</th></tr>
+<tr><td data-l="Grandeur">\(I_{DSS}\)</td><td data-l="À retenir">courant drain <b>maximal</b>, obtenu pour \(V_{GS}=0\) (grille reliée à la source par un fil). Exemple : \(I_{DSS}=18{,}5\) mA.</td></tr>
+<tr><td data-l="Grandeur">Région <b>ohmique</b></td><td data-l="À retenir">\(V_{DS}\lt V_P\) : \(I_D\) augmente avec \(V_{DS}\). Résistance \(R_{DS}=\dfrac{V_P}{I_{DSS}}\) (exemple : \(\dfrac{1{,}4}{18{,}5\ \mathrm{mA}}\approx76\ \Omega\)).</td></tr>
+<tr><td data-l="Grandeur">Région <b>active</b></td><td data-l="À retenir">\(V_{DS}\gt V_P\) : \(I_D\) quasi constant, c'est la zone d'amplification.</td></tr>
+<tr><td data-l="Grandeur">Transfert \(I_D=f(V_{GS})\)</td><td data-l="À retenir">loi <b>quadratique</b> en zone active : \(I_D=I_{DSS}\left(1-\dfrac{V_{GS}}{V_{GS,off}}\right)^2\).</td></tr>
+<tr><td data-l="Grandeur">Droite de charge</td><td data-l="À retenir">maille drain : \(V_{DD}=(R_D+R_S)I_D+V_{DS}\), soit \(I_D=-\dfrac{V_{DS}}{R_D+R_S}+\dfrac{V_{DD}}{R_D+R_S}\).</td></tr>
+</table></div>
+</section>
+
+<!-- ================= POLARISATION ================= -->
+<section id="polar">
+<h2>Polarisation et point de repos</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>Méthode (autopolarisation ou pont)</h4><ol class="s4-small">
+<li>\(I_G=0\) : aucune chute dans \(R_G\) (ou \(R_{Th}\)). Donc \(V_G=0\) (autopolarisation) ou \(V_G=V_{Th}=V_{DD}\dfrac{R_2}{R_1+R_2}\) (pont).</li>
+<li>\(I_S=I_D\), donc \(V_S=R_SI_D\) et \(V_{GS}=V_G-R_SI_D\).</li>
+<li>Si \(I_D\) n'est pas donné : égaler \(I_D=\dfrac{V_{Th}-V_{GS}}{R_S}\) et la loi quadratique : équation du <b>second degré</b> en \(V_{GS}\).</li>
+<li>Deux solutions : garder celle qui vérifie \(V_{GS}\gt V_{GS,off}\) (et \(V_{GS}\le0\)).</li>
+<li>\(V_{DS}=V_{DD}-(R_D+R_S)I_D\), puis vérifier \(V_{DS}\gt V_P\) (zone active).</li>
+</ol></div>
+<div class="s4-card"><h4>Les deux exemples du cours</h4>
+<p class="s4-small"><b>Autopolarisation</b> : \(R_G=10\ \mathrm{M\Omega}\), \(R_D=1\ \mathrm{k\Omega}\), \(R_S=220\ \Omega\), \(V_{DD}=15\) V, \(I_D=5\) mA. \(V_D=15-5=10\) V, \(V_S=0{,}22\times5=1{,}1\) V, \(V_{DS}=8{,}9\) V, \(V_G\approx0\), \(V_{GS}=-1{,}1\) V (négatif : jonction en inverse, conforme).</p>
+<p class="s4-small"><b>Pont diviseur</b> : \(R_1=2{,}1\ \mathrm{M\Omega}\), \(R_2=270\ \mathrm{k\Omega}\), \(R_D=2{,}4\ \mathrm{k\Omega}\), \(R_S=1{,}5\ \mathrm{k\Omega}\), \(V_{DD}=24\) V, \(I_{DSS}=8\) mA, \(V_{GS,off}=-4\) V. \(V_{Th}=2{,}734\) V, \(R_{Th}=239{,}2\ \mathrm{k\Omega}\). Solutions \(V_{GS1}=-7{,}736\) V (rejetée, \(\lt V_{GS,off}\)) et \(V_{GS2}=-1{,}597\) V. Donc \(I_D=2{,}887\) mA et \(V_{DS}=12{,}74\) V.</p></div>
+</div>
+</section>
+
+<!-- ================= DYNAMIQUE ================= -->
+<section id="dyn">
+<h2>Régime dynamique (petits signaux)</h2>
+<div class="s4-key"><span class="s4-lbl">Erratum diapo 17 · transconductance</span>
+<p>La définition \(g_m=\dfrac{\mathrm dI_D}{\mathrm dV_{GS}}\) (à \(V_{DS}\) constant) est à connaître par cœur : c'est la <b>pente</b> de la courbe de transfert, en siemens (S). Plus \(g_m\) est grande, meilleur est le contrôle de \(I_D\) par \(V_{GS}\). En dérivant la loi quadratique :</p>
+<div class="mq">\[g_m=-\frac{2I_{DSS}}{V_{GS,off}}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)\]</div>
+<p class="s4-small">La formule de la diapo 17 avec \(V_P\) est <b>fausse</b> si \(V_P\gt 0\) : utiliser \(V_{GS,off}\) (négatif). Variation de courant : \(\Delta I_D=g_m\,\Delta V_{GS}\) (exemple : \(5\) mS \(\times\) \(1\) V \(=5\) mA).</p></div>
+
+<h3>Modèle équivalent et montages</h3>
+<ul>
+<li><b>Basses fréquences</b> : une source de courant \(g_m\,v_{GS}\) entre D et S (et \(r_o\) en parallèle, omise sauf avis contraire). Les condensateurs de liaison et de découplage sont des fils en alternatif, les sources continues sont à la masse.</li>
+<li><b>Hautes fréquences</b> : capacités parasites \(C_{GS}\) et \(C_{GD}\) (quelques pF), \(C_{DS}\) plus faible et négligeable. Elles viennent des jonctions polarisées en inverse.</li>
+</ul>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Montage</th><th>\(A_v\)</th><th>\(Z_{in}\)</th><th>\(Z_{out}\)</th><th>Usage</th></tr>
+<tr><td data-l="Montage"><b>Source commune</b> (avec \(C_S\))</td><td data-l="Av">\(-g_mR_D\) (\(\gg1\))</td><td data-l="Zin">\(R_1\parallel R_2\) (ou \(R_G\))</td><td data-l="Zout">\(R_D\)</td><td data-l="Usage">amplification, sortie en opposition de phase</td></tr>
+<tr><td data-l="Montage"><b>Drain commun</b> (source suiveuse)</td><td data-l="Av">\(\dfrac{g_mR_S}{1+g_mR_S}\approx1\)</td><td data-l="Zin">\(R_G\approx\mathrm{M\Omega}\)</td><td data-l="Zout">\(\left(\dfrac1{R_S}+g_m\right)^{-1}=R_S\parallel\dfrac1{g_m}\)</td><td data-l="Usage">adaptation d'impédance (suiveur)</td></tr>
+</table></div>
+<div class="s4-key"><span class="s4-lbl">Erratum diapo 19 · impédance de sortie du drain commun</span>
+<p>On éteint \(v_{in}\) (fil) : \(v_{GS}=-e_{out}\) et \(i_{out}=\dfrac{e_{out}}{R_S}+g_me_{out}\). Donc \(Z_{out}=\left(\dfrac1{R_S}+g_m\right)^{-1}\), et non \(R_S\) seule. Avec \(Z_{out}\) petite et \(Z_{in}\) grande, c'est un bon adaptateur d'impédance.</p></div>
+</section>
+
+<!-- ================= COMMUTATION ================= -->
+<section id="comm">
+<h2>Commutation analogique</h2>
+<p>Le JFET sert d'<b>interrupteur</b> qui transmet ou bloque un petit signal (avec la charge \(R_D\), \(R_D\gg R_{DS}\)).</p>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Commande</th><th>État du JFET</th><th>Équivalent</th><th>Sortie</th></tr>
+<tr><td data-l="Commande">\(V_{in}=V_{GS}\lt V_{GS,off}\)</td><td data-l="État">bloqué (\(I_D=0\))</td><td data-l="Équivalent">interrupteur <b>ouvert</b></td><td data-l="Sortie">\(V_{out}=V_{DD}\)</td></tr>
+<tr><td data-l="Commande">\(V_{in}=V_{GS}\ge0\) (canal ouvert)</td><td data-l="État">région ohmique</td><td data-l="Équivalent">résistance \(R_{DS}=\dfrac{V_P}{I_{DSS}}\), interrupteur <b>fermé</b></td><td data-l="Sortie">\(V_{out}=V_{DD}\dfrac{R_{DS}}{R_{DS}+R_D}\approx0\)</td></tr>
+</table></div>
+<p class="s4-small">À retenir : \(V_{in}\lt V_{GS,off}\Rightarrow V_{out}=V_{DD}\) et \(V_{in}\ge0\Rightarrow V_{out}\approx0\). Le montage inverse donc le niveau, comme une porte NOT.</p>
+</section>
+
+<!-- ================= MOSFET ================= -->
+<section id="mos">
+<h2>Le MOSFET</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>Principe (N-MOSFET)</h4><ul class="s4-small">
+<li>Grille isolée du canal par une fine couche de \(\mathrm{SiO_2}\) : \(I_G=0\) grâce à l'isolant, impédance d'entrée \(\gt 10\,000\ \mathrm{M\Omega}\).</li>
+<li>Source et drain dopés N+, substrat dopé P. Pour \(V_{GS}=0\) : <b>bloqué</b>.</li>
+<li>On augmente \(V_{GS}\) : d'abord les trous sont chassés (la ZDC s'élargit), <b>puis</b> les électrons des zones N viennent sous l'oxyde et forment le <b>canal d'inversion</b> (quelques nm).</li>
+<li>Avec \(V_{DS}\gt 0\) : les électrons vont de la source vers le drain, \(I\) va du drain vers la source.</li>
+<li>Le canal est <b>créé</b> par la polarisation (dans le JFET, il existe en permanence et on le réduit).</li>
+</ul></div>
+<div class="s4-card"><h4>Conditions, symboles</h4><ul class="s4-small">
+<li>\(V_T\) : tension de seuil à partir de laquelle le transistor n'est plus bloqué.</li>
+<li><b>N-MOSFET</b> : \(V_{GS}\gt V_T\), \(V_{DS}\gt 0\), \(I_D=I_S\gt 0\), canal d'électrons.</li>
+<li><b>P-MOSFET</b> : \(V_{GS}\lt -V_T\), canal de trous.</li>
+<li>\(V_{GS}\lt V_T\) : bloqué (région cut-off).</li>
+<li>Paramètres : \(L\) (longueur du canal), \(W\) (largeur de grille), \(t_{ox}\) (épaisseur d'oxyde), \(K'_n=\mu_nC_{ox}\) (facteur de gain), \(\lambda=\frac1{V_A}\) (modulation de la longueur du canal).</li>
+</ul></div>
+</div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Région</th><th>Condition</th><th>Modèle</th></tr>
+<tr><td data-l="Région">Bloquée</td><td data-l="Condition">\(V_{GS}\lt V_T\)</td><td data-l="Modèle">\(I_D=0\)</td></tr>
+<tr><td data-l="Région">Ohmique</td><td data-l="Condition">\(0\lt V_{DS}\lt V_{GS}-V_T\)</td><td data-l="Modèle">résistance \(R_{DS}=\dfrac{V_{DS}}{I_D}\)</td></tr>
+<tr><td data-l="Région">Active (canal pincé)</td><td data-l="Condition">\(V_{DS}\gt V_{GS}-V_T\)</td><td data-l="Modèle">\(I_D=\tfrac12K_n\dfrac WL(V_{GS}-V_T)^2\)</td></tr>
+</table></div>
+<div class="mq">\[g_m=\frac{\mathrm dI_D}{\mathrm dV_{GS}}=K_n\frac WL(V_{GS}-V_T)=\frac{2I_D}{V_{GS}-V_T}\]</div>
+<p class="s4-small">Les montages de polarisation et les trois montages fondamentaux (source commune, drain commun, grille commune) sont les mêmes que pour le JFET, avec le même schéma équivalent en régime dynamique.</p>
+</section>
+
+<!-- ================= COMPARATIFS ================= -->
+<section id="compar">
+<h2>Comparatifs à connaître</h2>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Critère</th><th>BJT</th><th>JFET</th></tr>
+<tr><td data-l="Critère">Commande</td><td data-l="BJT">en courant, \(I_C=\beta I_B\)</td><td data-l="JFET">en tension, \(I_D=I_{DSS}\left(1-\frac{V_{GS}}{V_{GS,off}}\right)^2\)</td></tr>
+<tr><td data-l="Critère">Porteurs</td><td data-l="BJT">bipolaire (électrons et trous)</td><td data-l="JFET">unipolaire</td></tr>
+<tr><td data-l="Critère">Courants</td><td data-l="BJT">\(I_C\approx I_E\), \(V_{BE}=0{,}7\) V (Si)</td><td data-l="JFET">\(I_D=I_S\), \(I_G=0\)</td></tr>
+<tr><td data-l="Critère">Consommation</td><td data-l="BJT">plus élevée</td><td data-l="JFET">plus faible</td></tr>
+<tr><td data-l="Critère">Impédance d'entrée</td><td data-l="BJT">faible</td><td data-l="JFET">très élevée</td></tr>
+<tr><td data-l="Critère">Stabilité thermique</td><td data-l="BJT">mauvaise</td><td data-l="JFET">bonne</td></tr>
+<tr><td data-l="Critère">Gain d'amplification</td><td data-l="BJT">élevé</td><td data-l="JFET">plus faible</td></tr>
+<tr><td data-l="Critère">Taille</td><td data-l="BJT">plus grand</td><td data-l="JFET">plus petit</td></tr>
+</table></div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Critère</th><th>JFET</th><th>N-MOSFET</th></tr>
+<tr><td data-l="Critère">Grille</td><td data-l="JFET">en contact avec le canal, vue comme une <b>diode</b></td><td data-l="MOSFET">séparée du canal par un isolant, vue comme un <b>condensateur</b></td></tr>
+<tr><td data-l="Critère">Canal</td><td data-l="JFET">existe en permanence, on le réduit</td><td data-l="MOSFET">créé par la polarisation</td></tr>
+<tr><td data-l="Critère">Impédance d'entrée</td><td data-l="JFET">\(\gt 10\ \mathrm{M\Omega}\)</td><td data-l="MOSFET">\(\gt 10\,000\ \mathrm{M\Omega}\)</td></tr>
+<tr><td data-l="Critère">Résistance du drain</td><td data-l="JFET">relativement élevée</td><td data-l="MOSFET">plus faible</td></tr>
+<tr><td data-l="Critère">Fabrication</td><td data-l="JFET">plus difficile, plus coûteux</td><td data-l="MOSFET">plus facile, moins coûteux</td></tr>
+</table></div>
+</section>
+
+<!-- ================= PIÈGES ================= -->
+<section id="pieges">
+<h2>Les pièges classiques d'un QCM</h2>
+<div class="s4-trap"><span class="s4-lbl">\(V_{GS,off}\) contre \(V_P\)</span>Blocage : \(V_{GS}\) très négative, \(I_D=0\). Pincement : \(V_{DS}\), \(I_D\) devient constant (pas nul). Même valeur absolue, mais pas la même tension.</div>
+<div class="s4-trap"><span class="s4-lbl">Signes</span>JFET canal N : \(V_{GS}\lt 0\) (jonction en inverse), \(V_{DS}\gt 0\). Un \(V_{GS}\gt 0\) sur un JFET N est une erreur de polarisation. Pour un N-MOSFET, c'est au contraire \(V_{GS}\gt V_T\gt 0\).</div>
+<div class="s4-trap"><span class="s4-lbl">Courants</span>\(I_G\approx0\) donc \(I_D=I_S\). Ne pas écrire \(I_C=\beta I_B\) pour un FET.</div>
+<div class="s4-trap"><span class="s4-lbl">Régions</span>JFET actif si \(V_{DS}\gt V_P\). MOSFET actif si \(V_{DS}\gt V_{GS}-V_T\), ohmique si \(0\lt V_{DS}\lt V_{GS}-V_T\). Si le \(V_{DS}\) calculé est plus petit que la limite, l'hypothèse « région active » est fausse.</div>
+<div class="s4-trap"><span class="s4-lbl">Erreurs de formule</span>\(g_m\) s'écrit avec \(V_{GS,off}\) (diapo 17 fausse). \(Z_{out}\) du drain commun vaut \(\left(\frac1{R_S}+g_m\right)^{-1}\), pas \(R_S\) (diapo 19 fausse). \(Z_{out}\) de la source commune vaut \(R_D\).</div>
+<div class="s4-trap"><span class="s4-lbl">Racine de l'équation du second degré</span>Deux solutions pour \(V_{GS}\) : on garde celle qui est entre \(V_{GS,off}\) et 0, jamais celle qui est plus négative que \(V_{GS,off}\).</div>
+<div class="s4-trap"><span class="s4-lbl">Commutation</span>Bloqué (\(V_{in}\lt V_{GS,off}\)) : \(V_{out}=V_{DD}\). Passant (\(V_{in}\ge0\)) : \(V_{out}\approx0\), à cause de \(R_{DS}\ll R_D\). La sortie est <b>inversée</b>.</div>
+<div class="s4-trap"><span class="s4-lbl">Avantages et inconvénients</span>Impédance d'entrée élevée = avantage (capteurs). Inconvénients : sensible aux charges parasites et au bruit thermique. Gain plus faible que le BJT.</div>
+</section>
+
+<!-- ================= MINI-TEST ================= -->
+<section id="test">
+<h2>Mini-test : 14 questions</h2>
+<p class="s4-sub">Réponds de tête ou sur papier, puis clique sur « Réponse » pour vérifier.</p>
+<div class="s4-grid">
+<div class="s4-card"><h4>Questions 1 à 7</h4><ol class="s4-small">
+<li>Un FET est-il commandé en courant ou en tension ?
+<details><summary>Réponse</summary>En tension (\(V_{GS}\)), contrairement au BJT.</details></li>
+<li>Que valent \(I_G\) et la relation entre \(I_D\) et \(I_S\) ?
+<details><summary>Réponse</summary>\(I_G\approx0\), donc \(I_D=I_S\).</details></li>
+<li>Quel est le signe de \(V_{GS}\) pour un JFET canal N ?
+<details><summary>Réponse</summary>Négatif (jonction grille-source en inverse).</details></li>
+<li>Différence entre \(V_{GS,off}\) et \(V_P\) ?
+<details><summary>Réponse</summary>\(V_{GS,off}\) ferme le canal (\(I_D=0\)), \(V_P\) est le \(V_{DS}\) à partir duquel \(I_D\) est constant. Même valeur absolue.</details></li>
+<li>\(I_{DSS}=18\) mA et \(V_P=1{,}4\) V : que vaut \(R_{DS}\) ?
+<details><summary>Réponse</summary>\(R_{DS}=\frac{V_P}{I_{DSS}}=\frac{1{,}4}{0{,}018}\approx78\ \Omega\).</details></li>
+<li>Autopolarisation : \(R_S=220\ \Omega\), \(I_D=5\) mA. Que valent \(V_S\) et \(V_{GS}\) ?
+<details><summary>Réponse</summary>\(V_S=1{,}1\) V. \(V_G\approx0\), donc \(V_{GS}=-1{,}1\) V.</details></li>
+<li>\(V_{DD}=15\) V, \(R_D=1\ \mathrm{k\Omega}\), \(R_S=220\ \Omega\), \(I_D=5\) mA : \(V_{DS}\) ?
+<details><summary>Réponse</summary>\(V_{DS}=15-1{,}22\ \mathrm{k}\times5\ \mathrm{mA}=8{,}9\) V.</details></li>
+</ol></div>
+<div class="s4-card"><h4>Questions 8 à 14</h4><ol class="s4-small" start="8">
+<li>Définition de la transconductance, et son unité ?
+<details><summary>Réponse</summary>\(g_m=\frac{\mathrm dI_D}{\mathrm dV_{GS}}\), en siemens (S) : la pente de la courbe de transfert.</details></li>
+<li>\(g_m=5\) mS et \(\Delta V_{GS}=1\) V : \(\Delta I_D\) ?
+<details><summary>Réponse</summary>\(5\) mA.</details></li>
+<li>Gain et impédance de sortie de la source commune ?
+<details><summary>Réponse</summary>\(A_v=-g_mR_D\) (négatif, forte amplification), \(Z_{out}=R_D\).</details></li>
+<li>Gain et \(Z_{out}\) du drain commun ?
+<details><summary>Réponse</summary>\(A_v=\frac{g_mR_S}{1+g_mR_S}\approx1\), \(Z_{out}=\left(\frac1{R_S}+g_m\right)^{-1}\) (erratum).</details></li>
+<li>JFET en commutation avec \(V_{in}\lt V_{GS,off}\) : que vaut \(V_{out}\) ?
+<details><summary>Réponse</summary>Le JFET est bloqué (interrupteur ouvert) : \(V_{out}=V_{DD}\).</details></li>
+<li>N-MOSFET : conditions de la région active ?
+<details><summary>Réponse</summary>\(V_{GS}\gt V_T\) et \(V_{DS}\gt V_{GS}-V_T\). Alors \(I_D=\frac12K_n\frac WL(V_{GS}-V_T)^2\).</details></li>
+<li>Principale différence de grille entre JFET et MOSFET ?
+<details><summary>Réponse</summary>JFET : grille en contact avec le canal (diode). MOSFET : grille isolée par du \(\mathrm{SiO_2}\) (condensateur), donc impédance d'entrée encore plus grande.</details></li>
+</ol></div>
+</div>
+</section>
+<p class="s4-src">Sources : amphi Cours 6 « Le FET », errata des diapos 17 (\(g_m\)) et 19 (\(Z_{out}\)). Exercices corrigés du poly : <a href="corriges.html#td7">TD7</a>, <a href="corriges.html#td8">TD8</a>.</p>
+</div>
+
+</main>
+<div class="foot">
+<div class="wrap">
+<span>De l'Atome à la Puce · Fiche QCM FET · 2026-2027</span>
+<span><a href="index.html">← Retour au cours</a></span>
+</div>
+</div>
+<a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="js/maths.js"></script>
+</body>
+</html>
