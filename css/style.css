@@ -811,3 +811,31 @@ a.card:hover{text-decoration:none}
 .cm-fig .tn2{fill:var(--ink);font-family:var(--f-mono);font-size:13px;font-weight:600}
 .cm-fig .sb{font-size:10px}
 .cm-fig .src{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+
+/* schémas de la fiche FET */
+.fet-fig svg{max-width:640px}
+.fet-fig .t{font-size:14px}
+.fet-fig .ti{fill:var(--accent);font-family:var(--f-mono);font-size:13.5px;font-weight:600}
+.fet-fig .tiny{fill:var(--muted);font-family:var(--f-mono);font-size:11.5px}
+.fet-fig .tn2{fill:var(--ink);font-family:var(--f-disp);font-size:15px;font-weight:700}
+.fet-fig .sb{font-size:10px}
+.fet-fig .ax{stroke:var(--ink);stroke-width:1.8;fill:none;marker-end:url(#fa)}
+.fet-fig .fa{fill:var(--ink)}
+.fet-fig .dsh{stroke-dasharray:5 4;opacity:.75}
+.fet-fig .w2{stroke:var(--accent2);stroke-width:2;fill:none}
+.fet-fig .cv{stroke:var(--accent);stroke-width:2.6;fill:none}
+.fet-fig .fr{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fet-fig .ch{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+.fet-fig .gt{fill:var(--amber-soft);stroke:var(--accent2);stroke-width:1.5}
+.fet-fig .zdc{fill:var(--accent2);opacity:.38}
+.fet-fig .zo,.fet-fig .zo2{fill:var(--accent-soft);opacity:.55;stroke:none}
+.fet-fig .sub{fill:var(--amber-soft);stroke:var(--line);stroke-width:1.5}
+.fet-fig .np{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+.fet-fig .ox{fill:var(--muted);opacity:.55}
+.fet-fig .mt{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fet-fig .inv{fill:var(--accent);opacity:.8}
+.fet-fig .nd{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fet-fig .src{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fet-fig .res{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fet-fig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;align-items:start}
+.fet-fig-grid .fet-fig{margin:6px 0}
