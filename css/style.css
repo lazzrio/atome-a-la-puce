@@ -1,6 +1,7 @@
 /* --- base reset (auparavant fourni par l'hôte Artifact) --- */
 *,*::before,*::after{box-sizing:border-box}
-html{color-scheme:light dark}
+html{color-scheme:light}
+html[data-theme="dark"]{color-scheme:dark}
 img{max-width:100%}
 [hidden]{display:none!important}
 
@@ -15,14 +16,7 @@ img{max-width:100%}
   --f-body:'IBM Plex Sans',system-ui,sans-serif;
   --f-mono:'IBM Plex Mono',ui-monospace,monospace;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0a1113; --surface:#101a1c; --surface2:#0d1618; --ink:#e4edea; --muted:#8aa39e;
-  --accent:#2dd4bf; --accent-soft:#0f2b28; --accent2:#f0a83a; --amber-soft:#2c2416;
-  --line:#213130; --line2:#1a2726;
-  --good:#34d399; --good-soft:#0f2a22; --bad:#f87171; --bad-soft:#2c1714; --warn:#f0a83a;
-  --ring:#2dd4bf;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
-}}
+
 :root[data-theme="dark"]{
   --bg:#0a1113; --surface:#101a1c; --surface2:#0d1618; --ink:#e4edea; --muted:#8aa39e;
   --accent:#2dd4bf; --accent-soft:#0f2b28; --accent2:#f0a83a; --amber-soft:#2c2416;
